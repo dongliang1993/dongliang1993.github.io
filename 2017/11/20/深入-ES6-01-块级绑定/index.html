@@ -98,7 +98,7 @@
         <li class="mobile-menu-item">
           
           
-            Home
+            首页
           
         </li>
       </a>
@@ -107,7 +107,7 @@
         <li class="mobile-menu-item">
           
           
-            Archives
+            归档
           
         </li>
       </a>
@@ -128,7 +128,7 @@
           <a class="menu-item-link" href="/">
             
             
-              Home
+              首页
             
           </a>
         </li>
@@ -137,7 +137,7 @@
           <a class="menu-item-link" href="/archives/">
             
             
-              Archives
+              归档
             
           </a>
         </li>
@@ -173,7 +173,7 @@
     
     
   <div class="post-toc" id="post-toc">
-    <h2 class="post-toc-title">Contents</h2>
+    <h2 class="post-toc-title">文章目录</h2>
     <div class="post-toc-content">
       <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#var-声明与变量提升"><span class="toc-text"><a href="#var-&#x58F0;&#x660E;&#x4E0E;&#x53D8;&#x91CF;&#x63D0;&#x5347;" class="headerlink" title="var &#x58F0;&#x660E;&#x4E0E;&#x53D8;&#x91CF;&#x63D0;&#x5347;"></a>var &#x58F0;&#x660E;&#x4E0E;&#x53D8;&#x91CF;&#x63D0;&#x5347;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#块级声明"><span class="toc-text"><a href="#&#x5757;&#x7EA7;&#x58F0;&#x660E;" class="headerlink" title="&#x5757;&#x7EA7;&#x58F0;&#x660E;"></a>&#x5757;&#x7EA7;&#x58F0;&#x660E;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#let-声明"><span class="toc-text"><a href="#let-&#x58F0;&#x660E;" class="headerlink" title="let &#x58F0;&#x660E;"></a>let &#x58F0;&#x660E;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#禁止重复声明"><span class="toc-text"><a href="#&#x7981;&#x6B62;&#x91CD;&#x590D;&#x58F0;&#x660E;" class="headerlink" title="&#x7981;&#x6B62;&#x91CD;&#x590D;&#x58F0;&#x660E;"></a>&#x7981;&#x6B62;&#x91CD;&#x590D;&#x58F0;&#x660E;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常量声明"><span class="toc-text"><a href="#&#x5E38;&#x91CF;&#x58F0;&#x660E;" class="headerlink" title="&#x5E38;&#x91CF;&#x58F0;&#x660E;"></a>&#x5E38;&#x91CF;&#x58F0;&#x660E;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#对比常量声明与-let-声明"><span class="toc-text"><a href="#&#x5BF9;&#x6BD4;&#x5E38;&#x91CF;&#x58F0;&#x660E;&#x4E0E;-let-&#x58F0;&#x660E;" class="headerlink" title="&#x5BF9;&#x6BD4;&#x5E38;&#x91CF;&#x58F0;&#x660E;&#x4E0E; let &#x58F0;&#x660E;"></a>&#x5BF9;&#x6BD4;&#x5E38;&#x91CF;&#x58F0;&#x660E;&#x4E0E; let &#x58F0;&#x660E;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用-const-声明对象"><span class="toc-text"><a href="#&#x4F7F;&#x7528;-const-&#x58F0;&#x660E;&#x5BF9;&#x8C61;" class="headerlink" title="&#x4F7F;&#x7528; const &#x58F0;&#x660E;&#x5BF9;&#x8C61;"></a>&#x4F7F;&#x7528; const &#x58F0;&#x660E;&#x5BF9;&#x8C61;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#暂时性死区"><span class="toc-text"><a href="#&#x6682;&#x65F6;&#x6027;&#x6B7B;&#x533A;" class="headerlink" title="&#x6682;&#x65F6;&#x6027;&#x6B7B;&#x533A;"></a>&#x6682;&#x65F6;&#x6027;&#x6B7B;&#x533A;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#循环中的块级绑定"><span class="toc-text"><a href="#&#x5FAA;&#x73AF;&#x4E2D;&#x7684;&#x5757;&#x7EA7;&#x7ED1;&#x5B9A;" class="headerlink" title="&#x5FAA;&#x73AF;&#x4E2D;&#x7684;&#x5757;&#x7EA7;&#x7ED1;&#x5B9A;"></a>&#x5FAA;&#x73AF;&#x4E2D;&#x7684;&#x5757;&#x7EA7;&#x7ED1;&#x5B9A;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#循环内的函数"><span class="toc-text"><a href="#&#x5FAA;&#x73AF;&#x5185;&#x7684;&#x51FD;&#x6570;" class="headerlink" title="&#x5FAA;&#x73AF;&#x5185;&#x7684;&#x51FD;&#x6570;"></a>&#x5FAA;&#x73AF;&#x5185;&#x7684;&#x51FD;&#x6570;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#循环内的-let-声明"><span class="toc-text"><a href="#&#x5FAA;&#x73AF;&#x5185;&#x7684;-let-&#x58F0;&#x660E;" class="headerlink" title="&#x5FAA;&#x73AF;&#x5185;&#x7684; let &#x58F0;&#x660E;"></a>&#x5FAA;&#x73AF;&#x5185;&#x7684; let &#x58F0;&#x660E;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#循环内的常量声明"><span class="toc-text"><a href="#&#x5FAA;&#x73AF;&#x5185;&#x7684;&#x5E38;&#x91CF;&#x58F0;&#x660E;" class="headerlink" title="&#x5FAA;&#x73AF;&#x5185;&#x7684;&#x5E38;&#x91CF;&#x58F0;&#x660E;"></a>&#x5FAA;&#x73AF;&#x5185;&#x7684;&#x5E38;&#x91CF;&#x58F0;&#x660E;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#全局块级绑定"><span class="toc-text"><a href="#&#x5168;&#x5C40;&#x5757;&#x7EA7;&#x7ED1;&#x5B9A;" class="headerlink" title="&#x5168;&#x5C40;&#x5757;&#x7EA7;&#x7ED1;&#x5B9A;"></a>&#x5168;&#x5C40;&#x5757;&#x7EA7;&#x7ED1;&#x5B9A;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#块级绑定新的最佳实践"><span class="toc-text"><a href="#&#x5757;&#x7EA7;&#x7ED1;&#x5B9A;&#x65B0;&#x7684;&#x6700;&#x4F73;&#x5B9E;&#x8DF5;" class="headerlink" title="&#x5757;&#x7EA7;&#x7ED1;&#x5B9A;&#x65B0;&#x7684;&#x6700;&#x4F73;&#x5B9E;&#x8DF5;"></a>&#x5757;&#x7EA7;&#x7ED1;&#x5B9A;&#x65B0;&#x7684;&#x6700;&#x4F73;&#x5B9E;&#x8DF5;</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-text"><a href="#&#x603B;&#x7ED3;" class="headerlink" title="&#x603B;&#x7ED3;"></a>&#x603B;&#x7ED3;</span></a>
     </div>
@@ -251,15 +251,15 @@
 
   <div class="post-copyright">
     <p class="copyright-item">
-      <span>Author: </span>
+      <span>原文作者: </span>
       <a href="http://yoursite.com">我是你豆子欧巴</a>
     </p>
     <p class="copyright-item">
-      <span>Link: </span>
+      <span>原文链接: </span>
       <a href="http://yoursite.com/2017/11/20/深入-ES6-01-块级绑定/">http://yoursite.com/2017/11/20/深入-ES6-01-块级绑定/</a>
     </p>
     <p class="copyright-item">
-      <span>License: </span>
+      <span>许可协议: </span>
       
       <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
     </p>
@@ -281,13 +281,13 @@
       <a class="prev" href="/2017/11/21/深入-ES6-02-解构/">
         <i class="iconfont icon-left"></i>
         <span class="prev-text nav-default">深入 ES6-02 解构</span>
-        <span class="prev-text nav-mobile">Prev</span>
+        <span class="prev-text nav-mobile">上一篇</span>
       </a>
     
     
       <a class="next" href="/2017/09/29/cookie/">
         <span class="next-text nav-default">聊聊 cookie</span>
-        <span class="prev-text nav-mobile">Next</span>
+        <span class="prev-text nav-mobile">下一篇</span>
         <i class="iconfont icon-right"></i>
       </a>
     
@@ -353,11 +353,11 @@
 
 <div class="copyright">
   <span class="power-by">
-    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
   </span>
   <span class="division">|</span>
   <span class="theme-info">
-    Theme - 
+    主题 - 
     <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
   </span>
 
