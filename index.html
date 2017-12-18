@@ -157,6 +157,46 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/2017/12/18/Zan-UI-源码分析（四）Icon-组件/">Zan UI 源码分析（四）Icon 组件</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2017-12-18
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          <a id="more"></a>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; Component, PureComponent &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> PropTypes <span class="keyword">from</span> <span class="string">'prop-types'</span>;</span><br><span class="line"><span class="keyword">import</span> cx <span class="keyword">from</span> <span class="string">'classnames'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">Icon</span> <span class="keyword">extends</span> (<span class="title">PureComponent</span> || <span class="title">Component</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">static</span> propTypes = &#123;</span><br><span class="line">    type: PropTypes.string.isRequired, <span class="comment">// 图标类型	</span></span><br><span class="line">    className: PropTypes.string, <span class="comment">// 自定义额外类名	</span></span><br><span class="line">    spin: PropTypes.bool</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">static</span> defaultProps = &#123;</span><br><span class="line">    className: <span class="string">''</span>,</span><br><span class="line">    spin: <span class="literal">false</span></span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">const</span> &#123; type, className, spin, ...otherProps &#125; = <span class="keyword">this</span>.props;</span><br><span class="line">    <span class="keyword">const</span> cls = cx(<span class="string">'zenticon'</span>, <span class="string">`zenticon-<span class="subst">$&#123;type&#125;</span>`</span>, className, &#123;</span><br><span class="line">      <span class="string">'zenticon-spin'</span>: spin</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> &lt;i className=&#123;cls&#125; &#123;...otherProps&#125; /&gt;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/2017/12/18/Zan-UI-源码分析（四）Button-组件/">Zan UI 源码分析（四）Button 组件</a>
         
       </h1>
@@ -1515,45 +1555,6 @@ GET方式需要使用Request.QueryString来取得变量的值，而POST方式通
 <p>创建具名的类表达式， JS 引擎的内部实现稍微有了变化。对于类声明来说，用 let 定义的外部绑定与用 const 定义的内部绑定有着相同的名称。而类表达式可在内部使用 const 来定义它的不同名称，于是此处的 PersonClass2 就只能在类的内部使用。</p>
 <p>尽管具名类表达式的行为异于具名函数表达式，但它们之间仍然有许多相似点。二者都能被当作值来使用，存在多种利用可能，接下来我将会对此进行介绍。</p>
 
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2017/12/12/深入ES6-07-Set与Map/">深入ES6 07-Set与Map</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2017-12-12
-        </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-
-        
-          
         
       
     </div>
