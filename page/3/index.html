@@ -157,6 +157,106 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/2017/12/06/koa2-源码分析-一/">koa2 源码分析 (一)</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2017-12-06
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>koa2 启动一个 http server 的代码如下:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Koa = <span class="built_in">require</span>(<span class="string">'koa'</span>)</span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Koa()</span><br><span class="line"></span><br><span class="line">app.user(<span class="keyword">async</span> (ctx, next) =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;ctx.request.url&#125;</span> <span class="subst">$&#123;ctx.request.method&#125;</span>`</span>)</span><br><span class="line">  <span class="keyword">await</span> next()</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">app.user(<span class="keyword">async</span> (ctx, next) =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`hello world !`</span>)</span><br><span class="line">  <span class="keyword">await</span> next()</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">app.listen(<span class="number">3000</span>, () =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'server listening at 3000 port!'</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>知道怎么使用之后，我们对照着这个模板一点一点来拆分 koa2 整个源码<br>
+          <div class="read-more">
+            <a href="/2017/12/06/koa2-源码分析-一/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2017/12/04/babel从入门到入门的知识归纳/">babel从入门到入门的知识归纳</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2017-12-04
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          <p>1、babel是什么</p>
+<p>2、javascript制作规范</p>
+<p>3、babel转译器</p>
+<p>4、babel的使用</p>
+<p>5、常见的几种babel转译器和插件</p>
+<p>6、babel最常见配置选项</p>
+<p>7、babel的其他</p>
+<p>8、在webpack中使用babel</p>
+<p>9、总结</p>
+<h1 id="1、babel是什么"><a href="#1、babel是什么" class="headerlink" title="1、babel是什么"></a>1、babel是什么</h1><p>babel官网正中间一行黄色大字写着 “babel is a javascript compiler”，翻译一下就是babel是一个 javascript 编译器。</p>
+<p>为什么会有babel存在呢？原因 javascript 在不断的发展，但是浏览器的发展速度跟不上。</p>
+<p>以 es6 为例，es6 中为 javascript 增加了箭头函数、块级作用域等新的语法和 Symbol、Promise 等新的数据类型，但是这些语法和数据类型并不能够马上被现在的浏览器全部支持，为了能在现有的浏览器上使用 js 新的语法和新的数据类型，就需要使用一个转译器，将 javascript 中新增的特性转为现代浏览器能理解的形式。babel 就是做这个方面的转化工作。</p>
+<h1 id="2、javascript制作规范"><a href="#2、javascript制作规范" class="headerlink" title="2、javascript制作规范"></a>2、javascript制作规范</h1><p>在这里有必要简单讲一下 javascript 版本，我只是大体讲下。</p>
+<p>javascript 是网景公司开发的一种脚本语言，1996 年的时候以 ECMAScript 的名字正式成为一种标准。2007 年的时候发布了版本 es5 ，然后在随后近 10 年里 js 并没有大的变化。所以现在的浏览器都可以很好的支持 es5。这一局面直到 2015 年被打破。2015年6月，TC39（javascript标准的制定组织）公布了新版本的js语言——ES6。而且从ES6开始，TC39规定每年都要发布一个js的新版本，新版本将包含年号，都是以ESxxxx的方式进行命名。所以2015年发布的ES6又叫ES2015，2016年发布的新的js版本就叫ES2016，2017年发布的新的js版本就叫ES2017……。</p>
+<p>因为版本都是向前兼容的，就是老版本js版本中规定的语法和api在新版本的js中同样也会合理的。所以我们可以想到后面的规范肯定是包含前面的规范的，也就是ES2016版本的js规范是包含ES2015(ES6)规范的，ES2017是包含ES2016的也包含ES2015的。针对不同的规范，Babel也提供了对应的转换器。</p>
+<p>babel-preset-es2015 将es2015版本的js转译为es5。<br>babel-preset-es2016 将es2016版本的js转译为es5。<br>babel-preset-es2017 将es2017版本的js转译为es5。<br>在转译过程中遇到更高版本的js语法，babel是会直接忽略的。</p>
+
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/2017/12/04/react-代码规范/">react 代码规范</a>
         
       </h1>
