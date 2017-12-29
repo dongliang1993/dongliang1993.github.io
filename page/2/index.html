@@ -157,6 +157,46 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/2017/12/18/Zan-UI-源码分析（二）Badge-组件/">Zan UI 源码分析（二）Badge 组件</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2017-12-18
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          <a id="more"></a>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; PureComponent, Component &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> cx <span class="keyword">from</span> <span class="string">'classnames'</span>;</span><br><span class="line"><span class="keyword">import</span> PropTypes <span class="keyword">from</span> <span class="string">'prop-types'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Badge 就是小红点或者未读消息数</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">Badge</span> <span class="keyword">extends</span> (<span class="title">PureComponent</span> || <span class="title">Component</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">static</span> propTypes = &#123;</span><br><span class="line">    count: PropTypes.number, <span class="comment">// 消息条数</span></span><br><span class="line">    maxCount: PropTypes.number, <span class="comment">// 最大完全显示消息条数	</span></span><br><span class="line">    dot: PropTypes.bool, <span class="comment">// 是否显示为小红点	</span></span><br><span class="line">    showZero: PropTypes.bool, <span class="comment">// 消息数为0时是否显示	</span></span><br><span class="line">    children: PropTypes.node, <span class="comment">// 自定义额外类名	</span></span><br><span class="line">    className: PropTypes.string,</span><br><span class="line">    prefix: PropTypes.string <span class="comment">// 自定义前缀	</span></span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">static</span> defaultProps = &#123;</span><br><span class="line">    count: <span class="number">0</span>,</span><br><span class="line">    maxCount: <span class="number">99</span>,</span><br><span class="line">    dot: <span class="literal">false</span>,</span><br><span class="line">    showZero: <span class="literal">false</span>,</span><br><span class="line">    className: <span class="string">''</span>,</span><br><span class="line">    prefix: <span class="string">'zent'</span></span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">const</span> &#123;</span><br><span class="line">      count,</span><br><span class="line">      maxCount,</span><br><span class="line">      dot,</span><br><span class="line">      showZero,</span><br><span class="line">      className,</span><br><span class="line">      prefix,</span><br><span class="line">      children</span><br><span class="line">    &#125; = <span class="keyword">this</span>.props;</span><br><span class="line">    <span class="comment">// 如果 children 的个数 &gt;= 2 那么 是个数组</span></span><br><span class="line">    <span class="comment">// 否则是个对象</span></span><br><span class="line">    <span class="keyword">const</span> containerCls = cx(&#123;</span><br><span class="line">      [<span class="string">`<span class="subst">$&#123;prefix&#125;</span>-badge`</span>]: <span class="literal">true</span>,</span><br><span class="line">      <span class="comment">// 是否是独立徽标的切换</span></span><br><span class="line">      <span class="comment">// 也就是说，如果你传进来一个 children</span></span><br><span class="line">      <span class="comment">// 那么就认为不是 独立徽标</span></span><br><span class="line">      <span class="comment">// 小红点或者消息数要以 children 来绝对定位</span></span><br><span class="line">      <span class="comment">// 如果没有 children ，就是独立徽标</span></span><br><span class="line">      <span class="comment">// 变成一个 inlineblock</span></span><br><span class="line">      [<span class="string">`<span class="subst">$&#123;prefix&#125;</span>-badge-none-cont`</span>]: !children,</span><br><span class="line">      [className]: !!className</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 不过有一点不明白</span></span><br><span class="line">    <span class="comment">// 这函数为什么要写在 render 中？</span></span><br><span class="line">    <span class="comment">// 这样不是每次 render 的时候都要重新生成一下这个函数吗？</span></span><br><span class="line">    <span class="keyword">const</span> renderCount = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">let</span> countEle = <span class="literal">null</span>;</span><br><span class="line">      <span class="comment">// 如果需要显示小红点</span></span><br><span class="line">      <span class="keyword">if</span> (dot) &#123;</span><br><span class="line">        countEle = (</span><br><span class="line">          &lt;span className=&#123;<span class="string">`<span class="subst">$&#123;prefix&#125;</span>-badge-count <span class="subst">$&#123;prefix&#125;</span>-badge-dot`</span>&#125; /&gt;</span><br><span class="line">        );</span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (count &gt; <span class="number">0</span> || (count === <span class="number">0</span> &amp;&amp; showZero)) &#123;</span><br><span class="line">        <span class="comment">// 如果消息数 &gt; 0 或者 count === 0 但是需要消息数为0时是否显示	</span></span><br><span class="line">        countEle = (</span><br><span class="line">          &lt;span className=&#123;<span class="string">`<span class="subst">$&#123;prefix&#125;</span>-badge-count`</span>&#125;&gt;</span><br><span class="line">            &#123;<span class="comment">/* 如果 count 比 设置的 maxCount 要多，显示 maxCount  否则显示 count 数*/</span>&#125;</span><br><span class="line">            &#123;count &gt; maxCount ? <span class="string">`<span class="subst">$&#123;maxCount&#125;</span>+`</span> : count&#125;</span><br><span class="line">          &lt;<span class="regexp">/span&gt;</span></span><br><span class="line"><span class="regexp">        );</span></span><br><span class="line"><span class="regexp">      &#125;</span></span><br><span class="line"><span class="regexp">      return countEle;</span></span><br><span class="line"><span class="regexp">    &#125;;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">    return (</span></span><br><span class="line"><span class="regexp">      &lt;div className=&#123;containerCls&#125;&gt;</span></span><br><span class="line"><span class="regexp">        &#123;children ? (</span></span><br><span class="line"><span class="regexp">          &lt;div className=&#123;`$&#123;prefix&#125;-badge-content`&#125;&gt;&#123;children&#125;&lt;/</span>div&gt;</span><br><span class="line">        ) : <span class="literal">null</span>&#125;</span><br><span class="line">        &#123;<span class="comment">/* renderCount 判断是生成小红点还是消息数  */</span>&#125;</span><br><span class="line">        &#123;renderCount()&#125;</span><br><span class="line">      &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    );</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/2017/12/15/Zan-UI-源码分析（一）Alert-组件/">Zan UI 源码分析（一）Alert 组件</a>
         
       </h1>
@@ -726,62 +766,6 @@
 </li>
 </ol>
 <p>partial(..) 函数接收 fn 参数，来表示被我们偏应用实参（partially apply）的函数。<br>接着，fn 形参之后，presetArgs 数组收集了后面传入的实参，保存起来稍后使用。<br>我们创建并 return 了一个新的内部函数（为了清晰明了，我们把它命名为partiallyApplied(..)），<br>该函数中，laterArgs 数组收集了全部实参。<br>你注意到在内部函数中的 fn 和 presetArgs 引用了吗？他们是怎么如何工作的？在函数 partial(..) 结束运行后，内部函数为何还能访问 fn 和 presetArgs 引用？你答对了，就是因为闭包！内部函数 partiallyApplied(..) 封闭（closes over）了 fn 和 presetArgs 变量，所以无论该函数在哪里运行，在 partial(..) 函数运行后我们仍然可以访问这些变量。所以理解闭包是多么的重要！<br>当 partiallyApplied(..) 函数稍后在某处执行时，该函数使用被闭包作用（closed over）的 fn 引用来执行原函数，首先传入（被闭包作用的）presetArgs 数组中所有的偏应用（partial application）实参，然后再进一步传入 laterArgs 数组中的实参。</p>
-
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2017/12/07/koa2-源码分析之-request-js/">koa2 源码分析之 request.js</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2017-12-07
-        </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-
-        
-          <p>这篇文章我们主要分析一下 request.js 文件的源码</p>
-<h2 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// request.js</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>将代码收起来，我们可以看到，request.js 中导出的是一个对象。</p>
-<p>为什么会导出一个对象呢？我们先看一下在 application.js 中是如何使用的。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// application.js</span></span><br><span class="line"><span class="comment">// 省略了无关紧要的代码</span></span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line"><span class="keyword">const</span> request = <span class="built_in">require</span>(<span class="string">'./request'</span>);</span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line"><span class="built_in">module</span>.exports = <span class="class"><span class="keyword">class</span> <span class="title">Application</span> <span class="keyword">extends</span> <span class="title">Emitter</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>() &#123;</span><br><span class="line">    <span class="keyword">super</span>();</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">    <span class="keyword">this</span>.context = <span class="built_in">Object</span>.create(context); <span class="comment">// context模块，通过context.js创建</span></span><br><span class="line">    <span class="keyword">this</span>.request = <span class="built_in">Object</span>.create(request); <span class="comment">// request模块，通过request.js创建</span></span><br><span class="line">    <span class="keyword">this</span>.response = <span class="built_in">Object</span>.create(response); <span class="comment">//response模块，通过response.js创建</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="string">`</span></span><br></pre></td></tr></table></figure>
-<p>可以看到，在 Application 这个类的构造函数中，request 是当做一个参数传给 Object.create<br>这个函数的。</p>
-<p>先讲一下 Object.create 这个方法，首先看一下 MDN 对应的文档<br><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/create" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/create</a></p>
-<p>Object.create() 方法会使用指定的原型对象及其属性去创建一个新的对象。用法如下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.create(proto [, propertiesObject ])</span><br></pre></td></tr></table></figure></p>
-<ol>
-<li>proto 为新创建对象的原型对象，设置为null可创建没有原型的空对象。</li>
-<li>如果 proto 参数不是 null 或一个对象，则抛出一个 TypeError 异常。</li>
-<li>propertiesObject 可选。如果没有指定为 undefined，则是要添加到新创建对象的可枚举属性<br>（即其自身定义的属性，而不是其原型链上的枚举属性）对象的属性描述符以及相应的属性名称。<br>这些属性对应Object.defineProperties()的第二个参数。</li>
-</ol>
-<p>简单来说，就是创建了一个对象，然后这个对象的原型就是你进去的那个参数</p>
-<h2 id="简单包装"><a href="#简单包装" class="headerlink" title="简单包装"></a>简单包装</h2><p>其实 request.js 这部分代码没有什么很复杂的地方，主要是把我们常用的属性读取和赋值包装成了 getter 和 setter<br>附上 MDN 对应的文档 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions/get" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions/get</a></p>
-<p>举个例子，比如我们想查看请求的 URL，我们会用 ctx.resquest.url 来查看，也可以用 ctx.url。而 ctx.url<br>就是被包装成了 getter 和 setter：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">get url() &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">this</span>.req.url;</span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Set request URL.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * @api public</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line">set url(val) &#123;</span><br><span class="line">  <span class="keyword">this</span>.req.url = val;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure></p>
-<p>无非就是暴露出来一下语法糖，方便开发而已</p>
 
         
       
