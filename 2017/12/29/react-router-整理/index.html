@@ -98,7 +98,7 @@
         <li class="mobile-menu-item">
           
           
-            首页
+            Home
           
         </li>
       </a>
@@ -107,7 +107,7 @@
         <li class="mobile-menu-item">
           
           
-            归档
+            Archives
           
         </li>
       </a>
@@ -128,7 +128,7 @@
           <a class="menu-item-link" href="/">
             
             
-              首页
+              Home
             
           </a>
         </li>
@@ -137,7 +137,7 @@
           <a class="menu-item-link" href="/archives/">
             
             
-              归档
+              Archives
             
           </a>
         </li>
@@ -173,7 +173,7 @@
     
     
   <div class="post-toc" id="post-toc">
-    <h2 class="post-toc-title">文章目录</h2>
+    <h2 class="post-toc-title">Contents</h2>
     <div class="post-toc-content">
       <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装-React-Router"><span class="toc-text"><a href="#&#x5B89;&#x88C5;-React-Router" class="headerlink" title="&#x5B89;&#x88C5; React Router"></a>&#x5B89;&#x88C5; React Router</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#React-Router-基础"><span class="toc-text"><a href="#React-Router-&#x57FA;&#x7840;" class="headerlink" title="React Router &#x57FA;&#x7840;"></a>React Router &#x57FA;&#x7840;</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Router"><span class="toc-text"><a href="#Router" class="headerlink" title="Router"></a>Router</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用-组件包裹-App-组件。"><span class="toc-text"><a href="#&#x4F7F;&#x7528;-&#x7EC4;&#x4EF6;&#x5305;&#x88F9;-App-&#x7EC4;&#x4EF6;&#x3002;" class="headerlink" title="&#x4F7F;&#x7528;  &#x7EC4;&#x4EF6;&#x5305;&#x88F9; App &#x7EC4;&#x4EF6;&#x3002;"></a>&#x4F7F;&#x7528; <browserrouter> &#x7EC4;&#x4EF6;&#x5305;&#x88F9; App &#x7EC4;&#x4EF6;&#x3002;</browserrouter></span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#history"><span class="toc-text"><a href="#history" class="headerlink" title="history"></a>history</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Links-and-Routes"><span class="toc-text"><a href="#Links-and-Routes" class="headerlink" title="Links and Routes"></a>Links and Routes</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#嵌套路由"><span class="toc-text"><a href="#&#x5D4C;&#x5957;&#x8DEF;&#x7531;" class="headerlink" title="&#x5D4C;&#x5957;&#x8DEF;&#x7531;"></a>&#x5D4C;&#x5957;&#x8DEF;&#x7531;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Path-and-match"><span class="toc-text"><a href="#Path-and-match" class="headerlink" title="Path and match"></a>Path and match</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Switch-组件"><span class="toc-text"><a href="#Switch-&#x7EC4;&#x4EF6;" class="headerlink" title="Switch &#x7EC4;&#x4EF6;"></a>Switch &#x7EC4;&#x4EF6;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Demo-2-嵌套路由"><span class="toc-text"><a href="#Demo-2-&#x5D4C;&#x5957;&#x8DEF;&#x7531;" class="headerlink" title="Demo 2: &#x5D4C;&#x5957;&#x8DEF;&#x7531;"></a>Demo 2: &#x5D4C;&#x5957;&#x8DEF;&#x7531;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#保护式路由"><span class="toc-text"><a href="#&#x4FDD;&#x62A4;&#x5F0F;&#x8DEF;&#x7531;" class="headerlink" title="&#x4FDD;&#x62A4;&#x5F0F;&#x8DEF;&#x7531;"></a>&#x4FDD;&#x62A4;&#x5F0F;&#x8DEF;&#x7531;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#重定向"><span class="toc-text"><a href="#&#x91CD;&#x5B9A;&#x5411;" class="headerlink" title="&#x91CD;&#x5B9A;&#x5411;"></a>&#x91CD;&#x5B9A;&#x5411;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自定义路由"><span class="toc-text"><a href="#&#x81EA;&#x5B9A;&#x4E49;&#x8DEF;&#x7531;" class="headerlink" title="&#x81EA;&#x5B9A;&#x4E49;&#x8DEF;&#x7531;"></a>&#x81EA;&#x5B9A;&#x4E49;&#x8DEF;&#x7531;</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-text"><a href="#&#x603B;&#x7ED3;" class="headerlink" title="&#x603B;&#x7ED3;"></a>&#x603B;&#x7ED3;</span></a></li></ol>
     </div>
@@ -209,7 +209,7 @@
 <p>另一方面，<link> 用来跳转页面。可以类比 HTML 的锚元素。然而，使用锚链接会导致浏览器的刷新，这不是我们想要的。所以，我们可以使用<link> 来跳转至具体的 URL，并且视图重新渲染不会导致浏览器刷新。</p>
 <p>我们已经介绍了创建一个基本的路由需要的所有东西。让我们试一个吧。</p>
 <p>Demo 1: 基础路由</p>
-<p>src/App.js<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* Import statements */</span></span><br><span class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span></span><br><span class="line"><span class="keyword">import</span> &#123;</span><br><span class="line">  Link,</span><br><span class="line">  Route,</span><br><span class="line">  Switch</span><br><span class="line">&#125; <span class="keyword">from</span> <span class="string">'react-router-dom'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* Home component */</span></span><br><span class="line"><span class="keyword">const</span> Home = <span class="function"><span class="params">()</span> =&gt;</span> (</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;h2&gt;Home&lt;<span class="regexp">/h2&gt;</span></span><br><span class="line"><span class="regexp">  &lt;/</span>div&gt;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Category component */</span></span><br><span class="line"><span class="keyword">const</span> Category = <span class="function"><span class="params">()</span> =&gt;</span> (</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;h2&gt;Category&lt;<span class="regexp">/h2&gt;</span></span><br><span class="line"><span class="regexp">  &lt;/</span>div&gt;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Products component */</span></span><br><span class="line"><span class="keyword">const</span> Products = <span class="function"><span class="params">()</span> =&gt;</span> (</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;h2&gt;Products&lt;<span class="regexp">/h2&gt;</span></span><br><span class="line"><span class="regexp">  &lt;/</span>div&gt;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">/* App component */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &lt;ul className=<span class="string">"nav navbar-nav"</span>&gt;</span><br><span class="line">          <span class="comment">// Link 组件通常被用来链接跳转到其他的页面</span></span><br><span class="line">          &lt;li&gt;<span class="xml"><span class="tag">&lt;<span class="name">Link</span> <span class="attr">to</span>=<span class="string">"/"</span>&gt;</span>Homes<span class="tag">&lt;/<span class="name">Link</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line">          &lt;li&gt;<span class="xml"><span class="tag">&lt;<span class="name">Link</span> <span class="attr">to</span>=<span class="string">"/category"</span>&gt;</span>Category<span class="tag">&lt;/<span class="name">Link</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line">          &lt;li&gt;<span class="xml"><span class="tag">&lt;<span class="name">Link</span> <span class="attr">to</span>=<span class="string">"/products"</span>&gt;</span>Products<span class="tag">&lt;/<span class="name">Link</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line">        &lt;<span class="regexp">/ul&gt;</span></span><br><span class="line"><span class="regexp">        &lt;hr /</span>&gt;</span><br><span class="line">        <span class="comment">// 如果 Route 组件的 path 属性和当前的 URL 匹配</span></span><br><span class="line">        <span class="comment">// 那么就会渲染对应的 component</span></span><br><span class="line">        &lt;Route exact path=<span class="string">"/"</span> component=&#123;Home&#125;/&gt;</span><br><span class="line">        &lt;Route path=<span class="string">"/category"</span> component=&#123;Category&#125;/&gt;</span><br><span class="line">        &lt;Route path=<span class="string">"/products"</span> component=&#123;Products&#125;/&gt;</span><br><span class="line">      &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    )</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure></p>
+<p>src/App.js<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* Import statements */</span></span><br><span class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span></span><br><span class="line"><span class="keyword">import</span> &#123;</span><br><span class="line">  Link,</span><br><span class="line">  Route,</span><br><span class="line">  Switch</span><br><span class="line">&#125; <span class="keyword">from</span> <span class="string">'react-router-dom'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* Home component */</span></span><br><span class="line"><span class="keyword">const</span> Home = <span class="function"><span class="params">()</span> =&gt;</span> (</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;h2&gt;Home&lt;<span class="regexp">/h2&gt;</span></span><br><span class="line"><span class="regexp">  &lt;/</span>div&gt;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Category component */</span></span><br><span class="line"><span class="keyword">const</span> Category = <span class="function"><span class="params">()</span> =&gt;</span> (</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;h2&gt;Category&lt;<span class="regexp">/h2&gt;</span></span><br><span class="line"><span class="regexp">  &lt;/</span>div&gt;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Products component */</span></span><br><span class="line"><span class="keyword">const</span> Products = <span class="function"><span class="params">()</span> =&gt;</span> (</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;h2&gt;Products&lt;<span class="regexp">/h2&gt;</span></span><br><span class="line"><span class="regexp">  &lt;/</span>div&gt;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">/* App component */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &lt;ul className=<span class="string">"nav navbar-nav"</span>&gt;</span><br><span class="line">          <span class="comment">// Link 组件通常被用来链接跳转到其他的页面</span></span><br><span class="line">          &lt;li&gt;<span class="xml"><span class="tag">&lt;<span class="name">Link</span> <span class="attr">to</span>=<span class="string">"/"</span>&gt;</span>Homes<span class="tag">&lt;/<span class="name">Link</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line">          &lt;li&gt;<span class="xml"><span class="tag">&lt;<span class="name">Link</span> <span class="attr">to</span>=<span class="string">"/category"</span>&gt;</span>Category<span class="tag">&lt;/<span class="name">Link</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line">          &lt;li&gt;<span class="xml"><span class="tag">&lt;<span class="name">Link</span> <span class="attr">to</span>=<span class="string">"/products"</span>&gt;</span>Products<span class="tag">&lt;/<span class="name">Link</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line">        &lt;<span class="regexp">/ul&gt;</span></span><br><span class="line"><span class="regexp">        &lt;hr /</span>&gt;</span><br><span class="line">        <span class="comment">// 如果 Route 组件的 path 属性和当前的 URL 匹配</span></span><br><span class="line">        <span class="comment">// 那么就会渲染对应的 component</span></span><br><span class="line">        <span class="comment">// 这里还有一些问题，下面会说到</span></span><br><span class="line">        &lt;Route path=<span class="string">"/"</span> component=&#123;Home&#125;/&gt;</span><br><span class="line">        &lt;Route path=<span class="string">"/category"</span> component=&#123;Category&#125;/&gt;</span><br><span class="line">        &lt;Route path=<span class="string">"/products"</span> component=&#123;Products&#125;/&gt;</span><br><span class="line">      &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    )</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure></p>
 <p>我们在 App.js 里定义了 Home，Category，和 Products 组件。尽管目前看起来没问题，当组件变得越来越臃肿，最好将每个组件分成单独的文件。根据经验，如果组件代码超过了 10 行，我通常会给它创建一个新的文件。从第二个 demo 开始，我会将 App.js 里面越来越多的组件分成单独的文件。</p>
 <p>在 App 组件中，我们写了路由跳转的逻辑。 <route> 的路径与当前路径匹配，对应组件就会被渲染。对应渲染的组件传给了第二个 prop–component。</route></p>
 <p>在这里，/ 同时匹配 /, /category 和 /products, 因此，所有路由都匹配并被渲染。我们该如何避免呢？应该给 path=’/‘的路由传递 exact= {true}props：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Route exact=&#123;<span class="literal">true</span>&#125; path=<span class="string">"/"</span> component=&#123;Home&#125;/&gt;</span><br></pre></td></tr></table></figure></p>
@@ -274,15 +274,15 @@
 
   <div class="post-copyright">
     <p class="copyright-item">
-      <span>原文作者: </span>
+      <span>Author: </span>
       <a href="http://yoursite.com">我是你豆子欧巴</a>
     </p>
     <p class="copyright-item">
-      <span>原文链接: </span>
+      <span>Link: </span>
       <a href="http://yoursite.com/2017/12/29/react-router-整理/">http://yoursite.com/2017/12/29/react-router-整理/</a>
     </p>
     <p class="copyright-item">
-      <span>许可协议: </span>
+      <span>License: </span>
       
       <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
     </p>
@@ -304,7 +304,7 @@
     
       <a class="next" href="/2017/12/20/面向对象的程序设计/">
         <span class="next-text nav-default">面向对象的程序设计</span>
-        <span class="prev-text nav-mobile">下一篇</span>
+        <span class="prev-text nav-mobile">Next</span>
         <i class="iconfont icon-right"></i>
       </a>
     
@@ -370,11 +370,11 @@
 
 <div class="copyright">
   <span class="power-by">
-    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
+    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
   </span>
   <span class="division">|</span>
   <span class="theme-info">
-    主题 - 
+    Theme - 
     <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
   </span>
 
@@ -384,7 +384,7 @@
      
       2015 - 
     
-    2017
+    2018
 
     <span class="heart">
       <i class="iconfont icon-heart"></i>
