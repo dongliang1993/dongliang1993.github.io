@@ -98,7 +98,7 @@
         <li class="mobile-menu-item">
           
           
-            Home
+            首页
           
         </li>
       </a>
@@ -107,7 +107,7 @@
         <li class="mobile-menu-item">
           
           
-            Archives
+            归档
           
         </li>
       </a>
@@ -128,7 +128,7 @@
           <a class="menu-item-link" href="/">
             
             
-              Home
+              首页
             
           </a>
         </li>
@@ -137,7 +137,7 @@
           <a class="menu-item-link" href="/archives/">
             
             
-              Archives
+              归档
             
           </a>
         </li>
@@ -173,7 +173,7 @@
     
     
   <div class="post-toc" id="post-toc">
-    <h2 class="post-toc-title">Contents</h2>
+    <h2 class="post-toc-title">文章目录</h2>
     <div class="post-toc-content">
       <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#第五章-解构：更方便的数据访问"><span class="toc-text"><a href="#&#x7B2C;&#x4E94;&#x7AE0;-&#x89E3;&#x6784;&#xFF1A;&#x66F4;&#x65B9;&#x4FBF;&#x7684;&#x6570;&#x636E;&#x8BBF;&#x95EE;" class="headerlink" title="&#x7B2C;&#x4E94;&#x7AE0; &#x89E3;&#x6784;&#xFF1A;&#x66F4;&#x65B9;&#x4FBF;&#x7684;&#x6570;&#x636E;&#x8BBF;&#x95EE;"></a>&#x7B2C;&#x4E94;&#x7AE0; &#x89E3;&#x6784;&#xFF1A;&#x66F4;&#x65B9;&#x4FBF;&#x7684;&#x6570;&#x636E;&#x8BBF;&#x95EE;</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#解构为何有用？"><span class="toc-text"><a href="#&#x89E3;&#x6784;&#x4E3A;&#x4F55;&#x6709;&#x7528;&#xFF1F;" class="headerlink" title="&#x89E3;&#x6784;&#x4E3A;&#x4F55;&#x6709;&#x7528;&#xFF1F;"></a>&#x89E3;&#x6784;&#x4E3A;&#x4F55;&#x6709;&#x7528;&#xFF1F;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#对象解构"><span class="toc-text"><a href="#&#x5BF9;&#x8C61;&#x89E3;&#x6784;" class="headerlink" title="&#x5BF9;&#x8C61;&#x89E3;&#x6784;"></a>&#x5BF9;&#x8C61;&#x89E3;&#x6784;</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#切勿遗忘初始化器"><span class="toc-text"><a href="#&#x5207;&#x52FF;&#x9057;&#x5FD8;&#x521D;&#x59CB;&#x5316;&#x5668;" class="headerlink" title="&#x5207;&#x52FF;&#x9057;&#x5FD8;&#x521D;&#x59CB;&#x5316;&#x5668;"></a>&#x5207;&#x52FF;&#x9057;&#x5FD8;&#x521D;&#x59CB;&#x5316;&#x5668;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解构赋值"><span class="toc-text"><a href="#&#x89E3;&#x6784;&#x8D4B;&#x503C;" class="headerlink" title="&#x89E3;&#x6784;&#x8D4B;&#x503C;"></a>&#x89E3;&#x6784;&#x8D4B;&#x503C;</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#默认值"><span class="toc-text"><a href="#&#x9ED8;&#x8BA4;&#x503C;" class="headerlink" title="&#x9ED8;&#x8BA4;&#x503C;"></a>&#x9ED8;&#x8BA4;&#x503C;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#赋值给非同名本地变量"><span class="toc-text"><a href="#&#x8D4B;&#x503C;&#x7ED9;&#x975E;&#x540C;&#x540D;&#x672C;&#x5730;&#x53D8;&#x91CF;" class="headerlink" title="&#x8D4B;&#x503C;&#x7ED9;&#x975E;&#x540C;&#x540D;&#x672C;&#x5730;&#x53D8;&#x91CF;"></a>&#x8D4B;&#x503C;&#x7ED9;&#x975E;&#x540C;&#x540D;&#x672C;&#x5730;&#x53D8;&#x91CF;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#嵌套的对象解构"><span class="toc-text"><a href="#&#x5D4C;&#x5957;&#x7684;&#x5BF9;&#x8C61;&#x89E3;&#x6784;" class="headerlink" title="&#x5D4C;&#x5957;&#x7684;&#x5BF9;&#x8C61;&#x89E3;&#x6784;"></a>&#x5D4C;&#x5957;&#x7684;&#x5BF9;&#x8C61;&#x89E3;&#x6784;</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#语法陷阱"><span class="toc-text"><a href="#&#x8BED;&#x6CD5;&#x9677;&#x9631;" class="headerlink" title="&#x8BED;&#x6CD5;&#x9677;&#x9631;"></a>&#x8BED;&#x6CD5;&#x9677;&#x9631;</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数组解构"><span class="toc-text"><a href="#&#x6570;&#x7EC4;&#x89E3;&#x6784;" class="headerlink" title="&#x6570;&#x7EC4;&#x89E3;&#x6784;"></a>&#x6570;&#x7EC4;&#x89E3;&#x6784;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解构赋值-1"><span class="toc-text"><a href="#&#x89E3;&#x6784;&#x8D4B;&#x503C;-1" class="headerlink" title="&#x89E3;&#x6784;&#x8D4B;&#x503C;"></a>&#x89E3;&#x6784;&#x8D4B;&#x503C;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#默认值-1"><span class="toc-text"><a href="#&#x9ED8;&#x8BA4;&#x503C;-1" class="headerlink" title="&#x9ED8;&#x8BA4;&#x503C;"></a>&#x9ED8;&#x8BA4;&#x503C;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#嵌套的解构"><span class="toc-text"><a href="#&#x5D4C;&#x5957;&#x7684;&#x89E3;&#x6784;" class="headerlink" title="&#x5D4C;&#x5957;&#x7684;&#x89E3;&#x6784;"></a>&#x5D4C;&#x5957;&#x7684;&#x89E3;&#x6784;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#剩余项"><span class="toc-text"><a href="#&#x5269;&#x4F59;&#x9879;" class="headerlink" title="&#x5269;&#x4F59;&#x9879;"></a>&#x5269;&#x4F59;&#x9879;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#混合解构"><span class="toc-text"><a href="#&#x6DF7;&#x5408;&#x89E3;&#x6784;" class="headerlink" title="&#x6DF7;&#x5408;&#x89E3;&#x6784;"></a>&#x6DF7;&#x5408;&#x89E3;&#x6784;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参数解构"><span class="toc-text"><a href="#&#x53C2;&#x6570;&#x89E3;&#x6784;" class="headerlink" title="&#x53C2;&#x6570;&#x89E3;&#x6784;"></a>&#x53C2;&#x6570;&#x89E3;&#x6784;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解构参数不可缺失"><span class="toc-text"><a href="#&#x89E3;&#x6784;&#x53C2;&#x6570;&#x4E0D;&#x53EF;&#x7F3A;&#x5931;" class="headerlink" title="&#x89E3;&#x6784;&#x53C2;&#x6570;&#x4E0D;&#x53EF;&#x7F3A;&#x5931;"></a>&#x89E3;&#x6784;&#x53C2;&#x6570;&#x4E0D;&#x53EF;&#x7F3A;&#x5931;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参数解构的默认值"><span class="toc-text"><a href="#&#x53C2;&#x6570;&#x89E3;&#x6784;&#x7684;&#x9ED8;&#x8BA4;&#x503C;" class="headerlink" title="&#x53C2;&#x6570;&#x89E3;&#x6784;&#x7684;&#x9ED8;&#x8BA4;&#x503C;"></a>&#x53C2;&#x6570;&#x89E3;&#x6784;&#x7684;&#x9ED8;&#x8BA4;&#x503C;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-text"><a href="#&#x603B;&#x7ED3;" class="headerlink" title="&#x603B;&#x7ED3;"></a>&#x603B;&#x7ED3;</span></a></li></ol></li></ol>
     </div>
@@ -259,15 +259,15 @@
 
   <div class="post-copyright">
     <p class="copyright-item">
-      <span>Author: </span>
+      <span>原文作者: </span>
       <a href="http://yoursite.com">我是你豆子欧巴</a>
     </p>
     <p class="copyright-item">
-      <span>Link: </span>
+      <span>原文链接: </span>
       <a href="http://yoursite.com/2017/11/21/深入-ES6-02-解构/">http://yoursite.com/2017/11/21/深入-ES6-02-解构/</a>
     </p>
     <p class="copyright-item">
-      <span>License: </span>
+      <span>许可协议: </span>
       
       <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
     </p>
@@ -289,13 +289,13 @@
       <a class="prev" href="/2017/11/21/深入-ES6-03-Promise-与异步编程/">
         <i class="iconfont icon-left"></i>
         <span class="prev-text nav-default">深入-ES6-03 Promise 与异步编程</span>
-        <span class="prev-text nav-mobile">Prev</span>
+        <span class="prev-text nav-mobile">上一篇</span>
       </a>
     
     
       <a class="next" href="/2017/11/20/深入-ES6-01-块级绑定/">
         <span class="next-text nav-default">深入 ES6 -- 01 块级绑定</span>
-        <span class="prev-text nav-mobile">Next</span>
+        <span class="prev-text nav-mobile">下一篇</span>
         <i class="iconfont icon-right"></i>
       </a>
     
@@ -361,11 +361,11 @@
 
 <div class="copyright">
   <span class="power-by">
-    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
   </span>
   <span class="division">|</span>
   <span class="theme-info">
-    Theme - 
+    主题 - 
     <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
   </span>
 

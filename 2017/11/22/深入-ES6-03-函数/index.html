@@ -98,7 +98,7 @@
         <li class="mobile-menu-item">
           
           
-            Home
+            首页
           
         </li>
       </a>
@@ -107,7 +107,7 @@
         <li class="mobile-menu-item">
           
           
-            Archives
+            归档
           
         </li>
       </a>
@@ -128,7 +128,7 @@
           <a class="menu-item-link" href="/">
             
             
-              Home
+              首页
             
           </a>
         </li>
@@ -137,7 +137,7 @@
           <a class="menu-item-link" href="/archives/">
             
             
-              Archives
+              归档
             
           </a>
         </li>
@@ -173,7 +173,7 @@
     
     
   <div class="post-toc" id="post-toc">
-    <h2 class="post-toc-title">Contents</h2>
+    <h2 class="post-toc-title">文章目录</h2>
     <div class="post-toc-content">
       <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#带参数默认值的函数"><span class="toc-text"><a href="#&#x5E26;&#x53C2;&#x6570;&#x9ED8;&#x8BA4;&#x503C;&#x7684;&#x51FD;&#x6570;" class="headerlink" title="&#x5E26;&#x53C2;&#x6570;&#x9ED8;&#x8BA4;&#x503C;&#x7684;&#x51FD;&#x6570;"></a>&#x5E26;&#x53C2;&#x6570;&#x9ED8;&#x8BA4;&#x503C;&#x7684;&#x51FD;&#x6570;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#在-ES5-中模拟参数默认值"><span class="toc-text"><a href="#&#x5728;-ES5-&#x4E2D;&#x6A21;&#x62DF;&#x53C2;&#x6570;&#x9ED8;&#x8BA4;&#x503C;" class="headerlink" title="&#x5728; ES5 &#x4E2D;&#x6A21;&#x62DF;&#x53C2;&#x6570;&#x9ED8;&#x8BA4;&#x503C;"></a>&#x5728; ES5 &#x4E2D;&#x6A21;&#x62DF;&#x53C2;&#x6570;&#x9ED8;&#x8BA4;&#x503C;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ES6-中的参数默认值"><span class="toc-text"><a href="#ES6-&#x4E2D;&#x7684;&#x53C2;&#x6570;&#x9ED8;&#x8BA4;&#x503C;" class="headerlink" title="ES6 &#x4E2D;&#x7684;&#x53C2;&#x6570;&#x9ED8;&#x8BA4;&#x503C;"></a>ES6 &#x4E2D;&#x7684;&#x53C2;&#x6570;&#x9ED8;&#x8BA4;&#x503C;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参数默认值如何影响-arguments-对象"><span class="toc-text"><a href="#&#x53C2;&#x6570;&#x9ED8;&#x8BA4;&#x503C;&#x5982;&#x4F55;&#x5F71;&#x54CD;-arguments-&#x5BF9;&#x8C61;" class="headerlink" title="&#x53C2;&#x6570;&#x9ED8;&#x8BA4;&#x503C;&#x5982;&#x4F55;&#x5F71;&#x54CD; arguments &#x5BF9;&#x8C61;"></a>&#x53C2;&#x6570;&#x9ED8;&#x8BA4;&#x503C;&#x5982;&#x4F55;&#x5F71;&#x54CD; arguments &#x5BF9;&#x8C61;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参数默认值表达式"><span class="toc-text"><a href="#&#x53C2;&#x6570;&#x9ED8;&#x8BA4;&#x503C;&#x8868;&#x8FBE;&#x5F0F;" class="headerlink" title="&#x53C2;&#x6570;&#x9ED8;&#x8BA4;&#x503C;&#x8868;&#x8FBE;&#x5F0F;"></a>&#x53C2;&#x6570;&#x9ED8;&#x8BA4;&#x503C;&#x8868;&#x8FBE;&#x5F0F;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参数默认值的暂时性死区"><span class="toc-text"><a href="#&#x53C2;&#x6570;&#x9ED8;&#x8BA4;&#x503C;&#x7684;&#x6682;&#x65F6;&#x6027;&#x6B7B;&#x533A;" class="headerlink" title="&#x53C2;&#x6570;&#x9ED8;&#x8BA4;&#x503C;&#x7684;&#x6682;&#x65F6;&#x6027;&#x6B7B;&#x533A;"></a>&#x53C2;&#x6570;&#x9ED8;&#x8BA4;&#x503C;&#x7684;&#x6682;&#x65F6;&#x6027;&#x6B7B;&#x533A;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用不具名参数"><span class="toc-text"><a href="#&#x4F7F;&#x7528;&#x4E0D;&#x5177;&#x540D;&#x53C2;&#x6570;" class="headerlink" title="&#x4F7F;&#x7528;&#x4E0D;&#x5177;&#x540D;&#x53C2;&#x6570;"></a>&#x4F7F;&#x7528;&#x4E0D;&#x5177;&#x540D;&#x53C2;&#x6570;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ES5-中的不具名参数"><span class="toc-text"><a href="#ES5-&#x4E2D;&#x7684;&#x4E0D;&#x5177;&#x540D;&#x53C2;&#x6570;" class="headerlink" title="ES5 &#x4E2D;&#x7684;&#x4E0D;&#x5177;&#x540D;&#x53C2;&#x6570;"></a>ES5 &#x4E2D;&#x7684;&#x4E0D;&#x5177;&#x540D;&#x53C2;&#x6570;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#剩余参数"><span class="toc-text"><a href="#&#x5269;&#x4F59;&#x53C2;&#x6570;" class="headerlink" title="&#x5269;&#x4F59;&#x53C2;&#x6570;"></a>&#x5269;&#x4F59;&#x53C2;&#x6570;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#剩余参数的限制条件"><span class="toc-text"><a href="#&#x5269;&#x4F59;&#x53C2;&#x6570;&#x7684;&#x9650;&#x5236;&#x6761;&#x4EF6;" class="headerlink" title="&#x5269;&#x4F59;&#x53C2;&#x6570;&#x7684;&#x9650;&#x5236;&#x6761;&#x4EF6;"></a>&#x5269;&#x4F59;&#x53C2;&#x6570;&#x7684;&#x9650;&#x5236;&#x6761;&#x4EF6;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#剩余参数如何影响-arguments-对象"><span class="toc-text"><a href="#&#x5269;&#x4F59;&#x53C2;&#x6570;&#x5982;&#x4F55;&#x5F71;&#x54CD;-arguments-&#x5BF9;&#x8C61;" class="headerlink" title="&#x5269;&#x4F59;&#x53C2;&#x6570;&#x5982;&#x4F55;&#x5F71;&#x54CD; arguments &#x5BF9;&#x8C61;"></a>&#x5269;&#x4F59;&#x53C2;&#x6570;&#x5982;&#x4F55;&#x5F71;&#x54CD; arguments &#x5BF9;&#x8C61;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#函数构造器的增强"><span class="toc-text"><a href="#&#x51FD;&#x6570;&#x6784;&#x9020;&#x5668;&#x7684;&#x589E;&#x5F3A;" class="headerlink" title="&#x51FD;&#x6570;&#x6784;&#x9020;&#x5668;&#x7684;&#x589E;&#x5F3A;"></a>&#x51FD;&#x6570;&#x6784;&#x9020;&#x5668;&#x7684;&#x589E;&#x5F3A;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#扩展运算符"><span class="toc-text"><a href="#&#x6269;&#x5C55;&#x8FD0;&#x7B97;&#x7B26;" class="headerlink" title="&#x6269;&#x5C55;&#x8FD0;&#x7B97;&#x7B26;"></a>&#x6269;&#x5C55;&#x8FD0;&#x7B97;&#x7B26;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ES6-的名称属性"><span class="toc-text"><a href="#ES6-&#x7684;&#x540D;&#x79F0;&#x5C5E;&#x6027;" class="headerlink" title="ES6 &#x7684;&#x540D;&#x79F0;&#x5C5E;&#x6027;"></a>ES6 &#x7684;&#x540D;&#x79F0;&#x5C5E;&#x6027;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#选择合适的名称"><span class="toc-text"><a href="#&#x9009;&#x62E9;&#x5408;&#x9002;&#x7684;&#x540D;&#x79F0;" class="headerlink" title="&#x9009;&#x62E9;&#x5408;&#x9002;&#x7684;&#x540D;&#x79F0;"></a>&#x9009;&#x62E9;&#x5408;&#x9002;&#x7684;&#x540D;&#x79F0;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#名称属性的特殊情况"><span class="toc-text"><a href="#&#x540D;&#x79F0;&#x5C5E;&#x6027;&#x7684;&#x7279;&#x6B8A;&#x60C5;&#x51B5;" class="headerlink" title="&#x540D;&#x79F0;&#x5C5E;&#x6027;&#x7684;&#x7279;&#x6B8A;&#x60C5;&#x51B5;"></a>&#x540D;&#x79F0;&#x5C5E;&#x6027;&#x7684;&#x7279;&#x6B8A;&#x60C5;&#x51B5;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#明确函数的双重用途"><span class="toc-text"><a href="#&#x660E;&#x786E;&#x51FD;&#x6570;&#x7684;&#x53CC;&#x91CD;&#x7528;&#x9014;" class="headerlink" title="&#x660E;&#x786E;&#x51FD;&#x6570;&#x7684;&#x53CC;&#x91CD;&#x7528;&#x9014;"></a>&#x660E;&#x786E;&#x51FD;&#x6570;&#x7684;&#x53CC;&#x91CD;&#x7528;&#x9014;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#在-ES5-中判断函数如何被调用"><span class="toc-text"><a href="#&#x5728;-ES5-&#x4E2D;&#x5224;&#x65AD;&#x51FD;&#x6570;&#x5982;&#x4F55;&#x88AB;&#x8C03;&#x7528;" class="headerlink" title="&#x5728; ES5 &#x4E2D;&#x5224;&#x65AD;&#x51FD;&#x6570;&#x5982;&#x4F55;&#x88AB;&#x8C03;&#x7528;"></a>&#x5728; ES5 &#x4E2D;&#x5224;&#x65AD;&#x51FD;&#x6570;&#x5982;&#x4F55;&#x88AB;&#x8C03;&#x7528;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#new-target-元属性"><span class="toc-text"><a href="#new-target-&#x5143;&#x5C5E;&#x6027;" class="headerlink" title="new.target &#x5143;&#x5C5E;&#x6027;"></a>new.target &#x5143;&#x5C5E;&#x6027;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#块级函数"><span class="toc-text"><a href="#&#x5757;&#x7EA7;&#x51FD;&#x6570;" class="headerlink" title="&#x5757;&#x7EA7;&#x51FD;&#x6570;"></a>&#x5757;&#x7EA7;&#x51FD;&#x6570;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#决定何时使用块级函数"><span class="toc-text"><a href="#&#x51B3;&#x5B9A;&#x4F55;&#x65F6;&#x4F7F;&#x7528;&#x5757;&#x7EA7;&#x51FD;&#x6570;" class="headerlink" title="&#x51B3;&#x5B9A;&#x4F55;&#x65F6;&#x4F7F;&#x7528;&#x5757;&#x7EA7;&#x51FD;&#x6570;"></a>&#x51B3;&#x5B9A;&#x4F55;&#x65F6;&#x4F7F;&#x7528;&#x5757;&#x7EA7;&#x51FD;&#x6570;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#非严格模式的块级函数"><span class="toc-text"><a href="#&#x975E;&#x4E25;&#x683C;&#x6A21;&#x5F0F;&#x7684;&#x5757;&#x7EA7;&#x51FD;&#x6570;" class="headerlink" title="&#x975E;&#x4E25;&#x683C;&#x6A21;&#x5F0F;&#x7684;&#x5757;&#x7EA7;&#x51FD;&#x6570;"></a>&#x975E;&#x4E25;&#x683C;&#x6A21;&#x5F0F;&#x7684;&#x5757;&#x7EA7;&#x51FD;&#x6570;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#箭头函数"><span class="toc-text"><a href="#&#x7BAD;&#x5934;&#x51FD;&#x6570;" class="headerlink" title="&#x7BAD;&#x5934;&#x51FD;&#x6570;"></a>&#x7BAD;&#x5934;&#x51FD;&#x6570;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#箭头函数语法"><span class="toc-text"><a href="#&#x7BAD;&#x5934;&#x51FD;&#x6570;&#x8BED;&#x6CD5;" class="headerlink" title="&#x7BAD;&#x5934;&#x51FD;&#x6570;&#x8BED;&#x6CD5;"></a>&#x7BAD;&#x5934;&#x51FD;&#x6570;&#x8BED;&#x6CD5;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建立即调用函数表达式"><span class="toc-text"><a href="#&#x521B;&#x5EFA;&#x7ACB;&#x5373;&#x8C03;&#x7528;&#x51FD;&#x6570;&#x8868;&#x8FBE;&#x5F0F;" class="headerlink" title="&#x521B;&#x5EFA;&#x7ACB;&#x5373;&#x8C03;&#x7528;&#x51FD;&#x6570;&#x8868;&#x8FBE;&#x5F0F;"></a>&#x521B;&#x5EFA;&#x7ACB;&#x5373;&#x8C03;&#x7528;&#x51FD;&#x6570;&#x8868;&#x8FBE;&#x5F0F;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#没有-this-绑定"><span class="toc-text"><a href="#&#x6CA1;&#x6709;-this-&#x7ED1;&#x5B9A;" class="headerlink" title="&#x6CA1;&#x6709; this &#x7ED1;&#x5B9A;"></a>&#x6CA1;&#x6709; this &#x7ED1;&#x5B9A;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#箭头函数与数组"><span class="toc-text"><a href="#&#x7BAD;&#x5934;&#x51FD;&#x6570;&#x4E0E;&#x6570;&#x7EC4;" class="headerlink" title="&#x7BAD;&#x5934;&#x51FD;&#x6570;&#x4E0E;&#x6570;&#x7EC4;"></a>&#x7BAD;&#x5934;&#x51FD;&#x6570;&#x4E0E;&#x6570;&#x7EC4;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#没有-arguments-绑定"><span class="toc-text"><a href="#&#x6CA1;&#x6709;-arguments-&#x7ED1;&#x5B9A;" class="headerlink" title="&#x6CA1;&#x6709; arguments &#x7ED1;&#x5B9A;"></a>&#x6CA1;&#x6709; arguments &#x7ED1;&#x5B9A;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#识别箭头函数"><span class="toc-text"><a href="#&#x8BC6;&#x522B;&#x7BAD;&#x5934;&#x51FD;&#x6570;" class="headerlink" title="&#x8BC6;&#x522B;&#x7BAD;&#x5934;&#x51FD;&#x6570;"></a>&#x8BC6;&#x522B;&#x7BAD;&#x5934;&#x51FD;&#x6570;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-text"><a href="#&#x603B;&#x7ED3;" class="headerlink" title="&#x603B;&#x7ED3;"></a>&#x603B;&#x7ED3;</span></a></li></ol>
     </div>
@@ -355,15 +355,15 @@
 
   <div class="post-copyright">
     <p class="copyright-item">
-      <span>Author: </span>
+      <span>原文作者: </span>
       <a href="http://yoursite.com">我是你豆子欧巴</a>
     </p>
     <p class="copyright-item">
-      <span>Link: </span>
+      <span>原文链接: </span>
       <a href="http://yoursite.com/2017/11/22/深入-ES6-03-函数/">http://yoursite.com/2017/11/22/深入-ES6-03-函数/</a>
     </p>
     <p class="copyright-item">
-      <span>License: </span>
+      <span>许可协议: </span>
       
       <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
     </p>
@@ -385,13 +385,13 @@
       <a class="prev" href="/2017/11/22/笔记/">
         <i class="iconfont icon-left"></i>
         <span class="prev-text nav-default">笔记</span>
-        <span class="prev-text nav-mobile">Prev</span>
+        <span class="prev-text nav-mobile">上一篇</span>
       </a>
     
     
       <a class="next" href="/2017/11/21/深入-ES6-03-Promise-与异步编程/">
         <span class="next-text nav-default">深入-ES6-03 Promise 与异步编程</span>
-        <span class="prev-text nav-mobile">Next</span>
+        <span class="prev-text nav-mobile">下一篇</span>
         <i class="iconfont icon-right"></i>
       </a>
     
@@ -457,11 +457,11 @@
 
 <div class="copyright">
   <span class="power-by">
-    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
   </span>
   <span class="division">|</span>
   <span class="theme-info">
-    Theme - 
+    主题 - 
     <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
   </span>
 
