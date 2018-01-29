@@ -110,6 +110,33 @@
         </li>
       </a>
     
+      <a href="/tags">
+        <li class="mobile-menu-item">
+          
+          
+            标签
+          
+        </li>
+      </a>
+    
+      <a href="/categories">
+        <li class="mobile-menu-item">
+          
+          
+            分类
+          
+        </li>
+      </a>
+    
+      <a href="/about">
+        <li class="mobile-menu-item">
+          
+          
+            关于
+          
+        </li>
+      </a>
+    
   </ul>
 </nav>
 
@@ -136,6 +163,33 @@
             
             
               归档
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/tags">
+            
+            
+              标签
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/categories">
+            
+            
+              分类
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/about">
+            
+            
+              关于
             
           </a>
         </li>
@@ -177,74 +231,15 @@
       
         
         
+          
+        
 
         
           <h1 id="手把手教你撸一个-Webpack-Loader"><a href="#手把手教你撸一个-Webpack-Loader" class="headerlink" title="手把手教你撸一个 Webpack Loader"></a>手把手教你撸一个 Webpack Loader</h1><p>文：小 boy（沪江网校Web前端工程师）</p>
 <p>本文原创，转载请注明作者及出处</p>
-<p>经常逛 webpack 官网的同学应该会很眼熟上面的图。正如它宣传的一样，webpack 能把左侧各种类型的文件（webpack 把它们叫作「模块」）统一打包为右边被通用浏览器支持的文件。webpack 就像是魔术师的帽子，放进去一条丝巾，变出来一只白鸽。那这个「魔术」的过程是如何实现的呢？今天我们从 webpack 的核心概念之一 —— loader 来寻找答案，并着手实现这个「魔术」。看完本文，你可以：</p>
-<ul>
-<li>知道 webpack loader 的作用和原理。</li>
-<li>自己开发贴合业务需求的 loader。</li>
-</ul>
-<h2 id="什么是-Loader-？"><a href="#什么是-Loader-？" class="headerlink" title="什么是 Loader ？"></a>什么是 Loader ？</h2><p>在撸一个 loader 前，我们需要先知道它到底是什么。本质上来说，loader 就是一个 node 模块，这很符合 webpack 中「万物皆模块」的思路。既然是 node 模块，那就一定会导出点什么。在 webpack 的定义中，loader 导出一个函数，loader 会在转换源模块（resource）的时候调用该函数。在这个函数内部，我们可以通过传入 this 上下文给 Loader API 来使用它们。回顾一下头图左边的那些模块，他们就是所谓的源模块，会被 loader 转化为右边的通用文件，因此我们也可以概括一下 loader 的功能：把源模块转换成通用模块。</p>
-<h2 id="Loader-怎么用-？"><a href="#Loader-怎么用-？" class="headerlink" title="Loader 怎么用 ？"></a>Loader 怎么用 ？</h2><p>知道它的强大功能以后，我们要怎么使用 loader 呢？</p>
-<h3 id="1-配置-webpack-config-文件"><a href="#1-配置-webpack-config-文件" class="headerlink" title="1. 配置 webpack config 文件"></a>1. 配置 webpack config 文件</h3><p>既然 loader 是 webpack 模块，如果我们要使其生效，肯定离不开配置。我这里收集了三种配置方法，任你挑选。</p>
-<h4 id="单个-loader-的配置"><a href="#单个-loader-的配置" class="headerlink" title="单个 loader 的配置"></a>单个 loader 的配置</h4><p>增加 config.module.rules 数组中的规则对象（rule object）。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> webpackConfig = &#123;</span><br><span class="line">  <span class="comment">//...</span></span><br><span class="line">  <span class="built_in">module</span>: &#123;</span><br><span class="line">    rules: [&#123;</span><br><span class="line">      test: <span class="regexp">/\.js$/</span>,</span><br><span class="line">      use: [&#123;</span><br><span class="line">        <span class="comment">//这里写 loader 的路径</span></span><br><span class="line">        loader: path.resolve(__dirname, <span class="string">'loaders/a-loader.js'</span>), </span><br><span class="line">        options: &#123;<span class="comment">/* ... */</span>&#125;</span><br><span class="line">      &#125;]</span><br><span class="line">    &#125;]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h4 id="多个-loader-的配置"><a href="#多个-loader-的配置" class="headerlink" title="多个 loader 的配置"></a>多个 loader 的配置</h4><p>增加 config.module.rules 数组中的规则对象以及 config.resolveLoader。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> webpackConfig = &#123;</span><br><span class="line">  <span class="comment">//...</span></span><br><span class="line">  <span class="built_in">module</span>: &#123;</span><br><span class="line">    rules: [&#123;</span><br><span class="line">      test: <span class="regexp">/\.js$/</span>,</span><br><span class="line">      use: [&#123;</span><br><span class="line">        <span class="comment">//这里写 loader 名即可</span></span><br><span class="line">        loader: <span class="string">'a-loader'</span>, </span><br><span class="line">        options: &#123;<span class="comment">/* ... */</span>&#125;</span><br><span class="line">      &#125;, &#123;</span><br><span class="line">        loader: <span class="string">'b-loader'</span>, </span><br><span class="line">        options: &#123;<span class="comment">/* ... */</span>&#125;</span><br><span class="line">      &#125;]</span><br><span class="line">    &#125;]</span><br><span class="line">  &#125;,</span><br><span class="line">  resolveLoader: &#123;</span><br><span class="line">    <span class="comment">// 告诉 webpack 该去那个目录下找 loader 模块</span></span><br><span class="line">    modules: [<span class="string">'node_modules'</span>, path.resolve(__dirname, <span class="string">'loaders'</span>)]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h4 id="其他配置"><a href="#其他配置" class="headerlink" title="其他配置"></a>其他配置</h4><p>也可以通过 npm link 连接到你的项目里，这个方式类似 node CLI 工具开发，非 loader 模块专用，本文就不多讨论了。</p>
-<h3 id="2-简单上手"><a href="#2-简单上手" class="headerlink" title="2. 简单上手"></a>2. 简单上手</h3><p>配置完成后，当你在 webpack 项目中引入模块时，匹配到 rule （例如上面的 /.js$/）就会启用对应的 loader (例如上面的 a-loader 和 b-loader)。这时，假设我们是 a-loader 的开发者，a-loader 会导出一个函数，这个函数接受的唯一参数是一个包含源文件内容的字符串。我们暂且称它为「source」。</p>
-<p>接着我们在函数中处理 source 的转化，最终返回处理好的值。当然返回值的数量和返回方式依据 a-loader 的需求来定。一般情况下可以通过 return 返回一个值，也就是转化后的值。如果需要返回多个参数，则须调用 this.callback(err, values…) 来返回。在异步 loader 中你可以通过抛错来处理异常情况。Webpack 建议我们返回 1 至 2 个参数，第一个参数是转化后的 source，可以是 string 或 buffer。第二个参数可选，是用来当作 SourceMap 的对象。</p>
-<h3 id="3-进阶使用"><a href="#3-进阶使用" class="headerlink" title="3. 进阶使用"></a>3. 进阶使用</h3><p>通常我们处理一类源文件的时候，单一的 loader是不够用的（loader 的设计原则我们稍后讲到）。一般我们会将多个 loader 串联使用，类似工厂流水线，一个位置的工人（或机器）只干一种类型的活。既然是串联，那肯定有顺序的问题，webpack 规定 use 数组中 loader 的执行顺序是从最后一个到第一个，它们符合下面这些规则：</p>
-<ul>
-<li>顺序最后的 loader 第一个被调用，它拿到的参数是 source 的内容</li>
-<li>顺序第一的 loader 最后被调用， webpack 期望它返回 JS 代码，source map 如前面所说是可选的返回值。</li>
-<li>夹在中间的 loader 被链式调用，他们拿到上个 loader 的返回值，为下一个 loader 提供输入。</li>
-</ul>
-<p>我们举个例子：<br>webpack.config.js<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  test: <span class="regexp">/\.js/</span>,</span><br><span class="line">  use: [</span><br><span class="line">    <span class="string">'bar-loader'</span>,</span><br><span class="line">    <span class="string">'mid-loader'</span>,</span><br><span class="line">    <span class="string">'foo-loader'</span></span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>在上面的配置中：</p>
-<ul>
-<li>loader 的调用顺序是 foo-loader -&gt; mid-loader -&gt; bar-loader。</li>
-<li>foo-loader 拿到 source，处理后把 JS 代码传递给 mid，mid 拿到 foo 处理过的 “source” ，再处理之后给 bar，bar 处理完后再交给 webpack。</li>
-<li>bar-loader 最终把返回值和 source map 传给 webpack。</li>
-</ul>
-<h2 id="用正确的姿势开发-Loader"><a href="#用正确的姿势开发-Loader" class="headerlink" title="用正确的姿势开发 Loader"></a>用正确的姿势开发 Loader</h2><p>了解了基本模式后，我们先不急着开发。所谓磨刀不误砍柴工，我们先看看开发一个 loader 需要注意些什么，这样可以少走弯路，提高开发质量。下面是 webpack 提供的几点指南，它们按重要程度排序，注意其中有些点只适用特定情况。</p>
-<h3 id="1-单一职责"><a href="#1-单一职责" class="headerlink" title="1.单一职责"></a>1.单一职责</h3><p>一个 loader 只做一件事，这样不仅可以让 loader 的维护变得简单，还能让 loader 以不同的串联方式组合出符合场景需求的搭配。</p>
-<h3 id="2-链式组合"><a href="#2-链式组合" class="headerlink" title="2.链式组合"></a>2.链式组合</h3><p>这一点是第一点的延伸。好好利用 loader 的链式组合的特型，可以收获意想不到的效果。具体来说，写一个能一次干 5 件事情的 loader ，不如细分成 5 个只能干一件事情的 loader，也许其中几个能用在其他你暂时还没想到的场景。下面我们来举个例子。</p>
-<p>假设现在我们要实现通过 loader 的配置和 query 参数来渲染模版的功能。我们在 “apply-loader” 里面实现这个功能，它负责编译源模版，最终输出一个导出 HTML 字符串的模块。根据链式组合的规则，我们可以结合另外两个开源 loader：</p>
-<ul>
-<li>jade-loader 把模版源文件转化为导出一个函数的模块。</li>
-<li>apply-loader 把 loader options 传给上面的函数并执行，返回 HTML 文本。</li>
-<li>html-loader 接收 HTMl 文本文件，转化为可被引用的 JS 模块。</li>
-</ul>
-<p>事实上串联组合中的 loader 并不一定要返回 JS 代码。只要下游的 loader 能有效处理上游 loader 的输出，那么上游的 loader 可以返回任意类型的模块。</p>
-<h3 id="3-模块化"><a href="#3-模块化" class="headerlink" title="3.模块化"></a>3.模块化</h3><p>保证 loader 是模块化的。loader 生成模块需要遵循和普通模块一样的设计原则。</p>
-<h3 id="4-无状态"><a href="#4-无状态" class="headerlink" title="4.无状态"></a>4.无状态</h3><p>在多次模块的转化之间，我们不应该在 loader 中保留状态。每个 loader 运行时应该确保与其他编译好的模块保持独立，同样也应该与前几个 loader 对相同模块的编译结果保持独立。</p>
-<h3 id="5-使用-Loader-实用工具"><a href="#5-使用-Loader-实用工具" class="headerlink" title="5.使用 Loader 实用工具"></a>5.使用 Loader 实用工具</h3><p>请好好利用 loader-utils 包，它提供了很多有用的工具，最常用的一个就是获取传入 loader 的 options。除了 loader-utils 之外包还有 schema-utils 包，我们可以用 schema-utils 提供的工具，获取用于校验 options 的 JSON Schema 常量，从而校验 loader options。下面给出的例子简要地结合了上面提到的两个工具包：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; getOptions &#125; <span class="keyword">from</span> <span class="string">'loader-utils'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; validateOptions &#125; <span class="keyword">from</span> <span class="string">'schema-utils'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> schema = &#123;</span><br><span class="line">  type: object,</span><br><span class="line">  properties: &#123;</span><br><span class="line">    test: &#123;</span><br><span class="line">      type: string</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span>(<span class="params">source</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> options = getOptions(<span class="keyword">this</span>);</span><br><span class="line"></span><br><span class="line">    validateOptions(schema, options, <span class="string">'Example Loader'</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 在这里写转换 source 的逻辑 ...</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">`export default <span class="subst">$&#123; <span class="built_in">JSON</span>.stringify(source) &#125;</span>`</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<h2 id="Talk-is-cheep"><a href="#Talk-is-cheep" class="headerlink" title="Talk is cheep"></a>Talk is cheep</h2><p>以上我们已经为砍柴磨好了刀，接下来，我们动手开发一个 loader。</p>
-<p>如果我们要在项目开发中引用模版文件，那么压缩 html 是十分常见的需求。分解以上需求，解析模版、压缩模版其实可以拆分给两给 loader 来做（单一职责），前者较为复杂，我们就引入开源包 html-loader，而后者，我们就拿来练手。首先，我们给它取个响亮的名字 —— html-minify-loader。</p>
-<p>接下来，按照之前介绍的步骤，首先，我们应该配置 webpack.config.js ，让 webpack 能识别我们的 loader。当然，最最开始，我们要创建 loader 的 文件 —— src/loaders/html-minify-loader.js。<br>于是，我们在配置文件中这样处理：<br>webpack.config.js<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>: &#123;</span><br><span class="line">  rules: [&#123;</span><br><span class="line">    test: <span class="regexp">/\.html$/</span>,</span><br><span class="line">    use: [<span class="string">'html-loader'</span>, <span class="string">'html-minify-loader'</span>] <span class="comment">// 处理顺序 html-minify-loader =&gt; html-loader =&gt; webpack</span></span><br><span class="line">  &#125;]</span><br><span class="line">&#125;,</span><br><span class="line">resolveLoader: &#123;</span><br><span class="line">  <span class="comment">// 因为 html-loader 是开源 npm 包，所以这里要添加 'node_modules' 目录</span></span><br><span class="line">  modules: [path.join(__dirname, <span class="string">'./src/loaders'</span>), <span class="string">'node_modules'</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="接下来，我们提供示例-html-和-js-来测试-loader："><a href="#接下来，我们提供示例-html-和-js-来测试-loader：" class="headerlink" title="接下来，我们提供示例 html 和 js 来测试 loader："></a>接下来，我们提供示例 html 和 js 来测试 loader：</h3><p>src/example.html：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"ie=edge"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    </span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>src/app.js：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> html = <span class="built_in">require</span>(<span class="string">'./expamle.html'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(html);</span><br></pre></td></tr></table></figure></p>
-<p>好了，现在我们着手处理 src/loaders/html-minify-loader.js。前面我们说过，loader 也是一个 node 模块，它导出一个函数，该函数的参数是 require 的源模块，处理 source 后把返回值交给下一个 loader。所以它的 “模版” 应该是这样的：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span> (<span class="params">source</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 处理 source ...</span></span><br><span class="line">  <span class="keyword">return</span> handledSource;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 或</span></span><br><span class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span> (<span class="params">source</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 处理 source ...</span></span><br><span class="line">  <span class="keyword">this</span>.callback(<span class="literal">null</span>, handledSource)</span><br><span class="line">  <span class="keyword">return</span> handledSource;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>注意：如果是处理顺序排在最后一个的 loader，那么它的返回值将最终交给 webpack 的 require，换句话说，它一定是一段可执行的 JS 脚本 （用字符串来存储），更准确来说，是一个 node 模块的 JS 脚本，我们来看下面的例子。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 处理顺序排在最后的 loader</span></span><br><span class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span> (<span class="params">source</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 这个 loader 的功能是把源模块转化为字符串交给 require 的调用方</span></span><br><span class="line">  <span class="keyword">return</span> <span class="string">'module.exports = '</span> + <span class="built_in">JSON</span>.stringify(source);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>整个过程相当于这个 loader 把源文件</p>
-<p>这里是 source 模块</p>
-<p>转化为<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// example.js</span></span><br><span class="line"><span class="built_in">module</span>.exports = <span class="string">'这里是 source 模块'</span>;</span><br></pre></td></tr></table></figure></p>
-<p>然后交给 require 调用方：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// applySomeModule.js</span></span><br><span class="line"><span class="keyword">var</span> source = <span class="built_in">require</span>(<span class="string">'example.js'</span>); </span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(source); <span class="comment">// 这里是 source 模块</span></span><br></pre></td></tr></table></figure></p>
-<p>而我们本次串联的两个 loader 中，解析 html 、转化为 JS 执行脚本的任务已经交给 html-loader 了，我们来处理 html 压缩问题。</p>
-<p>作为普通 node 模块的 loader 可以轻而易举地引用第三方库。我们使用 minimize 这个库来完成核心的压缩功能：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// src/loaders/html-minify-loader.js</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> Minimize = <span class="built_in">require</span>(<span class="string">'minimize'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span>(<span class="params">source</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> minimize = <span class="keyword">new</span> Minimize();</span><br><span class="line">  <span class="keyword">return</span> minimize.parse(source);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<p>当然， minimize 库支持一系列的压缩参数，比如 comments 参数指定是否需要保留注释。我们肯定不能在 loader 里写死这些配置。那么 loader-utils 就该发挥作用了：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// src/loaders/html-minify-loader.js</span></span><br><span class="line"><span class="keyword">var</span> loaderUtils = <span class="built_in">require</span>(<span class="string">'loader-utils'</span>);</span><br><span class="line"><span class="keyword">var</span> Minimize = <span class="built_in">require</span>(<span class="string">'minimize'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span>(<span class="params">source</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> options = loaderUtils.getOptions(<span class="keyword">this</span>) || &#123;&#125;; <span class="comment">//这里拿到 webpack.config.js 的 loader 配置</span></span><br><span class="line">  <span class="keyword">var</span> minimize = <span class="keyword">new</span> Minimize(options);</span><br><span class="line">  <span class="keyword">return</span> minimize.parse(source);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<p>这样，我们可以在 webpack.config.js 中设置压缩后是否需要保留注释：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>: &#123;</span><br><span class="line">  rules: [&#123;</span><br><span class="line">    test: <span class="regexp">/\.html$/</span>,</span><br><span class="line">    use: [<span class="string">'html-loader'</span>, &#123;</span><br><span class="line">      loader: <span class="string">'html-minify-loader'</span>,</span><br><span class="line">      options: &#123;</span><br><span class="line">          comments: <span class="literal">false</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;] </span><br><span class="line">  &#125;]</span><br><span class="line">&#125;,</span><br><span class="line">resolveLoader: &#123;</span><br><span class="line">  <span class="comment">// 因为 html-loader 是开源 npm 包，所以这里要添加 'node_modules' 目录</span></span><br><span class="line">  modules: [path.join(__dirname, <span class="string">'./src/loaders'</span>), <span class="string">'node_modules'</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>当然，你还可以把我们的 loader 写成异步的方式，这样不会阻塞其他编译进度：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Minimize = <span class="built_in">require</span>(<span class="string">'minimize'</span>);</span><br><span class="line"><span class="keyword">var</span> loaderUtils = <span class="built_in">require</span>(<span class="string">'loader-utils'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span>(<span class="params">source</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> callback = <span class="keyword">this</span>.async();</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">this</span>.cacheable) &#123;</span><br><span class="line">    <span class="keyword">this</span>.cacheable();</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">var</span> opts = loaderUtils.getOptions(<span class="keyword">this</span>) || &#123;&#125;;</span><br><span class="line">  <span class="keyword">var</span> minimize = <span class="keyword">new</span> Minimize(opts);</span><br><span class="line">  minimize.parse(source, callback);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<p>你可以在这个仓库查看相关代码，npm start 以后可以去 <a href="http://localhost:9000" target="_blank" rel="noopener">http://localhost:9000</a> 打开控制台查看 loader 处理后的内容。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>到这里，对于「如何开发一个 loader」，我相信你已经有了自己的答案。总结一下，一个 loader 在我们项目中 work 需要经历以下步骤：</p>
-<ul>
-<li>创建 loader 的目录及模块文件</li>
-<li>在 webpack 中配置 rule 及 loader 的解析路径，并且要注意 loader 的顺序，这样在 require 指定类型文件时，我们能让处理流经过指定 laoder。</li>
-<li>遵循原则设计和开发 loader。</li>
-</ul>
-<p>最后，Talk is cheep，赶紧动手撸一个 loader 耍耍吧～</p>
-
+          <div class="read-more">
+            <a href="/2018/01/29/转载-手把手教你撸一个-Webpack-Loader/" class="read-more-link">阅读更多</a>
+          </div>
         
       
     </div>
