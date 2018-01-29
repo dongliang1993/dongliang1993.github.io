@@ -712,6 +712,7 @@
 <ol>
 <li>什么叫做跨域？如何解决跨域问题？</li>
 </ol>
+<p><a href="https://segmentfault.com/a/1190000007326671" target="_blank" rel="noopener">https://segmentfault.com/a/1190000007326671</a></p>
 <p>只要协议、域名、端口有任何一个不同，都被当作是不同的域，之间的请求就是跨域操作。</p>
 <p>浏览器的同源策略会导致跨域，这里同源策略又分为以下两种：</p>
 <ol>
@@ -722,6 +723,11 @@
 <p>跨域限制主要是为了安全考虑。</p>
 <p>AJAX 同源策略主要用来防止 CSRF 攻击。如果没有 AJAX 同源策略，相当危险，我们发起的每一次 HTTP 请求都会带上请求地址对应的 cookie，那么可以做如下攻击：</p>
 <p>用户登录了自己的银行页面 <a href="http://mybank.com，http://mybank.com" target="_blank" rel="noopener">http://mybank.com，http://mybank.com</a> 向用户的 cookie 中添加用户标识。<br>用户浏览了恶意页面 <a href="http://evil.com。执行了页面中的恶意" target="_blank" rel="noopener">http://evil.com。执行了页面中的恶意</a> AJAX 请求代码。<br><a href="http://evil.com" target="_blank" rel="noopener">http://evil.com</a> 向 <a href="http://mybank.com" target="_blank" rel="noopener">http://mybank.com</a> 发起 AJAX HTTP 请求，请求会默认把 <a href="http://mybank.com" target="_blank" rel="noopener">http://mybank.com</a> 对应 cookie 也同时发送过去。<br>银行页面从发送的 cookie 中提取用户标识，验证用户无误，response 中返回请求数据。此时数据就泄露了。<br>而且由于 Ajax 在后台执行，用户无法感知这一过程。</p>
+<p>这里我们需要注意两点:</p>
+<ul>
+<li>如果是协议和端口造成的跨域问题“前台”是无能为力的；</li>
+<li>在跨域问题上，域仅仅是通过“URL的首部”来识别而不会去尝试判断相同的ip地址对应着两个域或两个域是否在同一个ip上。<br>(“URL的首部”指window.location.protocol +window.location.host，也可以理解为“Domains, protocols and ports must match”。)</li>
+</ul>
 <p>跨域的解决方式</p>
 <ol>
 <li>跨域资源共享 (CORS)<br>全称是”跨域资源共享”（Cross-origin resource sharing）。 对于这个方式，阮一峰老师总结的文章特别好，希望深入了解的可以看一下 <a href="http://www.ruanyifeng.com/blog/2016/04/cors.html。" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2016/04/cors.html。</a></li>
@@ -733,7 +739,7 @@
 </ol>
 <p>原理是：动态插入 script 标签，通过 script 标签引入一个 js 文件，这个 js 文件载入成功后会执行我们在 url 参数中指定的函数，并且会把我们需要的 json 数据作为参数传入。</p>
 <p>优点是兼容性好，简单易用，支持浏览器与服务器双向通信。缺点是只支持 GET 请求。</p>
-<p>JSONP：json+padding（内填充），顾名思义，就是把 JSON 填充到一个盒子里<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line"><span class="comment">// 定义一个 fun 函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun</span>(<span class="params">fata</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(data);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 创建一个脚本，并且告诉后端回调函数名叫 fun</span></span><br><span class="line"><span class="keyword">var</span> body = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'body'</span>)[<span class="number">0</span>];</span><br><span class="line"><span class="keyword">var</span> script = <span class="built_in">document</span>.gerElement(<span class="string">'script'</span>);</span><br><span class="line">script.type = <span class="string">'text/javasctipt'</span>;</span><br><span class="line">script.src = <span class="string">'demo.js?callback=fun'</span>;</span><br><span class="line">body.appendChild(script);</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>JSONP：json+padding（内填充），顾名思义，就是把 JSON 填充到一个盒子里<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义一个 fun 函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun</span>(<span class="params">fata</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(data);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 创建一个脚本，并且告诉后端回调函数名叫 fun</span></span><br><span class="line"><span class="keyword">var</span> body = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'body'</span>)[<span class="number">0</span>];</span><br><span class="line"><span class="keyword">var</span> script = <span class="built_in">document</span>.gerElement(<span class="string">'script'</span>);</span><br><span class="line">script.type = <span class="string">'text/javasctipt'</span>;</span><br><span class="line">script.src = <span class="string">'demo.js?callback=fun'</span>;</span><br><span class="line">body.appendChild(script);</span><br></pre></td></tr></table></figure></p>
 <p>返回的 js 脚本，直接会执行。所以就执行了事先定义好的 fun 函数了，并且把数据传入了进来。</p>
 <ol>
 <li><p>服务器代理<br>浏览器有跨域限制，但是服务器不存在跨域问题，所以可以由服务器请求所要域的资源再返回给客户端。</p>
@@ -741,7 +747,8 @@
 <li><p>通过修改 document.domain 来跨子域</p>
 </li>
 </ol>
-<p>对于主域名相同，而子域名不同的情况，可以使用 document.domain 来跨域 这种方式非常适用于 iframe 跨域的情况，直接看例子吧 比如 a 页面地址为 <a href="http://a.yourhost.com" target="_blank" rel="noopener">http://a.yourhost.com</a> b 页面为 <a href="http://b.yourhost.com。" target="_blank" rel="noopener">http://b.yourhost.com。</a> 这样就可以通过分别给两个页面设置 document.domain = <a href="http://yourhost.com" target="_blank" rel="noopener">http://yourhost.com</a> 来实现跨域。 之后，就可以通过 parent 或者 window[‘iframename’] 等方式去拿到 iframe 的 window 对象了。</p>
+<p>前面说过了，浏览器有一个同源策略，其限制之一是不能通过ajax的方法去请求不同源中的文档。 第二个限制是浏览器中不同域的框架之间是不能进行js的交互操作的。不同的框架之间是可以获取window对象的，但却无法获取相应的属性和方法。比如，有一个页面，它的地址是<a href="http://www.damonare.cn/a.html" target="_blank" rel="noopener">http://www.damonare.cn/a.html</a> ， 在这个页面里面有一个iframe，它的src是<a href="http://damonare.cn/b.html" target="_blank" rel="noopener">http://damonare.cn/b.html</a>, 很显然，这个页面与它里面的iframe框架是不同域的，所以我们是无法通过在页面中书写js代码来获取iframe中的东西的</p>
+<p>对于主域名相同，而子域名不同的情况，可以使用 document.domain 来跨域 这种方式非常适用于 iframe 跨域的情况，直接看例子吧<br>比如 a 页面地址为 <a href="http://a.yourhost.com" target="_blank" rel="noopener">http://a.yourhost.com</a> b 页面为 <a href="http://b.yourhost.com。" target="_blank" rel="noopener">http://b.yourhost.com。</a> 这样就可以通过分别给两个页面设置 document.domain = <a href="http://yourhost.com" target="_blank" rel="noopener">http://yourhost.com</a> 来实现跨域。 之后，就可以通过 parent 或者 window[‘iframename’] 等方式去拿到 iframe 的 window 对象了。</p>
 <ol>
 <li>使用 window.name 来进行跨域</li>
 </ol>
@@ -756,6 +763,17 @@
 <li>页面与所嵌套的 iframe 之间的信息传递。</li>
 </ol>
 <p>window.postMessage 是一个 HTML5 的 api，允许两个窗口之间进行跨域发送消息。这个应该就是以后解决 dom 跨域通用方法了，具体可以参照 MDN。</p>
+<p>postMessage的使用方法：</p>
+<ul>
+<li>otherWindow.postMessage(message, targetOrigin);<ul>
+<li>otherWindow:指目标窗口，也就是给哪个window发消息，是 window.frames 属性的成员或者由 window.open 方法创建的窗口</li>
+<li>message: 是要发送的消息，类型为 String、Object (IE8、9 不支持)</li>
+<li>targetOrigin: 是限定消息接收范围，不限制请使用 ‘*</li>
+</ul>
+</li>
+</ul>
+<p>B页面通过message事件监听并接受消息:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> onmessage = <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;  </span><br><span class="line">  <span class="keyword">var</span> data = event.data;<span class="comment">//消息  </span></span><br><span class="line">  <span class="keyword">var</span> origin = event.origin;<span class="comment">//消息来源地址  </span></span><br><span class="line">  <span class="keyword">var</span> source = event.source;<span class="comment">//源Window对象  </span></span><br><span class="line">  <span class="keyword">if</span>(origin==<span class="string">"http://www.baidu.com"</span>)&#123;  </span><br><span class="line">    <span class="built_in">console</span>.log(data);<span class="comment">//hello world!  </span></span><br><span class="line">  &#125;  </span><br><span class="line">&#125;;  </span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="built_in">window</span>.addEventListener != <span class="string">'undefined'</span>) &#123;  </span><br><span class="line">  <span class="built_in">window</span>.addEventListener(<span class="string">'message'</span>, onmessage, <span class="literal">false</span>);  </span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="built_in">window</span>.attachEvent != <span class="string">'undefined'</span>) &#123;  </span><br><span class="line">  <span class="comment">//for ie  </span></span><br><span class="line">  <span class="built_in">window</span>.attachEvent(<span class="string">'onmessage'</span>, onmessage);  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>同理，也可以B页面发送消息，然后A页面监听并接受消息。</p>
 <h2 id="3-XML-和-JSON-的区别？"><a href="#3-XML-和-JSON-的区别？" class="headerlink" title="3. XML 和 JSON 的区别？"></a>3. XML 和 JSON 的区别？</h2><p>(1). 数据体积方面。<br>JSON 相对于 XML 来讲，数据的体积小，传递的速度更快些。<br>(2). 数据交互方面。<br>JSON 与 JavaScript 的交互更加方便，更容易解析处理，更好的数据交互。<br>(3). 数据描述方面。<br>JSON 对数据的描述性比 XML 较差。<br>(4). 传输速度方面。<br>JSON 的速度要远远快于 XML。</p>
 <h2 id="4-谈谈你对-webpack-的看法"><a href="#4-谈谈你对-webpack-的看法" class="headerlink" title="4. 谈谈你对 webpack 的看法"></a>4. 谈谈你对 webpack 的看法</h2><p>WebPack 是一个模块打包工具，你可以使用 WebPack 管理你的模块依赖，并编绎输出模块们所需的静态文件。它能够很好地管理、打包 Web 开发中所用到的 HTML、JavaScript、CSS 以及各种静态文件（图片、字体等），让开发过程更加高效。对于不同类型的资源，webpack 有对应的模块加载器。webpack 模块打包器会分析模块间的依赖关系，最后 生成了优化且合并后的静态资源。</p>
 <p>webpack 的两大特色：</p>
