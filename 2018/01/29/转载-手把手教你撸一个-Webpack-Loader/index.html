@@ -108,7 +108,7 @@
         <li class="mobile-menu-item">
           
           
-            Home
+            首页
           
         </li>
       </a>
@@ -117,7 +117,7 @@
         <li class="mobile-menu-item">
           
           
-            Archives
+            归档
           
         </li>
       </a>
@@ -126,7 +126,7 @@
         <li class="mobile-menu-item">
           
           
-            Tags
+            标签
           
         </li>
       </a>
@@ -135,7 +135,7 @@
         <li class="mobile-menu-item">
           
           
-            Categories
+            分类
           
         </li>
       </a>
@@ -144,7 +144,7 @@
         <li class="mobile-menu-item">
           
           
-            About
+            关于
           
         </li>
       </a>
@@ -165,7 +165,7 @@
           <a class="menu-item-link" href="/">
             
             
-              Home
+              首页
             
           </a>
         </li>
@@ -174,7 +174,7 @@
           <a class="menu-item-link" href="/archives/">
             
             
-              Archives
+              归档
             
           </a>
         </li>
@@ -183,7 +183,7 @@
           <a class="menu-item-link" href="/tags">
             
             
-              Tags
+              标签
             
           </a>
         </li>
@@ -192,7 +192,7 @@
           <a class="menu-item-link" href="/categories">
             
             
-              Categories
+              分类
             
           </a>
         </li>
@@ -201,7 +201,7 @@
           <a class="menu-item-link" href="/about">
             
             
-              About
+              关于
             
           </a>
         </li>
@@ -243,7 +243,7 @@
     
     
   <div class="post-toc" id="post-toc">
-    <h2 class="post-toc-title">Contents</h2>
+    <h2 class="post-toc-title">文章目录</h2>
     <div class="post-toc-content">
       <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是-Loader-？"><span class="toc-text"><a href="#&#x4EC0;&#x4E48;&#x662F;-Loader-&#xFF1F;" class="headerlink" title="&#x4EC0;&#x4E48;&#x662F; Loader &#xFF1F;"></a>&#x4EC0;&#x4E48;&#x662F; Loader &#xFF1F;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Loader-怎么用-？"><span class="toc-text"><a href="#Loader-&#x600E;&#x4E48;&#x7528;-&#xFF1F;" class="headerlink" title="Loader &#x600E;&#x4E48;&#x7528; &#xFF1F;"></a>Loader &#x600E;&#x4E48;&#x7528; &#xFF1F;</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-配置-webpack-config-文件"><span class="toc-text"><a href="#1-&#x914D;&#x7F6E;-webpack-config-&#x6587;&#x4EF6;" class="headerlink" title="1. &#x914D;&#x7F6E; webpack config &#x6587;&#x4EF6;"></a>1. &#x914D;&#x7F6E; webpack config &#x6587;&#x4EF6;</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#单个-loader-的配置"><span class="toc-text"><a href="#&#x5355;&#x4E2A;-loader-&#x7684;&#x914D;&#x7F6E;" class="headerlink" title="&#x5355;&#x4E2A; loader &#x7684;&#x914D;&#x7F6E;"></a>&#x5355;&#x4E2A; loader &#x7684;&#x914D;&#x7F6E;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#多个-loader-的配置"><span class="toc-text"><a href="#&#x591A;&#x4E2A;-loader-&#x7684;&#x914D;&#x7F6E;" class="headerlink" title="&#x591A;&#x4E2A; loader &#x7684;&#x914D;&#x7F6E;"></a>&#x591A;&#x4E2A; loader &#x7684;&#x914D;&#x7F6E;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#其他配置"><span class="toc-text"><a href="#&#x5176;&#x4ED6;&#x914D;&#x7F6E;" class="headerlink" title="&#x5176;&#x4ED6;&#x914D;&#x7F6E;"></a>&#x5176;&#x4ED6;&#x914D;&#x7F6E;</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-简单上手"><span class="toc-text"><a href="#2-&#x7B80;&#x5355;&#x4E0A;&#x624B;" class="headerlink" title="2. &#x7B80;&#x5355;&#x4E0A;&#x624B;"></a>2. &#x7B80;&#x5355;&#x4E0A;&#x624B;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-进阶使用"><span class="toc-text"><a href="#3-&#x8FDB;&#x9636;&#x4F7F;&#x7528;" class="headerlink" title="3. &#x8FDB;&#x9636;&#x4F7F;&#x7528;"></a>3. &#x8FDB;&#x9636;&#x4F7F;&#x7528;</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#用正确的姿势开发-Loader"><span class="toc-text"><a href="#&#x7528;&#x6B63;&#x786E;&#x7684;&#x59FF;&#x52BF;&#x5F00;&#x53D1;-Loader" class="headerlink" title="&#x7528;&#x6B63;&#x786E;&#x7684;&#x59FF;&#x52BF;&#x5F00;&#x53D1; Loader"></a>&#x7528;&#x6B63;&#x786E;&#x7684;&#x59FF;&#x52BF;&#x5F00;&#x53D1; Loader</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-单一职责"><span class="toc-text"><a href="#1-&#x5355;&#x4E00;&#x804C;&#x8D23;" class="headerlink" title="1.&#x5355;&#x4E00;&#x804C;&#x8D23;"></a>1.&#x5355;&#x4E00;&#x804C;&#x8D23;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-链式组合"><span class="toc-text"><a href="#2-&#x94FE;&#x5F0F;&#x7EC4;&#x5408;" class="headerlink" title="2.&#x94FE;&#x5F0F;&#x7EC4;&#x5408;"></a>2.&#x94FE;&#x5F0F;&#x7EC4;&#x5408;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-模块化"><span class="toc-text"><a href="#3-&#x6A21;&#x5757;&#x5316;" class="headerlink" title="3.&#x6A21;&#x5757;&#x5316;"></a>3.&#x6A21;&#x5757;&#x5316;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-无状态"><span class="toc-text"><a href="#4-&#x65E0;&#x72B6;&#x6001;" class="headerlink" title="4.&#x65E0;&#x72B6;&#x6001;"></a>4.&#x65E0;&#x72B6;&#x6001;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-使用-Loader-实用工具"><span class="toc-text"><a href="#5-&#x4F7F;&#x7528;-Loader-&#x5B9E;&#x7528;&#x5DE5;&#x5177;" class="headerlink" title="5.&#x4F7F;&#x7528; Loader &#x5B9E;&#x7528;&#x5DE5;&#x5177;"></a>5.&#x4F7F;&#x7528; Loader &#x5B9E;&#x7528;&#x5DE5;&#x5177;</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Talk-is-cheep"><span class="toc-text"><a href="#Talk-is-cheep" class="headerlink" title="Talk is cheep"></a>Talk is cheep</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#接下来，我们提供示例-html-和-js-来测试-loader："><span class="toc-text"><a href="#&#x63A5;&#x4E0B;&#x6765;&#xFF0C;&#x6211;&#x4EEC;&#x63D0;&#x4F9B;&#x793A;&#x4F8B;-html-&#x548C;-js-&#x6765;&#x6D4B;&#x8BD5;-loader&#xFF1A;" class="headerlink" title="&#x63A5;&#x4E0B;&#x6765;&#xFF0C;&#x6211;&#x4EEC;&#x63D0;&#x4F9B;&#x793A;&#x4F8B; html &#x548C; js &#x6765;&#x6D4B;&#x8BD5; loader&#xFF1A;"></a>&#x63A5;&#x4E0B;&#x6765;&#xFF0C;&#x6211;&#x4EEC;&#x63D0;&#x4F9B;&#x793A;&#x4F8B; html &#x548C; js &#x6765;&#x6D4B;&#x8BD5; loader&#xFF1A;</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-text"><a href="#&#x603B;&#x7ED3;" class="headerlink" title="&#x603B;&#x7ED3;"></a>&#x603B;&#x7ED3;</span></a></li></ol>
     </div>
@@ -328,15 +328,15 @@
 
   <div class="post-copyright">
     <p class="copyright-item">
-      <span>Author: </span>
+      <span>原文作者: </span>
       <a href="http://yoursite.com">我是你豆子欧巴</a>
     </p>
     <p class="copyright-item">
-      <span>Link: </span>
+      <span>原文链接: </span>
       <a href="http://yoursite.com/2018/01/29/转载-手把手教你撸一个-Webpack-Loader/">http://yoursite.com/2018/01/29/转载-手把手教你撸一个-Webpack-Loader/</a>
     </p>
     <p class="copyright-item">
-      <span>License: </span>
+      <span>许可协议: </span>
       
       <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
     </p>
@@ -355,10 +355,16 @@
         
   <nav class="post-nav">
     
+      <a class="prev" href="/2018/01/30/《你不知道的JavaScript-上》笔记/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">《你不知道的JavaScript-上》笔记</span>
+        <span class="prev-text nav-mobile">上一篇</span>
+      </a>
+    
     
       <a class="next" href="/2018/01/25/for-in-循环顺序的问题/">
         <span class="next-text nav-default">for in 循环顺序的问题</span>
-        <span class="prev-text nav-mobile">Next</span>
+        <span class="prev-text nav-mobile">下一篇</span>
         <i class="iconfont icon-right"></i>
       </a>
     
@@ -424,11 +430,11 @@
 
 <div class="copyright">
   <span class="power-by">
-    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
   </span>
   <span class="division">|</span>
   <span class="theme-info">
-    Theme - 
+    主题 - 
     <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
   </span>
 

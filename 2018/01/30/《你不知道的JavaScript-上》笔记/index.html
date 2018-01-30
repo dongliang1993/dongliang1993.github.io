@@ -17,7 +17,7 @@
 
 
 
-  <meta name="description" content="babel从入门到入门的知识归纳"/>
+  <meta name="description" content="《你不知道的JavaScript-上》笔记"/>
 
 
 
@@ -40,7 +40,7 @@
 
 
 
-<link rel="canonical" href="http://yoursite.com/2017/12/04/babel从入门到入门的知识归纳/"/>
+<link rel="canonical" href="http://yoursite.com/2018/01/30/《你不知道的JavaScript-上》笔记/"/>
 
 
 <link rel="stylesheet" type="text/css" href="/css/style.css?v=2.6.0" />
@@ -87,7 +87,7 @@
 
 
 
-    <title> babel从入门到入门的知识归纳 - 我是你豆子欧巴 </title>
+    <title> 《你不知道的JavaScript-上》笔记 - 我是你豆子欧巴 </title>
   </head>
 
   <body><div id="mobile-navbar" class="mobile-navbar">
@@ -221,19 +221,19 @@
     <header class="post-header">
       <h1 class="post-title">
         
-          babel从入门到入门的知识归纳
+          《你不知道的JavaScript-上》笔记
         
       </h1>
 
       <div class="post-meta">
         <span class="post-time">
-          2017-12-04
+          2018-01-30
         </span>
         
         
         <div class="post-visits"
-             data-url="/2017/12/04/babel从入门到入门的知识归纳/"
-             data-title="babel从入门到入门的知识归纳">
+             data-url="/2018/01/30/《你不知道的JavaScript-上》笔记/"
+             data-title="《你不知道的JavaScript-上》笔记">
             阅读次数
           </div>
         
@@ -245,29 +245,79 @@
   <div class="post-toc" id="post-toc">
     <h2 class="post-toc-title">文章目录</h2>
     <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1、babel是什么"><span class="toc-text"><a href="#1&#x3001;babel&#x662F;&#x4EC0;&#x4E48;" class="headerlink" title="1&#x3001;babel&#x662F;&#x4EC0;&#x4E48;"></a>1&#x3001;babel&#x662F;&#x4EC0;&#x4E48;</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2、javascript制作规范"><span class="toc-text"><a href="#2&#x3001;javascript&#x5236;&#x4F5C;&#x89C4;&#x8303;" class="headerlink" title="2&#x3001;javascript&#x5236;&#x4F5C;&#x89C4;&#x8303;"></a>2&#x3001;javascript&#x5236;&#x4F5C;&#x89C4;&#x8303;</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-为什么要用this"><span class="toc-text"><a href="#1-1-&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x7528;this" class="headerlink" title="1.1 &#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x7528;this"></a>1.1 &#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x7528;this</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#绑定规则"><span class="toc-text"><a href="#&#x7ED1;&#x5B9A;&#x89C4;&#x5219;" class="headerlink" title="&#x7ED1;&#x5B9A;&#x89C4;&#x5219;"></a>&#x7ED1;&#x5B9A;&#x89C4;&#x5219;</span></a></li></ol>
     </div>
   </div>
 
 
     <div class="post-content">
       
-        <p>1、babel是什么</p>
-<p>2、javascript制作规范</p>
-<p>3、babel转译器</p>
-<p>4、babel的使用</p>
-<p>5、常见的几种babel转译器和插件</p>
-<p>6、babel最常见配置选项</p>
-<p>7、babel的其他</p>
-<p>8、在webpack中使用babel</p>
-<p>9、总结</p>
-<h1 id="1、babel是什么"><a href="#1、babel是什么" class="headerlink" title="1、babel是什么"></a>1、babel是什么</h1><p>babel官网正中间一行黄色大字写着 “babel is a javascript compiler”，翻译一下就是babel是一个 javascript 编译器。</p>
-<p>为什么会有babel存在呢？原因 javascript 在不断的发展，但是浏览器的发展速度跟不上。</p>
-<p>以 es6 为例，es6 中为 javascript 增加了箭头函数、块级作用域等新的语法和 Symbol、Promise 等新的数据类型，但是这些语法和数据类型并不能够马上被现在的浏览器全部支持，为了能在现有的浏览器上使用 js 新的语法和新的数据类型，就需要使用一个转译器，将 javascript 中新增的特性转为现代浏览器能理解的形式。babel 就是做这个方面的转化工作。</p>
-<h1 id="2、javascript制作规范"><a href="#2、javascript制作规范" class="headerlink" title="2、javascript制作规范"></a>2、javascript制作规范</h1><p>在这里有必要简单讲一下 javascript 版本，我只是大体讲下。</p>
-<p>javascript 是网景公司开发的一种脚本语言，1996 年的时候以 ECMAScript 的名字正式成为一种标准。2007 年的时候发布了版本 es5 ，然后在随后近 10 年里 js 并没有大的变化。所以现在的浏览器都可以很好的支持 es5。这一局面直到 2015 年被打破。2015年6月，TC39（javascript标准的制定组织）公布了新版本的js语言——ES6。而且从ES6开始，TC39规定每年都要发布一个js的新版本，新版本将包含年号，都是以ESxxxx的方式进行命名。所以2015年发布的ES6又叫ES2015，2016年发布的新的js版本就叫ES2016，2017年发布的新的js版本就叫ES2017……。</p>
-<p>因为版本都是向前兼容的，就是老版本js版本中规定的语法和api在新版本的js中同样也会合理的。所以我们可以想到后面的规范肯定是包含前面的规范的，也就是ES2016版本的js规范是包含ES2015(ES6)规范的，ES2017是包含ES2016的也包含ES2015的。针对不同的规范，Babel也提供了对应的转换器。</p>
-<p>babel-preset-es2015 将es2015版本的js转译为es5。<br>babel-preset-es2016 将es2016版本的js转译为es5。<br>babel-preset-es2017 将es2017版本的js转译为es5。<br>在转译过程中遇到更高版本的js语法，babel是会直接忽略的。</p>
+        <h2 id="1-1-为什么要用this"><a href="#1-1-为什么要用this" class="headerlink" title="1.1 为什么要用this"></a>1.1 为什么要用this</h2><ul>
+<li><p>这段代码可以在不同的上下文对象（ me 和 you）中重复使用函数 identify() 和 speak()，不用针对每个对象编写不同版本的函数。<br>this 提供了一种更优雅的方式来隐式“ 传递” 一个对象引用</p>
+</li>
+<li><p>this 不是指向函数自身</p>
+</li>
+<li><p>如果要从函数对象内部引用它自身，一般来说你需要通过一个指<br>向函数对象的词法标识符（ 变量） 来引用它。还有一种传统的但是现在已经被弃用和批判的用法， 是使用 arguments.callee 来引用当前正在运行的函数对象。 这是唯一一种可以从匿名函数对象内部引用自身的方法。</p>
+</li>
+<li><p>this 是在运行时进行绑定的， 并不是在编写时绑定， 它的上下文取决于函数调用时的各种条件。 this 的绑定和函数声明的位置没有任何关系， 只取决于函数的调用方式。</p>
+</li>
+<li><p>调用位置就是函数在代码中被调用的位置（ 而不是声明的位置）</p>
+</li>
+</ul>
+<h2 id="绑定规则"><a href="#绑定规则" class="headerlink" title="绑定规则"></a>绑定规则</h2><ul>
+<li>默认绑定<ul>
+<li>独立函数调用 this 指向全局对象</li>
+<li>直接使用不带任何修饰的函数引用进行调用</li>
+<li>如果使用严格模式（ strict mode）， 那么全局对象将无法使用默认绑定， 因此 this 会绑定到 undefined</li>
+</ul>
+</li>
+<li>隐式绑定<ul>
+<li>调用位置是否有上下文对象， 或者说是否被某个对象拥有或者包含</li>
+<li>当函数引用有上下文对象时， 隐式绑定规则会把函数调用中的 this 绑定到这个上下文对象</li>
+<li>对象属性引用链中只有最顶层或者说最后一层会影响调用位置。</li>
+<li>隐式丢失<ul>
+<li>被隐式绑定的函数会丢失绑定对象， 也就是说它会应用默认绑定， 从而把 this 绑定到全局对象或者 undefined 上， 取决于是否是严格模式</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>显式绑定</p>
+<ul>
+<li>具体点说， 可以使用函数的 call(..) 和 apply(..) 方法</li>
+<li><p>硬绑定</p>
+<ul>
+<li><p>硬绑定的典型应用场景就是创建一个包裹函数， 传入所有的参数并返回接收到的所有值</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log( <span class="keyword">this</span>.a );</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  a:<span class="number">2</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> bar = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  foo.call( obj );</span><br><span class="line">&#125;;</span><br><span class="line">bar(); <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>由于硬绑定是一种非常常用的模式， 所以在 ES5 中提供了内置的方法 Function.prototype.bind</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>new绑定</li>
+<li>优先级<ol>
+<li>函数是否在 new 中调用（ new 绑定）？ 如果是的话 this 绑定的是新创建的对象。<br>var bar = new foo()</li>
+<li>函数是否通过 call、 apply（ 显式绑定） 或者硬绑定调用？ 如果是的话， this 绑定的是指定的对象。<br>var bar = foo.call(obj2)</li>
+<li>函数是否在某个上下文对象中调用（ 隐式绑定） ？ 如果是的话， this 绑定的是那个上下文对象。<br>var bar = obj1.foo()</li>
+<li>如果都不是的话， 使用默认绑定。 如果在严格模式下， 就绑定到 undefined， 否则绑定到全局对象。<br>var bar = foo()</li>
+</ol>
+</li>
+<li>绑定例外<ul>
+<li>如果你把 null 或者 undefined 作为 this 的绑定对象传入 call、 apply 或者 bind， 这些值在调用时会被忽略， 实际应用的是默认绑定规则</li>
+<li>一种“ 更安全” 的做法是传入一个特殊的对象（DMZ 对象）， 把 this 绑定到这个对象不会对你的程序产生任何副作用</li>
+<li>在 JavaScript 中创建一个空对象最简单的方法都是 Object.create(null) Object.create(null) 和 {} 很像， 但是并不会创建 Object.prototype 这个委托， 所以它比 {}“ 更空”</li>
+<li>软绑定<ul>
+<li>对指定的函数进行封装， 首先检查调用时的 this， 如果 this 绑定到全局对象或者 undefined， 那就把指定的默认对象 obj 绑定到 this， 否则不会修改 this</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>箭头函数<ul>
+<li>箭头函数不使用 this 的四种标准规则， 而是会继承外层函数调用的 this 绑定</li>
+</ul>
+</li>
+</ul>
 
       
     </div>
@@ -283,7 +333,7 @@
     </p>
     <p class="copyright-item">
       <span>原文链接: </span>
-      <a href="http://yoursite.com/2017/12/04/babel从入门到入门的知识归纳/">http://yoursite.com/2017/12/04/babel从入门到入门的知识归纳/</a>
+      <a href="http://yoursite.com/2018/01/30/《你不知道的JavaScript-上》笔记/">http://yoursite.com/2018/01/30/《你不知道的JavaScript-上》笔记/</a>
     </p>
     <p class="copyright-item">
       <span>许可协议: </span>
@@ -305,15 +355,9 @@
         
   <nav class="post-nav">
     
-      <a class="prev" href="/2017/12/06/koa2-源码分析-一/">
-        <i class="iconfont icon-left"></i>
-        <span class="prev-text nav-default">koa2 源码分析 (一)</span>
-        <span class="prev-text nav-mobile">上一篇</span>
-      </a>
     
-    
-      <a class="next" href="/2017/12/04/react-代码规范/">
-        <span class="next-text nav-default">react 代码规范</span>
+      <a class="next" href="/2018/01/29/转载-手把手教你撸一个-Webpack-Loader/">
+        <span class="next-text nav-default">[转载]手把手教你撸一个 Webpack Loader</span>
         <span class="prev-text nav-mobile">下一篇</span>
         <i class="iconfont icon-right"></i>
       </a>
