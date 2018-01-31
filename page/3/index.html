@@ -221,6 +221,57 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/2017/12/13/redux-源码分析-一/">redux 源码分析 (一)</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2017-12-13
+        </span>
+        
+        
+        <div class="post-visits"
+             data-url="/2017/12/13/redux-源码分析-一/"
+             data-title="redux 源码分析 (一)">
+            阅读次数
+          </div>
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>首先我们看一下 redux 的代码结构:<br><img src="//dongliang1993.github.io/img/redux-源码/redux-01.png" alt=""></p>
+<p>├── applyMiddleware.js  // API: applyMiddleware 中间件，对store.dispatch方法进行了改造。作用是将所有中间件组成一个数组，依次执行<br>├── bindActionCreators.js  // API: bindActionCreators 把 action creator 往下传到一个组件上，却不想让这个组件觉察到 Redux 的存在，而且不希望把 Redux store 或 dispatch 传给它<br>├── combineReducers.js  // API: combineReducers 把一个由多个不同 reducer 函数作为 value 的 object，合并成一个 reducer 函数<br>├── compose.js     // API: compose  从右到左来组合多个函数。<br>├── createStore.js    // API: createStore 创建一个 Redux store 来以存放应用中所有的 state。<br>├── index.js     // 入口文件，负责集中暴露 API，例如 createStore 、combineReducers 等<br>└── utils  // 工具包<br>    ├── actionTypes.js  // Redux 保留的私有 action 类型。<br>    ├── isPlainObject.js // 判断是否为普通对象<br>    └── warning.js  // 在控制台中打印警告</p>
+          <div class="read-more">
+            <a href="/2017/12/13/redux-源码分析-一/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/2017/12/12/深入ES6-09-JS-的类/">深入ES6 09-JS 的类</a>
         
       </h1>
@@ -839,114 +890,6 @@
 <li>使用无状态组件</li>
 </ol>
 
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2017/11/22/笔记/">笔记</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2017-11-22
-        </span>
-        
-        
-        <div class="post-visits"
-             data-url="/2017/11/22/笔记/"
-             data-title="笔记">
-            阅读次数
-          </div>
-        
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-
-        
-          <h3 id="属性初始化器的速记法"><a href="#属性初始化器的速记法" class="headerlink" title="属性初始化器的速记法"></a>属性初始化器的速记法</h3><p>局部变量为对象同名属性赋值<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createPerson</span>(<span class="params">name, age</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    name,</span><br><span class="line">    age</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="方法简写"><a href="#方法简写" class="headerlink" title="方法简写"></a>方法简写</h3><p>省略冒号与 function 关键字<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">  name: <span class="string">"Nicholas"</span>,</span><br><span class="line">  sayName() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<p>使用方法简写速记法创建的方法，其 name 属性就是括号之前的名称。</p>
-<h3 id="可计算属性名"><a href="#可计算属性名" class="headerlink" title="可计算属性名"></a>可计算属性名</h3><p>方括号允许指定变量或字符串字面量为属性名<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 第一种用法</span></span><br><span class="line"><span class="keyword">var</span> person = &#123;&#125;,</span><br><span class="line">    lastName = <span class="string">"last name"</span>;</span><br><span class="line"></span><br><span class="line">person[<span class="string">"first name"</span>] = <span class="string">"Nicholas"</span>;</span><br><span class="line">person[lastName] = <span class="string">"Zakas"</span>;</span><br><span class="line"><span class="built_in">console</span>.log(person[<span class="string">"first name"</span>]); <span class="comment">// "Nicholas"</span></span><br><span class="line"><span class="built_in">console</span>.log(person[lastName]); <span class="comment">// "Zakas"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 第二种用法</span></span><br><span class="line"><span class="keyword">var</span> lastName = <span class="string">"last name"</span>;</span><br><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">  <span class="string">"first name"</span>: <span class="string">"Nicholas"</span>,</span><br><span class="line">  [lastName]: <span class="string">"Zakas"</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 第三种用法</span></span><br><span class="line"><span class="keyword">var</span> suffix = <span class="string">" name"</span>;</span><br><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">  [<span class="string">"first"</span> + suffix]: <span class="string">"Nicholas"</span>,</span><br><span class="line">  [<span class="string">"last"</span> + suffix]: <span class="string">"Zakas"</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<h2 id="新的方法"><a href="#新的方法" class="headerlink" title="新的方法"></a>新的方法</h2><h3 id="Object-is-方法"><a href="#Object-is-方法" class="headerlink" title="Object.is() 方法"></a>Object.is() 方法</h3><p>绝大多数情况下， Object.is() 的结果与 === 运算符是相同的<br>仅有的例外是：它会认为+0 与 -0 不相等，而且 NaN 等于 NaN </p>
-<h3 id="Object-assign-方法"><a href="#Object-assign-方法" class="headerlink" title="Object.assign() 方法"></a>Object.assign() 方法</h3><h2 id="重复的对象字面量属性"><a href="#重复的对象字面量属性" class="headerlink" title="重复的对象字面量属性"></a>重复的对象字面量属性</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">  name: <span class="string">"Nicholas"</span>,</span><br><span class="line">  name: <span class="string">"Greg"</span> <span class="comment">// 在 ES6 严格模式中不会出错</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(person.name); <span class="comment">// "Greg"</span></span><br></pre></td></tr></table></figure>
-<h2 id="自有属性的枚举顺序"><a href="#自有属性的枚举顺序" class="headerlink" title="自有属性的枚举顺序"></a>自有属性的枚举顺序</h2><p>Object.getOwnPropertyNames()</p>
-<ol>
-<li>所有的数字类型键，按升序排列。</li>
-<li>所有的字符串类型键，按被添加到对象的顺序排列。</li>
-<li>所有的符号类型（ 详见第六章） 键，也按添加顺序排列。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  a: <span class="number">1</span>,</span><br><span class="line">  <span class="number">0</span>: <span class="number">1</span>,</span><br><span class="line">  c: <span class="number">1</span>,</span><br><span class="line">  <span class="number">2</span>: <span class="number">1</span>,</span><br><span class="line">  b: <span class="number">1</span>,</span><br><span class="line">  <span class="number">1</span>: <span class="number">1</span></span><br><span class="line">&#125;;</span><br><span class="line">obj.d = <span class="number">1</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.getOwnPropertyNames(obj).join(<span class="string">""</span>)); <span class="comment">// "012acbd"</span></span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>对于 for-in 循环，并非所有的 JS 引擎都采用相同的处理方式，其枚举顺序仍未被明确规定。而 Object.keys() 和 JSON.stringify() 也使用了与 for-in 一样的枚举顺<br>序。</p>
-<h2 id="更强大的原型"><a href="#更强大的原型" class="headerlink" title="更强大的原型"></a>更强大的原型</h2><p>###修改对象的原型<br>对象原型的实际值被存储在一个内部属性 [[Prototype]] 上</p>
-<ol>
-<li>ES5 添加了 Object.getPrototypeOf() 方法来获取任意指定对象的原型</li>
-<li>Object.setPrototypeOf() 接受两个参数：需要被修改原型的对象，以及将会成为前者原型的对象<br>###使用 super 引用的简单原型访问<ol>
-<li>简单来说， super 是指向当前对象的原型的一个指针<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> friend = &#123;</span><br><span class="line">  getGreeting() &#123;</span><br><span class="line">    <span class="comment">// 这相当于上个例子中的：</span></span><br><span class="line">    <span class="comment">// Object.getPrototypeOf(this).getGreeting.call(this)</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">super</span>.getGreeting() + <span class="string">", hi!"</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-</li>
-</ol>
-<ol>
-<li>试图在方法简写之外的情况使用 super 会导致语法错误<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> friend = &#123;</span><br><span class="line">  getGreeting: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 语法错误</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">super</span>.getGreeting() + <span class="string">", hi!"</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h2 id="正式的“方法”定义"><a href="#正式的“方法”定义" class="headerlink" title="正式的“方法”定义"></a>正式的“方法”定义</h2><ol>
-<li>ES6 则正式将方法定义为：一个拥有 [[HomeObject]] 内部属性的函数，此内部属性指向该方法所属的对象。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> person = &#123;</span><br><span class="line">  <span class="comment">// 方法</span></span><br><span class="line">  getGreeting() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"Hello"</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 并非方法</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">shareGreeting</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="string">"Hi!"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><h1 id="第六章-符号与符号属性"><a href="#第六章-符号与符号属性" class="headerlink" title="第六章 符号与符号属性"></a>第六章 符号与符号属性</h1><h2 id="创建符号值"><a href="#创建符号值" class="headerlink" title="创建符号值"></a>创建符号值</h2><ol>
-<li><p>使用全局 Symbol 函数来创建一个符号值</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> firstName = <span class="built_in">Symbol</span>();</span><br><span class="line"><span class="keyword">let</span> person = &#123;&#125;;</span><br><span class="line">person[firstName] = <span class="string">"Nicholas"</span>;</span><br><span class="line"><span class="built_in">console</span>.log(person[firstName]); <span class="comment">// "Nicholas"</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Symbol 函数还可以接受一个额外的参数用于描述符号值，该描述并不能用来访问对应属性，但它能用于调试，例如：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> firstName = <span class="built_in">Symbol</span>(<span class="string">"first name"</span>);</span><br><span class="line"><span class="keyword">let</span> person = &#123;&#125;;</span><br><span class="line">person[firstName] = <span class="string">"Nicholas"</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"first name"</span> <span class="keyword">in</span> person); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(person[firstName]); <span class="comment">// "Nicholas"</span></span><br><span class="line"><span class="built_in">console</span>.log(firstName); <span class="comment">// "Symbol(first name)"</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>由于符号值是基本类型的值，因此调用 new Symbol() 将会抛出错误</p>
-</li>
-<li>可以使用 typeof 运算符来判断一个变量是否为符号<h2 id="使用符号值"><a href="#使用符号值" class="headerlink" title="使用符号值"></a>使用符号值</h2>你可以在任意能使用“可计算属性名”的场合使用符号。<h2 id="共享符号值"><a href="#共享符号值" class="headerlink" title="共享符号值"></a>共享符号值</h2><h2 id="符号值的转换"><a href="#符号值的转换" class="headerlink" title="符号值的转换"></a>符号值的转换</h2><h2 id="检索符号属性"><a href="#检索符号属性" class="headerlink" title="检索符号属性"></a>检索符号属性</h2><h2 id="使用知名符号暴露内部方法"><a href="#使用知名符号暴露内部方法" class="headerlink" title="使用知名符号暴露内部方法"></a>使用知名符号暴露内部方法</h2><h3 id="Symbol-hasInstance-属性"><a href="#Symbol-hasInstance-属性" class="headerlink" title="Symbol.hasInstance 属性"></a>Symbol.hasInstance 属性</h3><h3 id="Symbol-isConcatSpreadable"><a href="#Symbol-isConcatSpreadable" class="headerlink" title="Symbol.isConcatSpreadable"></a>Symbol.isConcatSpreadable</h3><h3 id="Symbol-match-、-Symbol-replace-、Symbol-search-与-Symbol-split"><a href="#Symbol-match-、-Symbol-replace-、Symbol-search-与-Symbol-split" class="headerlink" title="Symbol.match 、 Symbol.replace 、Symbol.search 与 Symbol.split"></a>Symbol.match 、 Symbol.replace 、Symbol.search 与 Symbol.split</h3>###Symbol.toPrimitive<h3 id="Symbol-toStringTag"><a href="#Symbol-toStringTag" class="headerlink" title="Symbol.toStringTag"></a>Symbol.toStringTag</h3><h4 id="识别问题的变通解决方法"><a href="#识别问题的变通解决方法" class="headerlink" title="识别问题的变通解决方法"></a>识别问题的变通解决方法</h4><h4 id="ES6-给出的答案"><a href="#ES6-给出的答案" class="headerlink" title="ES6 给出的答案"></a>ES6 给出的答案</h4><h3 id="Symbol-unscopables"><a href="#Symbol-unscopables" class="headerlink" title="Symbol.unscopables"></a>Symbol.unscopables</h3>总结</li>
-</ol>
-<h1 id="第七章-Set与Map"><a href="#第七章-Set与Map" class="headerlink" title="第七章 Set与Map"></a>第七章 Set与Map</h1><h1 id="第九章-JS的类"><a href="#第九章-JS的类" class="headerlink" title="第九章 JS的类"></a>第九章 JS的类</h1><h2 id="ES5-中的仿类结构"><a href="#ES5-中的仿类结构" class="headerlink" title="ES5 中的仿类结构"></a>ES5 中的仿类结构</h2><ol>
-<li>创建一个构造器，然后将方法指派到该构造器的原型上<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">PersonType</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.name = name;</span><br><span class="line">&#125;</span><br><span class="line">PersonType.prototype.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">let</span> person = <span class="keyword">new</span> PersonType(<span class="string">"Nicholas"</span>);</span><br><span class="line">person.sayName(); <span class="comment">// 输出 "Nicholas"</span></span><br><span class="line"><span class="built_in">console</span>.log(person <span class="keyword">instanceof</span> PersonType); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(person <span class="keyword">instanceof</span> <span class="built_in">Object</span>); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h2 id="类的声明"><a href="#类的声明" class="headerlink" title="类的声明"></a>类的声明</h2><h3 id="基本的类声明"><a href="#基本的类声明" class="headerlink" title="基本的类声明"></a>基本的类声明</h3><ol>
-<li><p>类声明以 class 关键字开始，其后是类的名称；剩余部分的语法看起来就像对象字面量中的方法简写，并且在方法之间不需要使用逗号：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PersonClass</span> </span>&#123;</span><br><span class="line">  <span class="comment">// 等价于 PersonType 构造器</span></span><br><span class="line">  <span class="keyword">constructor</span>(name) &#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 等价于 PersonType.prototype.sayName</span></span><br><span class="line">  sayName() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>自有属性（Own properties ） ：该属性出现在实例上而不是原型上，只能在类的构造器或方法内部进行创建。</p>
-<h3 id="为何要使用类的语法"><a href="#为何要使用类的语法" class="headerlink" title="为何要使用类的语法"></a>为何要使用类的语法</h3><p>尽管类与自定义类型之间有相似性，但仍然要记住一些重要的区别：</p>
-</li>
-<li>类声明不会被提升，这与函数定义不同。类声明的行为与 let 相似，因此在程序执行到声明处之前，类都会位于暂时性死区内。</li>
-<li>类声明中的所有代码会自动运行并锁定在严格模式下</li>
-<li>类的所有方法都是不可枚举的，这是对于自定义类型的显著变化，后者必须用 Object.defineProperty() 才能将方法改变为不可枚举。</li>
-<li>类的所有方法内部都没有 [[Construct]] ，因此使用 new 来调用它们会抛出错误。</li>
-<li>调用类构造器时不使用 new ，会抛出错误。</li>
-<li>试图在类的方法内部重写类名，会抛出错误。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Foo</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>() &#123;</span><br><span class="line">    Foo = <span class="string">"bar"</span>; <span class="comment">// 执行时抛出错误</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 但在类声明之后没问题</span></span><br><span class="line">Foo = <span class="string">"baz"</span>;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h2 id="类表达式"><a href="#类表达式" class="headerlink" title="类表达式"></a>类表达式</h2><h3 id="基本的类表达式"><a href="#基本的类表达式" class="headerlink" title="基本的类表达式"></a>基本的类表达式</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> PersonClass = <span class="class"><span class="keyword">class</span> </span>&#123;</span><br><span class="line">  <span class="comment">// 等价于 PersonType 构造器</span></span><br><span class="line">  <span class="keyword">constructor</span>(name) &#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 等价于 PersonType.prototype.sayName</span></span><br><span class="line">  sayName() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h3 id="具名类表达式"><a href="#具名类表达式" class="headerlink" title="具名类表达式"></a>具名类表达式</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> PersonClass = <span class="class"><span class="keyword">class</span> <span class="title">PersonClass2</span> </span>&#123;</span><br><span class="line">  <span class="comment">// 等价于 PersonType 构造器</span></span><br><span class="line">  <span class="keyword">constructor</span>(name) &#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 等价于 PersonType.prototype.sayName</span></span><br><span class="line">  sayName() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> PersonClass); <span class="comment">// "function"</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> PersonClass2); <span class="comment">// "undefined"</span></span><br></pre></td></tr></table></figure>
-<h2 id="作为一等公民的类"><a href="#作为一等公民的类" class="headerlink" title="作为一等公民的类"></a>作为一等公民的类</h2><h2 id="访问器属性"><a href="#访问器属性" class="headerlink" title="访问器属性"></a>访问器属性</h2><h2 id="可计算的成员名"><a href="#可计算的成员名" class="headerlink" title="可计算的成员名"></a>可计算的成员名</h2><h2 id="生成器方法"><a href="#生成器方法" class="headerlink" title="生成器方法"></a>生成器方法</h2><h2 id="静态成员"><a href="#静态成员" class="headerlink" title="静态成员"></a>静态成员</h2><h2 id="使用派生类进行继承"><a href="#使用派生类进行继承" class="headerlink" title="使用派生类进行继承"></a>使用派生类进行继承</h2><h3 id="屏蔽类方法"><a href="#屏蔽类方法" class="headerlink" title="屏蔽类方法"></a>屏蔽类方法</h3><h3 id="继承静态成员"><a href="#继承静态成员" class="headerlink" title="继承静态成员"></a>继承静态成员</h3><h3 id="从表达式中派生类"><a href="#从表达式中派生类" class="headerlink" title="从表达式中派生类"></a>从表达式中派生类</h3><h3 id="继承内置对象"><a href="#继承内置对象" class="headerlink" title="继承内置对象"></a>继承内置对象</h3><h3 id="Symbol-species-属性"><a href="#Symbol-species-属性" class="headerlink" title="Symbol.species 属性"></a>Symbol.species 属性</h3><h2 id="在类构造器中使用-new-target"><a href="#在类构造器中使用-new-target" class="headerlink" title="在类构造器中使用 new.target"></a>在类构造器中使用 new.target</h2><h2 id="总结-1"><a href="#总结-1" class="headerlink" title="总结"></a>总结</h2>
         
       
     </div>
