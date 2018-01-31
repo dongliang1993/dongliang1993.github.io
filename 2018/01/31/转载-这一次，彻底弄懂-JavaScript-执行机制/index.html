@@ -312,12 +312,13 @@
 <p>唯一需要注意的一点是，对于 setInterval(fn,ms) 来说，我们已经知道不是每过 ms 秒会执行一次 fn，而是每过 ms 秒，会有 fn 进入 Event Queue。一旦 setInterval 的回调函数 fn 执行时间超过了延迟时间 ms，那么就完全看不出来有时间间隔了。这句话请读者仔细品味。</p>
 <h2 id="5-Promise-与-process-nextTick-callback"><a href="#5-Promise-与-process-nextTick-callback" class="headerlink" title="5.Promise 与 process.nextTick(callback)"></a>5.Promise 与 process.nextTick(callback)</h2><p>传统的定时器我们已经研究过了，接着我们探究 Promise 与 process.nextTick(callback) 的表现。</p>
 <p>Promise 的定义和功能本文不再赘述，不了解的读者可以学习一下阮一峰老师的 Promise。而 process.nextTick(callback) 类似 node.js 版的”setTimeout”，在事件循环的下一次循环中调用 callback 回调函数。</p>
-<p>我们进入正题，除了广义的同步任务和异步任务，我们对任务有更精细的定义：</p>
+<p>我们进入正题，除了广义的同步任务和异步任务，我们对异步任务有更精细的定义：</p>
 <ul>
-<li>macro-task（宏任务)：包括整体代码 script，setTimeout，setInterval</li>
+<li>macro-task（宏任务)：包括整体代码 script，setTimeout，setInterval，setImmediate</li>
 <li>micro-task（微任务)：Promise，process.nextTick</li>
 </ul>
 <p>不同类型的任务会进入对应的 Event Queue，比如 setTimeout 和 setInterval 会进入相同的 Event Queue。</p>
+<p>注：一般情况下，macrotask queues 我们会直接称为 task queues，只有 microtask queues 才会特别指明。</p>
 <p>事件循环的顺序，决定 js 代码的执行顺序。进入整体代码（宏任务) 后，开始第一次循环。接着执行所有的微任务。然后再次从宏任务开始，找到其中一个任务队列执行完毕，再执行所有的微任务。听起来有点绕，我们用文章最开始的一段代码说明：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'setTimeout'</span>);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'promise'</span>);</span><br><span class="line">&#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'then'</span>);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'console'</span>);</span><br></pre></td></tr></table></figure></p>
 <ul>
 <li>这段代码作为宏任务，进入主线程。</li>
