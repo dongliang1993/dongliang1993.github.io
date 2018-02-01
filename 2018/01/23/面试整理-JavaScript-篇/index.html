@@ -639,6 +639,12 @@
 </ul>
 </li>
 </ul>
+<ul>
+<li>每个函数都有一个属性叫做prototype。</li>
+<li>这个prototype的属性值是一个对象（属性的集合，再次强调！），默认的只有一个叫做constructor的属性，指向这个函数本身。</li>
+<li>每个对象都有一个隐藏的属性——“<strong>proto</strong>”，这个属性引用了创建这个对象的函数的prototype。即：fn.<strong>proto</strong> === Fn.prototype。这里的”<strong>proto</strong>“成为“隐式原型”</li>
+<li>Instanceof运算符的第一个变量是一个对象，暂时称为A；第二个变量一般是一个函数，暂时称为B。<br>Instanceof的判断队则是：沿着A的<strong>proto</strong>这条线来找，同时沿着B的prototype这条线来找，如果两条线能找到同一个引用，即同一个对象，那么就返回true。如果找到终点还未重合，则返回false。</li>
+</ul>
 
       
     </div>

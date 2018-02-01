@@ -247,7 +247,7 @@
   <div class="post-toc" id="post-toc">
     <h2 class="post-toc-title">文章目录</h2>
     <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-为什么要用this"><span class="toc-text"><a href="#1-1-&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x7528;this" class="headerlink" title="1.1 &#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x7528;this"></a>1.1 &#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x7528;this</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#绑定规则"><span class="toc-text"><a href="#&#x7ED1;&#x5B9A;&#x89C4;&#x5219;" class="headerlink" title="&#x7ED1;&#x5B9A;&#x89C4;&#x5219;"></a>&#x7ED1;&#x5B9A;&#x89C4;&#x5219;</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-为什么要用this"><span class="toc-text"><a href="#1-1-&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x7528;this" class="headerlink" title="1.1 &#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x7528;this"></a>1.1 &#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x7528;this</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#绑定规则"><span class="toc-text"><a href="#&#x7ED1;&#x5B9A;&#x89C4;&#x5219;" class="headerlink" title="&#x7ED1;&#x5B9A;&#x89C4;&#x5219;"></a>&#x7ED1;&#x5B9A;&#x89C4;&#x5219;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#对象"><span class="toc-text"><a href="#&#x5BF9;&#x8C61;" class="headerlink" title="&#x5BF9;&#x8C61;"></a>&#x5BF9;&#x8C61;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#面向对象编程"><span class="toc-text"><a href="#&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7F16;&#x7A0B;" class="headerlink" title="&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7F16;&#x7A0B;"></a>&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7F16;&#x7A0B;</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#类理论"><span class="toc-text"><a href="#&#x7C7B;&#x7406;&#x8BBA;" class="headerlink" title="&#x7C7B;&#x7406;&#x8BBA;"></a>&#x7C7B;&#x7406;&#x8BBA;</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原型"><span class="toc-text"><a href="#&#x539F;&#x578B;" class="headerlink" title="&#x539F;&#x578B;"></a>&#x539F;&#x578B;</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Prototype"><span class="toc-text"><a href="#Prototype" class="headerlink" title="[[Prototype]]"></a>[[Prototype]]</span></a></li></ol></li></ol>
     </div>
   </div>
 
@@ -318,6 +318,122 @@
 <li>箭头函数<ul>
 <li>箭头函数不使用 this 的四种标准规则， 而是会继承外层函数调用的 this 绑定</li>
 </ul>
+</li>
+</ul>
+<h2 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h2><ul>
+<li>对象可以通过两种形式定义： 声明（ 文字） 形式和构造形式。</li>
+<li>内置对象：例如 Object、 Array、 Function 和 RegExp。实际上只是一些内置函数，这些内置函数可以当作构造函数</li>
+<li>内容<ul>
+<li>属性名<ul>
+<li>的访问方法：属性访问和键访问</li>
+<li>属性名永远都是字符串。 如果你使用 string（ 字面量） 以外的其他值作为属性名， 那它首先会被转换为一个字符串。 即使是数字也不例外。</li>
+</ul>
+</li>
+<li>可计算属性名<ul>
+<li>使用 [] 包裹一个表达式来当作属性名</li>
+</ul>
+</li>
+<li>数组<ul>
+<li>数组也是对象， 所以虽然每个下标都是整数， 你仍然可以给数组添加属性</li>
+</ul>
+</li>
+<li>复制对象<ul>
+<li>浅复制、深复制</li>
+<li>Object.assign(..) 进行浅复制</li>
+</ul>
+</li>
+<li>属性描述符<ul>
+<li>Object.getOwnPropertyDescriptor( myObject, “a” ); 来获取一个对象身上对应属性的描述符</li>
+<li>Object.defineProperty(..)来添加一个新属性或者修改一个已有属性（ 如果它是 configurable） 并对特性进行设置。</li>
+<li>writable：决定是否可以修改属性的值<ul>
+<li>设置为 false 对于属性值的修改静默失败（ silently failed）</li>
+</ul>
+</li>
+<li>Configurable: 属性是否可配置<ul>
+<li>把 configurable 修改成 false 是单向操作，尝试修改一个不可配置的属性描述符都会出错</li>
+<li>configurable:false 还会禁止删除这个属性</li>
+</ul>
+</li>
+<li>Enumerable：属性是否可枚举</li>
+</ul>
+</li>
+<li>不变性<ul>
+<li>所有的方法创建的都是浅不变形</li>
+<li>对象常量结合： writable:false 和configurable:false 就可以创建一个真正的常量属性（ 不可修改、重定义或者删除）</li>
+<li>禁止扩展: Object.preventExtensions(obj)</li>
+<li>密封: 不能添加新属性， 也不能重新配置或者删除任何现有属性（ 虽然可以修改属性的值）。<ul>
+<li>Object.seal(..)</li>
+</ul>
+</li>
+<li>冻结：Object.freeze(..) </li>
+</ul>
+</li>
+<li>[[Get]]<ul>
+<li>myObject.a 在 myObject 上实际上是实现了 [[Get]] 操作</li>
+</ul>
+</li>
+<li>[[Put]]<ul>
+<li>很复杂</li>
+</ul>
+</li>
+<li>Getter和Setter<ul>
+<li>当你给一个属性定义 getter、 setter 或者两者都有时， 这个属性会被定义为“ 访问描述符”</li>
+<li>对象文字语法中的 get a() { .. }， 还是defineProperty(..) 中的显式定义</li>
+</ul>
+</li>
+<li>存在性<ul>
+<li>in 操作符会检查属性是否在对象及其 [[Prototype]] 原型链中</li>
+<li>hasOwnProperty(..) 只会检查属性是否在 myObject 对象中， 不会检查 [[Prototype]] 链</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>遍历<ul>
+<li>对象：for..in 循环可以用来遍历对象的可枚举属性列表（ 包括 [[Prototype]] 链）</li>
+<li>数组：for(..)、forEach(..)、 every(..) 和 some(..)、for..of</li>
+</ul>
+</li>
+</ul>
+<h2 id="面向对象编程"><a href="#面向对象编程" class="headerlink" title="面向对象编程"></a>面向对象编程</h2><h3 id="类理论"><a href="#类理论" class="headerlink" title="类理论"></a>类理论</h3><ul>
+<li>类、 继承、实例化和多态</li>
+<li>“类”设计模式<ul>
+<li>迭代器模式、 观察者模式、 工厂模式、 单例模式等</li>
+</ul>
+</li>
+<li>类的机制<ul>
+<li>一个类就是一张蓝图。 为了获得真正可以交互的对象， 我们必须按照类来建造（ 也可以说实例化） 一个东西， 这个东西通常被称为实例</li>
+<li>构造函数<ul>
+<li>类实例是由一个特殊的类方法构造的， 这个方法名通常和类名相同， 被称为构造函数</li>
+<li>执行 new 时实际上调用的就是构造函数。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>类的继承<ul>
+<li>先定义一个类， 然后定义一个继承前者的类</li>
+<li>子类会包含父类行为的原始副本， 但是也可以重写所有继承的行为甚至定义新行为</li>
+<li>多态<ul>
+<li>任何方法都可以引用继承层次中高层的方法</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h2><h3 id="Prototype"><a href="#Prototype" class="headerlink" title="[[Prototype]]"></a>[[Prototype]]</h3><ul>
+<li>几乎所有的对象在创建时都有 [[Prototype]] 属性，指向一个对象</li>
+<li>对于默认的 [[Get]] 操作来说， 如果无法在对象本身找到需要的属性， 就会继续访问对象的 [[Prototype]] 链</li>
+<li>使用 for..in 遍历对象时原理和查找 [[Prototype]] 链类似， 任何可以通过原型链访问到（ 并且是 enumerable） 的属性都会被枚举。 使用 in 操作符来检查属性在对象中是否存在时， 同样会查找对象的整条原型链（ 无论属性是否可枚举）</li>
+<li><p>所有普通的 [[Prototype]] 链最终都会指向内置的 Object.prototype</p>
+</li>
+<li><p>constructor 是一个非常不可靠并且不安全的引用。 通常来说要尽量避免使用这些引用。</p>
+</li>
+<li><p>ES6 添加了辅助函数 Object.setPrototypeOf(..)， 可以用标准并且可靠的方法来修改关联</p>
+</li>
+<li><p>instanceof 操作符的左操作数是一个普通的对象， 右操作数是一个函数。 instanceof 回答的问题是： 在 a 的整条 [[Prototype]] 链中是否有指向 Foo.prototype<br>这个方法只能处理对象（ a） 和函数（ 带 .prototype 引用的 Foo） 之间的关系</p>
+</li>
+<li><p>Foo.prototype.isPrototypeOf( a ); // true<br>在 a 的整条 [[Prototype]] 链中是否出现过 Foo.prototype</p>
+</li>
+<li><p>我们也可以直接获取一个对象的 [[Prototype]] 链。 在 ES5 中， 标准的方法是：Object.getPrototypeOf( a );</p>
 </li>
 </ul>
 
