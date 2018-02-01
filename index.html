@@ -637,7 +637,20 @@
         
 
         
-          <h2 id="什么是关键字和保留字"><a href="#什么是关键字和保留字" class="headerlink" title="什么是关键字和保留字"></a>什么是关键字和保留字</h2><ul>
+          <h2 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h2><ul>
+<li>定义：指变量、函数、属性的名字，或者函数的参数</li>
+<li>规则<ul>
+<li>第一个字符必须是一个字母、下划线（_）或一个美元符号（$）；</li>
+<li>其他字符可以是字母、下划线、美元符号或数字。</li>
+</ul>
+</li>
+<li>不能把关键字、保留字、 true、 false 和 null 用作标识符。 </li>
+</ul>
+<h2 id="严格模式"><a href="#严格模式" class="headerlink" title="严格模式"></a>严格模式</h2><ul>
+<li>严格模式是为 JavaScript 定义了一种不同的<br>解析与执行模型</li>
+<li>在顶部或者函数内部的上方 “use strict”;</li>
+</ul>
+<h2 id="关键字和保留字"><a href="#关键字和保留字" class="headerlink" title="关键字和保留字"></a>关键字和保留字</h2><ul>
 <li>关键字<ul>
 <li>定义：可用于表示控制语句的开始或结束，或者用于执行特定操作字符</li>
 </ul>
@@ -646,8 +659,8 @@
 <li>定义：有可能在将来被用作关键字的字符</li>
 </ul>
 </li>
+<li>不要使用关键字和保留字作为标识符和属性名</li>
 </ul>
-<p>不要使用关键字和保留字作为标识符和属性名</p>
 <h2 id="JS-中基本的数据类型"><a href="#JS-中基本的数据类型" class="headerlink" title="JS 中基本的数据类型"></a>JS 中基本的数据类型</h2><p>ECMAScript 中有 5 种简单数据类型（也称为基本数据类型）：Undefined、Null、Boolean、Number 和 String。还有 1 种复杂数据类型——Object</p>
 <h2 id="typeof-操作符"><a href="#typeof-操作符" class="headerlink" title="typeof 操作符"></a>typeof 操作符</h2><ul>
 <li>typeof 是一个操作符而不是函数，因此例子中的圆括号尽管可以使用，但不是必需的</li>
@@ -660,11 +673,75 @@
 <li>“function”——如果这个值是函数</li>
 </ul>
 </li>
-<li>对未初始化的变量执行 typeof 操作符会返回 undefined 值，而对未声明<br>的变量执行 typeof 操作符同样也会返回 undefined 值。</li>
+<li>对未初始化（即未赋值）的变量执行 typeof 操作符会返回 undefined 值，而对未声明的变量执行 typeof 操作符同样也会返回 undefined 值。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> message; <span class="comment">// 这个变量声明之后默认取得了 undefined 值</span></span><br><span class="line"><span class="comment">// 下面这个变量并没有声明</span></span><br><span class="line"><span class="comment">// var age</span></span><br><span class="line">alert(<span class="keyword">typeof</span> message); <span class="comment">// "undefined"</span></span><br><span class="line">alert(<span class="keyword">typeof</span> age); <span class="comment">// "undefined"</span></span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 <h2 id="关于-null-类型的注意点"><a href="#关于-null-类型的注意点" class="headerlink" title="关于 null 类型的注意点"></a>关于 null 类型的注意点</h2><ul>
 <li>从逻辑角度来看， null 值表示一个空对象指针，而这也正是使用 typeof 操作符检测 null 值时会返回”object”的原因</li>
 <li>undefined 值是派生自 null 值的，因此 null == undefined // true</li>
+</ul>
+<h2 id="Boolean类型"><a href="#Boolean类型" class="headerlink" title="Boolean类型"></a>Boolean类型</h2><ul>
+<li>转换为false的值：false, ‘’（空字符串），0，NaN，null，undefined</li>
+<li>注意 负数其实是转换成 true 的</li>
+</ul>
+<h2 id="Number类型"><a href="#Number类型" class="headerlink" title="Number类型"></a>Number类型</h2><ul>
+<li>八进制<ul>
+<li>第一位必须是零（0） ，然后是八进制数字序列（0～7） 。</li>
+<li>如果字面值中的数值超出了范围，那么前导零将被忽略，后面的数值将被当作十进制数值解析</li>
+</ul>
+</li>
+<li>十六进制<ul>
+<li>前两位必须是 0x，后跟任何十六进制数字（0～9 及 A～F）。其中，字母 A～F可以大写，也可以小写。</li>
+</ul>
+</li>
+<li>浮点数值计算会产生舍入误差</li>
+<li>数值范围<ul>
+<li>ECMAScript 能够表示的最小数值保存在 Number.MIN_VALUE<br>中；能够表示的最大数值保存在Number.MAX_VALUE 如果某次计算的结果得到了一个超出 JavaScript 数值范围的值，那么这个数值将被自动转换成特殊的 Infinity 值。具体来说，如果这个数值是负数，则会被转换成-Infinity（负无穷），如果这个数值是正数，则会被转换成 Infinity（正无穷）。</li>
+<li>isFinite</li>
+</ul>
+</li>
+<li>NaN<ul>
+<li>任何涉及 NaN 的操作（例如 NaN/10）都会返回 NaN，</li>
+<li>NaN 与任何值都不相等，包括 NaN 本身。</li>
+<li>isNaN 来判断<ul>
+<li>isNaN()在接收到一个值之后，会尝试<br>将这个值转换为数值。某些不是数值的值会直接转换为数值，例如字符串”10”或 Boolean 值。而任何<br>不能被转换为数值的值都会导致这个函数返回 true</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="String类型"><a href="#String类型" class="headerlink" title="String类型"></a>String类型</h2><ul>
+<li>数值、布尔值、对象和字符串值都有 toString()方法。但 null 和 undefined 值没有这个方法。</li>
+<li>在调用数值的 toString()方法时，可<br>以传递一个参数：输出数值的基数</li>
+</ul>
+<h2 id="操作符（很多细节）"><a href="#操作符（很多细节）" class="headerlink" title="操作符（很多细节）"></a>操作符（很多细节）</h2><ul>
+<li>在应用于对象时，相应的操作符通常都会先后调用对象的 valueOf()和（或） toString()方法，以便取得可以操作的值</li>
+<li>位操作符（未看完）<ul>
+<li>按内存中表示数值的位来操作数值</li>
+<li></li>
+</ul>
+</li>
+</ul>
+<h2 id="label-语句"><a href="#label-语句" class="headerlink" title="label 语句"></a>label 语句</h2><ul>
+<li>break 和 continue 语句都可以与 label 语句联合使用，从而返回代码中特定的位置<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="number">0</span>;</span><br><span class="line">outermost:</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> j=<span class="number">0</span>; j &lt; <span class="number">10</span>; j++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (i == <span class="number">5</span> &amp;&amp; j == <span class="number">5</span>) &#123;</span><br><span class="line">      <span class="keyword">break</span> outermost;</span><br><span class="line">    &#125;</span><br><span class="line">    num++;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">alert(num); <span class="comment">//55</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="with语句"><a href="#with语句" class="headerlink" title="with语句"></a>with语句</h2><ul>
+<li>with 语句的作用是将代码的作用域设置到一个特定的对象中。 </li>
+<li><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> qs = location.search.substring(<span class="number">1</span>);</span><br><span class="line"><span class="keyword">var</span> hostName = location.hostname;</span><br><span class="line"><span class="keyword">var</span> url = location.href;</span><br><span class="line"><span class="comment">// 上面几行代码都包含 location 对象。如果使用 with 语句，可以把上面的代码改写成如下所示：</span></span><br><span class="line"><span class="keyword">with</span>(location) &#123;</span><br><span class="line">  <span class="keyword">var</span> qs = search.substring(<span class="number">1</span>);</span><br><span class="line">  <span class="keyword">var</span> hostName = hostname;</span><br><span class="line">  <span class="keyword">var</span> url = href;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在这个重写后的例子中，使用 with 语句关联了 location 对象。这意味着在 with 语句的代码块<br>内部，每个变量首先被认为是一个局部变量，而如果在局部环境中找不到该变量的定义，就会查询<br>location 对象中是否有同名的属性。如果发现了同名属性， 则以 location 对象属性的值作为变量的值</p>
+</li>
+</ul>
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><ul>
+<li>ECMAScript 函数不介意传递进来多少个参数，也不在乎传进来参数是什么数据类型</li>
+<li>在函数体内可以通过 arguments 对象来访问这个参数数组，从而获取传递给函数的每一个参数<ul>
+<li>arguments.length 可以获得实参个数</li>
+<li>它的值永远与对应命名参数的值保持同步。</li>
+<li>没有传递值的命名参数将自动被赋予undefined 值。</li>
+</ul>
+</li>
+<li>签名：接受的参数的类型和数量</li>
 </ul>
 <h2 id="基本类型和引用类型的值"><a href="#基本类型和引用类型的值" class="headerlink" title="基本类型和引用类型的值"></a>基本类型和引用类型的值</h2><p>ECMAScript 变量可能包含两种不同数据类型的值：基本类型值和引用类型值。 基本类型值指的是简单的数据段，而引用类型值指那些可能由多个值构成的对象。</p>
 <p>基本数据类型： Undefined、 Null、 Boolean、 Number 和 String。这 5 种基本数据类型是按值访问<br>的，因为可以操作保存在变量中的实际的值。保存在栈中</p>
