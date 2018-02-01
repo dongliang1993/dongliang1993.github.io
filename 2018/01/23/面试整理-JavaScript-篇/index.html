@@ -404,10 +404,16 @@
 </li>
 <li>一旦数据不再有用，最好通过将其值设置为 null 来释放其引用——这个做法叫做解除引用（dereferencing）。</li>
 </ul>
-<h2 id="引用类型"><a href="#引用类型" class="headerlink" title="引用类型"></a>引用类型</h2><h2 id="Object-类型"><a href="#Object-类型" class="headerlink" title="Object 类型"></a>Object 类型</h2><ul>
+<h2 id="引用类型"><a href="#引用类型" class="headerlink" title="引用类型"></a>引用类型</h2><ul>
+<li>Object, Array</li>
+</ul>
+<h2 id="Object-类型"><a href="#Object-类型" class="headerlink" title="Object 类型"></a>Object 类型</h2><ul>
+<li>创建 Object 实例的方式有两种: 使用 new 操作符后跟 Object 构造函数 , 对象字面量</li>
 <li>在通过对象字面量定义对象时，实际上不会调用 Object 构造函数</li>
 </ul>
 <h2 id="Array-类型"><a href="#Array-类型" class="headerlink" title="Array 类型"></a>Array 类型</h2><ul>
+<li>数组的每一项可以保存任何类型的数据</li>
+<li>与对象一样，在使用数组字面量表示法时，也不会调用 Array 构造函数</li>
 <li>检测数组：Array.isArray</li>
 <li>调用数组的 toString() 方法会返回由数组中每个值的字符串形式拼接而成的一个以逗号分隔的字符串。</li>
 <li>alert() 要接收字符串参数，所以它会在后台调用 toString() 方法，由此会得到与直接调用 toString() 方法相同的结果。</li>
