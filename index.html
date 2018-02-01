@@ -106,7 +106,7 @@
         <li class="mobile-menu-item">
           
           
-            首页
+            Home
           
         </li>
       </a>
@@ -115,7 +115,7 @@
         <li class="mobile-menu-item">
           
           
-            归档
+            Archives
           
         </li>
       </a>
@@ -124,7 +124,7 @@
         <li class="mobile-menu-item">
           
           
-            标签
+            Tags
           
         </li>
       </a>
@@ -133,7 +133,7 @@
         <li class="mobile-menu-item">
           
           
-            分类
+            Categories
           
         </li>
       </a>
@@ -142,7 +142,7 @@
         <li class="mobile-menu-item">
           
           
-            关于
+            About
           
         </li>
       </a>
@@ -163,7 +163,7 @@
           <a class="menu-item-link" href="/">
             
             
-              首页
+              Home
             
           </a>
         </li>
@@ -172,7 +172,7 @@
           <a class="menu-item-link" href="/archives/">
             
             
-              归档
+              Archives
             
           </a>
         </li>
@@ -181,7 +181,7 @@
           <a class="menu-item-link" href="/tags">
             
             
-              标签
+              Tags
             
           </a>
         </li>
@@ -190,7 +190,7 @@
           <a class="menu-item-link" href="/categories">
             
             
-              分类
+              Categories
             
           </a>
         </li>
@@ -199,7 +199,7 @@
           <a class="menu-item-link" href="/about">
             
             
-              关于
+              About
             
           </a>
         </li>
@@ -256,7 +256,7 @@
 <p>来源：掘金</p>
 <p>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
           <div class="read-more">
-            <a href="/2018/01/31/转载-这一次，彻底弄懂-JavaScript-执行机制/" class="read-more-link">阅读更多</a>
+            <a href="/2018/01/31/转载-这一次，彻底弄懂-JavaScript-执行机制/" class="read-more-link">Read more..</a>
           </div>
         
       
@@ -534,7 +534,7 @@
           <p>文：小 boy（沪江网校Web前端工程师）</p>
 <p>本文原创，转载请注明作者及出处</p>
           <div class="read-more">
-            <a href="/2018/01/29/转载-手把手教你撸一个-Webpack-Loader/" class="read-more-link">阅读更多</a>
+            <a href="/2018/01/29/转载-手把手教你撸一个-Webpack-Loader/" class="read-more-link">Read more..</a>
           </div>
         
       
@@ -743,24 +743,53 @@
 </li>
 <li>签名：接受的参数的类型和数量</li>
 </ul>
-<h2 id="基本类型和引用类型的值"><a href="#基本类型和引用类型的值" class="headerlink" title="基本类型和引用类型的值"></a>基本类型和引用类型的值</h2><p>ECMAScript 变量可能包含两种不同数据类型的值：基本类型值和引用类型值。 基本类型值指的是简单的数据段，而引用类型值指那些可能由多个值构成的对象。</p>
-<p>基本数据类型： Undefined、 Null、 Boolean、 Number 和 String。这 5 种基本数据类型是按值访问<br>的，因为可以操作保存在变量中的实际的值。保存在栈中</p>
-<p>引用类型的值是保存在内存中的对象。在操作对象时，实际上是在操作对象的引用而不是实际的对象。保存在堆中</p>
-<h2 id="检测类型"><a href="#检测类型" class="headerlink" title="检测类型"></a>检测类型</h2><ul>
-<li>typeof 不能检查不 null</li>
-<li>instanceof 适合检查引用类型</li>
+<h2 id="基本类型和引用类型的值"><a href="#基本类型和引用类型的值" class="headerlink" title="基本类型和引用类型的值"></a>基本类型和引用类型的值</h2><ul>
+<li>ECMAScript 变量可能包含两种不同数据类型的值：基本类型值和引用类型值。 基本类型值指的是简单的数据段，而引用类型值指那些可能由多个值构成的对象。</li>
+<li>基本数据类型： Undefined、 Null、 Boolean、 Number 和 String。这 5 种基本数据类型是按值访问的，因为可以操作保存在变量中的实际的值。保存在栈中</li>
+<li>引用类型的值是保存在内存中的对象。在操作对象时，实际上是在操作对象的引用而不是实际的对象。保存在堆中</li>
+<li>如果从一个变量向另一个变量复制基本类型的值，会在变量对象上创建一个新值，然后把该值复制<br>到为新变量分配的位置上。当从一个变量向另一个变量复制引用类型的值时，同样也会将存储在变量对象中的值复制一份放到为新变量分配的空间中。不同的是，这个值的副本实际上是一个指针，而这个指针指向存储在堆中的一个对象。复制操作结束后，两个变量实际上将引用同一个对象。因此，改变其中一个变量，就会影响另一个变量</li>
+<li>传递参数<ul>
+<li>ECMAScript 中所有函数的参数都是按值传递的。也就是说，把函数外部的值复制给函数内部的参数，就和把值从一个变量复制到另一个变量一样。基本类型值的传递如同基本类型变量的复制一样，而引用类型值的传递，则如同引用类型变量的复制一样。</li>
+<li>在向参数传递基本类型的值时，被传递的值会被复制给一个局部变量（即命名参数，或者用<br>ECMAScript 的概念来说，就是 arguments 对象中的一个元素）。在向参数传递引用类型的值时，会把这个值在内存中的地址复制给一个局部变量，因此这个局部变量的变化会反映在函数的外部</li>
+<li><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">addTen</span>(<span class="params">num</span>) </span>&#123;</span><br><span class="line">  num += <span class="number">10</span>;</span><br><span class="line">  <span class="keyword">return</span> num;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> count = <span class="number">20</span>;</span><br><span class="line"><span class="keyword">var</span> result = addTen(count);</span><br><span class="line">alert(count); <span class="comment">//20，没有变化</span></span><br><span class="line">alert(result); <span class="comment">//30</span></span><br><span class="line"><span class="comment">// 个人理解，可以改写成</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">addTen</span>(<span class="params">num</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 赋值成局部变量</span></span><br><span class="line">  <span class="comment">// 以把 ECMAScript 函数的参数想象成局部变量。</span></span><br><span class="line">  <span class="keyword">var</span> num = num</span><br><span class="line">  num += <span class="number">10</span>;</span><br><span class="line">  <span class="keyword">return</span> num;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-<h2 id="延长作用域链"><a href="#延长作用域链" class="headerlink" title="延长作用域链"></a>延长作用域链</h2><ul>
+</li>
+</ul>
+<h2 id="检测类型"><a href="#检测类型" class="headerlink" title="检测类型"></a>检测类型</h2><ul>
+<li>检测一个变量是不是基本数据类型<ul>
+<li>typeof 检测基本数据类型，不能检查不 null</li>
+<li>instanceof 检查引用类型</li>
+</ul>
+</li>
+</ul>
+<h2 id="执行环境及作用域"><a href="#执行环境及作用域" class="headerlink" title="执行环境及作用域"></a>执行环境及作用域</h2><ul>
+<li>执行环境（也称为作用域）的类型总共只有两种：全局和局部（函数）</li>
+<li>标识符解析是沿着作用域链一级一级地搜索标识符的过程。搜索过程始终从作用域链的前端开始，然后逐级地向后回溯，直至找到标识符为止（如果找不到标识符，通常会导致错误发生）。如果在局部环境中找到了该标识符，搜索过程停止，变量就绪。如果在局部环境中没有找到该变量名，则继续沿作用域链向上搜索。搜索过程将一直追溯到全局环境的变量对象。如果在全局环境中也没有找到这个标识符，则意味着该变量尚未声明。</li>
+<li>内部环境可以通过作用域链访问所有的外部环境，但外部环境不能访问内部环境中的任何变量和函数。这些环境之间的联系是线性、有次序的。每个环境都<br>可以向上搜索作用域链，以查询变量和函数名；但任何环境都不能通过向下搜索作用域链而进入另一个<br>执行环境。</li>
+<li>访问局部变量要比访问全局变量更快，因<br>为不用向上搜索作用域链</li>
+<li>延长作用域链<ul>
 <li>with 语句</li>
 <li>try…catch</li>
 </ul>
-<h2 id="垃圾收集"><a href="#垃圾收集" class="headerlink" title="垃圾收集"></a>垃圾收集</h2><p>JavaScript 的解释器可以检测到何时程序不再使用一个对象了，当他确定了一个对象是无用的时候，他就知道不再需要这个对象，可以把它所占用的内存释放掉了。</p>
-<ul>
-<li>标记清除</li>
-<li>引用计数（不常用）</li>
+</li>
 </ul>
-<p>确保占用最少的内存可以让页面获得更好的性能。而优化内存占用的最佳方式，就是为执行中的代码只保存必要的数据。一旦数据不再有用，最好通过将其值设置为 null 来释放其引用——这个做法叫做解除引用（dereferencing）。</p>
-<h2 id="Object-类型"><a href="#Object-类型" class="headerlink" title="Object 类型"></a>Object 类型</h2><ul>
+<h2 id="垃圾收集"><a href="#垃圾收集" class="headerlink" title="垃圾收集"></a>垃圾收集</h2><ul>
+<li>局部变量只在函数执行的过程中存在。然后在函数中使用这些变量，直至函数执行结束。此时，局部变量就没有存在的必要了，因此可以释放它们的内存以供将来使用。垃圾收集器必须跟踪哪个变量有用哪个变量没用，对于不再有用的变量打上标记，以备将来收回其占用的内存。</li>
+<li>分类<ul>
+<li>标记清除<ul>
+<li>给当前不使用的值加上标记，然后再回收其内存</li>
+</ul>
+</li>
+<li>引用计数（不常用）<ul>
+<li>循环引用</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>一旦数据不再有用，最好通过将其值设置为 null 来释放其引用——这个做法叫做解除引用（dereferencing）。</li>
+</ul>
+<h2 id="引用类型"><a href="#引用类型" class="headerlink" title="引用类型"></a>引用类型</h2><h2 id="Object-类型"><a href="#Object-类型" class="headerlink" title="Object 类型"></a>Object 类型</h2><ul>
 <li>在通过对象字面量定义对象时，实际上不会调用 Object 构造函数</li>
 </ul>
 <h2 id="Array-类型"><a href="#Array-类型" class="headerlink" title="Array 类型"></a>Array 类型</h2><ul>
@@ -1203,7 +1232,7 @@
         
           <p>原文 <a href="http://www.zcfy.cc/article/react-router-v4-the-complete-guide-mdash-sitepoint-4448.html" target="_blank" rel="noopener">http://www.zcfy.cc/article/react-router-v4-the-complete-guide-mdash-sitepoint-4448.html</a></p>
           <div class="read-more">
-            <a href="/2017/12/29/react-router-整理/" class="read-more-link">阅读更多</a>
+            <a href="/2017/12/29/react-router-整理/" class="read-more-link">Read more..</a>
           </div>
         
       
@@ -1373,7 +1402,7 @@
     
     
       <a class="next" href="/page/2/">
-        <span class="next-text">下一页</span>
+        <span class="next-text">Next</span>
         <i class="iconfont icon-right"></i>
       </a>
     
@@ -1430,11 +1459,11 @@
 
 <div class="copyright">
   <span class="power-by">
-    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
+    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
   </span>
   <span class="division">|</span>
   <span class="theme-info">
-    主题 - 
+    Theme - 
     <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
   </span>
 
