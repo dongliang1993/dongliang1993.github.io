@@ -17,6 +17,8 @@
 
 
 
+  <meta name="description" content="入门Webpack"/>
+
 
 
 
@@ -38,7 +40,7 @@
 
 
 
-<link rel="canonical" href="http://yoursite.com/archives/2018/01/"/>
+<link rel="canonical" href="http://yoursite.com/2018/02/01/入门Webpack/"/>
 
 
 <link rel="stylesheet" type="text/css" href="/css/style.css?v=2.6.0" />
@@ -85,11 +87,7 @@
 
 
 
-    <title>
-  
-    归档 - 我是你豆子欧巴
-  
-</title>
+    <title> 入门Webpack - 我是你豆子欧巴 </title>
   </head>
 
   <body><div id="mobile-navbar" class="mobile-navbar">
@@ -219,155 +217,110 @@
           <div id="content" class="content">
             
   
-  <section id="archive" class="archive">
-    
-      
-        <div class="archive-title">
-          <span class="archive-post-counter">
-            目前共计 37 篇日志
-          </span>
-        </div>
-      
-    
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          入门Webpack
+        
+      </h1>
 
-    
-      
+      <div class="post-meta">
+        <span class="post-time">
+          2018-02-01
+        </span>
         
         
-
-        
-          
-          <div class="collection-title">
-            <h2 class="archive-year">2018</h2>
+        <div class="post-visits"
+             data-url="/2018/02/01/入门Webpack/"
+             data-title="入门Webpack">
+            阅读次数
           </div>
         
-      
-
-      <div class="archive-post">
-        <span class="archive-post-time">
-          
-            01-31
-          
-        </span>
-        <span class="archive-post-title">
-          <a href="/2018/01/31/转载-这一次，彻底弄懂-JavaScript-执行机制/" class="archive-post-link">
-            『转载』这一次，彻底弄懂 JavaScript 执行机制
-          </a>
-        </span>
       </div>
+    </header>
+
+    
+    
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是Webpack"><span class="toc-text"><a href="#&#x4EC0;&#x4E48;&#x662F;Webpack" class="headerlink" title="&#x4EC0;&#x4E48;&#x662F;Webpack"></a>&#x4EC0;&#x4E48;&#x662F;Webpack</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#WebPack和Grunt以及Gulp相比有什么特性"><span class="toc-text"><a href="#WebPack&#x548C;Grunt&#x4EE5;&#x53CA;Gulp&#x76F8;&#x6BD4;&#x6709;&#x4EC0;&#x4E48;&#x7279;&#x6027;" class="headerlink" title="WebPack&#x548C;Grunt&#x4EE5;&#x53CA;Gulp&#x76F8;&#x6BD4;&#x6709;&#x4EC0;&#x4E48;&#x7279;&#x6027;"></a>WebPack&#x548C;Grunt&#x4EE5;&#x53CA;Gulp&#x76F8;&#x6BD4;&#x6709;&#x4EC0;&#x4E48;&#x7279;&#x6027;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开始使用Webpack"><span class="toc-text"><a href="#&#x5F00;&#x59CB;&#x4F7F;&#x7528;Webpack" class="headerlink" title="&#x5F00;&#x59CB;&#x4F7F;&#x7528;Webpack"></a>&#x5F00;&#x59CB;&#x4F7F;&#x7528;Webpack</span></a></li></ol>
+    </div>
+  </div>
+
+
+    <div class="post-content">
+      
+        <p>本文章是自己学习Webpack过程中的笔记</p>
+<p>相关链接 </p>
+<ul>
+<li><a href="https://www.jianshu.com/p/42e11515c10f" target="_blank" rel="noopener">https://www.jianshu.com/p/42e11515c10f</a></li>
+</ul>
+<a id="more"></a>
+<h2 id="什么是Webpack"><a href="#什么是Webpack" class="headerlink" title="什么是Webpack"></a>什么是Webpack</h2><p>WebPack可以看做是模块打包机：它做的事情是，分析你的项目结构，找到JavaScript模块以及其它的一些浏览器不能直接运行的拓展语言（Scss，TypeScript等），并将其转换和打包为合适的格式供浏览器使用。</p>
+<h2 id="WebPack和Grunt以及Gulp相比有什么特性"><a href="#WebPack和Grunt以及Gulp相比有什么特性" class="headerlink" title="WebPack和Grunt以及Gulp相比有什么特性"></a>WebPack和Grunt以及Gulp相比有什么特性</h2><p>其实Webpack和另外两个并没有太多的可比性，Gulp/Grunt是一种能够优化前端的开发流程的工具，而WebPack是一种模块化的解决方案，不过Webpack的优点使得Webpack在很多场景下可以替代Gulp/Grunt类的工具。</p>
+<p>Grunt和Gulp的工作方式是：在一个配置文件中，指明对某些文件进行类似编译，组合，压缩等任务的具体步骤，工具之后可以自动替你完成这些任务。<br><img src="https://upload-images.jianshu.io/upload_images/1031000-d0693c06bb3a00e3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700" alt=""></p>
+<p>Webpack的工作方式是：把你的项目当做一个整体，通过一个给定的主文件（如：index.js），Webpack将从这个文件开始找到你的项目的所有依赖文件，使用loaders处理它们，最后打包为一个（或多个）浏览器可识别的JavaScript文件。<br><img src="https://upload-images.jianshu.io/upload_images/1031000-160bc667d3b6093a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700" alt=""></p>
+<h2 id="开始使用Webpack"><a href="#开始使用Webpack" class="headerlink" title="开始使用Webpack"></a>开始使用Webpack</h2><p>### </p>
+
+      
+    </div>
+
     
       
-        
-        
-
-        
       
 
-      <div class="archive-post">
-        <span class="archive-post-time">
-          
-            01-30
-          
-        </span>
-        <span class="archive-post-title">
-          <a href="/2018/01/30/《你不知道的JavaScript-上》笔记/" class="archive-post-link">
-            《你不知道的JavaScript-上》笔记
-          </a>
-        </span>
-      </div>
+  <div class="post-copyright">
+    <p class="copyright-item">
+      <span>原文作者: </span>
+      <a href="http://yoursite.com">我是你豆子欧巴</a>
+    </p>
+    <p class="copyright-item">
+      <span>原文链接: </span>
+      <a href="http://yoursite.com/2018/02/01/入门Webpack/">http://yoursite.com/2018/02/01/入门Webpack/</a>
+    </p>
+    <p class="copyright-item">
+      <span>许可协议: </span>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
+  </div>
+
+
+
+      
+      
     
-      
-        
-        
 
-        
-      
-
-      <div class="archive-post">
-        <span class="archive-post-time">
-          
-            01-29
-          
-        </span>
-        <span class="archive-post-title">
-          <a href="/2018/01/29/转载-手把手教你撸一个-Webpack-Loader/" class="archive-post-link">
-            [转载]手把手教你撸一个 Webpack Loader
-          </a>
-        </span>
-      </div>
     
-      
+      <footer class="post-footer">
         
         
-
         
-      
-
-      <div class="archive-post">
-        <span class="archive-post-time">
-          
-            01-25
-          
-        </span>
-        <span class="archive-post-title">
-          <a href="/2018/01/25/for-in-循环顺序的问题/" class="archive-post-link">
-            for in 循环顺序的问题
-          </a>
-        </span>
-      </div>
+  <nav class="post-nav">
     
-      
-        
-        
-
-        
-      
-
-      <div class="archive-post">
-        <span class="archive-post-time">
-          
-            01-23
-          
-        </span>
-        <span class="archive-post-title">
-          <a href="/2018/01/23/面试整理-JavaScript-篇/" class="archive-post-link">
-            面试整理 JavaScript 篇
-          </a>
-        </span>
-      </div>
     
-      
-        
-        
-
-        
-      
-
-      <div class="archive-post">
-        <span class="archive-post-time">
-          
-            01-02
-          
-        </span>
-        <span class="archive-post-title">
-          <a href="/2018/01/02/二分查找/" class="archive-post-link">
-            二分查找
-          </a>
-        </span>
-      </div>
-    
-  </section>
-
-  
-  <nav class="pagination">
-    
+      <a class="next" href="/2018/01/31/转载-这一次，彻底弄懂-JavaScript-执行机制/">
+        <span class="next-text nav-default">『转载』这一次，彻底弄懂 JavaScript 执行机制</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
     
   </nav>
 
+      </footer>
+    
+
+  </article>
 
 
           </div>
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
       </main>
@@ -447,6 +400,8 @@
     </div>
 
     
+  
+
 
 
     
