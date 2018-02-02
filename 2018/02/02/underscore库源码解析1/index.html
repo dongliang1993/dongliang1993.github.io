@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+
+  <meta name="description" content="underscore库源码解析1"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="alternate" href="/default" title="我是你豆子欧巴">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.6.0" />
+
+
+
+<link rel="canonical" href="http://yoursite.com/2018/02/02/underscore库源码解析1/"/>
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.6.0" />
+
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+
+
+
+
+  
+
+
+
+  <script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.1.1/av-min.js"></script>
+  <script id="leancloud">
+    AV.init({
+      appId: "BFBKC2C7jVkD7w4SCRF57xom-gzGzoHsz",
+      appKey: "elTqQP3tDP3wAwIFKyE57fHe"
+    });
+  </script>
+
+
+
+
+
+    <title> underscore库源码解析1 - 我是你豆子欧巴 </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">我是你豆子欧巴</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            首页
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            归档
+          
+        </li>
+      </a>
+    
+      <a href="/tags">
+        <li class="mobile-menu-item">
+          
+          
+            标签
+          
+        </li>
+      </a>
+    
+      <a href="/categories">
+        <li class="mobile-menu-item">
+          
+          
+            分类
+          
+        </li>
+      </a>
+    
+      <a href="/about">
+        <li class="mobile-menu-item">
+          
+          
+            关于
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">我是你豆子欧巴</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              首页
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              归档
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/tags">
+            
+            
+              标签
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/categories">
+            
+            
+              分类
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/about">
+            
+            
+              关于
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          underscore库源码解析1
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-02-02
+        </span>
+        
+        
+        <div class="post-visits"
+             data-url="/2018/02/02/underscore库源码解析1/"
+             data-title="underscore库源码解析1">
+            阅读次数
+          </div>
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        <p>我们先把不重要的代码隐去，看一下骨架，大体如下：</p>
+<a id="more"></a>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="comment">// Baseline setup</span></span><br><span class="line">  <span class="comment">// 基本设置、配置</span></span><br><span class="line">  <span class="comment">// --------------</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// Establish the root object, `window` in the browser, or `exports` on the server.</span></span><br><span class="line">  <span class="comment">// 将 this 赋值给局部变量 root</span></span><br><span class="line">  <span class="comment">// root 的值, 客户端为 `window`, 服务端(node) 中为 `exports`</span></span><br><span class="line">  <span class="keyword">var</span> root = <span class="keyword">this</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Save the previous value of the `_` variable.</span></span><br><span class="line">  <span class="comment">// 将原来全局环境中的变量 `_` 赋值给变量 previousUnderscore 进行缓存</span></span><br><span class="line">  <span class="comment">// 主要是为了防止冲突</span></span><br><span class="line">  <span class="comment">// 在后面的 noConflict 方法中有用到</span></span><br><span class="line">  <span class="keyword">var</span> previousUnderscore = root._;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Save bytes in the minified (but not gzipped) version:</span></span><br><span class="line">  <span class="comment">// 缓存变量, 便于压缩代码</span></span><br><span class="line">  <span class="comment">// 此处「压缩」指的是压缩到 min.js 版本</span></span><br><span class="line">  <span class="comment">// 而不是 gzip 压缩</span></span><br><span class="line">  <span class="keyword">var</span> ArrayProto = <span class="built_in">Array</span>.prototype,</span><br><span class="line">      ObjProto = <span class="built_in">Object</span>.prototype,</span><br><span class="line">      FuncProto = <span class="built_in">Function</span>.prototype;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Create quick reference variables for speed access to core prototypes.</span></span><br><span class="line">  <span class="comment">// 缓存变量, 便于压缩代码</span></span><br><span class="line">  <span class="comment">// 同时可减少在原型链中的查找次数(提高代码效率)</span></span><br><span class="line">  <span class="keyword">var</span></span><br><span class="line">    push             = ArrayProto.push,</span><br><span class="line">    slice            = ArrayProto.slice,</span><br><span class="line">    toString         = ObjProto.toString,</span><br><span class="line">    hasOwnProperty   = ObjProto.hasOwnProperty;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// All **ECMAScript 5** native function implementations that we hope to use</span></span><br><span class="line">  <span class="comment">// are declared here.</span></span><br><span class="line">  <span class="comment">// ES5 原生方法, 如果浏览器支持, 则 underscore 中会优先使用</span></span><br><span class="line">  <span class="keyword">var</span></span><br><span class="line">    nativeIsArray      = <span class="built_in">Array</span>.isArray,</span><br><span class="line">    nativeKeys         = <span class="built_in">Object</span>.keys,</span><br><span class="line">    nativeBind         = FuncProto.bind,</span><br><span class="line">    nativeCreate       = <span class="built_in">Object</span>.create;</span><br><span class="line">	</span><br><span class="line">  <span class="comment">// Naked function reference for surrogate-prototype-swapping.</span></span><br><span class="line">  <span class="keyword">var</span> Ctor = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Create a safe reference to the Underscore object for use below.</span></span><br><span class="line">  <span class="comment">// 核心函数</span></span><br><span class="line">  <span class="comment">// `_` 其实是一个构造函数</span></span><br><span class="line">  <span class="comment">// 支持无 new 调用的构造函数（思考 jQuery 的无 new 调用）</span></span><br><span class="line">  <span class="comment">// 将传入的参数（实际要操作的数据）赋值给 this._wrapped 属性</span></span><br><span class="line">  <span class="comment">// OOP 调用时，_ 相当于一个构造函数 </span></span><br><span class="line">  <span class="comment">// each 等方法都在该构造函数的原型链上</span></span><br><span class="line">  <span class="comment">// _([1, 2, 3]).each(alert)</span></span><br><span class="line">  <span class="comment">// _([1, 2, 3]) 相当于无 new 构造了一个新的对象</span></span><br><span class="line">  <span class="comment">// 调用了该对象的 each 方法，该方法在该对象构造函数的原型链上</span></span><br><span class="line">  <span class="keyword">var</span> _ = <span class="function"><span class="keyword">function</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 以下均针对 OOP 形式的调用</span></span><br><span class="line">    <span class="comment">// 如果是非 OOP 形式的调用，不会进入该函数内部</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 如果 obj 已经是 `_` 函数的实例，则直接返回 obj</span></span><br><span class="line">    <span class="keyword">if</span> (obj <span class="keyword">instanceof</span> _)</span><br><span class="line">      <span class="keyword">return</span> obj;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 如果不是 `_` 函数的实例</span></span><br><span class="line">    <span class="comment">// 则调用 new 运算符，返回实例化的对象</span></span><br><span class="line">    <span class="keyword">if</span> (!(<span class="keyword">this</span> <span class="keyword">instanceof</span> _))</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">new</span> _(obj);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 将 obj 赋值给 this._wrapped 属性</span></span><br><span class="line">    <span class="keyword">this</span>._wrapped = obj;</span><br><span class="line">  &#125;;</span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">  <span class="comment">// Export the Underscore object for **Node.js**, with</span></span><br><span class="line">  <span class="comment">// backwards-compatibility for the old `require()` API. If we're in</span></span><br><span class="line">  <span class="comment">// the browser, add `_` as a global object.</span></span><br><span class="line">  <span class="comment">// 将上面定义的 `_` 局部变量赋值给全局对象中的 `_` 属性</span></span><br><span class="line">  <span class="comment">// 即客户端中 window._ = _</span></span><br><span class="line">  <span class="comment">// 服务端(node)中 exports._ = _</span></span><br><span class="line">  <span class="comment">// 同时在服务端向后兼容老的 require() API</span></span><br><span class="line">  <span class="comment">// 这样暴露给全局后便可以在全局环境中使用 `_` 变量(方法)</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> exports !== <span class="string">'undefined'</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="built_in">module</span> !== <span class="string">'undefined'</span> &amp;&amp; <span class="built_in">module</span>.exports) &#123;</span><br><span class="line">      exports = <span class="built_in">module</span>.exports = _;</span><br><span class="line">    &#125;</span><br><span class="line">    exports._ = _;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// 如果 exports 未定义，也就是说是在浏览器中</span></span><br><span class="line">    root._ = _;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Current version.</span></span><br><span class="line">  <span class="comment">// 当前 underscore 版本号</span></span><br><span class="line">  _.VERSION = <span class="string">'1.8.3'</span>;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/*各种内部变量、函数*/</span></span><br><span class="line">	<span class="comment">//...</span></span><br><span class="line">	</span><br><span class="line">	<span class="comment">/*各种公开的静态api,如：*/</span></span><br><span class="line">	_.each = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="comment">//TODO</span></span><br><span class="line">	&#125;;</span><br><span class="line">	_.first = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="comment">//TODO</span></span><br><span class="line">	&#125;;</span><br><span class="line">	_.bind = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="comment">//TODO</span></span><br><span class="line">	&#125;;</span><br><span class="line">	_.keys = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="comment">//TODO</span></span><br><span class="line">	&#125;;</span><br><span class="line">	_.noConfict = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="comment">//TODO</span></span><br><span class="line">	&#125;;</span><br><span class="line">	_.chain = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="comment">//TODO</span></span><br><span class="line">	&#125;;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">//...</span></span><br><span class="line">  <span class="comment">//...</span></span><br><span class="line">  <span class="comment">//...</span></span><br><span class="line">  </span><br><span class="line">  <span class="comment">// ***实例方法***</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">// Extracts the result from a wrapped and chained object.</span></span><br><span class="line">  <span class="comment">// 一个包装过(OOP)并且链式调用的对象</span></span><br><span class="line">  <span class="comment">// 用 value 方法获取结果</span></span><br><span class="line">  <span class="comment">// _(obj).value === obj?</span></span><br><span class="line">  _.prototype.value = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>._wrapped;</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Provide unwrapping proxy for some methods used in engine operations</span></span><br><span class="line">  <span class="comment">// such as arithmetic and JSON stringification.</span></span><br><span class="line">  _.prototype.valueOf = _.prototype.toJSON = _.prototype.value;</span><br><span class="line"></span><br><span class="line">  _.prototype.toString = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">''</span> + <span class="keyword">this</span>._wrapped;</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="comment">// ***实例方法结束***</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// AMD registration happens at the end for compatibility with AMD loaders</span></span><br><span class="line">  <span class="comment">// that may not enforce next-turn semantics on modules. Even though general</span></span><br><span class="line">  <span class="comment">// practice for AMD registration is to be anonymous, underscore registers</span></span><br><span class="line">  <span class="comment">// as a named module because, like jQuery, it is a base library that is</span></span><br><span class="line">  <span class="comment">// popular enough to be bundled in a third party lib, but not be part of</span></span><br><span class="line">  <span class="comment">// an AMD load request. Those cases could generate an error when an</span></span><br><span class="line">  <span class="comment">// anonymous define() is called outside of a loader request.</span></span><br><span class="line">  <span class="comment">// 兼容 AMD 规范</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> define === <span class="string">'function'</span> &amp;&amp; define.amd) &#123;</span><br><span class="line">    define(<span class="string">'underscore'</span>, [], <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> _;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">).call(<span class="keyword">this</span>));</span><br></pre></td></tr></table></figure>
+<ol>
+<li>外边调用了 call ，把 this 绑定。然后然后用局部变量 root 来接收 this。this 根据代码使用的平台不一样也是不同的。比如， 客户端为 ‘window’, 服务端(node) 中为 ‘exports’</li>
+<li>如果之前的 this 上有 <em> 这个变量怎么办，怎么防止冲突？代码里面用 previousUnderscore 接收了 root.</em>，后面会进行处理冲突</li>
+<li><p>接下来要开始构造我们自己的变量 <em> ，这是最关键的一步，所有的方法都是挂载在这个变量上的。**</em> 其实是一个构造函数**，支持无 new 调用（思考 jQuery 的无 new 调用）。一般有两种使用方法</p>
+<ul>
+<li>_.each([1,2,3], alert)</li>
+<li>_([1, 2, 3]).each(alert) (OOP 调用)<br>通常我们会使用第二种方式。我们看一下代码实现<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// Create a safe reference to the Underscore object for use below.</span></span><br><span class="line"><span class="comment">// 核心函数</span></span><br><span class="line"><span class="comment">// `_` 其实是一个构造函数</span></span><br><span class="line"><span class="comment">// 支持无 new 调用（思考 jQuery 的无 new 调用）</span></span><br><span class="line"><span class="comment">// 将传入的参数（实际要操作的数据）赋值给 this._wrapped 属性</span></span><br><span class="line"><span class="comment">// OOP 调用时，_ 相当于一个构造函数 </span></span><br><span class="line"><span class="comment">// each 等方法都在该构造函数的原型链上</span></span><br><span class="line"><span class="comment">// _([1, 2, 3]).each(alert)</span></span><br><span class="line"><span class="comment">// _([1, 2, 3]) 相当于无 new 构造了一个新的对象</span></span><br><span class="line"><span class="comment">// 调用了该对象的 each 方法，该方法在该对象构造函数的原型链上</span></span><br><span class="line"><span class="keyword">var</span> _ = <span class="function"><span class="keyword">function</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 以下均针对 OOP 形式的调用</span></span><br><span class="line">  <span class="comment">// 如果是非 OOP 形式的调用，不会进入该函数内部</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// 如果 obj 已经是 `_` 函数的实例，则直接返回 obj</span></span><br><span class="line">  <span class="keyword">if</span> (obj <span class="keyword">instanceof</span> _)</span><br><span class="line">    <span class="keyword">return</span> obj;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 如果不是 `_` 函数的实例</span></span><br><span class="line">  <span class="comment">// 则调用 new 运算符，返回实例化的对象</span></span><br><span class="line">  <span class="keyword">if</span> (!(<span class="keyword">this</span> <span class="keyword">instanceof</span> _))</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> _(obj);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 将 obj 赋值给 this._wrapped 属性</span></span><br><span class="line">  <span class="keyword">this</span>._wrapped = obj;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>_ 这个变量定义好了，接下来我们要挂载到 this 上</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Export the Underscore object for **Node.js**, with</span></span><br><span class="line"><span class="comment">// backwards-compatibility for the old `require()` API. If we're in</span></span><br><span class="line"><span class="comment">// the browser, add `_` as a global object.</span></span><br><span class="line"><span class="comment">// 将上面定义的 `_` 局部变量赋值给全局对象中的 `_` 属性</span></span><br><span class="line"><span class="comment">// 即客户端中 window._ = _</span></span><br><span class="line"><span class="comment">// 服务端(node)中 exports._ = _</span></span><br><span class="line"><span class="comment">// 同时在服务端向后兼容老的 require() API</span></span><br><span class="line"><span class="comment">// 这样暴露给全局后便可以在全局环境中使用 `_` 变量(方法)</span></span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">typeof</span> exports !== <span class="string">'undefined'</span>) &#123;</span><br><span class="line">  <span class="comment">// node 环境</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="built_in">module</span> !== <span class="string">'undefined'</span> &amp;&amp; <span class="built_in">module</span>.exports) &#123;</span><br><span class="line">    exports = <span class="built_in">module</span>.exports = _;</span><br><span class="line">  &#125;</span><br><span class="line">  exports._ = _;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="comment">// 如果 exports 未定义，也就是说是在浏览器中</span></span><br><span class="line">  root._ = _;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+
+      
+    </div>
+
+    
+      
+      
+
+  <div class="post-copyright">
+    <p class="copyright-item">
+      <span>原文作者: </span>
+      <a href="http://yoursite.com">我是你豆子欧巴</a>
+    </p>
+    <p class="copyright-item">
+      <span>原文链接: </span>
+      <a href="http://yoursite.com/2018/02/02/underscore库源码解析1/">http://yoursite.com/2018/02/02/underscore库源码解析1/</a>
+    </p>
+    <p class="copyright-item">
+      <span>许可协议: </span>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
+  </div>
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+        
+        
+  <nav class="post-nav">
+    
+    
+      <a class="next" href="/2018/02/01/入门Webpack/">
+        <span class="next-text nav-default">入门Webpack</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+      
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2015 - 
+    
+    2018
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">我是你豆子欧巴</span>
+  </span>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+
+
+
+    
+  
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.6.0"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=2.6.0"></script>
+
+  </body>
+</html>
