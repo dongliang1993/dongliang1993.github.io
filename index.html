@@ -1254,6 +1254,172 @@
 </ul>
 </li>
 </ul>
+<h2 id="BOM-浏览器对象模型"><a href="#BOM-浏览器对象模型" class="headerlink" title="BOM(浏览器对象模型)"></a>BOM(浏览器对象模型)</h2><h3 id="window-对象"><a href="#window-对象" class="headerlink" title="window 对象"></a>window 对象</h3><ul>
+<li><p>全局作用域</p>
+<ul>
+<li>由于 window 对象同时扮演着 ECMAScript 中 Global 对象的角色，因此所有在全局作用域中声明的变量、函数都会变成 window 对象的属性和方法</li>
+<li><p>全局变量不能通过 delete 操作符删除，而直接在 window 对象上的定义的属性可以</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> age = <span class="number">29</span>;</span><br><span class="line"><span class="built_in">window</span>.color = <span class="string">"red"</span>;</span><br><span class="line"><span class="comment">//在 IE &lt; 9 时抛出错误，在其他所有浏览器中都返回 false</span></span><br><span class="line"><span class="keyword">delete</span> <span class="built_in">window</span>.age;</span><br><span class="line"><span class="comment">//在 IE &lt; 9 时抛出错误，在其他所有浏览器中都返回 true</span></span><br><span class="line"><span class="keyword">delete</span> <span class="built_in">window</span>.color; <span class="comment">//returns true</span></span><br><span class="line">alert(<span class="built_in">window</span>.age); <span class="comment">//29</span></span><br><span class="line">alert(<span class="built_in">window</span>.color); <span class="comment">//undefined</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>var 语句添加的 window 属性有一个名为[[Configurable]]的特性，这个特性的值被设置为false，因此这样定义的属性不可以通过delete 操作符删除</p>
+</li>
+<li></li>
+</ul>
+</li>
+<li>窗口关系及框架<ul>
+<li>如果页面中包含框架(frame)，则每个框架都拥有自己的 window 对象，并且保存在 frames 集合中,每个 window 对象都有一个 name 属性，其中包含框架的名称</li>
+</ul>
+</li>
+<li>窗口位置<br>- </li>
+<li>窗口大小<ul>
+<li></li>
+</ul>
+</li>
+</ul>
+<h2 id="DOM-文档对象模型"><a href="#DOM-文档对象模型" class="headerlink" title="DOM(文档对象模型)"></a>DOM(文档对象模型)</h2><h3 id="文档对象模型"><a href="#文档对象模型" class="headerlink" title="文档对象模型"></a>文档对象模型</h3><ul>
+<li>文档节点是每个文档的根节点，即<html>元素，称之为文档元素</html></li>
+<li>Node类型<ul>
+<li>每个节点都有一个 nodeType 属性，用于表明节点的类型。节点类型由在 Node 类型中定义的12个数值常量来表示，任何节点类型必居其一<ul>
+<li>为了确保跨浏览器兼容，最好还是将 nodeType 属性与数字值进行比较</li>
+</ul>
+</li>
+<li>nodeName: 元素的标签名，大写字符串</li>
+<li>节点关系<ul>
+<li>每个节点都有一个 childNodes 属性，其中保存着一个 NodeList 对象, NodeList 是一种类数组对象，<ul>
+<li>用于保存一组有序的节点，可以通过位置来访问这些节点。</li>
+<li>DOM 结构的变化能够自动反映在 NodeList 对象中</li>
+<li>将 NodeList 对象转换为数组：Array.prototype.slice.call(someNode.childNodes,0);</li>
+<li>hasChildNodes 在节点包含一或多个子节点的情况下返回 true</li>
+</ul>
+</li>
+<li>每个节点都有一个 parentNode 属性，该属性指向文档树中的父节点</li>
+<li>previousSibling 和 nextSibling 属性，可以访问同一列表中的其他节点<ul>
+<li>列表中第一个节点的 previousSibling 属性值为 null，而列表中最后一个节点的 nextSibling 属性的值同样也为 null，</li>
+</ul>
+</li>
+<li>父节点的 firstChild 和 lastChild 属性分别指向其 childNodes 列表中的第一个和最后一个节点。</li>
+</ul>
+</li>
+<li>操作节点<ul>
+<li>appendChild: 向 childNodes 列表的末尾添加一个节点。<ul>
+<li>更新完成后，appendChild()返回新增的节点</li>
+<li>任何 DOM 节点也不能同时出现在文档中的多个位置上。因此，如果在调用 appendChild()时传入了父节点的第一个子节点，那么该节点就会成为父节点的最后一个子节点</li>
+</ul>
+</li>
+<li>insertBefore<ul>
+<li>接受两个参数：要插入的节点和作为参照的节点</li>
+<li>插入节点后，被插入的节点会变成参照节点的前一个同胞节点</li>
+</ul>
+</li>
+<li>replaceChild<ul>
+<li>接受的两个参数是：要插入的节点和要替换的节点</li>
+<li>要替换的节点将由这个方法返回并从文档树中被移除，同时由要插入的节点占据其位置</li>
+</ul>
+</li>
+<li>removeChild<ul>
+<li>这个方法接受一个参数，即要移除的节点。被移除的节点将成为方法的返回值</li>
+</ul>
+</li>
+<li>cloneNode<ul>
+<li>所有类型的节点都有</li>
+<li>接受一个布尔值参数，表示是否执行深复制</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Document类型<ul>
+<li>nodeType 的值为 9</li>
+<li>文档的子节点<ul>
+<li>document.documentElement: 指向 HTML 页面中的<html>元素</html></li>
+<li>document.childNodes</li>
+<li>document.body 直接指向<body>元素</body></li>
+<li>document.doctype: 取得对&lt;!DOCTYPE&gt;的引用</li>
+</ul>
+</li>
+<li>文档信息<ul>
+<li>document.title: 包含着<title>元素中的文本,修改 title 属性的值不会改变<title>元素。</title></title></li>
+<li>document.URL: 地址栏中显示的 URL</li>
+<li>document.domain: 包含页面的域名<ul>
+<li>可以设置，用来跨域</li>
+</ul>
+</li>
+<li>document.referrer: 保存着链接到当前页面的那个页面的 URL</li>
+</ul>
+</li>
+<li>查找元素<ul>
+<li>getElementById<ul>
+<li>如果不存在带有相应 ID 的元素，则返回 null</li>
+<li>如果页面中多个元素的 ID 值相同， getElementById()只返回文档中第一次出现的元素</li>
+</ul>
+</li>
+<li>getElementsByTagName<ul>
+<li>返回的是包含零或多个元素的 NodeList</li>
+<li>document.getElementsByTagName(“*”) 可以取得文档中的所有元素</li>
+</ul>
+</li>
+<li>getElementsByName<ul>
+<li>这个方法会返回带有给定 name 特性的所有元素 </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>文档写入<ul>
+<li>write()、 writeln()、 open()和 close()。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Element类型<ul>
+<li>nodeType 的值为 1</li>
+<li>nodeName 的值为元素的标签名</li>
+<li>要访问元素的标签名，可以使用 nodeName 属性，也可以使用 tagName 属性。<ul>
+<li>标签名始终都以全部大写表示</li>
+<li>if (element.tagName.toLowerCase() == “div”){ } //这样最好</li>
+</ul>
+</li>
+<li>HTML 元素<ul>
+<li>someNode.id //“myDiv””</li>
+<li>someNode.className //“bd fl”</li>
+<li>someNode.title //“Body text”</li>
+<li>someNode.lang //“en”</li>
+<li>someNode.dir</li>
+</ul>
+</li>
+<li>取得特性<ul>
+<li>getAttribute<ul>
+<li>div.getAttribute(“class”)</li>
+<li>只有在取得自定义特性值的情况下，才会使用 getAttribute</li>
+</ul>
+</li>
+<li>setAttribute<ul>
+<li>方法接受两个参数：要设置的特性名和值</li>
+<li>div.setAttribute(“class”, “ft”);</li>
+<li>如果特性已经存在，setAttribute()会以指定的值替换现有的值；如果特性不存在，setAttribute()<br>则创建该属性并设置相应的值</li>
+</ul>
+</li>
+<li>removeAttribute<ul>
+<li>div.removeAttribute(“class”);</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>attributes 属性<br>*</li>
+<li>创建元素<ul>
+<li>使用 document.createElement()方法可以创建新元素。</li>
+<li>这个方法只接受一个参数，即要创建元素的标签名。</li>
+</ul>
+</li>
+<li>元素的子节点<ul>
+<li>childNodes 属性中包含了它的所有子节点，这些子节点有可能是元素、文本节点、注释或处理指令。 </li>
+<li>空白符会被解析成文本节点</li>
+<li>遍历执行某项操作以前，通常都要先检查一下 nodeTpye 属性</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 <h2 id="XMLHttpRequest"><a href="#XMLHttpRequest" class="headerlink" title="XMLHttpRequest"></a>XMLHttpRequest</h2><h2 id="兼容"><a href="#兼容" class="headerlink" title="兼容"></a>兼容</h2><ul>
 <li>IE10/IE11 部分支持</li>
 <li>new ActiveXObject(“Microsoft.XMLHTTP”)</li>
