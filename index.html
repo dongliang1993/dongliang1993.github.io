@@ -221,6 +221,128 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/2018/02/08/深入浅出-Webpack-笔记/">深入浅出 Webpack 笔记</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-02-08
+        </span>
+        
+        
+        <div class="post-visits"
+             data-url="/2018/02/08/深入浅出-Webpack-笔记/"
+             data-title="深入浅出 Webpack 笔记">
+            阅读次数
+          </div>
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          <h2 id="1-1-前端的发展"><a href="#1-1-前端的发展" class="headerlink" title="1-1 前端的发展"></a>1-1 前端的发展</h2><h3 id="模块化"><a href="#模块化" class="headerlink" title="模块化"></a>模块化</h3><ul>
+<li>模块化是指把一个复杂的系统分解到多个模块以方便编码。</li>
+<li>CommonJS<ul>
+<li>概述<ul>
+<li>Node 应用由模块组成，采用 CommonJS 模块规范</li>
+<li>每个文件就是一个模块，有自己的作用域。在一个文件里面定义的变量、函数、类，都是私有的，对其他文件不可见</li>
+<li>CommonJS规范规定，每个模块内部，module变量代表当前模块。这个变量是一个对象，它的exports属性（即module.exports）是对外的接口。加载某个模块，其实是加载该模块的module.exports属性。</li>
+<li>require方法用于加载模块。</li>
+<li>特点<ul>
+<li>所有代码都运行在模块作用域，不会污染全局作用域。</li>
+<li>模块可以多次加载，但是只会在第一次加载时运行一次，然后运行结果就被缓存了，以后再加载，就直接读取缓存结果。要想让模块再次运行，必须清除缓存。</li>
+<li>模块加载的顺序，按照其在代码中出现的顺序。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>module对象<ul>
+<li>Node内部提供一个Module构建函数。所有模块都是Module的实例。</li>
+<li>每个模块内部，都有一个module对象，代表当前模块。module.exports 表示模块对外输出的值。</li>
+<li>module.exports属性<ul>
+<li>module.exports属性表示当前模块对外输出的接口，其他文件加载该模块，实际上就是读取module.exports变量。</li>
+</ul>
+</li>
+<li>exports变量<ul>
+<li>为了方便，Node为每个模块提供一个exports变量，指向module.exports</li>
+<li>注意，不能直接将exports变量指向一个值，因为这样等于切断了exports与module.exports的联系。</li>
+<li>这意味着，如果一个模块的对外接口，就是一个单一的值，不能使用exports输出，只能使用module.exports输出。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>AMD规范与CommonJS规范的兼容性<ul>
+<li>CommonJS规范加载模块是同步的，也就是说，只有加载完成，才能执行后面的操作。AMD规范则是非同步加载模块，允许指定回调函数。由于Node.js主要用于服务器编程，模块文件一般都已经存在于本地硬盘，所以加载起来比较快，不用考虑非同步加载的方式，所以CommonJS规范比较适用。但是，如果是浏览器环境，要从服务器端加载模块，这时就必须采用非同步模式，因此浏览器端一般采用AMD规范。</li>
+</ul>
+</li>
+<li>require命令<ul>
+<li>基本用法<ul>
+<li>require命令的基本功能是，读入并执行一个JavaScript文件，然后返回该模块的exports对象。如果没有发现指定模块，会报错。</li>
+<li>如果模块输出的是一个函数，那就不能定义在exports对象上面，而要定义在module.exports变量上面。</li>
+</ul>
+</li>
+<li>加载规则<ul>
+<li>require命令用于加载文件，后缀名默认为.js。</li>
+</ul>
+<ol>
+<li>如果参数字符串以“/”开头，则表示加载的是一个位于绝对路径的模块文件。比如，require(‘/home/marco/foo.js’)将加载/home/marco/foo.js。</li>
+<li>如果参数字符串以“./”开头，则表示加载的是一个位于相对路径（跟当前执行脚本的位置相比）的模块文件。比如，require(‘./circle’)将加载当前脚本同一目录的circle.js。</li>
+<li>如果参数字符串不以“./“或”/“开头，则表示加载的是一个默认提供的核心模块（位于Node的系统安装目录中），或者一个位于各级node_modules目录的已安装模块（全局安装或局部安装）</li>
+<li>如果参数字符串不以“./“或”/“开头，而且是一个路径，比如require(‘example-module/path/to/file’)，则将先找到example-module的位置，然后再以它为参数，找到后续路径。</li>
+<li>如果指定的模块文件没有发现，Node会尝试为文件名添加.js、.json、.node后，再去搜索。.js件会以文本格式的JavaScript脚本文件解析，.json文件会以JSON格式的文本文件解析，.node文件会以编译后的二进制文件解析。</li>
+<li>如果想得到require命令加载的确切文件名，使用require.resolve()方法。</li>
+</ol>
+</li>
+<li>目录的加载规则<ul>
+<li>在目录中放置一个package.json文件，并且将入口文件写入main字段</li>
+<li>require发现参数字符串指向一个目录以后，会自动查看该目录的package.json文件，然后加载main字段指定的入口文件。如果package.json文件没有main字段，或者根本就没有package.json文件，则会加载该目录下的index.js文件或index.node文件。</li>
+</ul>
+</li>
+<li>模块的缓存<ul>
+<li>第一次加载某个模块时，Node会缓存该模块。以后再加载该模块，就直接从缓存取出该模块的module.exports属性。</li>
+<li>所有缓存的模块保存在require.cache之中，如果想删除模块的缓存，delete require.cache[moduleName];</li>
+</ul>
+</li>
+<li>模块的循环加载<ul>
+<li>如果发生模块的循环加载，即A加载B，B又加载A，则B将加载A的不完整版本。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>模块的加载机制<ul>
+<li>CommonJS模块的加载机制是，输入的是被输出的值的拷贝。也就是说，一旦输出一个值，模块内部的变化就影响不到这个值。</li>
+<li>require的内部处理流程</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/2018/02/02/underscore库源码解析2/">underscore库源码解析2</a>
         
       </h1>
@@ -1419,6 +1541,12 @@
 </li>
 </ul>
 </li>
+<li>Text类型<ul>
+<li>nodeType 的值为 3</li>
+<li>nodeValue 的值为节点所包含的文本</li>
+<li>不支持（没有）子节点</li>
+</ul>
+</li>
 </ul>
 <h2 id="XMLHttpRequest"><a href="#XMLHttpRequest" class="headerlink" title="XMLHttpRequest"></a>XMLHttpRequest</h2><h2 id="兼容"><a href="#兼容" class="headerlink" title="兼容"></a>兼容</h2><ul>
 <li>IE10/IE11 部分支持</li>
@@ -1684,56 +1812,6 @@
           <p>二分查找是一种算法，其输入是一个有序的元素列表（仅当列表是有序的时候，二分查找才管用） 。如果要查找的元素包含在列表中，二分查找返回其位置；否则返回null。</p>
 <p>一般而言，对于包含n个元素的列表，用二分查找最多需要log2n步，而简单查找最多需要n步。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> binary_search = <span class="function">(<span class="params">list, target</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> low = <span class="number">0</span>,</span><br><span class="line">      mid,</span><br><span class="line">      guess,</span><br><span class="line">      height = list.length - <span class="number">1</span></span><br><span class="line">  <span class="keyword">while</span> (low &lt;= height) &#123;</span><br><span class="line">    mid = <span class="built_in">Math</span>.floor((low + height) / <span class="number">2</span> )</span><br><span class="line">    guess = list[mid]</span><br><span class="line">    <span class="keyword">if</span> (guess &lt; target) &#123;</span><br><span class="line">      low = mid + <span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2017/12/29/react-router-整理/">react-router 整理</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2017-12-29
-        </span>
-        
-        
-        <div class="post-visits"
-             data-url="/2017/12/29/react-router-整理/"
-             data-title="react-router 整理">
-            阅读次数
-          </div>
-        
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <p>原文 <a href="http://www.zcfy.cc/article/react-router-v4-the-complete-guide-mdash-sitepoint-4448.html" target="_blank" rel="noopener">http://www.zcfy.cc/article/react-router-v4-the-complete-guide-mdash-sitepoint-4448.html</a></p>
-          <div class="read-more">
-            <a href="/2017/12/29/react-router-整理/" class="read-more-link">阅读更多</a>
-          </div>
         
       
     </div>
