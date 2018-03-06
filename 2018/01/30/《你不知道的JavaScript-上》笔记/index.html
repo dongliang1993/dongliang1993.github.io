@@ -247,14 +247,114 @@
   <div class="post-toc" id="post-toc">
     <h2 class="post-toc-title">文章目录</h2>
     <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-为什么要用this"><span class="toc-text"><a href="#1-1-&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x7528;this" class="headerlink" title="1.1 &#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x7528;this"></a>1.1 &#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x7528;this</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#绑定规则"><span class="toc-text"><a href="#&#x7ED1;&#x5B9A;&#x89C4;&#x5219;" class="headerlink" title="&#x7ED1;&#x5B9A;&#x89C4;&#x5219;"></a>&#x7ED1;&#x5B9A;&#x89C4;&#x5219;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#对象"><span class="toc-text"><a href="#&#x5BF9;&#x8C61;" class="headerlink" title="&#x5BF9;&#x8C61;"></a>&#x5BF9;&#x8C61;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#面向对象编程"><span class="toc-text"><a href="#&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7F16;&#x7A0B;" class="headerlink" title="&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7F16;&#x7A0B;"></a>&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7F16;&#x7A0B;</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#类理论"><span class="toc-text"><a href="#&#x7C7B;&#x7406;&#x8BBA;" class="headerlink" title="&#x7C7B;&#x7406;&#x8BBA;"></a>&#x7C7B;&#x7406;&#x8BBA;</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原型"><span class="toc-text"><a href="#&#x539F;&#x578B;" class="headerlink" title="&#x539F;&#x578B;"></a>&#x539F;&#x578B;</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Prototype"><span class="toc-text"><a href="#Prototype" class="headerlink" title="[[Prototype]]"></a>[[Prototype]]</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#作用域和闭包"><span class="toc-text"><a href="#&#x4F5C;&#x7528;&#x57DF;&#x548C;&#x95ED;&#x5305;" class="headerlink" title="&#x4F5C;&#x7528;&#x57DF;&#x548C;&#x95ED;&#x5305;"></a>&#x4F5C;&#x7528;&#x57DF;&#x548C;&#x95ED;&#x5305;</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#作用域是什么"><span class="toc-text"><a href="#&#x4F5C;&#x7528;&#x57DF;&#x662F;&#x4EC0;&#x4E48;" class="headerlink" title="&#x4F5C;&#x7528;&#x57DF;&#x662F;&#x4EC0;&#x4E48;"></a>&#x4F5C;&#x7528;&#x57DF;&#x662F;&#x4EC0;&#x4E48;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#词法作用域"><span class="toc-text"><a href="#&#x8BCD;&#x6CD5;&#x4F5C;&#x7528;&#x57DF;" class="headerlink" title="&#x8BCD;&#x6CD5;&#x4F5C;&#x7528;&#x57DF;"></a>&#x8BCD;&#x6CD5;&#x4F5C;&#x7528;&#x57DF;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#函数作用域和块作用域"><span class="toc-text"><a href="#&#x51FD;&#x6570;&#x4F5C;&#x7528;&#x57DF;&#x548C;&#x5757;&#x4F5C;&#x7528;&#x57DF;" class="headerlink" title="&#x51FD;&#x6570;&#x4F5C;&#x7528;&#x57DF;&#x548C;&#x5757;&#x4F5C;&#x7528;&#x57DF;"></a>&#x51FD;&#x6570;&#x4F5C;&#x7528;&#x57DF;&#x548C;&#x5757;&#x4F5C;&#x7528;&#x57DF;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#块作用域"><span class="toc-text"><a href="#&#x5757;&#x4F5C;&#x7528;&#x57DF;" class="headerlink" title="&#x5757;&#x4F5C;&#x7528;&#x57DF;"></a>&#x5757;&#x4F5C;&#x7528;&#x57DF;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#提升"><span class="toc-text"><a href="#&#x63D0;&#x5347;" class="headerlink" title="&#x63D0;&#x5347;"></a>&#x63D0;&#x5347;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#函数优先"><span class="toc-text"><a href="#&#x51FD;&#x6570;&#x4F18;&#x5148;" class="headerlink" title="&#x51FD;&#x6570;&#x4F18;&#x5148;"></a>&#x51FD;&#x6570;&#x4F18;&#x5148;</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#作用域闭包"><span class="toc-text"><a href="#&#x4F5C;&#x7528;&#x57DF;&#x95ED;&#x5305;" class="headerlink" title="&#x4F5C;&#x7528;&#x57DF;&#x95ED;&#x5305;"></a>&#x4F5C;&#x7528;&#x57DF;&#x95ED;&#x5305;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-为什么要用this"><span class="toc-text"><a href="#1-1-&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x7528;this" class="headerlink" title="1.1 &#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x7528;this"></a>1.1 &#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x7528;this</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#绑定规则"><span class="toc-text"><a href="#&#x7ED1;&#x5B9A;&#x89C4;&#x5219;" class="headerlink" title="&#x7ED1;&#x5B9A;&#x89C4;&#x5219;"></a>&#x7ED1;&#x5B9A;&#x89C4;&#x5219;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#对象"><span class="toc-text"><a href="#&#x5BF9;&#x8C61;" class="headerlink" title="&#x5BF9;&#x8C61;"></a>&#x5BF9;&#x8C61;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#面向对象编程"><span class="toc-text"><a href="#&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7F16;&#x7A0B;" class="headerlink" title="&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7F16;&#x7A0B;"></a>&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7F16;&#x7A0B;</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#类理论"><span class="toc-text"><a href="#&#x7C7B;&#x7406;&#x8BBA;" class="headerlink" title="&#x7C7B;&#x7406;&#x8BBA;"></a>&#x7C7B;&#x7406;&#x8BBA;</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原型"><span class="toc-text"><a href="#&#x539F;&#x578B;" class="headerlink" title="&#x539F;&#x578B;"></a>&#x539F;&#x578B;</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Prototype"><span class="toc-text"><a href="#Prototype" class="headerlink" title="[[Prototype]]"></a>[[Prototype]]</span></a></li></ol></li></ol>
     </div>
   </div>
 
 
     <div class="post-content">
       
-        <h2 id="1-1-为什么要用this"><a href="#1-1-为什么要用this" class="headerlink" title="1.1 为什么要用this"></a>1.1 为什么要用this</h2><ul>
+        <h2 id="作用域和闭包"><a href="#作用域和闭包" class="headerlink" title="作用域和闭包"></a>作用域和闭包</h2><h3 id="作用域是什么"><a href="#作用域是什么" class="headerlink" title="作用域是什么"></a>作用域是什么</h3><ul>
+<li>需要一套设计良好的规则来存储变量， 并且之后可以方便地找到这些变量。这套规则被称为<strong>作用域</strong></li>
+<li>编译原理<ul>
+<li>在传统编译语言的流程中， 程序中的一段源代码在执行之前会经历三个步骤， 统称为“编译”<ul>
+<li>分词/词法分析（ Tokenizing/Lexing）</li>
+<li>解析/语法分析（ Parsing）<ul>
+<li>这个过程是将词法单元流（ 数组） 转换成一个由元素逐级嵌套所组成的代表了程序语法结构的树。 这个树被称为“ 抽象语法树”（Abstract Syntax Tree， AST）。</li>
+</ul>
+</li>
+<li>代码生成<ul>
+<li>将 AST 转换为可执行代码的过程称被称为代码生成。 </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>理解作用域<ul>
+<li>变量的赋值操作会执行两个动作， 首先编译器会在当前作用域中声明一个变量（ 如果之前没有声明过）， 然后在运行时引擎会在作用域中查找该变量， 如果能够找到就会对它赋值。</li>
+<li>LHS 和 RHS<ul>
+<li>“L” 和“R” 的含义， 它们分别代表左侧和右侧</li>
+<li>当变量出现在赋值操作的左侧时进行 LHS 查询， 出现在右侧时进行 RHS 查询。</li>
+<li>如果查找的目的是对变量进行赋值， 那么就会使用 LHS 查询； 如果目的是获取变量的值， 就会使用 RHS 查询。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>作用域嵌套<ul>
+<li>当一个块或函数嵌套在另一个块或函数中时， 就发生了作用域的嵌套。 </li>
+<li>引擎从当前的执行作用域开始查找变量， 如果找不到，就向上一级继续查找。 当抵达最外层的全局作用域时， 无论找到还是没找到， 查找过程都会停止</li>
+</ul>
+</li>
+</ul>
+<h3 id="词法作用域"><a href="#词法作用域" class="headerlink" title="词法作用域"></a>词法作用域</h3><ul>
+<li>作用域共有两种主要的工作模型：词法作用域、动态作用域</li>
+<li>词法作用域意味着作用域是由书写代码时函数声明的位置来决定的。 </li>
+<li>词法阶段<ul>
+<li>作用域查找会在找到第一个匹配的标识符时停止。 在多层的嵌套作用域中可以定义同名的标识符， 这叫作“ 遮蔽效应”（ 内部的标识符“ 遮蔽” 了外部的标识符）</li>
+<li>无论函数在哪里被调用， 也无论它如何被调用， 它的词法作用域都只由函数被声明时所处的位置决定。</li>
+</ul>
+</li>
+<li>欺骗词法<ul>
+<li>欺骗词法作用域会导致性能下降</li>
+<li>eval<ul>
+<li>JavaScript 中的 eval(..) 函数可以接受一个字符串为参数， 并将其中的内容视为好像在书写时就存在于程序中这个位置的代码。 换句话说， 可以在你写的代码中用程序生成代码并运行， 就好像代码是写在那个位置的一样。</li>
+</ul>
+</li>
+<li>with<ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="函数作用域和块作用域"><a href="#函数作用域和块作用域" class="headerlink" title="函数作用域和块作用域"></a>函数作用域和块作用域</h3><ul>
+<li>函数中的作用域<ul>
+<li>每声明一个函数都会为其自身创建一个作用域</li>
+<li>函数作用域的含义是指， 属于这个函数的全部变量都可以在整个函数的范围内使用及复用（ 事实上在嵌套的作用域中也可以使用）</li>
+</ul>
+</li>
+<li>隐藏内部实现<ul>
+<li>规避冲突<ul>
+<li><ol>
+<li>全局命名空间</li>
+</ol>
+</li>
+<li><ol>
+<li>模块管理</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>函数作用域<ul>
+<li>立即执行函数表达式（IIFE）</li>
+</ul>
+</li>
+</ul>
+<h3 id="块作用域"><a href="#块作用域" class="headerlink" title="块作用域"></a>块作用域</h3><ul>
+<li>变量的声明应该距离使用的地方越近越好， 并最大限度地本地化</li>
+<li>with</li>
+<li>try/catch：  try/catch 的 catch 分句会创建一个块作用域， 其中声明的变量仅在 catch 内部有效</li>
+<li>let</li>
+<li>const</li>
+</ul>
+<h3 id="提升"><a href="#提升" class="headerlink" title="提升"></a>提升</h3><ul>
+<li>包括变量和函数在内的所有声明都会在任何代码被执行前首先被处理</li>
+<li>当你看到 var a = 2; 时， 可能会认为这是一个声明。 但 JavaScript 实际上会将其看成两个<br>声明： var a; 和 a = 2;。 第一个定义声明是在编译阶段进行的。 第二个赋值声明会被留在<br>原地等待执行阶段。</li>
+<li>只有声明本身会被提升， 而赋值或其他运行逻辑会留在原地</li>
+<li>每个作用域都会进行提升操作</li>
+<li>函数声明会被提升， 但是函数表达式却不会被提升。</li>
+<li>即使是具名的函数表达式， 名称标识符在赋值之前也无法在所在作用域中使用</li>
+</ul>
+<h3 id="函数优先"><a href="#函数优先" class="headerlink" title="函数优先"></a>函数优先</h3><ul>
+<li>函数声明和变量声明都会被提升。 但是一个值得注意的细节（ 这个细节可以出现在有多个<br>“ 重复” 声明的代码中） 是函数会首先被提升， 然后才是变量</li>
+</ul>
+<h2 id="作用域闭包"><a href="#作用域闭包" class="headerlink" title="作用域闭包"></a>作用域闭包</h2><ul>
+<li>当函数可以记住并访问所在的词法作用域时， 就产生了闭包， 即使函数是在当前词法作用<br>域之外执行</li>
+</ul>
+<h2 id="1-1-为什么要用this"><a href="#1-1-为什么要用this" class="headerlink" title="1.1 为什么要用this"></a>1.1 为什么要用this</h2><ul>
 <li><p>这段代码可以在不同的上下文对象（ me 和 you）中重复使用函数 identify() 和 speak()，不用针对每个对象编写不同版本的函数。<br>this 提供了一种更优雅的方式来隐式“ 传递” 一个对象引用</p>
 </li>
 <li><p>this 不是指向函数自身</p>
