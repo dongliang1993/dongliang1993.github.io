@@ -221,6 +221,51 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/2017/12/12/深入ES6-07-Set与Map/">深入ES6 07-Set与Map</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2017-12-12
+        </span>
+        
+        
+        <div class="post-visits"
+             data-url="/2017/12/12/深入ES6-07-Set与Map/"
+             data-title="深入ES6 07-Set与Map">
+            阅读次数
+          </div>
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/2017/12/12/深入ES6-06-符号与符号属性/">深入ES6 06-符号与符号属性</a>
         
       </h1>
@@ -1032,53 +1077,6 @@
 <p>在 ES6 中，函数的行为被 [[Call]] 与 [[Construct]] 方法所定义，前者对应普通的函数执行，后者则对应着使用了 new 的调用。 new.target 元属性也能用于判断函数被调用时是否使用了 new 。</p>
 <p>ES6 函数的最大变化就是增加了箭头函数。箭头函数被设计用于替代匿名函数表达式，它拥有更简洁的语法、词法级的 this 绑定，并且没有 arguments 对象。此外，箭头函数不能修改它们的 this 绑定，因此不能被用作构造器。、</p>
 <p>尾调用优化允许某些函数的调用被优化，以保持更小的调用栈、使用更少的内存，并防止堆栈溢出。当能进行安全优化时，它会由引擎自动应用。不过你可以考虑重写递归函数，以便利用这种优化。</p>
-
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2017/11/21/深入-ES6-03-Promise-与异步编程/">深入-ES6-03 Promise 与异步编程</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2017-11-21
-        </span>
-        
-        
-        <div class="post-visits"
-             data-url="/2017/11/21/深入-ES6-03-Promise-与异步编程/"
-             data-title="深入-ES6-03 Promise 与异步编程">
-            阅读次数
-          </div>
-        
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-
-        
-          <h2 id="异步编程的背景"><a href="#异步编程的背景" class="headerlink" title="异步编程的背景"></a>异步编程的背景</h2><p>JS 引擎建立在单线程事件循环的概念上。单线程（Single-threaded ） 意味着同一时刻只能执行一段代码，与 Java 或 C++ 这种允许同时执行多段不同代码的多线程语言形成了反差。</p>
-<p>多段代码可以同时访问或修改状态，维护并保护这些状态就变成了难题，这也是基于多线程的软件中出现 bug 的常见根源之一。<br>JS 引擎在同一时刻只能执行一段代码，所以引擎无须留意那些“可能”运行的代码。代码会被放置在作业队列（job queue ） 中，每当一段代码准备被执行，它就会被添加到作业队列。当 JS 引擎结束当前代码的执行后，事件循环就会执行队列中的下一个作业。事件循环（ event loop ） 是 JS 引擎的一个内部处理进程，能监视代码的执行并管理作业队列。要记住既然是一个队列，作业就会从队列中的第一个开始，依次运行到最后一个。</p>
 
         
       

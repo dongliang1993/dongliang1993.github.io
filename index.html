@@ -221,6 +221,256 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/2018/03/06/promise-笔记/">promise 笔记</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-03-06
+        </span>
+        
+        
+        <div class="post-visits"
+             data-url="/2018/03/06/promise-笔记/"
+             data-title="promise 笔记">
+            阅读次数
+          </div>
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          <ul>
+<li>Promise 是一个构造函数，接收一个函数作为参数，这个参数可以传入两个参数：resolve，reject，分别表示异步操作执行成功后的回调函数和异步操作执行失败后的回调函数。其实这里用“成功”和“失败”来描述并不准确，按照标准来讲，resolve 是将 Promise 的状态置为 fullfiled，reject 是将 Promise 的状态置为 rejected。不过在我们开始阶段可以先这么理解，后面再细究概念。</li>
+<li><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> <span class="built_in">Promise</span> <span class="function"><span class="keyword">function</span> (<span class="params">resolve, reject</span>)</span>&#123;</span><br><span class="line">  <span class="comment">// 做一些异步操作</span></span><br><span class="line">  setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> num = <span class="built_in">Math</span>.ceil(<span class="built_in">Math</span>.random()*<span class="number">10</span>);<span class="comment">// 生成 1-10 的随机数</span></span><br><span class="line">    <span class="keyword">if</span>(num&lt;=<span class="number">5</span>)&#123;</span><br><span class="line">      resolve(num);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">      reject(<span class="string">'数字太大了'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;, <span class="number">2000</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>new 了一个对象，并没有调用它，我们传进去的函数就已经执行了，这是需要注意的一个细节，所以我们用 Promise 的时候一般是包在一个函数中</p>
+<ul>
+<li><p>执行这个函数我们得到了一个 Promise 对象，其原型上有 then、catch 方法</p>
+</li>
+<li><p>then 接收两个参数，注册当 resolve（成功)/reject（失败) 的回调函数</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// onFulfilled 是用来接收 promise 成功的值</span></span><br><span class="line"><span class="comment">// onRejected 是用来接收 promise 失败的原因</span></span><br><span class="line">promise.then(onFulfilled, onRejected);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>then 方法中如果直接 return 数据，会包装成 promise</li>
+</ul>
+</li>
+<li>catch 用来指定 reject 的回调。而且在执行 resolve 的回调（也就是上面 then 中的第一个参数）时，如果抛出异常了（代码出错了），那么并不会报错卡死 js，而是会进到这个 catch 方法中</li>
+<li>all 的用法<ul>
+<li>提供了并行执行异步操作的能力，并且在所有异步操作执行完后才执行回调</li>
+</ul>
+</li>
+<li>race 的用法<ul>
+<li>谁跑的快，以谁为准执行回调</li>
+</ul>
+</li>
+</ul>
+<h2 id="术语"><a href="#术语" class="headerlink" title="术语"></a>术语</h2><ul>
+<li>Promise<ul>
+<li>promise 是一个拥有 then 方法的对象或函数，其行为符合本规范；</li>
+</ul>
+</li>
+<li>thenable<ul>
+<li>是一个定义了 then 方法的对象或函数，文中译作“拥有 then 方法”；</li>
+</ul>
+</li>
+<li>值（value）<ul>
+<li>指任何 JavaScript 的合法值（包括 undefined , thenable 和 promise）；</li>
+</ul>
+</li>
+<li>异常（exception）<ul>
+<li>是使用 throw 语句抛出的一个值。</li>
+</ul>
+</li>
+<li>拒绝原因（reason）<ul>
+<li>表示一个 promise 的拒绝原因。</li>
+</ul>
+</li>
+</ul>
+<h2 id="要求"><a href="#要求" class="headerlink" title="要求"></a>要求</h2><h3 id="Promise-的状态"><a href="#Promise-的状态" class="headerlink" title="Promise 的状态"></a>Promise 的状态</h3><p>一个 Promise 的当前状态必须为以下三种状态中的一种：等待态（Pending）、完成态（Fulfilled）和拒绝态（Rejected）。</p>
+<ul>
+<li>等待态（Pending）<ul>
+<li>处于等待态时，promise 需满足以下条件：<ul>
+<li>可以迁移至完成态或拒绝态</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>完成态（Fulfilled）<ul>
+<li>处于完成态时，promise 需满足以下条件：<ul>
+<li>不能迁移至其他任何状态</li>
+<li>必须拥有一个不可变的终值</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>拒绝态（Rejected）<ul>
+<li>处于拒绝态时，promise 需满足以下条件：<ul>
+<li>不能迁移至其他任何状态</li>
+<li>必须拥有一个不可变的据因</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>这里的不可变指的是恒等（即可用 === 判断相等），而不是意味着更深层次的不可变（译者注： 盖指当 value 或 reason 不是基本值时，只要求其引用地址相等，但属性值可被更改）。</p>
+<h3 id="Then-方法"><a href="#Then-方法" class="headerlink" title="Then 方法"></a>Then 方法</h3><p>一个 promise 必须提供一个 then 方法以访问其当前值、终值和据因。</p>
+<p>promise 的 then 方法接受两个参数：</p>
+<p>promise.then(onFulfilled, onRejected)</p>
+<ul>
+<li>参数可选<ul>
+<li>onFulfilled 和 onRejected 都是可选参数。</li>
+<li>如果 onFulfilled 不是函数，其必须被忽略</li>
+<li>如果 onRejected 不是函数，其必须被忽略</li>
+</ul>
+</li>
+</ul>
+<p>注：如果我们只想传 onRejected 而不想传 onFulfilled，可以这么写：pormise.then(null, onRejected)</p>
+<ul>
+<li>onFulfilled 特性<ul>
+<li>如果 onFulfilled 是函数：<ul>
+<li>当 promise 执行结束后其必须被调用，其第一个参数为 promise 的终值</li>
+<li>在 promise 执行结束前其不可被调用</li>
+<li>其调用次数不可超过一次</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>onRejected 特性</p>
+<ul>
+<li>如果 onRejected 是函数：<ul>
+<li>当 promise 被拒绝执行后其必须被调用，其第一个参数为 promise 的据因</li>
+<li>在 promise 被拒绝执行前其不可被调用</li>
+<li>其调用次数不可超过一次</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>调用时机</p>
+</li>
+</ul>
+<p>onFulfilled 和 onRejected 只有在执行环境堆栈仅包含平台代码时才可被调用 注 1</p>
+<ul>
+<li>调用要求</li>
+</ul>
+<p>onFulfilled 和 onRejected 必须被作为函数调用（即没有 this 值）注 2</p>
+<p>注：也就是说，我们在 promise 中就别用 this 了。</p>
+<ul>
+<li>多次调用</li>
+</ul>
+<p>then 方法可以被同一个 promise 调用多次</p>
+<ul>
+<li>当 promise 成功执行时，所有 onFulfilled 需按照其注册顺序依次回调</li>
+<li>当 promise 被拒绝执行时，所有的 onRejected 需按照其注册顺序依次回调</li>
+</ul>
+<p>注：这里解释了我们可以链式调用，promise.then().then().then()</p>
+<ul>
+<li>返回</li>
+</ul>
+<p>then 方法必须返回一个 promise 对象 注 3</p>
+<p>promise2 = promise1.then(onFulfilled, onRejected);</p>
+<p>注：这就是我们能够进行链式调用的原因，因为 then 方法返回的还是一个 promise 对象。</p>
+<ul>
+<li>如果 onFulfilled 或者 onRejected 返回一个值 x ，则运行下面的 Promise 解决过程：<a href="promise2, x">[Resolve]</a></li>
+<li>如果 onFulfilled 或者 onRejected 抛出一个异常 e ，则 promise2 必须拒绝执行，并返回拒因 e</li>
+<li>如果 onFulfilled 不是函数且 promise1 成功执行， promise2 必须成功执行并返回相同的值</li>
+<li>如果 onRejected 不是函数且 promise1 拒绝执行， promise2 必须拒绝执行并返回相同的据因</li>
+</ul>
+<h3 id="Promise-解决过程"><a href="#Promise-解决过程" class="headerlink" title="Promise 解决过程"></a>Promise 解决过程</h3><p>Promise 解决过程 是一个抽象的操作，其需输入一个 promise 和一个值，我们表示为 <a href="promise, x">[Resolve]</a>，如果 x 有 then 方法且看上去像一个 Promise ，解决程序即尝试使 promise 接受 x 的状态；否则其用 x 的值来执行 promise 。</p>
+<p>这种 thenable 的特性使得 Promise 的实现更具有通用性：只要其暴露出一个遵循 Promise/A+ 协议的 then 方法即可；这同时也使遵循 Promise/A+ 规范的实现可以与那些不太规范但可用的实现能良好共存。</p>
+<p>运行 <a href="promise, x">[Resolve]</a> 需遵循以下步骤：</p>
+<ul>
+<li>x 与 promise 相等</li>
+</ul>
+<p>如果 promise 和 x 指向同一对象，以 TypeError 为据因拒绝执行 promise</p>
+<ul>
+<li>x 为 Promise</li>
+</ul>
+<p>如果 x 为 Promise ，则使 promise 接受 x 的状态 注 4：</p>
+<ul>
+<li>如果 x 处于等待态， promise 需保持为等待态直至 x 被执行或拒绝</li>
+<li>如果 x 处于完成态，用相同的值执行 promise</li>
+<li>如果 x 处于拒绝态，用相同的据因拒绝 promise<br>注：这里就是解释我们链式调用 then 时，可以继续进行异步操作，只要在 onFulfilled 中继续返回一个 promise 对象即可。例如：<br>runAsync1()<br>.then(function(data){<br>  console.log(data);<br>  return runAsync2(); // 返回值为 promise 对象<br>})<br>.then(function(data){<br>  console.log(data);<br>  return runAsync3();<br>})</li>
+</ul>
+<p>x 为对象或函数<br>如果 x 为对象或者函数：</p>
+<p>把 x.then 赋值给 then 注 5<br>如果取 x.then 的值时抛出错误 e ，则以 e 为据因拒绝 promise<br>如果 then 是函数，将 x 作为函数的作用域 this 调用之。传递两个回调函数作为参数，第一个参数叫做 resolvePromise ，第二个参数叫做 rejectPromise:<br>如果 resolvePromise 以值 y 为参数被调用，则运行 <a href="promise, y">[Resolve]</a><br>如果 rejectPromise 以据因 r 为参数被调用，则以据因 r 拒绝 promise<br>如果 resolvePromise 和 rejectPromise 均被调用，或者被同一参数调用了多次，则优先采用首次调用并忽略剩下的调用<br>如果调用 then 方法抛出了异常 e：<br>如果 resolvePromise 或 rejectPromise 已经被调用，则忽略之<br>否则以 e 为据因拒绝 promise<br>如果 then 不是函数，以 x 为参数执行 promise<br>如果 x 不为对象或者函数，以 x 为参数执行 promise<br>如果一个 promise 被一个循环的 thenable 链中的对象解决，而 <a href="promise, thenable">[Resolve]</a> 的递归性质又使得其被再次调用，根据上述的算法将会陷入无限递归之中。算法虽不强制要求，但也鼓励施者检测这样的递归是否存在，若检测到存在则以一个可识别的 TypeError 为据因来拒绝 promise 注 6。</p>
+<p>Promise 实现代码</p>
+<p>function Promise (executor) {<br>  let self = this // 缓存当前 promise 实例对象<br>  self.status = ‘pending’ // Promise 当前的状态<br>  self.data = undefined  // Promise 的值</p>
+<p>  // Promise resolve 时的回调函数集，<br>  // 因为在 Promise 结束之前有可能有多个回调添加到它上面<br>  self.onResolvedCallback = [] </p>
+<p>  // Promise reject 时的回调函数集，<br>  // 因为在 Promise 结束之前有可能有多个回调添加到它上面<br>  self.onRejectedCallback = [] </p>
+<p>  function resolve(value) {<br>    if (value instanceof Promise) {<br>      return value.then(resolve, reject)<br>    }<br>    setTimeout(function() { // 异步执行所有的回调函数<br>      if (self.status === ‘pending’) {<br>        self.status = ‘resolved’<br>        self.data = value<br>        for (var i = 0; i &lt; self.onResolvedCallback.length; i++) {<br>          self.onResolvedCallback<a href="value">i</a><br>        }<br>      }<br>    })<br>  }</p>
+<p>  function reject(reason) {<br>    setTimeout(function() { // 异步执行所有的回调函数<br>      if (self.status === ‘pending’) {<br>        self.status = ‘rejected’<br>        self.data = reason<br>        for (var i = 0; i &lt; self.onRejectedCallback.length; i++) {<br>          self.onRejectedCallback<a href="reason">i</a><br>        }<br>      }<br>    }<br>  }</p>
+<p>  // 执行 executor 并传入相应的参数<br>  // new 的时候就已经调用了<br>  // 考虑到执行 executor 的过程中有可能出错，<br>  // 所以我们用 try/catch 块给包起来，<br>  // 并且在出错后以 catch 到的值 reject 掉这个 Promise<br>  try {<br>    // 执行 executor<br>    executor(resolve, reject)<br>  } catch(e) {<br>    reject(e)<br>  }<br>}</p>
+<p>// then 方法接收两个参数，onResolved，onRejected，分别为 Promise 成功或失败后的回调<br>Promise.prototype.then = function(onResolved, onRejected) {<br>  var self = this<br>  var promise2</p>
+<p>  // 根据标准，如果 then 的参数不是 function，则我们需要忽略它，此处以如下方式处理<br>  onResolved = typeof onResolved === ‘function’ ? onResolved : function(value) {return value}<br>  onRejected = typeof onRejected === ‘function’ ? onRejected : function(reason) {throw reason}</p>
+<p>  if (self.status === ‘resolved’) {<br>    // 如果 promise1（此处即为 this/self) 的状态已经确定并且是 resolved，我们调用 onResolved<br>    // 因为考虑到有可能 throw，所以我们将其包在 try/catch 块里<br>    return promise2 = new Promise(function(resolve, reject) {<br>      try {<br>        var x = onResolved(self.data)<br>        if (x instanceof Promise) {<br>          // 如果 onResolved 的返回值是一个 Promise 对象，<br>          // 直接取它的结果做为 promise2 的结果<br>          x.then(resolve, reject)<br>        }<br>        resolve(x) // 否则，以它的返回值做为 promise2 的结果<br>      } catch (e) {<br>        reject(e) // 如果出错，以捕获到的错误做为 promise2 的结果<br>      }<br>    })<br>  }</p>
+<p>  if (self.status === ‘rejected’) {<br>    return promise2 = new Promise(function(resolve, reject) {<br>      try {<br>        var x = onRejected(self.data)<br>        if (x instanceof Promise) {<br>          x.then(resolve, reject)<br>        }<br>      } catch (e) {<br>        reject(e)<br>      }<br>    })<br>  }</p>
+<p>  if (self.status === ‘pending’) {<br>    // 如果当前的 Promise 还处于 pending 状态，我们并不能确定调用 onResolved 还是 onRejected，<br>    // 只能等到 Promise 的状态确定后，才能确实如何处理。<br>    // 所以我们需要把我们的<strong>两种情况</strong>的处理逻辑做为 callback 放入 promise1（此处即 this/self) 的回调数组里<br>    // 逻辑本身跟第一个 if 块内的几乎一致，此处不做过多解释<br>    return promise2 = new Promise(function(resolve, reject) {<br>      self.onResolvedCallback.push(function(value) {<br>        try {<br>          var x = onResolved(self.data)<br>          if (x instanceof Promise) {<br>            x.then(resolve, reject)<br>          }<br>        } catch (e) {<br>          reject(e)<br>        }<br>      })</p>
+<pre><code>  self.onRejectedCallback.push(function(reason) {
+    try {
+      var x = onRejected(self.data)
+      if (x instanceof Promise) {
+        x.then(resolve, reject)
+      }
+    } catch (e) {
+      reject(e)
+    }
+  })
+})
+</code></pre><p>  }<br>}<br>// 为了下文方便，我们顺便实现一个 catch 方法<br>Promise.prototype.catch = function(onRejected) {<br>  return this.then(null, onRejected)<br>}</p>
+<p>/<em><br>resolvePromise 函数即为根据 x 的值来决定 promise2 的状态的函数<br>也即标准中的 <a href="https://promisesaplus.com/#point-47" target="_blank" rel="noopener">Promise Resolution Procedure</a><br>x 为<code>promise2 = promise1.then(onResolved, onRejected)</code>里<code>onResolved/onRejected</code>的返回值<br><code>resolve</code>和<code>reject</code>实际上是<code>promise2</code>的<code>executor</code>的两个实参，因为很难挂在其它的地方，所以一并传进来。<br>相信各位一定可以对照标准把标准转换成代码，这里就只标出代码在标准中对应的位置，只在必要的地方做一些解释
+</em>/<br>function resolvePromise(promise2, x, resolve, reject) {<br>  var then<br>  var thenCalledOrThrow = false</p>
+<p>  if (promise2 === x) { // 对应标准 2.3.1 节<br>    return reject(new TypeError(‘Chaining cycle detected for promise!’))<br>  }</p>
+<p>  if (x instanceof Promise) { // 对应标准 2.3.2 节<br>    // 如果 x 的状态还没有确定，那么它是有可能被一个 thenable 决定最终状态和值的<br>    // 所以这里需要做一下处理，而不能一概的以为它会被一个“正常”的值 resolve<br>    if (x.status === ‘pending’) {<br>      x.then(function(value) {<br>        resolvePromise(promise2, value, resolve, reject)<br>      }, reject)<br>    } else { // 但如果这个 Promise 的状态已经确定了，那么它肯定有一个“正常”的值，而不是一个 thenable，所以这里直接取它的状态<br>      x.then(resolve, reject)<br>    }<br>    return<br>  }</p>
+<p>  if ((x !== null) &amp;&amp; ((typeof x === ‘object’) || (typeof x === ‘function’))) { // 2.3.3<br>    try {</p>
+<pre><code>  // 2.3.3.1 因为 x.then 有可能是一个 getter，这种情况下多次读取就有可能产生副作用
+  // 即要判断它的类型，又要调用它，这就是两次读取
+  then = x.then 
+  if (typeof then === &apos;function&apos;) { // 2.3.3.3
+    then.call(x, function rs(y) { // 2.3.3.3.1
+      if (thenCalledOrThrow) return // 2.3.3.3.3 即这三处谁选执行就以谁的结果为准
+      thenCalledOrThrow = true
+      return resolvePromise(promise2, y, resolve, reject) // 2.3.3.3.1
+    }, function rj(r) { // 2.3.3.3.2
+      if (thenCalledOrThrow) return // 2.3.3.3.3 即这三处谁选执行就以谁的结果为准
+      thenCalledOrThrow = true
+      return reject(r)
+    })
+  } else { // 2.3.3.4
+    resolve(x)
+  }
+} catch (e) { // 2.3.3.2
+  if (thenCalledOrThrow) return // 2.3.3.3.3 即这三处谁选执行就以谁的结果为准
+  thenCalledOrThrow = true
+  return reject(e)
+}
+</code></pre><p>  } else { // 2.3.4<br>    resolve(x)<br>  }<br>}</p>
+
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/2018/03/06/Flex-布局笔记/">Flex 布局笔记</a>
         
       </h1>
@@ -1175,57 +1425,6 @@
 </li>
 </ul>
 
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2018/01/29/转载-手把手教你撸一个-Webpack-Loader/">[转载]手把手教你撸一个 Webpack Loader</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-01-29
-        </span>
-        
-        
-        <div class="post-visits"
-             data-url="/2018/01/29/转载-手把手教你撸一个-Webpack-Loader/"
-             data-title="[转载]手把手教你撸一个 Webpack Loader">
-            阅读次数
-          </div>
-        
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <p>文：小 boy（沪江网校Web前端工程师）</p>
-<p>本文原创，转载请注明作者及出处</p>
-          <div class="read-more">
-            <a href="/2018/01/29/转载-手把手教你撸一个-Webpack-Loader/" class="read-more-link">阅读更多</a>
-          </div>
         
       
     </div>
