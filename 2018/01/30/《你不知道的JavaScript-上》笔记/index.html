@@ -247,7 +247,7 @@
   <div class="post-toc" id="post-toc">
     <h2 class="post-toc-title">文章目录</h2>
     <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#作用域和闭包"><span class="toc-text"><a href="#&#x4F5C;&#x7528;&#x57DF;&#x548C;&#x95ED;&#x5305;" class="headerlink" title="&#x4F5C;&#x7528;&#x57DF;&#x548C;&#x95ED;&#x5305;"></a>&#x4F5C;&#x7528;&#x57DF;&#x548C;&#x95ED;&#x5305;</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#作用域是什么"><span class="toc-text"><a href="#&#x4F5C;&#x7528;&#x57DF;&#x662F;&#x4EC0;&#x4E48;" class="headerlink" title="&#x4F5C;&#x7528;&#x57DF;&#x662F;&#x4EC0;&#x4E48;"></a>&#x4F5C;&#x7528;&#x57DF;&#x662F;&#x4EC0;&#x4E48;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#词法作用域"><span class="toc-text"><a href="#&#x8BCD;&#x6CD5;&#x4F5C;&#x7528;&#x57DF;" class="headerlink" title="&#x8BCD;&#x6CD5;&#x4F5C;&#x7528;&#x57DF;"></a>&#x8BCD;&#x6CD5;&#x4F5C;&#x7528;&#x57DF;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#函数作用域和块作用域"><span class="toc-text"><a href="#&#x51FD;&#x6570;&#x4F5C;&#x7528;&#x57DF;&#x548C;&#x5757;&#x4F5C;&#x7528;&#x57DF;" class="headerlink" title="&#x51FD;&#x6570;&#x4F5C;&#x7528;&#x57DF;&#x548C;&#x5757;&#x4F5C;&#x7528;&#x57DF;"></a>&#x51FD;&#x6570;&#x4F5C;&#x7528;&#x57DF;&#x548C;&#x5757;&#x4F5C;&#x7528;&#x57DF;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#块作用域"><span class="toc-text"><a href="#&#x5757;&#x4F5C;&#x7528;&#x57DF;" class="headerlink" title="&#x5757;&#x4F5C;&#x7528;&#x57DF;"></a>&#x5757;&#x4F5C;&#x7528;&#x57DF;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#提升"><span class="toc-text"><a href="#&#x63D0;&#x5347;" class="headerlink" title="&#x63D0;&#x5347;"></a>&#x63D0;&#x5347;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#函数优先"><span class="toc-text"><a href="#&#x51FD;&#x6570;&#x4F18;&#x5148;" class="headerlink" title="&#x51FD;&#x6570;&#x4F18;&#x5148;"></a>&#x51FD;&#x6570;&#x4F18;&#x5148;</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#作用域闭包"><span class="toc-text"><a href="#&#x4F5C;&#x7528;&#x57DF;&#x95ED;&#x5305;" class="headerlink" title="&#x4F5C;&#x7528;&#x57DF;&#x95ED;&#x5305;"></a>&#x4F5C;&#x7528;&#x57DF;&#x95ED;&#x5305;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-为什么要用this"><span class="toc-text"><a href="#1-1-&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x7528;this" class="headerlink" title="1.1 &#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x7528;this"></a>1.1 &#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x7528;this</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#绑定规则"><span class="toc-text"><a href="#&#x7ED1;&#x5B9A;&#x89C4;&#x5219;" class="headerlink" title="&#x7ED1;&#x5B9A;&#x89C4;&#x5219;"></a>&#x7ED1;&#x5B9A;&#x89C4;&#x5219;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#对象"><span class="toc-text"><a href="#&#x5BF9;&#x8C61;" class="headerlink" title="&#x5BF9;&#x8C61;"></a>&#x5BF9;&#x8C61;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#面向对象编程"><span class="toc-text"><a href="#&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7F16;&#x7A0B;" class="headerlink" title="&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7F16;&#x7A0B;"></a>&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7F16;&#x7A0B;</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#类理论"><span class="toc-text"><a href="#&#x7C7B;&#x7406;&#x8BBA;" class="headerlink" title="&#x7C7B;&#x7406;&#x8BBA;"></a>&#x7C7B;&#x7406;&#x8BBA;</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原型"><span class="toc-text"><a href="#&#x539F;&#x578B;" class="headerlink" title="&#x539F;&#x578B;"></a>&#x539F;&#x578B;</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Prototype"><span class="toc-text"><a href="#Prototype" class="headerlink" title="[[Prototype]]"></a>[[Prototype]]</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#作用域和闭包"><span class="toc-text"><a href="#&#x4F5C;&#x7528;&#x57DF;&#x548C;&#x95ED;&#x5305;" class="headerlink" title="&#x4F5C;&#x7528;&#x57DF;&#x548C;&#x95ED;&#x5305;"></a>&#x4F5C;&#x7528;&#x57DF;&#x548C;&#x95ED;&#x5305;</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#作用域是什么"><span class="toc-text"><a href="#&#x4F5C;&#x7528;&#x57DF;&#x662F;&#x4EC0;&#x4E48;" class="headerlink" title="&#x4F5C;&#x7528;&#x57DF;&#x662F;&#x4EC0;&#x4E48;"></a>&#x4F5C;&#x7528;&#x57DF;&#x662F;&#x4EC0;&#x4E48;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#词法作用域"><span class="toc-text"><a href="#&#x8BCD;&#x6CD5;&#x4F5C;&#x7528;&#x57DF;" class="headerlink" title="&#x8BCD;&#x6CD5;&#x4F5C;&#x7528;&#x57DF;"></a>&#x8BCD;&#x6CD5;&#x4F5C;&#x7528;&#x57DF;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#函数作用域和块作用域"><span class="toc-text"><a href="#&#x51FD;&#x6570;&#x4F5C;&#x7528;&#x57DF;&#x548C;&#x5757;&#x4F5C;&#x7528;&#x57DF;" class="headerlink" title="&#x51FD;&#x6570;&#x4F5C;&#x7528;&#x57DF;&#x548C;&#x5757;&#x4F5C;&#x7528;&#x57DF;"></a>&#x51FD;&#x6570;&#x4F5C;&#x7528;&#x57DF;&#x548C;&#x5757;&#x4F5C;&#x7528;&#x57DF;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#块作用域"><span class="toc-text"><a href="#&#x5757;&#x4F5C;&#x7528;&#x57DF;" class="headerlink" title="&#x5757;&#x4F5C;&#x7528;&#x57DF;"></a>&#x5757;&#x4F5C;&#x7528;&#x57DF;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#提升"><span class="toc-text"><a href="#&#x63D0;&#x5347;" class="headerlink" title="&#x63D0;&#x5347;"></a>&#x63D0;&#x5347;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#函数优先"><span class="toc-text"><a href="#&#x51FD;&#x6570;&#x4F18;&#x5148;" class="headerlink" title="&#x51FD;&#x6570;&#x4F18;&#x5148;"></a>&#x51FD;&#x6570;&#x4F18;&#x5148;</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#作用域闭包"><span class="toc-text"><a href="#&#x4F5C;&#x7528;&#x57DF;&#x95ED;&#x5305;" class="headerlink" title="&#x4F5C;&#x7528;&#x57DF;&#x95ED;&#x5305;"></a>&#x4F5C;&#x7528;&#x57DF;&#x95ED;&#x5305;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关于-this"><span class="toc-text"><a href="#&#x5173;&#x4E8E;-this" class="headerlink" title="&#x5173;&#x4E8E; this"></a>&#x5173;&#x4E8E; this</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#this-全面解析"><span class="toc-text"><a href="#this-&#x5168;&#x9762;&#x89E3;&#x6790;" class="headerlink" title="this &#x5168;&#x9762;&#x89E3;&#x6790;"></a>this &#x5168;&#x9762;&#x89E3;&#x6790;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#对象"><span class="toc-text"><a href="#&#x5BF9;&#x8C61;" class="headerlink" title="&#x5BF9;&#x8C61;"></a>&#x5BF9;&#x8C61;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#面向对象编程"><span class="toc-text"><a href="#&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7F16;&#x7A0B;" class="headerlink" title="&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7F16;&#x7A0B;"></a>&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7F16;&#x7A0B;</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#类理论"><span class="toc-text"><a href="#&#x7C7B;&#x7406;&#x8BBA;" class="headerlink" title="&#x7C7B;&#x7406;&#x8BBA;"></a>&#x7C7B;&#x7406;&#x8BBA;</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原型"><span class="toc-text"><a href="#&#x539F;&#x578B;" class="headerlink" title="&#x539F;&#x578B;"></a>&#x539F;&#x578B;</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Prototype"><span class="toc-text"><a href="#Prototype" class="headerlink" title="[[Prototype]]"></a>[[Prototype]]</span></a></li></ol></li></ol>
     </div>
   </div>
 
@@ -354,31 +354,64 @@
 <h2 id="作用域闭包"><a href="#作用域闭包" class="headerlink" title="作用域闭包"></a>作用域闭包</h2><ul>
 <li>当函数可以记住并访问所在的词法作用域时， 就产生了闭包， 即使函数是在当前词法作用<br>域之外执行</li>
 </ul>
-<h2 id="1-1-为什么要用this"><a href="#1-1-为什么要用this" class="headerlink" title="1.1 为什么要用this"></a>1.1 为什么要用this</h2><ul>
-<li><p>这段代码可以在不同的上下文对象（ me 和 you）中重复使用函数 identify() 和 speak()，不用针对每个对象编写不同版本的函数。<br>this 提供了一种更优雅的方式来隐式“ 传递” 一个对象引用</p>
-</li>
-<li><p>this 不是指向函数自身</p>
-</li>
-<li><p>如果要从函数对象内部引用它自身，一般来说你需要通过一个指<br>向函数对象的词法标识符（ 变量） 来引用它。还有一种传统的但是现在已经被弃用和批判的用法， 是使用 arguments.callee 来引用当前正在运行的函数对象。 这是唯一一种可以从匿名函数对象内部引用自身的方法。</p>
-</li>
-<li><p>this 是在运行时进行绑定的， 并不是在编写时绑定， 它的上下文取决于函数调用时的各种条件。 this 的绑定和函数声明的位置没有任何关系， 只取决于函数的调用方式。</p>
-</li>
-<li><p>调用位置就是函数在代码中被调用的位置（ 而不是声明的位置）</p>
-</li>
-</ul>
-<h2 id="绑定规则"><a href="#绑定规则" class="headerlink" title="绑定规则"></a>绑定规则</h2><ul>
-<li>默认绑定<ul>
-<li>独立函数调用 this 指向全局对象</li>
-<li>直接使用不带任何修饰的函数引用进行调用</li>
-<li>如果使用严格模式（ strict mode）， 那么全局对象将无法使用默认绑定， 因此 this 会绑定到 undefined</li>
+<h2 id="关于-this"><a href="#关于-this" class="headerlink" title="关于 this"></a>关于 this</h2><ul>
+<li>为什么要用this<ul>
+<li>this 提供了一种更优雅的方式来隐式“传递” 一个对象引用, 复用代码</li>
 </ul>
 </li>
-<li>隐式绑定<ul>
-<li>调用位置是否有上下文对象， 或者说是否被某个对象拥有或者包含</li>
+<li>误解<ul>
+<li>this 不是指向函数自身<ul>
+<li>从函数对象内部引用它自身<ul>
+<li>函数对象的函数名引用</li>
+<li>arguments.callee</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>this 不指向函数的作用域<ul>
+<li>this 在任何情况下都不指向函数的词法作用域。 在 JavaScript 内部， 作用域确实和对象类似， 可见的标识符都是它的属性。 但是作用域“ 对象” 无法通过 JavaScript代码访问， 它存在于 JavaScript 引擎内部</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>this到底是什么<ul>
+<li>this 是在运行时进行绑定的， 并不是在编写时绑定， 它的上下文取决于函数调用时的各种条件。</li>
+<li>this 的绑定和函数声明的位置没有任何关系，它指向什么完全取决于函数的调用方式。</li>
+<li>当一个函数被调用时， 会创建一个活动记录（ 有时候也称为执行上下文）。 这个记录会包含函数在哪里被调用（ 调用栈）、 函数的调用方法、 传入的参数等信息。 this 就是记录的其中一个属性， 会在函数执行的过程中用到。</li>
+</ul>
+</li>
+</ul>
+<h2 id="this-全面解析"><a href="#this-全面解析" class="headerlink" title="this 全面解析"></a>this 全面解析</h2><ul>
+<li>调用位置<ul>
+<li>调用位置就是函数在代码中被调用的位置（ 而不是声明的位置）</li>
+<li>分析调用栈（ 就是为了到达当前执行位置所调用的所有函数）</li>
+</ul>
+</li>
+<li><p>绑定规则</p>
+<ul>
+<li><p>默认绑定</p>
+<ul>
+<li>独立函数调, 也就是直接使用不带任何修饰的函数引用进行调用。可以把这条规则看作是无法应用其他规则时的默认规则。</li>
+<li>this 指向<ul>
+<li>指向全局对象</li>
+<li>如果使用严格模式（ strict mode）， 那么全局对象将无法使用默认绑定，this 会绑定到 undefined<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="meta">  "use strict"</span>;</span><br><span class="line">  <span class="built_in">console</span>.log( <span class="keyword">this</span>.a );</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> a = <span class="number">2</span>;</span><br><span class="line">foo(); <span class="comment">// Cannot read property 'a' of undefined</span></span><br><span class="line"><span class="comment">// 虽然 this 的绑定规则完全取决于调用位置， 但是只</span></span><br><span class="line"><span class="comment">// 有 foo() 运行在非 strict mode 下时， 默认绑定才能绑定到全局对象； </span></span><br><span class="line">严格模式下与 foo()的调用位置无关：</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log( <span class="keyword">this</span>.a );</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> a = <span class="number">2</span>;</span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="meta">  "use strict"</span>;</span><br><span class="line">  foo(); <span class="comment">// 2</span></span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>隐式绑定</p>
+<ul>
+<li>调用位置是否有上下文对象，或者说是否被某个对象拥有或者包含</li>
 <li>当函数引用有上下文对象时， 隐式绑定规则会把函数调用中的 this 绑定到这个上下文对象</li>
-<li>对象属性引用链中只有最顶层或者说最后一层会影响调用位置。</li>
-<li>隐式丢失<ul>
+<li><p>对象属性引用链中只有最顶层或者说最后一层会影响调用位置。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log( <span class="keyword">this</span>.a );</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj2 = &#123;</span><br><span class="line">  a: <span class="number">42</span>,</span><br><span class="line">  foo: foo</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> obj1 = &#123;</span><br><span class="line">  a: <span class="number">2</span>,</span><br><span class="line">  obj2: obj2</span><br><span class="line">&#125;;</span><br><span class="line">obj1.obj2.foo(); <span class="comment">// 42</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>隐式丢失</p>
+<ul>
 <li>被隐式绑定的函数会丢失绑定对象， 也就是说它会应用默认绑定， 从而把 this 绑定到全局对象或者 undefined 上， 取决于是否是严格模式</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

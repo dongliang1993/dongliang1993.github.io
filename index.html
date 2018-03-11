@@ -221,6 +221,142 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/2018/03/07/js-设计模式笔记/">js 设计模式笔记</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-03-07
+        </span>
+        
+        
+        <div class="post-visits"
+             data-url="/2018/03/07/js-设计模式笔记/"
+             data-title="js 设计模式笔记">
+            阅读次数
+          </div>
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          <h1 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h1><h2 id="面向对象的-javascript"><a href="#面向对象的-javascript" class="headerlink" title="面向对象的 javascript"></a>面向对象的 javascript</h2><h3 id="动态类型语言"><a href="#动态类型语言" class="headerlink" title="动态类型语言"></a>动态类型语言</h3><ul>
+<li>编程语言按照<strong>数据类型</strong>大体可以分为两类，一类是静态类型语言，另一类是动态类型语言。</li>
+<li>静态类型语言<ul>
+<li>在编译时便已确定变量的类型</li>
+<li>好处<ul>
+<li>在编译时就能发现类型不匹配的错误</li>
+<li>编译优化，提高程序执行速度</li>
+</ul>
+</li>
+<li>缺点<ul>
+<li>束缚性</li>
+<li>增加更多的代码</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>动态类型语言<ul>
+<li>变量类型要到程序运行的时候，待变量被赋予某个值之后，才会具有某种类型</li>
+<li>优点<ul>
+<li>代码数量少</li>
+</ul>
+</li>
+<li>缺点<ul>
+<li>无法保证变量的类型</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="鸭子类型"><a href="#鸭子类型" class="headerlink" title="鸭子类型"></a>鸭子类型</h3><ul>
+<li>如果它走起路来像鸭子，叫起来也是鸭子，那么它就是鸭子</li>
+<li>动态类型语言的面向对象设计中，鸭子类型的概念至关重要</li>
+</ul>
+<h3 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h3><ul>
+<li>同一操作作用于不同的对象上面，可以产生不同的解释和不同的执行结果。</li>
+<li>换句话说，给不同的对象发送同一个消息的时候，这些对象会根据这个消息分别给出不同的<br>反馈</li>
+</ul>
+<h2 id="this、call和apply"><a href="#this、call和apply" class="headerlink" title="this、call和apply"></a>this、call和apply</h2><h3 id="this"><a href="#this" class="headerlink" title="this"></a>this</h3><p>直接看 你不知道的js</p>
+<p>call 是包装在 apply 上面的一颗语法糖<br>当使用 call 或者 apply 的时候，如果我们传入的第一个参数为 null，函数体内的 this 会指<br>向默认的宿主对象，在浏览器中则是 window</p>
+<h3 id="变量的生存周期"><a href="#变量的生存周期" class="headerlink" title="变量的生存周期"></a>变量的生存周期</h3><ul>
+<li>对于全局变量来说，全局变量的生存周期是永久的，除非我们主动销毁这个全局变量。</li>
+<li>对于在函数内用 var 关键字声明的局部变量来说，当退出函数时，它们都会随着函数调用的结束而被销毁</li>
+<li>f 返回了一个匿名函数的引用，它可以访问到 func()被调用时产生的环境，而局部变量 a 一直处在这个<br>环境里。既然局部变量所在的环境还能被外界访问，这个局部变量就有了不被销毁的理由。在这里产生了一个闭包结构，局部变量的生命看起来被延续了</li>
+</ul>
+<h3 id="高阶函数"><a href="#高阶函数" class="headerlink" title="高阶函数"></a>高阶函数</h3><ul>
+<li>高阶函数是指至少满足下列条件之一的函数：<ul>
+<li>函数可以作为参数被传递；<ul>
+<li>回调函数</li>
+</ul>
+</li>
+<li>函数可以作为返回值输出</li>
+</ul>
+</li>
+<li>函数柯里化<ul>
+<li>currying 又称部分求值。一个 currying 的函数首先会接受一些参数，接受了这些参数之后，<br>该函数并不会立即求值，而是继续返回另外一个函数，刚才传入的参数在函数形成的闭包中被保<br>存起来。待到函数被真正需要求值的时候，之前传入的所有参数都会被一次性用于求值。</li>
+<li></li>
+</ul>
+</li>
+<li><p>函数节流(throttle)</p>
+<ul>
+<li>函数被频繁调用的场景<ul>
+<li>window.onresize 事件</li>
+<li>mousemove 事件</li>
+<li>上传进度</li>
+</ul>
+</li>
+<li>函数节流的原理<ul>
+<li>需要我们按时间段来忽略掉一些事件请求，比如确保在 500ms 内只打印一次</li>
+</ul>
+</li>
+<li>函数节流的代码实现<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">throttle</span> (<span class="params">fn, wait</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> timer = <span class="literal">null</span>, isFirst = <span class="literal">true</span>, self = <span class="keyword">this</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (isFirst) &#123;</span><br><span class="line">      fn.apply(self, <span class="built_in">arguments</span>)</span><br><span class="line">      isFirst = <span class="literal">false</span></span><br><span class="line">      <span class="keyword">return</span> </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (timer) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">      timer = setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        clearTimeout(timer)</span><br><span class="line">    timer = <span class="literal">null</span></span><br><span class="line">        fn.apply(self, <span class="built_in">arguments</span>)</span><br><span class="line">      &#125;, wait)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">window</span>.onscroll = throttle(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log( <span class="number">1</span> );</span><br><span class="line">&#125;, <span class="number">2000</span> );</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>分时函数</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> timeChunk = <span class="function"><span class="keyword">function</span>(<span class="params"> ary, fn, count </span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> obj, t;</span><br><span class="line">  <span class="keyword">var</span> len = ary.length;</span><br><span class="line">  <span class="keyword">var</span> start = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="built_in">Math</span>.min( count || <span class="number">1</span>, ary.length ); i++ )&#123;</span><br><span class="line">      <span class="keyword">var</span> obj = ary.shift();</span><br><span class="line">      fn( obj );</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    t = setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">if</span> ( ary.length === <span class="number">0</span> )&#123; <span class="comment">// 如果全部节点都已经被创建好</span></span><br><span class="line">        <span class="keyword">return</span> clearInterval( t );</span><br><span class="line">      &#125;</span><br><span class="line">      start();</span><br><span class="line">    &#125;, <span class="number">200</span> ); <span class="comment">// 分批执行的时间间隔，也可以用参数的形式传入</span></span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>惰性加载函数</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> addEvent = <span class="function"><span class="keyword">function</span>(<span class="params"> elem, type, handler </span>)</span>&#123;</span><br><span class="line">  <span class="keyword">if</span> ( <span class="built_in">window</span>.addEventListener )&#123;</span><br><span class="line">    addEvent = <span class="function"><span class="keyword">function</span>(<span class="params"> elem, type, handler </span>)</span>&#123;</span><br><span class="line">      elem.addEventListener( type, handler, <span class="literal">false</span> );</span><br><span class="line">    &#125;</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> ( <span class="built_in">window</span>.attachEvent )&#123;</span><br><span class="line">    addEvent = <span class="function"><span class="keyword">function</span>(<span class="params"> elem, type, handler </span>)</span>&#123;</span><br><span class="line">      elem.attachEvent( <span class="string">'on'</span> + type, handler );</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  addEvent( elem, type, handler );</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="第二部分-设计模式"><a href="#第二部分-设计模式" class="headerlink" title="第二部分 设计模式"></a>第二部分 设计模式</h1><ul>
+<li>单例模式的定义是： 保证一个类仅有一个实例，并提供一个访问它的全局访问点</li>
+</ul>
+<h3 id="避免全局变量"><a href="#避免全局变量" class="headerlink" title="避免全局变量"></a>避免全局变量</h3><ul>
+<li>使用命名空间<ul>
+<li>把一些方法定义为对象的属性</li>
+</ul>
+</li>
+<li>使用闭包封装私有变量</li>
+</ul>
+
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/2018/03/06/promise-笔记/">promise 笔记</a>
         
       </h1>
@@ -1098,333 +1234,6 @@
           <div class="read-more">
             <a href="/2018/01/31/转载-这一次，彻底弄懂-JavaScript-执行机制/" class="read-more-link">阅读更多</a>
           </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2018/01/30/《你不知道的JavaScript-上》笔记/">《你不知道的JavaScript-上》笔记</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-01-30
-        </span>
-        
-        
-        <div class="post-visits"
-             data-url="/2018/01/30/《你不知道的JavaScript-上》笔记/"
-             data-title="《你不知道的JavaScript-上》笔记">
-            阅读次数
-          </div>
-        
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-
-        
-          <h2 id="作用域和闭包"><a href="#作用域和闭包" class="headerlink" title="作用域和闭包"></a>作用域和闭包</h2><h3 id="作用域是什么"><a href="#作用域是什么" class="headerlink" title="作用域是什么"></a>作用域是什么</h3><ul>
-<li>需要一套设计良好的规则来存储变量， 并且之后可以方便地找到这些变量。这套规则被称为<strong>作用域</strong></li>
-<li>编译原理<ul>
-<li>在传统编译语言的流程中， 程序中的一段源代码在执行之前会经历三个步骤， 统称为“编译”<ul>
-<li>分词/词法分析（ Tokenizing/Lexing）</li>
-<li>解析/语法分析（ Parsing）<ul>
-<li>这个过程是将词法单元流（ 数组） 转换成一个由元素逐级嵌套所组成的代表了程序语法结构的树。 这个树被称为“ 抽象语法树”（Abstract Syntax Tree， AST）。</li>
-</ul>
-</li>
-<li>代码生成<ul>
-<li>将 AST 转换为可执行代码的过程称被称为代码生成。 </li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>理解作用域<ul>
-<li>变量的赋值操作会执行两个动作， 首先编译器会在当前作用域中声明一个变量（ 如果之前没有声明过）， 然后在运行时引擎会在作用域中查找该变量， 如果能够找到就会对它赋值。</li>
-<li>LHS 和 RHS<ul>
-<li>“L” 和“R” 的含义， 它们分别代表左侧和右侧</li>
-<li>当变量出现在赋值操作的左侧时进行 LHS 查询， 出现在右侧时进行 RHS 查询。</li>
-<li>如果查找的目的是对变量进行赋值， 那么就会使用 LHS 查询； 如果目的是获取变量的值， 就会使用 RHS 查询。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>作用域嵌套<ul>
-<li>当一个块或函数嵌套在另一个块或函数中时， 就发生了作用域的嵌套。 </li>
-<li>引擎从当前的执行作用域开始查找变量， 如果找不到，就向上一级继续查找。 当抵达最外层的全局作用域时， 无论找到还是没找到， 查找过程都会停止</li>
-</ul>
-</li>
-</ul>
-<h3 id="词法作用域"><a href="#词法作用域" class="headerlink" title="词法作用域"></a>词法作用域</h3><ul>
-<li>作用域共有两种主要的工作模型：词法作用域、动态作用域</li>
-<li>词法作用域意味着作用域是由书写代码时函数声明的位置来决定的。 </li>
-<li>词法阶段<ul>
-<li>作用域查找会在找到第一个匹配的标识符时停止。 在多层的嵌套作用域中可以定义同名的标识符， 这叫作“ 遮蔽效应”（ 内部的标识符“ 遮蔽” 了外部的标识符）</li>
-<li>无论函数在哪里被调用， 也无论它如何被调用， 它的词法作用域都只由函数被声明时所处的位置决定。</li>
-</ul>
-</li>
-<li>欺骗词法<ul>
-<li>欺骗词法作用域会导致性能下降</li>
-<li>eval<ul>
-<li>JavaScript 中的 eval(..) 函数可以接受一个字符串为参数， 并将其中的内容视为好像在书写时就存在于程序中这个位置的代码。 换句话说， 可以在你写的代码中用程序生成代码并运行， 就好像代码是写在那个位置的一样。</li>
-</ul>
-</li>
-<li>with<ul>
-<li></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="函数作用域和块作用域"><a href="#函数作用域和块作用域" class="headerlink" title="函数作用域和块作用域"></a>函数作用域和块作用域</h3><ul>
-<li>函数中的作用域<ul>
-<li>每声明一个函数都会为其自身创建一个作用域</li>
-<li>函数作用域的含义是指， 属于这个函数的全部变量都可以在整个函数的范围内使用及复用（ 事实上在嵌套的作用域中也可以使用）</li>
-</ul>
-</li>
-<li>隐藏内部实现<ul>
-<li>规避冲突<ul>
-<li><ol>
-<li>全局命名空间</li>
-</ol>
-</li>
-<li><ol>
-<li>模块管理</li>
-</ol>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>函数作用域<ul>
-<li>立即执行函数表达式（IIFE）</li>
-</ul>
-</li>
-</ul>
-<h3 id="块作用域"><a href="#块作用域" class="headerlink" title="块作用域"></a>块作用域</h3><ul>
-<li>变量的声明应该距离使用的地方越近越好， 并最大限度地本地化</li>
-<li>with</li>
-<li>try/catch：  try/catch 的 catch 分句会创建一个块作用域， 其中声明的变量仅在 catch 内部有效</li>
-<li>let</li>
-<li>const</li>
-</ul>
-<h3 id="提升"><a href="#提升" class="headerlink" title="提升"></a>提升</h3><ul>
-<li>包括变量和函数在内的所有声明都会在任何代码被执行前首先被处理</li>
-<li>当你看到 var a = 2; 时， 可能会认为这是一个声明。 但 JavaScript 实际上会将其看成两个<br>声明： var a; 和 a = 2;。 第一个定义声明是在编译阶段进行的。 第二个赋值声明会被留在<br>原地等待执行阶段。</li>
-<li>只有声明本身会被提升， 而赋值或其他运行逻辑会留在原地</li>
-<li>每个作用域都会进行提升操作</li>
-<li>函数声明会被提升， 但是函数表达式却不会被提升。</li>
-<li>即使是具名的函数表达式， 名称标识符在赋值之前也无法在所在作用域中使用</li>
-</ul>
-<h3 id="函数优先"><a href="#函数优先" class="headerlink" title="函数优先"></a>函数优先</h3><ul>
-<li>函数声明和变量声明都会被提升。 但是一个值得注意的细节（ 这个细节可以出现在有多个<br>“ 重复” 声明的代码中） 是函数会首先被提升， 然后才是变量</li>
-</ul>
-<h2 id="作用域闭包"><a href="#作用域闭包" class="headerlink" title="作用域闭包"></a>作用域闭包</h2><ul>
-<li>当函数可以记住并访问所在的词法作用域时， 就产生了闭包， 即使函数是在当前词法作用<br>域之外执行</li>
-</ul>
-<h2 id="1-1-为什么要用this"><a href="#1-1-为什么要用this" class="headerlink" title="1.1 为什么要用this"></a>1.1 为什么要用this</h2><ul>
-<li><p>这段代码可以在不同的上下文对象（ me 和 you）中重复使用函数 identify() 和 speak()，不用针对每个对象编写不同版本的函数。<br>this 提供了一种更优雅的方式来隐式“ 传递” 一个对象引用</p>
-</li>
-<li><p>this 不是指向函数自身</p>
-</li>
-<li><p>如果要从函数对象内部引用它自身，一般来说你需要通过一个指<br>向函数对象的词法标识符（ 变量） 来引用它。还有一种传统的但是现在已经被弃用和批判的用法， 是使用 arguments.callee 来引用当前正在运行的函数对象。 这是唯一一种可以从匿名函数对象内部引用自身的方法。</p>
-</li>
-<li><p>this 是在运行时进行绑定的， 并不是在编写时绑定， 它的上下文取决于函数调用时的各种条件。 this 的绑定和函数声明的位置没有任何关系， 只取决于函数的调用方式。</p>
-</li>
-<li><p>调用位置就是函数在代码中被调用的位置（ 而不是声明的位置）</p>
-</li>
-</ul>
-<h2 id="绑定规则"><a href="#绑定规则" class="headerlink" title="绑定规则"></a>绑定规则</h2><ul>
-<li>默认绑定<ul>
-<li>独立函数调用 this 指向全局对象</li>
-<li>直接使用不带任何修饰的函数引用进行调用</li>
-<li>如果使用严格模式（ strict mode）， 那么全局对象将无法使用默认绑定， 因此 this 会绑定到 undefined</li>
-</ul>
-</li>
-<li>隐式绑定<ul>
-<li>调用位置是否有上下文对象， 或者说是否被某个对象拥有或者包含</li>
-<li>当函数引用有上下文对象时， 隐式绑定规则会把函数调用中的 this 绑定到这个上下文对象</li>
-<li>对象属性引用链中只有最顶层或者说最后一层会影响调用位置。</li>
-<li>隐式丢失<ul>
-<li>被隐式绑定的函数会丢失绑定对象， 也就是说它会应用默认绑定， 从而把 this 绑定到全局对象或者 undefined 上， 取决于是否是严格模式</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>显式绑定</p>
-<ul>
-<li>具体点说， 可以使用函数的 call(..) 和 apply(..) 方法</li>
-<li><p>硬绑定</p>
-<ul>
-<li><p>硬绑定的典型应用场景就是创建一个包裹函数， 传入所有的参数并返回接收到的所有值</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log( <span class="keyword">this</span>.a );</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  a:<span class="number">2</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> bar = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  foo.call( obj );</span><br><span class="line">&#125;;</span><br><span class="line">bar(); <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>由于硬绑定是一种非常常用的模式， 所以在 ES5 中提供了内置的方法 Function.prototype.bind</p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>new绑定</li>
-<li>优先级<ol>
-<li>函数是否在 new 中调用（ new 绑定）？ 如果是的话 this 绑定的是新创建的对象。<br>var bar = new foo()</li>
-<li>函数是否通过 call、 apply（ 显式绑定） 或者硬绑定调用？ 如果是的话， this 绑定的是指定的对象。<br>var bar = foo.call(obj2)</li>
-<li>函数是否在某个上下文对象中调用（ 隐式绑定） ？ 如果是的话， this 绑定的是那个上下文对象。<br>var bar = obj1.foo()</li>
-<li>如果都不是的话， 使用默认绑定。 如果在严格模式下， 就绑定到 undefined， 否则绑定到全局对象。<br>var bar = foo()</li>
-</ol>
-</li>
-<li>绑定例外<ul>
-<li>如果你把 null 或者 undefined 作为 this 的绑定对象传入 call、 apply 或者 bind， 这些值在调用时会被忽略， 实际应用的是默认绑定规则</li>
-<li>一种“ 更安全” 的做法是传入一个特殊的对象（DMZ 对象）， 把 this 绑定到这个对象不会对你的程序产生任何副作用</li>
-<li>在 JavaScript 中创建一个空对象最简单的方法都是 Object.create(null) Object.create(null) 和 {} 很像， 但是并不会创建 Object.prototype 这个委托， 所以它比 {}“ 更空”</li>
-<li>软绑定<ul>
-<li>对指定的函数进行封装， 首先检查调用时的 this， 如果 this 绑定到全局对象或者 undefined， 那就把指定的默认对象 obj 绑定到 this， 否则不会修改 this</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>箭头函数<ul>
-<li>箭头函数不使用 this 的四种标准规则， 而是会继承外层函数调用的 this 绑定</li>
-</ul>
-</li>
-</ul>
-<h2 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h2><ul>
-<li>对象可以通过两种形式定义： 声明（ 文字） 形式和构造形式。</li>
-<li>内置对象：例如 Object、 Array、 Function 和 RegExp。实际上只是一些内置函数，这些内置函数可以当作构造函数</li>
-<li>内容<ul>
-<li>属性名<ul>
-<li>的访问方法：属性访问和键访问</li>
-<li>属性名永远都是字符串。 如果你使用 string（ 字面量） 以外的其他值作为属性名， 那它首先会被转换为一个字符串。 即使是数字也不例外。</li>
-</ul>
-</li>
-<li>可计算属性名<ul>
-<li>使用 [] 包裹一个表达式来当作属性名</li>
-</ul>
-</li>
-<li>数组<ul>
-<li>数组也是对象， 所以虽然每个下标都是整数， 你仍然可以给数组添加属性</li>
-</ul>
-</li>
-<li>复制对象<ul>
-<li>浅复制、深复制</li>
-<li>Object.assign(..) 进行浅复制</li>
-</ul>
-</li>
-<li>属性描述符<ul>
-<li>Object.getOwnPropertyDescriptor( myObject, “a” ); 来获取一个对象身上对应属性的描述符</li>
-<li>Object.defineProperty(..)来添加一个新属性或者修改一个已有属性（ 如果它是 configurable） 并对特性进行设置。</li>
-<li>writable：决定是否可以修改属性的值<ul>
-<li>设置为 false 对于属性值的修改静默失败（ silently failed）</li>
-</ul>
-</li>
-<li>Configurable: 属性是否可配置<ul>
-<li>把 configurable 修改成 false 是单向操作，尝试修改一个不可配置的属性描述符都会出错</li>
-<li>configurable:false 还会禁止删除这个属性</li>
-</ul>
-</li>
-<li>Enumerable：属性是否可枚举</li>
-</ul>
-</li>
-<li>不变性<ul>
-<li>所有的方法创建的都是浅不变形</li>
-<li>对象常量结合： writable:false 和configurable:false 就可以创建一个真正的常量属性（ 不可修改、重定义或者删除）</li>
-<li>禁止扩展: Object.preventExtensions(obj)</li>
-<li>密封: 不能添加新属性， 也不能重新配置或者删除任何现有属性（ 虽然可以修改属性的值）。<ul>
-<li>Object.seal(..)</li>
-</ul>
-</li>
-<li>冻结：Object.freeze(..) </li>
-</ul>
-</li>
-<li>[[Get]]<ul>
-<li>myObject.a 在 myObject 上实际上是实现了 [[Get]] 操作</li>
-</ul>
-</li>
-<li>[[Put]]<ul>
-<li>很复杂</li>
-</ul>
-</li>
-<li>Getter和Setter<ul>
-<li>当你给一个属性定义 getter、 setter 或者两者都有时， 这个属性会被定义为“ 访问描述符”</li>
-<li>对象文字语法中的 get a() { .. }， 还是defineProperty(..) 中的显式定义</li>
-</ul>
-</li>
-<li>存在性<ul>
-<li>in 操作符会检查属性是否在对象及其 [[Prototype]] 原型链中</li>
-<li>hasOwnProperty(..) 只会检查属性是否在 myObject 对象中， 不会检查 [[Prototype]] 链</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>遍历<ul>
-<li>对象：for..in 循环可以用来遍历对象的可枚举属性列表（ 包括 [[Prototype]] 链）</li>
-<li>数组：for(..)、forEach(..)、 every(..) 和 some(..)、for..of</li>
-</ul>
-</li>
-</ul>
-<h2 id="面向对象编程"><a href="#面向对象编程" class="headerlink" title="面向对象编程"></a>面向对象编程</h2><h3 id="类理论"><a href="#类理论" class="headerlink" title="类理论"></a>类理论</h3><ul>
-<li>类、 继承、实例化和多态</li>
-<li>“类”设计模式<ul>
-<li>迭代器模式、 观察者模式、 工厂模式、 单例模式等</li>
-</ul>
-</li>
-<li>类的机制<ul>
-<li>一个类就是一张蓝图。 为了获得真正可以交互的对象， 我们必须按照类来建造（ 也可以说实例化） 一个东西， 这个东西通常被称为实例</li>
-<li>构造函数<ul>
-<li>类实例是由一个特殊的类方法构造的， 这个方法名通常和类名相同， 被称为构造函数</li>
-<li>执行 new 时实际上调用的就是构造函数。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>类的继承<ul>
-<li>先定义一个类， 然后定义一个继承前者的类</li>
-<li>子类会包含父类行为的原始副本， 但是也可以重写所有继承的行为甚至定义新行为</li>
-<li>多态<ul>
-<li>任何方法都可以引用继承层次中高层的方法</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h2><h3 id="Prototype"><a href="#Prototype" class="headerlink" title="[[Prototype]]"></a>[[Prototype]]</h3><ul>
-<li>几乎所有的对象在创建时都有 [[Prototype]] 属性，指向一个对象</li>
-<li>对于默认的 [[Get]] 操作来说， 如果无法在对象本身找到需要的属性， 就会继续访问对象的 [[Prototype]] 链</li>
-<li>使用 for..in 遍历对象时原理和查找 [[Prototype]] 链类似， 任何可以通过原型链访问到（ 并且是 enumerable） 的属性都会被枚举。 使用 in 操作符来检查属性在对象中是否存在时， 同样会查找对象的整条原型链（ 无论属性是否可枚举）</li>
-<li><p>所有普通的 [[Prototype]] 链最终都会指向内置的 Object.prototype</p>
-</li>
-<li><p>constructor 是一个非常不可靠并且不安全的引用。 通常来说要尽量避免使用这些引用。</p>
-</li>
-<li><p>ES6 添加了辅助函数 Object.setPrototypeOf(..)， 可以用标准并且可靠的方法来修改关联</p>
-</li>
-<li><p>instanceof 操作符的左操作数是一个普通的对象， 右操作数是一个函数。 instanceof 回答的问题是： 在 a 的整条 [[Prototype]] 链中是否有指向 Foo.prototype<br>这个方法只能处理对象（ a） 和函数（ 带 .prototype 引用的 Foo） 之间的关系</p>
-</li>
-<li><p>Foo.prototype.isPrototypeOf( a ); // true<br>在 a 的整条 [[Prototype]] 链中是否出现过 Foo.prototype</p>
-</li>
-<li><p>我们也可以直接获取一个对象的 [[Prototype]] 链。 在 ES5 中， 标准的方法是：Object.getPrototypeOf( a );</p>
-</li>
-</ul>
-
         
       
     </div>

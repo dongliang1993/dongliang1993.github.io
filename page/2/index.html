@@ -221,6 +221,366 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/2018/01/30/《你不知道的JavaScript-上》笔记/">《你不知道的JavaScript-上》笔记</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-01-30
+        </span>
+        
+        
+        <div class="post-visits"
+             data-url="/2018/01/30/《你不知道的JavaScript-上》笔记/"
+             data-title="《你不知道的JavaScript-上》笔记">
+            阅读次数
+          </div>
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          <h2 id="作用域和闭包"><a href="#作用域和闭包" class="headerlink" title="作用域和闭包"></a>作用域和闭包</h2><h3 id="作用域是什么"><a href="#作用域是什么" class="headerlink" title="作用域是什么"></a>作用域是什么</h3><ul>
+<li>需要一套设计良好的规则来存储变量， 并且之后可以方便地找到这些变量。这套规则被称为<strong>作用域</strong></li>
+<li>编译原理<ul>
+<li>在传统编译语言的流程中， 程序中的一段源代码在执行之前会经历三个步骤， 统称为“编译”<ul>
+<li>分词/词法分析（ Tokenizing/Lexing）</li>
+<li>解析/语法分析（ Parsing）<ul>
+<li>这个过程是将词法单元流（ 数组） 转换成一个由元素逐级嵌套所组成的代表了程序语法结构的树。 这个树被称为“ 抽象语法树”（Abstract Syntax Tree， AST）。</li>
+</ul>
+</li>
+<li>代码生成<ul>
+<li>将 AST 转换为可执行代码的过程称被称为代码生成。 </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>理解作用域<ul>
+<li>变量的赋值操作会执行两个动作， 首先编译器会在当前作用域中声明一个变量（ 如果之前没有声明过）， 然后在运行时引擎会在作用域中查找该变量， 如果能够找到就会对它赋值。</li>
+<li>LHS 和 RHS<ul>
+<li>“L” 和“R” 的含义， 它们分别代表左侧和右侧</li>
+<li>当变量出现在赋值操作的左侧时进行 LHS 查询， 出现在右侧时进行 RHS 查询。</li>
+<li>如果查找的目的是对变量进行赋值， 那么就会使用 LHS 查询； 如果目的是获取变量的值， 就会使用 RHS 查询。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>作用域嵌套<ul>
+<li>当一个块或函数嵌套在另一个块或函数中时， 就发生了作用域的嵌套。 </li>
+<li>引擎从当前的执行作用域开始查找变量， 如果找不到，就向上一级继续查找。 当抵达最外层的全局作用域时， 无论找到还是没找到， 查找过程都会停止</li>
+</ul>
+</li>
+</ul>
+<h3 id="词法作用域"><a href="#词法作用域" class="headerlink" title="词法作用域"></a>词法作用域</h3><ul>
+<li>作用域共有两种主要的工作模型：词法作用域、动态作用域</li>
+<li>词法作用域意味着作用域是由书写代码时函数声明的位置来决定的。 </li>
+<li>词法阶段<ul>
+<li>作用域查找会在找到第一个匹配的标识符时停止。 在多层的嵌套作用域中可以定义同名的标识符， 这叫作“ 遮蔽效应”（ 内部的标识符“ 遮蔽” 了外部的标识符）</li>
+<li>无论函数在哪里被调用， 也无论它如何被调用， 它的词法作用域都只由函数被声明时所处的位置决定。</li>
+</ul>
+</li>
+<li>欺骗词法<ul>
+<li>欺骗词法作用域会导致性能下降</li>
+<li>eval<ul>
+<li>JavaScript 中的 eval(..) 函数可以接受一个字符串为参数， 并将其中的内容视为好像在书写时就存在于程序中这个位置的代码。 换句话说， 可以在你写的代码中用程序生成代码并运行， 就好像代码是写在那个位置的一样。</li>
+</ul>
+</li>
+<li>with<ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="函数作用域和块作用域"><a href="#函数作用域和块作用域" class="headerlink" title="函数作用域和块作用域"></a>函数作用域和块作用域</h3><ul>
+<li>函数中的作用域<ul>
+<li>每声明一个函数都会为其自身创建一个作用域</li>
+<li>函数作用域的含义是指， 属于这个函数的全部变量都可以在整个函数的范围内使用及复用（ 事实上在嵌套的作用域中也可以使用）</li>
+</ul>
+</li>
+<li>隐藏内部实现<ul>
+<li>规避冲突<ul>
+<li><ol>
+<li>全局命名空间</li>
+</ol>
+</li>
+<li><ol>
+<li>模块管理</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>函数作用域<ul>
+<li>立即执行函数表达式（IIFE）</li>
+</ul>
+</li>
+</ul>
+<h3 id="块作用域"><a href="#块作用域" class="headerlink" title="块作用域"></a>块作用域</h3><ul>
+<li>变量的声明应该距离使用的地方越近越好， 并最大限度地本地化</li>
+<li>with</li>
+<li>try/catch：  try/catch 的 catch 分句会创建一个块作用域， 其中声明的变量仅在 catch 内部有效</li>
+<li>let</li>
+<li>const</li>
+</ul>
+<h3 id="提升"><a href="#提升" class="headerlink" title="提升"></a>提升</h3><ul>
+<li>包括变量和函数在内的所有声明都会在任何代码被执行前首先被处理</li>
+<li>当你看到 var a = 2; 时， 可能会认为这是一个声明。 但 JavaScript 实际上会将其看成两个<br>声明： var a; 和 a = 2;。 第一个定义声明是在编译阶段进行的。 第二个赋值声明会被留在<br>原地等待执行阶段。</li>
+<li>只有声明本身会被提升， 而赋值或其他运行逻辑会留在原地</li>
+<li>每个作用域都会进行提升操作</li>
+<li>函数声明会被提升， 但是函数表达式却不会被提升。</li>
+<li>即使是具名的函数表达式， 名称标识符在赋值之前也无法在所在作用域中使用</li>
+</ul>
+<h3 id="函数优先"><a href="#函数优先" class="headerlink" title="函数优先"></a>函数优先</h3><ul>
+<li>函数声明和变量声明都会被提升。 但是一个值得注意的细节（ 这个细节可以出现在有多个<br>“ 重复” 声明的代码中） 是函数会首先被提升， 然后才是变量</li>
+</ul>
+<h2 id="作用域闭包"><a href="#作用域闭包" class="headerlink" title="作用域闭包"></a>作用域闭包</h2><ul>
+<li>当函数可以记住并访问所在的词法作用域时， 就产生了闭包， 即使函数是在当前词法作用<br>域之外执行</li>
+</ul>
+<h2 id="关于-this"><a href="#关于-this" class="headerlink" title="关于 this"></a>关于 this</h2><ul>
+<li>为什么要用this<ul>
+<li>this 提供了一种更优雅的方式来隐式“传递” 一个对象引用, 复用代码</li>
+</ul>
+</li>
+<li>误解<ul>
+<li>this 不是指向函数自身<ul>
+<li>从函数对象内部引用它自身<ul>
+<li>函数对象的函数名引用</li>
+<li>arguments.callee</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>this 不指向函数的作用域<ul>
+<li>this 在任何情况下都不指向函数的词法作用域。 在 JavaScript 内部， 作用域确实和对象类似， 可见的标识符都是它的属性。 但是作用域“ 对象” 无法通过 JavaScript代码访问， 它存在于 JavaScript 引擎内部</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>this到底是什么<ul>
+<li>this 是在运行时进行绑定的， 并不是在编写时绑定， 它的上下文取决于函数调用时的各种条件。</li>
+<li>this 的绑定和函数声明的位置没有任何关系，它指向什么完全取决于函数的调用方式。</li>
+<li>当一个函数被调用时， 会创建一个活动记录（ 有时候也称为执行上下文）。 这个记录会包含函数在哪里被调用（ 调用栈）、 函数的调用方法、 传入的参数等信息。 this 就是记录的其中一个属性， 会在函数执行的过程中用到。</li>
+</ul>
+</li>
+</ul>
+<h2 id="this-全面解析"><a href="#this-全面解析" class="headerlink" title="this 全面解析"></a>this 全面解析</h2><ul>
+<li>调用位置<ul>
+<li>调用位置就是函数在代码中被调用的位置（ 而不是声明的位置）</li>
+<li>分析调用栈（ 就是为了到达当前执行位置所调用的所有函数）</li>
+</ul>
+</li>
+<li><p>绑定规则</p>
+<ul>
+<li><p>默认绑定</p>
+<ul>
+<li>独立函数调, 也就是直接使用不带任何修饰的函数引用进行调用。可以把这条规则看作是无法应用其他规则时的默认规则。</li>
+<li>this 指向<ul>
+<li>指向全局对象</li>
+<li>如果使用严格模式（ strict mode）， 那么全局对象将无法使用默认绑定，this 会绑定到 undefined<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="meta">  "use strict"</span>;</span><br><span class="line">  <span class="built_in">console</span>.log( <span class="keyword">this</span>.a );</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> a = <span class="number">2</span>;</span><br><span class="line">foo(); <span class="comment">// Cannot read property 'a' of undefined</span></span><br><span class="line"><span class="comment">// 虽然 this 的绑定规则完全取决于调用位置， 但是只</span></span><br><span class="line"><span class="comment">// 有 foo() 运行在非 strict mode 下时， 默认绑定才能绑定到全局对象； </span></span><br><span class="line">严格模式下与 foo()的调用位置无关：</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log( <span class="keyword">this</span>.a );</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> a = <span class="number">2</span>;</span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="meta">  "use strict"</span>;</span><br><span class="line">  foo(); <span class="comment">// 2</span></span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>隐式绑定</p>
+<ul>
+<li>调用位置是否有上下文对象，或者说是否被某个对象拥有或者包含</li>
+<li>当函数引用有上下文对象时， 隐式绑定规则会把函数调用中的 this 绑定到这个上下文对象</li>
+<li><p>对象属性引用链中只有最顶层或者说最后一层会影响调用位置。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log( <span class="keyword">this</span>.a );</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj2 = &#123;</span><br><span class="line">  a: <span class="number">42</span>,</span><br><span class="line">  foo: foo</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> obj1 = &#123;</span><br><span class="line">  a: <span class="number">2</span>,</span><br><span class="line">  obj2: obj2</span><br><span class="line">&#125;;</span><br><span class="line">obj1.obj2.foo(); <span class="comment">// 42</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>隐式丢失</p>
+<ul>
+<li>被隐式绑定的函数会丢失绑定对象， 也就是说它会应用默认绑定， 从而把 this 绑定到全局对象或者 undefined 上， 取决于是否是严格模式</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>显式绑定</p>
+<ul>
+<li>具体点说， 可以使用函数的 call(..) 和 apply(..) 方法</li>
+<li><p>硬绑定</p>
+<ul>
+<li><p>硬绑定的典型应用场景就是创建一个包裹函数， 传入所有的参数并返回接收到的所有值</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log( <span class="keyword">this</span>.a );</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  a:<span class="number">2</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> bar = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  foo.call( obj );</span><br><span class="line">&#125;;</span><br><span class="line">bar(); <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>由于硬绑定是一种非常常用的模式， 所以在 ES5 中提供了内置的方法 Function.prototype.bind</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>new绑定</li>
+<li>优先级<ol>
+<li>函数是否在 new 中调用（ new 绑定）？ 如果是的话 this 绑定的是新创建的对象。<br>var bar = new foo()</li>
+<li>函数是否通过 call、 apply（ 显式绑定） 或者硬绑定调用？ 如果是的话， this 绑定的是指定的对象。<br>var bar = foo.call(obj2)</li>
+<li>函数是否在某个上下文对象中调用（ 隐式绑定） ？ 如果是的话， this 绑定的是那个上下文对象。<br>var bar = obj1.foo()</li>
+<li>如果都不是的话， 使用默认绑定。 如果在严格模式下， 就绑定到 undefined， 否则绑定到全局对象。<br>var bar = foo()</li>
+</ol>
+</li>
+<li>绑定例外<ul>
+<li>如果你把 null 或者 undefined 作为 this 的绑定对象传入 call、 apply 或者 bind， 这些值在调用时会被忽略， 实际应用的是默认绑定规则</li>
+<li>一种“ 更安全” 的做法是传入一个特殊的对象（DMZ 对象）， 把 this 绑定到这个对象不会对你的程序产生任何副作用</li>
+<li>在 JavaScript 中创建一个空对象最简单的方法都是 Object.create(null) Object.create(null) 和 {} 很像， 但是并不会创建 Object.prototype 这个委托， 所以它比 {}“ 更空”</li>
+<li>软绑定<ul>
+<li>对指定的函数进行封装， 首先检查调用时的 this， 如果 this 绑定到全局对象或者 undefined， 那就把指定的默认对象 obj 绑定到 this， 否则不会修改 this</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>箭头函数<ul>
+<li>箭头函数不使用 this 的四种标准规则， 而是会继承外层函数调用的 this 绑定</li>
+</ul>
+</li>
+</ul>
+<h2 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h2><ul>
+<li>对象可以通过两种形式定义： 声明（ 文字） 形式和构造形式。</li>
+<li>内置对象：例如 Object、 Array、 Function 和 RegExp。实际上只是一些内置函数，这些内置函数可以当作构造函数</li>
+<li>内容<ul>
+<li>属性名<ul>
+<li>的访问方法：属性访问和键访问</li>
+<li>属性名永远都是字符串。 如果你使用 string（ 字面量） 以外的其他值作为属性名， 那它首先会被转换为一个字符串。 即使是数字也不例外。</li>
+</ul>
+</li>
+<li>可计算属性名<ul>
+<li>使用 [] 包裹一个表达式来当作属性名</li>
+</ul>
+</li>
+<li>数组<ul>
+<li>数组也是对象， 所以虽然每个下标都是整数， 你仍然可以给数组添加属性</li>
+</ul>
+</li>
+<li>复制对象<ul>
+<li>浅复制、深复制</li>
+<li>Object.assign(..) 进行浅复制</li>
+</ul>
+</li>
+<li>属性描述符<ul>
+<li>Object.getOwnPropertyDescriptor( myObject, “a” ); 来获取一个对象身上对应属性的描述符</li>
+<li>Object.defineProperty(..)来添加一个新属性或者修改一个已有属性（ 如果它是 configurable） 并对特性进行设置。</li>
+<li>writable：决定是否可以修改属性的值<ul>
+<li>设置为 false 对于属性值的修改静默失败（ silently failed）</li>
+</ul>
+</li>
+<li>Configurable: 属性是否可配置<ul>
+<li>把 configurable 修改成 false 是单向操作，尝试修改一个不可配置的属性描述符都会出错</li>
+<li>configurable:false 还会禁止删除这个属性</li>
+</ul>
+</li>
+<li>Enumerable：属性是否可枚举</li>
+</ul>
+</li>
+<li>不变性<ul>
+<li>所有的方法创建的都是浅不变形</li>
+<li>对象常量结合： writable:false 和configurable:false 就可以创建一个真正的常量属性（ 不可修改、重定义或者删除）</li>
+<li>禁止扩展: Object.preventExtensions(obj)</li>
+<li>密封: 不能添加新属性， 也不能重新配置或者删除任何现有属性（ 虽然可以修改属性的值）。<ul>
+<li>Object.seal(..)</li>
+</ul>
+</li>
+<li>冻结：Object.freeze(..) </li>
+</ul>
+</li>
+<li>[[Get]]<ul>
+<li>myObject.a 在 myObject 上实际上是实现了 [[Get]] 操作</li>
+</ul>
+</li>
+<li>[[Put]]<ul>
+<li>很复杂</li>
+</ul>
+</li>
+<li>Getter和Setter<ul>
+<li>当你给一个属性定义 getter、 setter 或者两者都有时， 这个属性会被定义为“ 访问描述符”</li>
+<li>对象文字语法中的 get a() { .. }， 还是defineProperty(..) 中的显式定义</li>
+</ul>
+</li>
+<li>存在性<ul>
+<li>in 操作符会检查属性是否在对象及其 [[Prototype]] 原型链中</li>
+<li>hasOwnProperty(..) 只会检查属性是否在 myObject 对象中， 不会检查 [[Prototype]] 链</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>遍历<ul>
+<li>对象：for..in 循环可以用来遍历对象的可枚举属性列表（ 包括 [[Prototype]] 链）</li>
+<li>数组：for(..)、forEach(..)、 every(..) 和 some(..)、for..of</li>
+</ul>
+</li>
+</ul>
+<h2 id="面向对象编程"><a href="#面向对象编程" class="headerlink" title="面向对象编程"></a>面向对象编程</h2><h3 id="类理论"><a href="#类理论" class="headerlink" title="类理论"></a>类理论</h3><ul>
+<li>类、 继承、实例化和多态</li>
+<li>“类”设计模式<ul>
+<li>迭代器模式、 观察者模式、 工厂模式、 单例模式等</li>
+</ul>
+</li>
+<li>类的机制<ul>
+<li>一个类就是一张蓝图。 为了获得真正可以交互的对象， 我们必须按照类来建造（ 也可以说实例化） 一个东西， 这个东西通常被称为实例</li>
+<li>构造函数<ul>
+<li>类实例是由一个特殊的类方法构造的， 这个方法名通常和类名相同， 被称为构造函数</li>
+<li>执行 new 时实际上调用的就是构造函数。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>类的继承<ul>
+<li>先定义一个类， 然后定义一个继承前者的类</li>
+<li>子类会包含父类行为的原始副本， 但是也可以重写所有继承的行为甚至定义新行为</li>
+<li>多态<ul>
+<li>任何方法都可以引用继承层次中高层的方法</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h2><h3 id="Prototype"><a href="#Prototype" class="headerlink" title="[[Prototype]]"></a>[[Prototype]]</h3><ul>
+<li>几乎所有的对象在创建时都有 [[Prototype]] 属性，指向一个对象</li>
+<li>对于默认的 [[Get]] 操作来说， 如果无法在对象本身找到需要的属性， 就会继续访问对象的 [[Prototype]] 链</li>
+<li>使用 for..in 遍历对象时原理和查找 [[Prototype]] 链类似， 任何可以通过原型链访问到（ 并且是 enumerable） 的属性都会被枚举。 使用 in 操作符来检查属性在对象中是否存在时， 同样会查找对象的整条原型链（ 无论属性是否可枚举）</li>
+<li><p>所有普通的 [[Prototype]] 链最终都会指向内置的 Object.prototype</p>
+</li>
+<li><p>constructor 是一个非常不可靠并且不安全的引用。 通常来说要尽量避免使用这些引用。</p>
+</li>
+<li><p>ES6 添加了辅助函数 Object.setPrototypeOf(..)， 可以用标准并且可靠的方法来修改关联</p>
+</li>
+<li><p>instanceof 操作符的左操作数是一个普通的对象， 右操作数是一个函数。 instanceof 回答的问题是： 在 a 的整条 [[Prototype]] 链中是否有指向 Foo.prototype<br>这个方法只能处理对象（ a） 和函数（ 带 .prototype 引用的 Foo） 之间的关系</p>
+</li>
+<li><p>Foo.prototype.isPrototypeOf( a ); // true<br>在 a 的整条 [[Prototype]] 链中是否出现过 Foo.prototype</p>
+</li>
+<li><p>我们也可以直接获取一个对象的 [[Prototype]] 链。 在 ES5 中， 标准的方法是：Object.getPrototypeOf( a );</p>
+</li>
+</ul>
+
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/2018/01/29/转载-手把手教你撸一个-Webpack-Loader/">[转载]手把手教你撸一个 Webpack Loader</a>
         
       </h1>
@@ -381,7 +741,19 @@
 </li>
 <li>不要使用关键字和保留字作为标识符和属性名</li>
 </ul>
-<h2 id="JS-中基本的数据类型"><a href="#JS-中基本的数据类型" class="headerlink" title="JS 中基本的数据类型"></a>JS 中基本的数据类型</h2><p>ECMAScript 中有 5 种简单数据类型（也称为基本数据类型）：Undefined、Null、Boolean、Number 和 String。还有 1 种复杂数据类型——Object</p>
+<h2 id="JS-中基本的数据类型"><a href="#JS-中基本的数据类型" class="headerlink" title="JS 中基本的数据类型"></a>JS 中基本的数据类型</h2><p>最新的 ECMAScript 标准定义了 7 种数据类型：</p>
+<ul>
+<li>6 种 原始类型(也称为基本数据类型）:<ul>
+<li>Boolean</li>
+<li>Null</li>
+<li>Undefined</li>
+<li>Number</li>
+<li>String</li>
+<li>Symbol (ECMAScript 6 新定义)</li>
+</ul>
+</li>
+<li>Object(复杂数据类型)</li>
+</ul>
 <h2 id="typeof-操作符"><a href="#typeof-操作符" class="headerlink" title="typeof 操作符"></a>typeof 操作符</h2><ul>
 <li>typeof 是一个操作符而不是函数，因此例子中的圆括号尽管可以使用，但不是必需的</li>
 <li>对一个值使用 typeof 操作符可能返回下列某个字符串：<ul>
@@ -1506,54 +1878,6 @@
 
         
           
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2017/12/18/Zan-UI-源码分析-Layout-组件/">Zan UI 源码分析 Layout  组件</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2017-12-18
-        </span>
-        
-        
-        <div class="post-visits"
-             data-url="/2017/12/18/Zan-UI-源码分析-Layout-组件/"
-             data-title="Zan UI 源码分析 Layout  组件">
-            阅读次数
-          </div>
-        
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-
-        
-          <a id="more"></a>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// index.js</span></span><br><span class="line"><span class="keyword">import</span> Row <span class="keyword">from</span> <span class="string">'./Row'</span>;</span><br><span class="line"><span class="keyword">import</span> Col <span class="keyword">from</span> <span class="string">'./Col'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 简单粗暴，Layout 就导出一个 Row，一个 Col</span></span><br><span class="line"><span class="comment">// 问题来了，为啥需要这个鬼东西在外面包一层？</span></span><br><span class="line"><span class="keyword">const</span> Layout = &#123;</span><br><span class="line">  Row,</span><br><span class="line">  Col</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> Layout;</span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Row.js</span></span><br><span class="line"><span class="keyword">import</span> React, &#123; Component, PureComponent &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> PropTypes <span class="keyword">from</span> <span class="string">'prop-types'</span>;</span><br><span class="line"><span class="keyword">import</span> cx <span class="keyword">from</span> <span class="string">'classnames'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">Row</span> <span class="keyword">extends</span> (<span class="title">PureComponent</span> || <span class="title">Component</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">static</span> propTypes = &#123;</span><br><span class="line">    className: PropTypes.string, <span class="comment">// 额外的样式名	</span></span><br><span class="line">    prefix: PropTypes.string <span class="comment">// UI 前缀	</span></span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">static</span> defaultProps = &#123;</span><br><span class="line">    prefix: <span class="string">'zent'</span></span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">const</span> &#123; className, prefix, ...others &#125; = <span class="keyword">this</span>.props;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> classes = cx(&#123;</span><br><span class="line">      [<span class="string">`<span class="subst">$&#123;prefix&#125;</span>-row`</span>]: <span class="literal">true</span>,</span><br><span class="line">      <span class="comment">// className 加上 [] 是为了防止有些不规范的命名不能设置成对象的属性名</span></span><br><span class="line">      [className]: className</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      <span class="comment">// 所以 Row 这个组件就是单纯的包了一层div。。。</span></span><br><span class="line">      &lt;div &#123;...others&#125; className=&#123;classes&#125;&gt;</span><br><span class="line">        &#123;<span class="keyword">this</span>.props.children&#125;</span><br><span class="line">      &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    );</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Col.js</span></span><br><span class="line"><span class="keyword">import</span> React, &#123; Component, PureComponent &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> PropTypes <span class="keyword">from</span> <span class="string">'prop-types'</span>;</span><br><span class="line"><span class="keyword">import</span> cx <span class="keyword">from</span> <span class="string">'classnames'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">Col</span> <span class="keyword">extends</span> (<span class="title">PureComponent</span> || <span class="title">Component</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">static</span> propTypes = &#123;</span><br><span class="line">    span: PropTypes.number, <span class="comment">// col所占的栅格数	</span></span><br><span class="line">    offset: PropTypes.number, <span class="comment">// col左偏移的栅格数	</span></span><br><span class="line">    className: PropTypes.string, <span class="comment">// 额外的样式名	</span></span><br><span class="line">    prefix: PropTypes.string <span class="comment">// UI 前缀	</span></span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">static</span> defaultProps = &#123;</span><br><span class="line">    prefix: <span class="string">'zent'</span></span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">const</span> &#123; span, offset, className, prefix, ...others &#125; = <span class="keyword">this</span>.props;</span><br><span class="line">    <span class="comment">// 看来有时间还要看看 css 那写文件</span></span><br><span class="line">    <span class="keyword">const</span> classes = cx(&#123;</span><br><span class="line">      [<span class="string">`<span class="subst">$&#123;prefix&#125;</span>-col`</span>]: <span class="literal">true</span>,</span><br><span class="line">      [<span class="string">`<span class="subst">$&#123;prefix&#125;</span>-col-<span class="subst">$&#123;span&#125;</span>`</span>]: span,</span><br><span class="line">      [<span class="string">`<span class="subst">$&#123;prefix&#125;</span>-col-offset-<span class="subst">$&#123;offset&#125;</span>`</span>]: offset,</span><br><span class="line">      [className]: className</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;div &#123;...others&#125; className=&#123;classes&#125;&gt;</span><br><span class="line">        &#123;<span class="keyword">this</span>.props.children&#125;</span><br><span class="line">      &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    );</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
         
       
     </div>
