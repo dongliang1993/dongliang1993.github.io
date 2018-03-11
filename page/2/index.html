@@ -404,8 +404,7 @@
 </li>
 <li><p>隐式丢失</p>
 <ul>
-<li>被隐式绑定的函数会丢失绑定对象， 也就是说它会应用默认绑定， 从而把 this 绑定到全局对象或者 undefined 上， 取决于是否是严格模式</li>
-</ul>
+<li>被隐式绑定的函数会丢失绑定对象， 也就是说它会应用默认绑定， 从而把 this 绑定到全局对象或者 undefined 上， 取决于是否是严格模式<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log( <span class="keyword">this</span>.a );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doFoo</span>(<span class="params">fn</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// fn 其实引用的是 foo</span></span><br><span class="line">  fn(); <span class="comment">// &lt;-- 调用位置！</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  a: <span class="number">2</span>,</span><br><span class="line">  foo: foo</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> a = <span class="string">"oops, global"</span>; <span class="comment">// a 是全局对象的属性</span></span><br><span class="line">doFoo( obj.foo ); <span class="comment">// "oops, global"</span></span><br><span class="line"><span class="comment">// 参数传递其实就是一种隐式赋值， 因此我们传入函数时也会被隐式赋值， </span></span><br><span class="line"><span class="comment">// 所以结果和上一个例子一样</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
@@ -413,11 +412,11 @@
 </li>
 <li><p>显式绑定</p>
 <ul>
-<li>具体点说， 可以使用函数的 call(..) 和 apply(..) 方法</li>
+<li>使用函数的 call(..) 和 apply(..) 方法</li>
 <li><p>硬绑定</p>
 <ul>
 <li><p>硬绑定的典型应用场景就是创建一个包裹函数， 传入所有的参数并返回接收到的所有值</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log( <span class="keyword">this</span>.a );</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  a:<span class="number">2</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> bar = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  foo.call( obj );</span><br><span class="line">&#125;;</span><br><span class="line">bar(); <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log( <span class="keyword">this</span>.a );</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  a:<span class="number">2</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> bar = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> foo.apply( obj, <span class="built_in">arguments</span> )</span><br><span class="line">&#125;;</span><br><span class="line">bar(); <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>由于硬绑定是一种非常常用的模式， 所以在 ES5 中提供了内置的方法 Function.prototype.bind</p>
 </li>
@@ -425,7 +424,17 @@
 </li>
 </ul>
 </li>
-<li>new绑定</li>
+<li>new绑定<ul>
+<li>在 JavaScript 中， 构造函数只是一些被 new 操作符调用的普通函数。 </li>
+<li>使用 new 来调用函数， 或者说发生构造函数调用时， 会自动执行下面的操作。<ol>
+<li>创建（ 或者说构造） 一个全新的对象。</li>
+<li>这个新对象会被执行 [[ 原型 ]] 连接。</li>
+<li>这个新对象会绑定到函数调用的 this。</li>
+<li>如果函数没有返回其他对象， 那么 new 表达式中的函数调用会自动返回这个新对象。</li>
+</ol>
+</li>
+</ul>
+</li>
 <li>优先级<ol>
 <li>函数是否在 new 中调用（ new 绑定）？ 如果是的话 this 绑定的是新创建的对象。<br>var bar = new foo()</li>
 <li>函数是否通过 call、 apply（ 显式绑定） 或者硬绑定调用？ 如果是的话， this 绑定的是指定的对象。<br>var bar = foo.call(obj2)</li>
@@ -433,18 +442,28 @@
 <li>如果都不是的话， 使用默认绑定。 如果在严格模式下， 就绑定到 undefined， 否则绑定到全局对象。<br>var bar = foo()</li>
 </ol>
 </li>
-<li>绑定例外<ul>
-<li>如果你把 null 或者 undefined 作为 this 的绑定对象传入 call、 apply 或者 bind， 这些值在调用时会被忽略， 实际应用的是默认绑定规则</li>
+<li><p>绑定例外</p>
+<ul>
+<li>如果你把 null 或者 undefined 作为 this 的绑定对象传入 call、 apply 或者 bind， 这些值在调用时会被忽略， 实际应用的是默认绑定规则<ul>
+<li>默认绑定规则会把 this 绑定到全局对象可能产生一些副作用</li>
 <li>一种“ 更安全” 的做法是传入一个特殊的对象（DMZ 对象）， 把 this 绑定到这个对象不会对你的程序产生任何副作用</li>
-<li>在 JavaScript 中创建一个空对象最简单的方法都是 Object.create(null) Object.create(null) 和 {} 很像， 但是并不会创建 Object.prototype 这个委托， 所以它比 {}“ 更空”</li>
-<li>软绑定<ul>
-<li>对指定的函数进行封装， 首先检查调用时的 this， 如果 this 绑定到全局对象或者 undefined， 那就把指定的默认对象 obj 绑定到 this， 否则不会修改 this</li>
+<li>Object.create(null) 和 {} 很像， 但是并不会创建 Object.prototype 这个委托， 所以它比 {}“ 更空”</li>
 </ul>
+</li>
+<li><p>软绑定</p>
+<ul>
+<li>给默认绑定指定一个全局对象和 undefined 以外的值，实现和硬绑定相同的效果， 同时保留隐式绑定或者显式绑定修改 this 的能力。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!<span class="built_in">Function</span>.prototype.softBind) &#123;</span><br><span class="line">  <span class="built_in">Function</span>.prototype.softBind = <span class="function"><span class="keyword">function</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> fn = <span class="keyword">this</span>;</span><br><span class="line">    <span class="comment">// 捕获所有 curried 参数</span></span><br><span class="line">    <span class="keyword">var</span> curried = [].slice.call( <span class="built_in">arguments</span>, <span class="number">1</span> );</span><br><span class="line">    <span class="keyword">var</span> bound = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="comment">// 对指定的函数进行封装， 首先检查调用时的 this， 如果 this 绑定到全局对象</span></span><br><span class="line">      <span class="comment">// 或者 undefined 那就把指定的默认对象 obj 绑定到 this， 否则不会修改 this</span></span><br><span class="line">      <span class="keyword">return</span> fn.apply(</span><br><span class="line">        (!<span class="keyword">this</span> || <span class="keyword">this</span> === (<span class="built_in">window</span> || global)) ?</span><br><span class="line">        obj : <span class="keyword">this</span>,</span><br><span class="line">        curried.concat.apply( curried, <span class="built_in">arguments</span> )</span><br><span class="line">      );</span><br><span class="line">    &#125;;</span><br><span class="line">    bound.prototype = <span class="built_in">Object</span>.create( fn.prototype );</span><br><span class="line">    <span class="keyword">return</span> bound;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
-<li>箭头函数<ul>
+<li><p>箭头函数</p>
+<ul>
 <li>箭头函数不使用 this 的四种标准规则， 而是会继承外层函数调用的 this 绑定</li>
+<li>其实和 ES6 之前代码中的 self = this 机制一样。</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
