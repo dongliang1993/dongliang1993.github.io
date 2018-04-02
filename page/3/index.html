@@ -221,6 +221,51 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/2017/12/18/Zan-UI-源码分析-Upload-组件/">Zan UI 源码分析 Upload  组件</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2017-12-18
+        </span>
+        
+        
+        <div class="post-visits"
+             data-url="/2017/12/18/Zan-UI-源码分析-Upload-组件/"
+             data-title="Zan UI 源码分析 Upload  组件">
+            阅读次数
+          </div>
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/2017/12/18/Zan-UI-源码分析-Layout-组件/">Zan UI 源码分析 Layout  组件</a>
         
       </h1>
@@ -1849,57 +1894,6 @@ GET 方式需要使用 Request.QueryString 来取得变量的值，而 POST 方�
 </ol>
 <p>如果我们能将布局视口的尺寸设置为和设备像素尺寸相等的话，这样我们就保证了设计图与页面的1:1关系，那么我们就可以直接使用psd中测量的尺寸了，然后在其他尺寸的手机中，我们进行等比缩放就ok了。</p>
 
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2017/12/13/redux-源码分析-一/">redux 源码分析 (一)</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2017-12-13
-        </span>
-        
-        
-        <div class="post-visits"
-             data-url="/2017/12/13/redux-源码分析-一/"
-             data-title="redux 源码分析 (一)">
-            阅读次数
-          </div>
-        
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <p>首先我们看一下 redux 的代码结构:<br><img src="//dongliang1993.github.io/img/redux-源码/redux-01.png" alt=""></p>
-<p>├── applyMiddleware.js  // API: applyMiddleware 中间件，对store.dispatch方法进行了改造。作用是将所有中间件组成一个数组，依次执行<br>├── bindActionCreators.js  // API: bindActionCreators 把 action creator 往下传到一个组件上，却不想让这个组件觉察到 Redux 的存在，而且不希望把 Redux store 或 dispatch 传给它<br>├── combineReducers.js  // API: combineReducers 把一个由多个不同 reducer 函数作为 value 的 object，合并成一个 reducer 函数<br>├── compose.js     // API: compose  从右到左来组合多个函数。<br>├── createStore.js    // API: createStore 创建一个 Redux store 来以存放应用中所有的 state。<br>├── index.js     // 入口文件，负责集中暴露 API，例如 createStore 、combineReducers 等<br>└── utils  // 工具包<br>    ├── actionTypes.js  // Redux 保留的私有 action 类型。<br>    ├── isPlainObject.js // 判断是否为普通对象<br>    └── warning.js  // 在控制台中打印警告</p>
-          <div class="read-more">
-            <a href="/2017/12/13/redux-源码分析-一/" class="read-more-link">阅读更多</a>
-          </div>
         
       
     </div>
