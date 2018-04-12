@@ -302,50 +302,55 @@
 </ul>
 <h2 id="绑定-this-的方法"><a href="#绑定-this-的方法" class="headerlink" title="绑定 this 的方法"></a>绑定 this 的方法</h2><ul>
 <li>Function.prototype.call()<ul>
-<li>call方法的参数，应该是一个对象。如果参数为空、null和undefined，则默认传入全局对象</li>
-<li>如果call方法的参数是一个原始值，那么这个原始值会自动转成对应的包装对象，然后传入call方法</li>
-<li>call方法还可以接受多个参数,第一个参数就是this所要指向的那个对象，后面的参数则是函数调用时所需的参数</li>
+<li>call 方法的参数，应该是一个对象。如果参数为空、null 和 undefined，则默认传入全局对象</li>
+<li>如果 call 方法的参数是一个原始值，那么这个原始值会自动转成对应的包装对象，然后传入 call 方法</li>
+<li>call 方法还可以接受多个参数，第一个参数就是 this 所要指向的那个对象，后面的参数则是函数调用时所需的参数</li>
 </ul>
 </li>
 <li>Function.prototype.apply()<ul>
-<li>apply方法的作用与call方法类似，也是改变this指向，然后再调用该函数。唯一的区别就是，它接收一个数组作为函数执行时的参数</li>
+<li>apply 方法的作用与 call 方法类似，也是改变 this 指向，然后再调用该函数。唯一的区别就是，它接收一个数组作为函数执行时的参数</li>
 </ul>
 </li>
 <li>Function.prototype.bind()<ul>
-<li>bind 方法用于将函数体内的this绑定到某个对象，然后返回一个新函数</li>
+<li>bind 方法用于将函数体内的 this 绑定到某个对象，然后返回一个新函数</li>
 <li>bind 还可以接受更多的参数，将这些参数绑定原函数的参数。</li>
-<li>如果bind方法的第一个参数是null或undefined，等于将this绑定到全局对象，函数运行时this指向顶层对象（浏览器为window）。</li>
-<li>bind方法每运行一次，就返回一个新函数，这会产生一些问题</li>
+<li>如果 bind 方法的第一个参数是 null 或 undefined，等于将 this 绑定到全局对象，函数运行时 this 指向顶层对象（浏览器为 window）。</li>
+<li>bind 方法每运行一次，就返回一个新函数，这会产生一些问题</li>
 </ul>
 </li>
 </ul>
 <h2 id="prototype-对象"><a href="#prototype-对象" class="headerlink" title="prototype 对象"></a>prototype 对象</h2><h3 id="1-原型对象概述"><a href="#1-原型对象概述" class="headerlink" title="1. 原型对象概述"></a>1. 原型对象概述</h3><ul>
 <li>构造函数的缺点<ul>
-<li>通过构造函数为实例对象定义属性，虽然很方便，但是有一个缺点。同一个构造函数的多个实例之间，无法共享属性，从而造成对系统资源的浪费。</li>
+<li>通过构造函数为实例对象定义属性，虽然很方便，但是同一个构造函数的多个实例之间，无法共享属性，从而造成对系统资源的浪费。</li>
 </ul>
 </li>
 <li>prototype 属性的作用<ul>
 <li>JavaScript 继承机制的设计思想就是，原型对象的所有属性和方法，都能被实例对象共享。也就是说，如果属性和方法定义在原型上，那么所有实例对象就能共享，不仅节省了内存，还体现了实例对象之间的联系</li>
-<li>JavaScript 规定，每个函数都有一个prototype属性，指向一个对象， 对于构造函数来说，生成实例的时候，该属性会自动成为实例对象的原型</li>
+<li>JavaScript 规定，每个函数都有一个 prototype 属性，指向一个对象， 对于构造函数来说，生成实例的时候，该属性会自动成为实例对象的原型</li>
 <li>原型对象的属性不是实例对象自身的属性。只要修改原型对象，变动就立刻会体现在所有实例对象上。</li>
 <li>当实例对象本身没有某个属性或方法的时候，它会到原型对象去寻找该属性或方法。如果实例对象自身就有某个属性或方法，它就不会再去原型对象寻找这个属性或方法</li>
+<li>原型对象的作用，就是定义所有实例对象共享的属性和方法。这也是它被称为原型对象的原因，而实例对象可以视作从原型对象衍生出来的子对象</li>
 </ul>
 </li>
 <li>原型链<ul>
 <li>JavaScript 规定，所有对象都有自己的原型对象（prototype）。一方面，任何一个对象，都可以充当其他对象的原型；另一方面，由于原型对象也是对象，所以它也有自己的原型。因此，就会形成一个“原型链”（prototype chain）：对象到原型，再到原型的原型……</li>
-<li>如果一层层地上溯，所有对象的原型最终都可以上溯到Object.prototype，即Object构造函数的prototype属性。也就是说，所有对象都继承了Object.prototype的属性。这就是所有对象都有valueOf和toString方法的原因，因为这是从Object.prototype继承的。</li>
-<li>Object.prototype的原型是null。null没有任何属性和方法，也没有自己的原型。因此，原型链的尽头就是null。</li>
-<li>读取对象的某个属性时，JavaScript 引擎先寻找对象本身的属性，如果找不到，就到它的原型去找，如果还是找不到，就到原型的原型去找。如果直到最顶层的Object.prototype还是找不到，则返回undefined。如果对象自身和它的原型，都定义了一个同名属性，那么优先读取对象自身的属性，这叫做“覆盖”（overriding）。</li>
+<li>如果一层层地上溯，所有对象的原型最终都可以上溯到 Object.prototype，即 Object 构造函数的 prototype 属性。也就是说，所有对象都继承了 Object.prototype 的属性。这就是所有对象都有 valueOf 和 toString 方法的原因，因为这是从 Object.prototype 继承的。</li>
+<li>Object.prototype 的原型是 null。null 没有任何属性和方法，也没有自己的原型。因此，原型链的尽头就是 null。</li>
+<li>读取对象的某个属性时，JavaScript 引擎先寻找对象本身的属性，如果找不到，就到它的原型去找，如果还是找不到，就到原型的原型去找。如果直到最顶层的 Object.prototype 还是找不到，则返回 undefined。如果对象自身和它的原型，都定义了一个同名属性，那么优先读取对象自身的属性，这叫做“覆盖”（overriding）。</li>
 </ul>
 </li>
 <li>constructor 属性<ul>
-<li>prototype对象有一个constructor属性，默认指向prototype对象所在的构造函数。</li>
-<li>constructor属性的作用是，可以得知某个实例对象，到底是哪一个构造函数产生的。<h3 id="2-instanceof-运算符"><a href="#2-instanceof-运算符" class="headerlink" title="2. instanceof 运算符"></a>2. instanceof 运算符</h3></li>
+<li>prototype 对象有一个 constructor 属性，默认指向 prototype 对象所在的构造函数。</li>
+<li>constructor 属性的作用是，可以得知某个实例对象，到底是哪一个构造函数产生的</li>
+<li>constructor 属性表示原型对象与构造函数之间的关联关系，如果修改了原型对象，一般会同时修改 constructor 属性，防止引用的时候出错<h3 id="2-instanceof-运算符"><a href="#2-instanceof-运算符" class="headerlink" title="2. instanceof 运算符"></a>2. instanceof 运算符</h3></li>
 </ul>
 <ul>
-<li>instanceof运算符返回一个布尔值，表示对象是否为某个构造函数的实例。</li>
-<li>instanceof运算符的左边是实例对象，右边是构造函数。它会检查右边构建函数的原型对象（prototype），是否在左边对象的原型链上</li>
-<li>由于instanceof检查整个原型链，因此同一个实例对象，可能会对多个构造函数都返回true。</li>
+<li>instanceof 运算符返回一个布尔值，表示对象是否为某个构造函数的实例。</li>
+<li>instanceof 运算符的左边是实例对象，右边是构造函数。它会检查右边构建函数的原型对象（prototype），是否在左边对象的原型链上</li>
+<li>由于 instanceof 检查整个原型链，因此同一个实例对象，可能会对多个构造函数都返回 true</li>
+<li>instanceof 运算符的一个用处，是判断对象的类型</li>
+<li>利用 instanceof 运算符，还可以巧妙地解决，调用构造函数时，忘了加 new 命令的问题（无 new 调用)<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Fubar</span> (<span class="params">foo, bar</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">this</span> <span class="keyword">instanceof</span> Fubar) &#123;</span><br><span class="line">    <span class="keyword">this</span>._foo = foo;</span><br><span class="line">    <span class="keyword">this</span>._bar = bar;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Fubar(foo, bar);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 </li>
 </ul>
