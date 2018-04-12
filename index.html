@@ -106,7 +106,7 @@
         <li class="mobile-menu-item">
           
           
-            首页
+            Home
           
         </li>
       </a>
@@ -115,7 +115,7 @@
         <li class="mobile-menu-item">
           
           
-            归档
+            Archives
           
         </li>
       </a>
@@ -124,7 +124,7 @@
         <li class="mobile-menu-item">
           
           
-            标签
+            Tags
           
         </li>
       </a>
@@ -133,7 +133,7 @@
         <li class="mobile-menu-item">
           
           
-            分类
+            Categories
           
         </li>
       </a>
@@ -142,7 +142,7 @@
         <li class="mobile-menu-item">
           
           
-            关于
+            About
           
         </li>
       </a>
@@ -163,7 +163,7 @@
           <a class="menu-item-link" href="/">
             
             
-              首页
+              Home
             
           </a>
         </li>
@@ -172,7 +172,7 @@
           <a class="menu-item-link" href="/archives/">
             
             
-              归档
+              Archives
             
           </a>
         </li>
@@ -181,7 +181,7 @@
           <a class="menu-item-link" href="/tags">
             
             
-              标签
+              Tags
             
           </a>
         </li>
@@ -190,7 +190,7 @@
           <a class="menu-item-link" href="/categories">
             
             
-              分类
+              Categories
             
           </a>
         </li>
@@ -199,7 +199,7 @@
           <a class="menu-item-link" href="/about">
             
             
-              关于
+              About
             
           </a>
         </li>
@@ -215,6 +215,124 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts">
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2018/04/12/history对象-笔记/">history 对象 -- 笔记</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-04-12
+        </span>
+        
+        
+        <div class="post-visits"
+             data-url="/2018/04/12/history对象-笔记/"
+             data-title="history 对象 -- 笔记">
+            阅读次数
+          </div>
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          <h2 id="history-对象"><a href="#history-对象" class="headerlink" title="history 对象"></a>history 对象</h2><h3 id="1-概述"><a href="#1-概述" class="headerlink" title="1. 概述"></a>1. 概述</h3><ul>
+<li>浏览器窗口有一个 history 对象，用来保存浏览历史，比如当前窗口先后访问了三个网址，那么 history.length 属性等于 3</li>
+<li>history 对象提供了一系列方法，允许在浏览历史之间移动。<ul>
+<li>back()：移动到上一个访问页面，等同于浏览器的后退键。</li>
+<li>forward()：移动到下一个访问页面，等同于浏览器的前进键。</li>
+<li>go()：接受一个整数作为参数，移动到该整数指定的页面，比如 go(1) 相当于 forward()，go(-1) 相当于 back(), go(0) 相当于刷新当前页面。</li>
+<li>如果移动的位置超出了访问历史的边界，以上三个方法并不报错，而是默默的失败。<h3 id="2-history-pushState"><a href="#2-history-pushState" class="headerlink" title="2. history.pushState()"></a>2. history.pushState()</h3></li>
+</ul>
+</li>
+<li>HTML5 为 history 对象添加了两个新方法，history.pushState() 和 history.replaceState()，用来在浏览历史中添加和修改记录。</li>
+<li>history.pushState 方法接受三个参数，依次为：<ul>
+<li>state：一个与指定网址相关的状态对象，popstate 事件触发时，该对象会传入回调函数。如果不需要这个对象，此处可以填 null。</li>
+<li>title：新页面的标题，但是所有浏览器目前都忽略这个值，因此这里可以填 null。</li>
+<li>url：新的网址，必须与当前页面处在同一个域。浏览器的地址栏将显示这个网址。</li>
+</ul>
+</li>
+<li>添加新记录后，浏览器地址栏立刻显示 example.com/2.html，但并不会跳转到 2.html，甚至也不会检查 2.html 是否存在，它只是成为浏览历史中的最新记录。这时，你在地址栏输入一个新的地址（比如访问 google.com)，然后点击了倒退按钮，页面的 URL 将显示 2.html；你再点击一次倒退按钮，URL 将显示 1.html。</li>
+<li>总之，pushState 方法不会触发页面刷新，只是导致 history 对象发生变化，地址栏会有反应。</li>
+<li>如果 pushState 的 url 参数，设置了一个新的锚点值（即 hash），并不会触发 hashchange 事件。如果设置了一个跨域网址，则会报错。</li>
+</ul>
+<h3 id="3-history-replaceState"><a href="#3-history-replaceState" class="headerlink" title="3. history.replaceState()"></a>3. history.replaceState()</h3><ul>
+<li>history.replaceState 方法的参数与 pushState 方法一模一样，区别是它修改浏览历史中当前纪录<h3 id="4-history-state-属性"><a href="#4-history-state-属性" class="headerlink" title="4. history.state 属性"></a>4. history.state 属性</h3></li>
+<li>history.state 属性返回当前页面的 state 对象<h3 id="5-popstate-事件"><a href="#5-popstate-事件" class="headerlink" title="5. popstate 事件"></a>5. popstate 事件</h3></li>
+<li>调用 pushState 方法或 replaceState 方法 ，并不会触发该事件，只有用户点击浏览器倒退按钮和前进按钮，或者使用 JavaScript 调用 back、forward、go 方法时才会触发。另外，该事件只针对同一个文档，如果浏览历史的切换，导致加载不同的文档，该事件也不会触发。</li>
+<li>使用的时候，可以为 popstate 事件指定回调函数。</li>
+<li>回调函数的参数是一个event事件对象，它的state属性指向pushState和replaceState方法为当前 URL 所提供的状态对象（即这两个方法的第一个参数）。</li>
+<li>注意，页面第一次加载的时候，浏览器不会触发 popstate 事件。</li>
+</ul>
+
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2018/04/11/前端路由浅解析/">前端路由浅解析</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-04-11
+        </span>
+        
+        
+        <div class="post-visits"
+             data-url="/2018/04/11/前端路由浅解析/"
+             data-title="前端路由浅解析">
+            阅读次数
+          </div>
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
     
       
   <article class="post">
@@ -1160,110 +1278,6 @@
   </article>
 
     
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2018/02/02/underscore库源码解析1/">underscore 源码解析1 -- 骨架剖析</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-02-02
-        </span>
-        
-        
-        <div class="post-visits"
-             data-url="/2018/02/02/underscore库源码解析1/"
-             data-title="underscore 源码解析1 -- 骨架剖析">
-            阅读次数
-          </div>
-        
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <p>这是我们源码分析的第一章，主要是从整体的角度来剖析一个库的架构，不会拘泥于细枝末节。大体如下：</p>
-          <div class="read-more">
-            <a href="/2018/02/02/underscore库源码解析1/" class="read-more-link">阅读更多</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2018/02/01/入门Webpack/">入门Webpack</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-02-01
-        </span>
-        
-        
-        <div class="post-visits"
-             data-url="/2018/02/01/入门Webpack/"
-             data-title="入门Webpack">
-            阅读次数
-          </div>
-        
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <p>本文章是自己学习Webpack过程中的笔记</p>
-<p>相关链接 </p>
-<ul>
-<li><a href="https://www.jianshu.com/p/42e11515c10f" target="_blank" rel="noopener">https://www.jianshu.com/p/42e11515c10f</a></li>
-</ul>
-          <div class="read-more">
-            <a href="/2018/02/01/入门Webpack/" class="read-more-link">阅读更多</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
   </section>
 
   
@@ -1271,7 +1285,7 @@
     
     
       <a class="next" href="/page/2/">
-        <span class="next-text">下一页</span>
+        <span class="next-text">Next</span>
         <i class="iconfont icon-right"></i>
       </a>
     
@@ -1328,11 +1342,11 @@
 
 <div class="copyright">
   <span class="power-by">
-    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
+    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
   </span>
   <span class="division">|</span>
   <span class="theme-info">
-    主题 - 
+    Theme - 
     <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
   </span>
 

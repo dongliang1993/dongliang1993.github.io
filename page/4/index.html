@@ -106,7 +106,7 @@
         <li class="mobile-menu-item">
           
           
-            首页
+            Home
           
         </li>
       </a>
@@ -115,7 +115,7 @@
         <li class="mobile-menu-item">
           
           
-            归档
+            Archives
           
         </li>
       </a>
@@ -124,7 +124,7 @@
         <li class="mobile-menu-item">
           
           
-            标签
+            Tags
           
         </li>
       </a>
@@ -133,7 +133,7 @@
         <li class="mobile-menu-item">
           
           
-            分类
+            Categories
           
         </li>
       </a>
@@ -142,7 +142,7 @@
         <li class="mobile-menu-item">
           
           
-            关于
+            About
           
         </li>
       </a>
@@ -163,7 +163,7 @@
           <a class="menu-item-link" href="/">
             
             
-              首页
+              Home
             
           </a>
         </li>
@@ -172,7 +172,7 @@
           <a class="menu-item-link" href="/archives/">
             
             
-              归档
+              Archives
             
           </a>
         </li>
@@ -181,7 +181,7 @@
           <a class="menu-item-link" href="/tags">
             
             
-              标签
+              Tags
             
           </a>
         </li>
@@ -190,7 +190,7 @@
           <a class="menu-item-link" href="/categories">
             
             
-              分类
+              Categories
             
           </a>
         </li>
@@ -199,7 +199,7 @@
           <a class="menu-item-link" href="/about">
             
             
-              关于
+              About
             
           </a>
         </li>
@@ -215,6 +215,144 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts">
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2017/12/14/图解HTTP-阅读笔记/">图解HTTP 阅读笔记</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2017-12-14
+        </span>
+        
+        
+        <div class="post-visits"
+             data-url="/2017/12/14/图解HTTP-阅读笔记/"
+             data-title="图解HTTP 阅读笔记">
+            阅读次数
+          </div>
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          <h1 id="第-1-章-了解-Web-及网络基础"><a href="#第-1-章-了解-Web-及网络基础" class="headerlink" title="第 1 章 了解 Web 及网络基础"></a>第 1 章 了解 Web 及网络基础</h1><ol>
+<li>客户端( client )： 发送请求获取服务器资源的 web 浏览器</li>
+</ol>
+<p><img src="../../public/img/http-1-1.png" alt=""></p>
+<ol>
+<li><p>HTTP 历史</p>
+<p>HTTP/0.9<br>HTTP/1.0<br>HTTP/1.1</p>
+</li>
+<li></li>
+</ol>
+
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2017/12/14/开发移动端页面/">开发移动端页面</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2017-12-14
+        </span>
+        
+        
+        <div class="post-visits"
+             data-url="/2017/12/14/开发移动端页面/"
+             data-title="开发移动端页面">
+            阅读次数
+          </div>
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          <h2 id="一、像素-什么是像素"><a href="#一、像素-什么是像素" class="headerlink" title="一、像素 - 什么是像素"></a>一、像素 - 什么是像素</h2><p>像素：一个像素就是计算机屏幕所能显示一种特定颜色的最小区域。 </p>
+<p>在web前端开发领域，像素有以下两层含义：</p>
+<ol>
+<li>设备像素：设备屏幕的物理像素，对于任何设备来讲物理像素的数量是固定的。</li>
+<li>CSS像素：这是一个抽象的像素概念，它是为web开发者创造的。<br>如下图，是在缩放比例为1，即scale = 1的情况下，设备像素和CSS像素示意图</li>
+</ol>
+<p>当你给元素设置了 width: 200px 时，这个元素的宽度跨越了200个CSS像素。但是它并不一定跨越200个设备像素，至于会跨越多少个设备像素，就取决于手机屏幕的特性和用户的缩放了</p>
+<p>苹果手机的视网膜屏幕，是一个高密度屏幕，它的像素密度是普通屏幕的2倍，所以当我们设置 width: 200px; 时，200个CSS像素跨越了400个设备像素</p>
+<p>如果用户缩小页面，那么一个CSS像素会明显小于一个设备像素，这个时候 width: 200px; 这条样式中所设置的200个CSS像素跨越不了200个设备像素，如下图：</p>
+<p>让我们来做一个总结</p>
+<ol>
+<li>web前端领域，像素分为设备像素和CSS像素</li>
+<li>一个CSS像素的大小是可变的，比如用后缩放页面的时候，实际上就是在缩小或放大CSS像素，而设备像素无论大小还是数量都是不变的。</li>
+</ol>
+<h2 id="二、移动端的三个视口"><a href="#二、移动端的三个视口" class="headerlink" title="二、移动端的三个视口"></a>二、移动端的三个视口</h2><p>你一定写过这样一条样式：width: 25%; 但是你有想过给一个元素加上这样一条样式之后发生了什么吗？25%是基于谁的25%？明白的同学可能知道了：一个块元素默认的宽度是其父元素的100%，是基于起父元素的，所以25%指的是父元素宽度的25%，所以，body元素的默认宽度是html元素宽度的100%，那么你有没有想过html元素的宽度是基于谁的呢？这个时候，就要引出一个概念：初始包含块和视口了</p>
+<p>记住一句话：视口是html的父元素，所以我们称视口为初始包含块。 这样你就明白了，html元素的百分比是基于视口的。</p>
+<h2 id="第一个视口：布局视口"><a href="#第一个视口：布局视口" class="headerlink" title="第一个视口：布局视口"></a>第一个视口：布局视口</h2><p>在PC浏览器中，视口只有一个，并且 视口的宽度 = 浏览器窗口的宽度</p>
+<p>在移动端，视口和浏览器窗口将不在关联，实际上，布局视口要比浏览器窗口大的多(在手机和平板中浏览器布局视口的宽度在768~1024像素之间)</p>
+<p>可以通过以下JavaScript代码获取布局视口的宽度和高度：<br>document.documentElement.clientWidth<br>document.documentElement.clientHeight</p>
+<h2 id="第二个视口：视觉视口"><a href="#第二个视口：视觉视口" class="headerlink" title="第二个视口：视觉视口"></a>第二个视口：视觉视口</h2><p>视觉视口可能要更好理解一些，他就是用户正在看到网站的区域，如下图：<br>window.innerWidth</p>
+<h2 id="第三个视口：理想视口"><a href="#第三个视口：理想视口" class="headerlink" title="第三个视口：理想视口"></a>第三个视口：理想视口</h2><p>device-width 的值就是理想视口的宽度<br>理想视口的尺寸是不能改变的，由设备和浏览器决定，与设备的物理像素数存在着比例关系，这个比例就是设备像素比</p>
+<p><meta name="viewport" content="width=device-width"><br>上面那段代码告诉浏览器：将布局视口的宽度设为理想视口。所以，上面代码中的width指的是布局视口的宽 device-width 实际上就是理想视口的宽度。<br>screen.width</p>
+<p>可以使用 window.devicePixelRatio 获得dpr</p>
+<h2 id="缩放比例也有默认的值，没有设置-initial-scale-时，浏览器会取适当的缩放比例使-布局视口正好铺满屏幕即有-布局视口尺寸-视觉视口尺寸"><a href="#缩放比例也有默认的值，没有设置-initial-scale-时，浏览器会取适当的缩放比例使-布局视口正好铺满屏幕即有-布局视口尺寸-视觉视口尺寸" class="headerlink" title="缩放比例也有默认的值，没有设置 initial-scale 时，浏览器会取适当的缩放比例使 布局视口正好铺满屏幕即有 布局视口尺寸 = 视觉视口尺寸"></a>缩放比例也有默认的值，没有设置 initial-scale 时，浏览器会取适当的缩放比例使 布局视口正好铺满屏幕即有 布局视口尺寸 = 视觉视口尺寸</h2><p>设计稿的宽换算为以 rem 为单位的 css 长度应为 (750/100) rem，同时设计稿的宽对应可视视口的宽，即有 (750/100) rem = 可视视口宽，1 rem = 可视视口宽 * (100/750)，(100/750)就是我们要的系数</p>
+<p>好了，移动端的三个视口介绍完了，让我们总结一下：<br>1、在PC端，布局视口就是浏览器窗口<br>  2、在移动端，视口被分为两个：布局视口、视觉视口。<br>  3、移动端还有一个理想视口，它是布局视口的理想尺寸，即理想的布局视口。（注：理想视口的尺寸因设备和浏览器的不同而不同，但这对于我们来说无所谓）<br>  4、可以将布局视口的宽度设为理想视口</p>
+<p>三、设备像素比(DPR)</p>
+<p>下面你还需要了解一个概念，设备像素比(Device Pixel Ratio 简称：DPR)。<br>下面是设备像素比的计算公式<br>公式成立的大前提：（缩放比例为1）<br>设备像素比(DPR) = 设备像素个数 / 理想视口CSS像素个数(device-width)</p>
+<p>与理想视口一样，设备像素比对于不同的设备是不同的，但是他们都是合理的，比如早起iphone的设备像素是320px，理想视口也是320px，所以早起iphone的DPR=1，而后来iphone的设备像素为640px，理想视口还是320px，所以后来iphone的DPR=2</p>
+<ol>
+<li><p>首先要看 PSD 原稿的尺寸，如果是 750 说明是按照设备像素设计的，如果是 375 说明是按照理想视口设计的</p>
+</li>
+<li><p>width=device-width  这段代码是让布局视口的尺寸等于理想视口。根据公式(缩放比例为1)：设备像素比（DPR） = 设备像素个数 / 理想视口像素个数（device-width）因为iPhone6的DPR（设备像素比）为2，设备像素为750，所以iPhone6的理想视口尺寸为375px。所以上面代码最终导致的是：使我们布局视口的宽度变成了375px。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>CSS中编写的样式尺寸是基于布局视口计算的</p>
+</li>
+</ol>
+<p>如果我们能将布局视口的尺寸设置为和设备像素尺寸相等的话，这样我们就保证了设计图与页面的1:1关系，那么我们就可以直接使用psd中测量的尺寸了，然后在其他尺寸的手机中，我们进行等比缩放就ok了。</p>
+
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
     
       
   <article class="post">
@@ -254,7 +392,7 @@
           <p>首先我们看一下 redux 的代码结构:<br><img src="//dongliang1993.github.io/img/redux-源码/redux-01.png" alt=""></p>
 <p>├── applyMiddleware.js  // API: applyMiddleware 中间件，对store.dispatch方法进行了改造。作用是将所有中间件组成一个数组，依次执行<br>├── bindActionCreators.js  // API: bindActionCreators 把 action creator 往下传到一个组件上，却不想让这个组件觉察到 Redux 的存在，而且不希望把 Redux store 或 dispatch 传给它<br>├── combineReducers.js  // API: combineReducers 把一个由多个不同 reducer 函数作为 value 的 object，合并成一个 reducer 函数<br>├── compose.js     // API: compose  从右到左来组合多个函数。<br>├── createStore.js    // API: createStore 创建一个 Redux store 来以存放应用中所有的 state。<br>├── index.js     // 入口文件，负责集中暴露 API，例如 createStore 、combineReducers 等<br>└── utils  // 工具包<br>    ├── actionTypes.js  // Redux 保留的私有 action 类型。<br>    ├── isPlainObject.js // 判断是否为普通对象<br>    └── warning.js  // 在控制台中打印警告</p>
           <div class="read-more">
-            <a href="/2017/12/13/redux-源码分析-一/" class="read-more-link">阅读更多</a>
+            <a href="/2017/12/13/redux-源码分析-一/" class="read-more-link">Read more..</a>
           </div>
         
       
@@ -766,130 +904,8 @@
           <p>koa2 启动一个 http server 的代码如下:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Koa = <span class="built_in">require</span>(<span class="string">'koa'</span>)</span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Koa()</span><br><span class="line"></span><br><span class="line">app.user(<span class="keyword">async</span> (ctx, next) =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;ctx.request.url&#125;</span> <span class="subst">$&#123;ctx.request.method&#125;</span>`</span>)</span><br><span class="line">  <span class="keyword">await</span> next()</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">app.user(<span class="keyword">async</span> (ctx, next) =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`hello world !`</span>)</span><br><span class="line">  <span class="keyword">await</span> next()</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">app.listen(<span class="number">3000</span>, () =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'server listening at 3000 port!'</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
 <p>知道怎么使用之后，我们对照着这个模板一点一点来拆分 koa2 整个源码<br>
           <div class="read-more">
-            <a href="/2017/12/06/koa2-源码分析-一/" class="read-more-link">阅读更多</a>
+            <a href="/2017/12/06/koa2-源码分析-一/" class="read-more-link">Read more..</a>
           </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2017/12/04/babel从入门到入门的知识归纳/">babel从入门到入门的知识归纳</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2017-12-04
-        </span>
-        
-        
-        <div class="post-visits"
-             data-url="/2017/12/04/babel从入门到入门的知识归纳/"
-             data-title="babel从入门到入门的知识归纳">
-            阅读次数
-          </div>
-        
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-
-        
-          <p>1、babel是什么</p>
-<p>2、javascript制作规范</p>
-<p>3、babel转译器</p>
-<p>4、babel的使用</p>
-<p>5、常见的几种babel转译器和插件</p>
-<p>6、babel最常见配置选项</p>
-<p>7、babel的其他</p>
-<p>8、在webpack中使用babel</p>
-<p>9、总结</p>
-<h1 id="1、babel是什么"><a href="#1、babel是什么" class="headerlink" title="1、babel是什么"></a>1、babel是什么</h1><p>babel官网正中间一行黄色大字写着 “babel is a javascript compiler”，翻译一下就是babel是一个 javascript 编译器。</p>
-<p>为什么会有babel存在呢？原因 javascript 在不断的发展，但是浏览器的发展速度跟不上。</p>
-<p>以 es6 为例，es6 中为 javascript 增加了箭头函数、块级作用域等新的语法和 Symbol、Promise 等新的数据类型，但是这些语法和数据类型并不能够马上被现在的浏览器全部支持，为了能在现有的浏览器上使用 js 新的语法和新的数据类型，就需要使用一个转译器，将 javascript 中新增的特性转为现代浏览器能理解的形式。babel 就是做这个方面的转化工作。</p>
-<h1 id="2、javascript制作规范"><a href="#2、javascript制作规范" class="headerlink" title="2、javascript制作规范"></a>2、javascript制作规范</h1><p>在这里有必要简单讲一下 javascript 版本，我只是大体讲下。</p>
-<p>javascript 是网景公司开发的一种脚本语言，1996 年的时候以 ECMAScript 的名字正式成为一种标准。2007 年的时候发布了版本 es5 ，然后在随后近 10 年里 js 并没有大的变化。所以现在的浏览器都可以很好的支持 es5。这一局面直到 2015 年被打破。2015年6月，TC39（javascript标准的制定组织）公布了新版本的js语言——ES6。而且从ES6开始，TC39规定每年都要发布一个js的新版本，新版本将包含年号，都是以ESxxxx的方式进行命名。所以2015年发布的ES6又叫ES2015，2016年发布的新的js版本就叫ES2016，2017年发布的新的js版本就叫ES2017……。</p>
-<p>因为版本都是向前兼容的，就是老版本js版本中规定的语法和api在新版本的js中同样也会合理的。所以我们可以想到后面的规范肯定是包含前面的规范的，也就是ES2016版本的js规范是包含ES2015(ES6)规范的，ES2017是包含ES2016的也包含ES2015的。针对不同的规范，Babel也提供了对应的转换器。</p>
-<p>babel-preset-es2015 将es2015版本的js转译为es5。<br>babel-preset-es2016 将es2016版本的js转译为es5。<br>babel-preset-es2017 将es2017版本的js转译为es5。<br>在转译过程中遇到更高版本的js语法，babel是会直接忽略的。</p>
-
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2017/12/04/react-代码规范/">react 代码规范</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2017-12-04
-        </span>
-        
-        
-        <div class="post-visits"
-             data-url="/2017/12/04/react-代码规范/"
-             data-title="react 代码规范">
-            阅读次数
-          </div>
-        
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-
-        
-          <ol>
-<li><p>布尔变量或返回布尔值的函数应该以“is”，“has”或“should”开头。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Dirty</span></span><br><span class="line"><span class="keyword">const</span> done = current &gt;= goal</span><br><span class="line"><span class="comment">// Clean</span></span><br><span class="line"><span class="keyword">const</span> isComplete = current &gt;= goal</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>函数命名应该体现做了什么，而不是是怎样做的。换言之，不要在命名中体现出实现细节。假如有天出现变化，就不需要因此而重构引用该函数的代码。比如，今天可能会从 REST API 加载配置，但是可能明天就会将其直接写入到 JavaScript 中。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Dirty</span></span><br><span class="line"><span class="keyword">const</span> loadConfigFromServer = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// Clean</span></span><br><span class="line"><span class="keyword">const</span> loadConfig = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>构建 React 应用程序时，应该遵循以下最佳实践：</p>
-<ol>
-<li>使用小函数，每个函数具备单一功能，即所谓的单一职责原则（Single responsibility principle）。确保每个函数都能完成一项工作，并做得很好。这样就能将复杂的组件分解成许多较小的组件。同时，将具备更好的可测试性。</li>
-<li>小心抽象泄露（leaky abstractions）。换言之，不要强迫消费方去了解内部代码实现细节。</li>
-</ol>
-</li>
-<li>使用 defaultProps</li>
-<li>使用无状态组件</li>
-</ol>
-
         
       
     </div>
@@ -908,12 +924,12 @@
     
       <a class="prev" href="/page/3/">
         <i class="iconfont icon-left"></i>
-        <span class="prev-text">上一页</span>
+        <span class="prev-text">Prev</span>
       </a>
     
     
       <a class="next" href="/page/5/">
-        <span class="next-text">下一页</span>
+        <span class="next-text">Next</span>
         <i class="iconfont icon-right"></i>
       </a>
     
@@ -970,11 +986,11 @@
 
 <div class="copyright">
   <span class="power-by">
-    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
+    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
   </span>
   <span class="division">|</span>
   <span class="theme-info">
-    主题 - 
+    Theme - 
     <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
   </span>
 

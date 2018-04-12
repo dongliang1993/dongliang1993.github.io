@@ -17,7 +17,7 @@
 
 
 
-  <meta name="description" content="二分查找"/>
+  <meta name="description" content="history 对象 -- 笔记"/>
 
 
 
@@ -40,7 +40,7 @@
 
 
 
-<link rel="canonical" href="http://yoursite.com/2018/01/02/二分查找/"/>
+<link rel="canonical" href="http://yoursite.com/2018/04/12/history对象-笔记/"/>
 
 
 <link rel="stylesheet" type="text/css" href="/css/style.css?v=2.6.0" />
@@ -87,7 +87,7 @@
 
 
 
-    <title> 二分查找 - 我是你豆子欧巴 </title>
+    <title> history 对象 -- 笔记 - 我是你豆子欧巴 </title>
   </head>
 
   <body><div id="mobile-navbar" class="mobile-navbar">
@@ -221,19 +221,19 @@
     <header class="post-header">
       <h1 class="post-title">
         
-          二分查找
+          history 对象 -- 笔记
         
       </h1>
 
       <div class="post-meta">
         <span class="post-time">
-          2018-01-02
+          2018-04-12
         </span>
         
         
         <div class="post-visits"
-             data-url="/2018/01/02/二分查找/"
-             data-title="二分查找">
+             data-url="/2018/04/12/history对象-笔记/"
+             data-title="history 对象 -- 笔记">
             阅读次数
           </div>
         
@@ -242,12 +242,45 @@
 
     
     
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#history-对象"><span class="toc-text"><a href="#history-&#x5BF9;&#x8C61;" class="headerlink" title="history &#x5BF9;&#x8C61;"></a>history &#x5BF9;&#x8C61;</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-概述"><span class="toc-text"><a href="#1-&#x6982;&#x8FF0;" class="headerlink" title="1. &#x6982;&#x8FF0;"></a>1. &#x6982;&#x8FF0;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-history-pushState"><span class="toc-text"><a href="#2-history-pushState" class="headerlink" title="2. history.pushState()"></a>2. history.pushState()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-history-replaceState"><span class="toc-text"><a href="#3-history-replaceState" class="headerlink" title="3. history.replaceState()"></a>3. history.replaceState()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-history-state-属性"><span class="toc-text"><a href="#4-history-state-&#x5C5E;&#x6027;" class="headerlink" title="4. history.state &#x5C5E;&#x6027;"></a>4. history.state &#x5C5E;&#x6027;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-popstate-事件"><span class="toc-text"><a href="#5-popstate-&#x4E8B;&#x4EF6;" class="headerlink" title="5. popstate &#x4E8B;&#x4EF6;"></a>5. popstate &#x4E8B;&#x4EF6;</span></a></li></ol></li></ol>
+    </div>
+  </div>
+
 
     <div class="post-content">
       
-        <p>二分查找是一种算法，其输入是一个有序的元素列表（仅当列表是有序的时候，二分查找才管用） 。如果要查找的元素包含在列表中，二分查找返回其位置；否则返回null。</p>
-<p>一般而言，对于包含n个元素的列表，用二分查找最多需要log2n步，而简单查找最多需要n步。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> binary_search = <span class="function">(<span class="params">list, target</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> low = <span class="number">0</span>,</span><br><span class="line">      mid,</span><br><span class="line">      guess,</span><br><span class="line">      height = list.length - <span class="number">1</span></span><br><span class="line">  <span class="keyword">while</span> (low &lt;= height) &#123;</span><br><span class="line">    mid = <span class="built_in">Math</span>.floor((low + height) / <span class="number">2</span> )</span><br><span class="line">    guess = list[mid]</span><br><span class="line">    <span class="keyword">if</span> (guess &lt; target) &#123;</span><br><span class="line">      low = mid + <span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h2 id="history-对象"><a href="#history-对象" class="headerlink" title="history 对象"></a>history 对象</h2><h3 id="1-概述"><a href="#1-概述" class="headerlink" title="1. 概述"></a>1. 概述</h3><ul>
+<li>浏览器窗口有一个 history 对象，用来保存浏览历史，比如当前窗口先后访问了三个网址，那么 history.length 属性等于 3</li>
+<li>history 对象提供了一系列方法，允许在浏览历史之间移动。<ul>
+<li>back()：移动到上一个访问页面，等同于浏览器的后退键。</li>
+<li>forward()：移动到下一个访问页面，等同于浏览器的前进键。</li>
+<li>go()：接受一个整数作为参数，移动到该整数指定的页面，比如 go(1) 相当于 forward()，go(-1) 相当于 back(), go(0) 相当于刷新当前页面。</li>
+<li>如果移动的位置超出了访问历史的边界，以上三个方法并不报错，而是默默的失败。<h3 id="2-history-pushState"><a href="#2-history-pushState" class="headerlink" title="2. history.pushState()"></a>2. history.pushState()</h3></li>
+</ul>
+</li>
+<li>HTML5 为 history 对象添加了两个新方法，history.pushState() 和 history.replaceState()，用来在浏览历史中添加和修改记录。</li>
+<li>history.pushState 方法接受三个参数，依次为：<ul>
+<li>state：一个与指定网址相关的状态对象，popstate 事件触发时，该对象会传入回调函数。如果不需要这个对象，此处可以填 null。</li>
+<li>title：新页面的标题，但是所有浏览器目前都忽略这个值，因此这里可以填 null。</li>
+<li>url：新的网址，必须与当前页面处在同一个域。浏览器的地址栏将显示这个网址。</li>
+</ul>
+</li>
+<li>添加新记录后，浏览器地址栏立刻显示 example.com/2.html，但并不会跳转到 2.html，甚至也不会检查 2.html 是否存在，它只是成为浏览历史中的最新记录。这时，你在地址栏输入一个新的地址（比如访问 google.com)，然后点击了倒退按钮，页面的 URL 将显示 2.html；你再点击一次倒退按钮，URL 将显示 1.html。</li>
+<li>总之，pushState 方法不会触发页面刷新，只是导致 history 对象发生变化，地址栏会有反应。</li>
+<li>如果 pushState 的 url 参数，设置了一个新的锚点值（即 hash），并不会触发 hashchange 事件。如果设置了一个跨域网址，则会报错。</li>
+</ul>
+<h3 id="3-history-replaceState"><a href="#3-history-replaceState" class="headerlink" title="3. history.replaceState()"></a>3. history.replaceState()</h3><ul>
+<li>history.replaceState 方法的参数与 pushState 方法一模一样，区别是它修改浏览历史中当前纪录<h3 id="4-history-state-属性"><a href="#4-history-state-属性" class="headerlink" title="4. history.state 属性"></a>4. history.state 属性</h3></li>
+<li>history.state 属性返回当前页面的 state 对象<h3 id="5-popstate-事件"><a href="#5-popstate-事件" class="headerlink" title="5. popstate 事件"></a>5. popstate 事件</h3></li>
+<li>调用 pushState 方法或 replaceState 方法 ，并不会触发该事件，只有用户点击浏览器倒退按钮和前进按钮，或者使用 JavaScript 调用 back、forward、go 方法时才会触发。另外，该事件只针对同一个文档，如果浏览历史的切换，导致加载不同的文档，该事件也不会触发。</li>
+<li>使用的时候，可以为 popstate 事件指定回调函数。</li>
+<li>回调函数的参数是一个event事件对象，它的state属性指向pushState和replaceState方法为当前 URL 所提供的状态对象（即这两个方法的第一个参数）。</li>
+<li>注意，页面第一次加载的时候，浏览器不会触发 popstate 事件。</li>
+</ul>
+
       
     </div>
 
@@ -262,7 +295,7 @@
     </p>
     <p class="copyright-item">
       <span>Link: </span>
-      <a href="http://yoursite.com/2018/01/02/二分查找/">http://yoursite.com/2018/01/02/二分查找/</a>
+      <a href="http://yoursite.com/2018/04/12/history对象-笔记/">http://yoursite.com/2018/04/12/history对象-笔记/</a>
     </p>
     <p class="copyright-item">
       <span>License: </span>
@@ -284,15 +317,9 @@
         
   <nav class="post-nav">
     
-      <a class="prev" href="/2018/01/23/面试整理-JavaScript-篇/">
-        <i class="iconfont icon-left"></i>
-        <span class="prev-text nav-default">面试整理 JavaScript 篇</span>
-        <span class="prev-text nav-mobile">Prev</span>
-      </a>
     
-    
-      <a class="next" href="/2017/12/29/react-router-整理/">
-        <span class="next-text nav-default">react-router 整理</span>
+      <a class="next" href="/2018/04/11/前端路由浅解析/">
+        <span class="next-text nav-default">前端路由浅解析</span>
         <span class="prev-text nav-mobile">Next</span>
         <i class="iconfont icon-right"></i>
       </a>

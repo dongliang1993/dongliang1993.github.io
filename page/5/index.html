@@ -106,7 +106,7 @@
         <li class="mobile-menu-item">
           
           
-            首页
+            Home
           
         </li>
       </a>
@@ -115,7 +115,7 @@
         <li class="mobile-menu-item">
           
           
-            归档
+            Archives
           
         </li>
       </a>
@@ -124,7 +124,7 @@
         <li class="mobile-menu-item">
           
           
-            标签
+            Tags
           
         </li>
       </a>
@@ -133,7 +133,7 @@
         <li class="mobile-menu-item">
           
           
-            分类
+            Categories
           
         </li>
       </a>
@@ -142,7 +142,7 @@
         <li class="mobile-menu-item">
           
           
-            关于
+            About
           
         </li>
       </a>
@@ -163,7 +163,7 @@
           <a class="menu-item-link" href="/">
             
             
-              首页
+              Home
             
           </a>
         </li>
@@ -172,7 +172,7 @@
           <a class="menu-item-link" href="/archives/">
             
             
-              归档
+              Archives
             
           </a>
         </li>
@@ -181,7 +181,7 @@
           <a class="menu-item-link" href="/tags">
             
             
-              标签
+              Tags
             
           </a>
         </li>
@@ -190,7 +190,7 @@
           <a class="menu-item-link" href="/categories">
             
             
-              分类
+              Categories
             
           </a>
         </li>
@@ -199,7 +199,7 @@
           <a class="menu-item-link" href="/about">
             
             
-              关于
+              About
             
           </a>
         </li>
@@ -215,6 +215,128 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts">
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2017/12/04/babel从入门到入门的知识归纳/">babel从入门到入门的知识归纳</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2017-12-04
+        </span>
+        
+        
+        <div class="post-visits"
+             data-url="/2017/12/04/babel从入门到入门的知识归纳/"
+             data-title="babel从入门到入门的知识归纳">
+            阅读次数
+          </div>
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          <p>1、babel是什么</p>
+<p>2、javascript制作规范</p>
+<p>3、babel转译器</p>
+<p>4、babel的使用</p>
+<p>5、常见的几种babel转译器和插件</p>
+<p>6、babel最常见配置选项</p>
+<p>7、babel的其他</p>
+<p>8、在webpack中使用babel</p>
+<p>9、总结</p>
+<h1 id="1、babel是什么"><a href="#1、babel是什么" class="headerlink" title="1、babel是什么"></a>1、babel是什么</h1><p>babel官网正中间一行黄色大字写着 “babel is a javascript compiler”，翻译一下就是babel是一个 javascript 编译器。</p>
+<p>为什么会有babel存在呢？原因 javascript 在不断的发展，但是浏览器的发展速度跟不上。</p>
+<p>以 es6 为例，es6 中为 javascript 增加了箭头函数、块级作用域等新的语法和 Symbol、Promise 等新的数据类型，但是这些语法和数据类型并不能够马上被现在的浏览器全部支持，为了能在现有的浏览器上使用 js 新的语法和新的数据类型，就需要使用一个转译器，将 javascript 中新增的特性转为现代浏览器能理解的形式。babel 就是做这个方面的转化工作。</p>
+<h1 id="2、javascript制作规范"><a href="#2、javascript制作规范" class="headerlink" title="2、javascript制作规范"></a>2、javascript制作规范</h1><p>在这里有必要简单讲一下 javascript 版本，我只是大体讲下。</p>
+<p>javascript 是网景公司开发的一种脚本语言，1996 年的时候以 ECMAScript 的名字正式成为一种标准。2007 年的时候发布了版本 es5 ，然后在随后近 10 年里 js 并没有大的变化。所以现在的浏览器都可以很好的支持 es5。这一局面直到 2015 年被打破。2015年6月，TC39（javascript标准的制定组织）公布了新版本的js语言——ES6。而且从ES6开始，TC39规定每年都要发布一个js的新版本，新版本将包含年号，都是以ESxxxx的方式进行命名。所以2015年发布的ES6又叫ES2015，2016年发布的新的js版本就叫ES2016，2017年发布的新的js版本就叫ES2017……。</p>
+<p>因为版本都是向前兼容的，就是老版本js版本中规定的语法和api在新版本的js中同样也会合理的。所以我们可以想到后面的规范肯定是包含前面的规范的，也就是ES2016版本的js规范是包含ES2015(ES6)规范的，ES2017是包含ES2016的也包含ES2015的。针对不同的规范，Babel也提供了对应的转换器。</p>
+<p>babel-preset-es2015 将es2015版本的js转译为es5。<br>babel-preset-es2016 将es2016版本的js转译为es5。<br>babel-preset-es2017 将es2017版本的js转译为es5。<br>在转译过程中遇到更高版本的js语法，babel是会直接忽略的。</p>
+
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2017/12/04/react-代码规范/">react 代码规范</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2017-12-04
+        </span>
+        
+        
+        <div class="post-visits"
+             data-url="/2017/12/04/react-代码规范/"
+             data-title="react 代码规范">
+            阅读次数
+          </div>
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          <ol>
+<li><p>布尔变量或返回布尔值的函数应该以“is”，“has”或“should”开头。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Dirty</span></span><br><span class="line"><span class="keyword">const</span> done = current &gt;= goal</span><br><span class="line"><span class="comment">// Clean</span></span><br><span class="line"><span class="keyword">const</span> isComplete = current &gt;= goal</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>函数命名应该体现做了什么，而不是是怎样做的。换言之，不要在命名中体现出实现细节。假如有天出现变化，就不需要因此而重构引用该函数的代码。比如，今天可能会从 REST API 加载配置，但是可能明天就会将其直接写入到 JavaScript 中。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Dirty</span></span><br><span class="line"><span class="keyword">const</span> loadConfigFromServer = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// Clean</span></span><br><span class="line"><span class="keyword">const</span> loadConfig = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>构建 React 应用程序时，应该遵循以下最佳实践：</p>
+<ol>
+<li>使用小函数，每个函数具备单一功能，即所谓的单一职责原则（Single responsibility principle）。确保每个函数都能完成一项工作，并做得很好。这样就能将复杂的组件分解成许多较小的组件。同时，将具备更好的可测试性。</li>
+<li>小心抽象泄露（leaky abstractions）。换言之，不要强迫消费方去了解内部代码实现细节。</li>
+</ol>
+</li>
+<li>使用 defaultProps</li>
+<li>使用无状态组件</li>
+</ol>
+
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
     
       
   <article class="post">
@@ -883,7 +1005,7 @@
     
       <a class="prev" href="/page/4/">
         <i class="iconfont icon-left"></i>
-        <span class="prev-text">上一页</span>
+        <span class="prev-text">Prev</span>
       </a>
     
     
@@ -940,11 +1062,11 @@
 
 <div class="copyright">
   <span class="power-by">
-    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
+    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
   </span>
   <span class="division">|</span>
   <span class="theme-info">
-    主题 - 
+    Theme - 
     <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
   </span>
 
