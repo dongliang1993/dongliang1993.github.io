@@ -106,7 +106,7 @@
         <li class="mobile-menu-item">
           
           
-            Home
+            首页
           
         </li>
       </a>
@@ -115,7 +115,7 @@
         <li class="mobile-menu-item">
           
           
-            Archives
+            归档
           
         </li>
       </a>
@@ -124,7 +124,7 @@
         <li class="mobile-menu-item">
           
           
-            Tags
+            标签
           
         </li>
       </a>
@@ -133,7 +133,7 @@
         <li class="mobile-menu-item">
           
           
-            Categories
+            分类
           
         </li>
       </a>
@@ -142,7 +142,7 @@
         <li class="mobile-menu-item">
           
           
-            About
+            关于
           
         </li>
       </a>
@@ -163,7 +163,7 @@
           <a class="menu-item-link" href="/">
             
             
-              Home
+              首页
             
           </a>
         </li>
@@ -172,7 +172,7 @@
           <a class="menu-item-link" href="/archives/">
             
             
-              Archives
+              归档
             
           </a>
         </li>
@@ -181,7 +181,7 @@
           <a class="menu-item-link" href="/tags">
             
             
-              Tags
+              标签
             
           </a>
         </li>
@@ -190,7 +190,7 @@
           <a class="menu-item-link" href="/categories">
             
             
-              Categories
+              分类
             
           </a>
         </li>
@@ -199,7 +199,7 @@
           <a class="menu-item-link" href="/about">
             
             
-              About
+              关于
             
           </a>
         </li>
@@ -215,6 +215,114 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts">
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2017/12/29/react-router-整理/">react-router 整理</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2017-12-29
+        </span>
+        
+        
+        <div class="post-visits"
+             data-url="/2017/12/29/react-router-整理/"
+             data-title="react-router 整理">
+            阅读次数
+          </div>
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>原文 <a href="http://www.zcfy.cc/article/react-router-v4-the-complete-guide-mdash-sitepoint-4448.html" target="_blank" rel="noopener">http://www.zcfy.cc/article/react-router-v4-the-complete-guide-mdash-sitepoint-4448.html</a></p>
+          <div class="read-more">
+            <a href="/2017/12/29/react-router-整理/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2017/12/20/面向对象的程序设计/">面向对象的程序设计</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2017-12-20
+        </span>
+        
+        
+        <div class="post-visits"
+             data-url="/2017/12/20/面向对象的程序设计/"
+             data-title="面向对象的程序设计">
+            阅读次数
+          </div>
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          <p>6.1.1 属性类型</p>
+<p>这些特性是为了实现 JavaScript 引擎用的，因此在 JavaScript 中不能直接访问它们。为了表示特性是内部值，该规范把它们放在了两对儿方括号中，例如[[Enumerable]]。</p>
+<p>ECMAScript 中有两种属性：数据属性和访问器属性。</p>
+<ol>
+<li>数据属性<br>数据属性包含一个数据值的位置。在这个位置可以读取和写入值。数据属性有 4 个描述其行为的特性。</li>
+</ol>
+<p>[[Configurable]]：表示能否通过 delete 删除属性从而重新定义属性，能否修改属性的特性，或者能否把属性修改为访问器属性。默认值为 true。</p>
+<p>[[Enumerable]]：表示能否通过 for-in 循环返回属性。默认值为 true。</p>
+<p>[[Writable]]：表示能否修改属性的值。默认值为 true。</p>
+<p>[[Value]]：包含这个属性的数据值。读取属性值的时候，从这个位置读；写入属性值的时候，把新值保存在这个位置。这个特性的默认值为 undefined。</p>
+<p>要修改属性默认的特性，必须使用 ECMAScript 5 的 Object.defineProperty()方法。</p>
+<p>例如：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;&#125;;</span><br><span class="line"><span class="built_in">Object</span>.defineProperty(person, <span class="string">"name"</span>, &#123;</span><br><span class="line">  writable: <span class="literal">false</span>,</span><br><span class="line">  value: <span class="string">"Nicholas"</span></span><br><span class="line">&#125;);</span><br><span class="line">alert(person.name); <span class="comment">//"Nicholas"</span></span><br><span class="line">person.name = <span class="string">"Greg"</span>;</span><br><span class="line">alert(person.name); <span class="comment">//"Nicholas"</span></span><br></pre></td></tr></table></figure></p>
+<p>可以多次调用 Object.defineProperty()方法修改同一个属性，但在把 configurable  特性设置为 false 之后就会有限制了</p>
+
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
     
       
   <article class="post">
@@ -1761,104 +1869,6 @@ GET 方式需要使用 Request.QueryString 来取得变量的值，而 POST 方�
   </article>
 
     
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2017/12/18/Zan-UI-源码分析（二）Badge-组件/">Zan UI 源码分析（二）Badge 组件</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2017-12-18
-        </span>
-        
-        
-        <div class="post-visits"
-             data-url="/2017/12/18/Zan-UI-源码分析（二）Badge-组件/"
-             data-title="Zan UI 源码分析（二）Badge 组件">
-            阅读次数
-          </div>
-        
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-
-        
-          <a id="more"></a>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; PureComponent, Component &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> cx <span class="keyword">from</span> <span class="string">'classnames'</span>;</span><br><span class="line"><span class="keyword">import</span> PropTypes <span class="keyword">from</span> <span class="string">'prop-types'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Badge 就是小红点或者未读消息数</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">Badge</span> <span class="keyword">extends</span> (<span class="title">PureComponent</span> || <span class="title">Component</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">static</span> propTypes = &#123;</span><br><span class="line">    count: PropTypes.number, <span class="comment">// 消息条数</span></span><br><span class="line">    maxCount: PropTypes.number, <span class="comment">// 最大完全显示消息条数	</span></span><br><span class="line">    dot: PropTypes.bool, <span class="comment">// 是否显示为小红点	</span></span><br><span class="line">    showZero: PropTypes.bool, <span class="comment">// 消息数为0时是否显示	</span></span><br><span class="line">    children: PropTypes.node, <span class="comment">// 自定义额外类名	</span></span><br><span class="line">    className: PropTypes.string,</span><br><span class="line">    prefix: PropTypes.string <span class="comment">// 自定义前缀	</span></span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">static</span> defaultProps = &#123;</span><br><span class="line">    count: <span class="number">0</span>,</span><br><span class="line">    maxCount: <span class="number">99</span>,</span><br><span class="line">    dot: <span class="literal">false</span>,</span><br><span class="line">    showZero: <span class="literal">false</span>,</span><br><span class="line">    className: <span class="string">''</span>,</span><br><span class="line">    prefix: <span class="string">'zent'</span></span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">const</span> &#123;</span><br><span class="line">      count,</span><br><span class="line">      maxCount,</span><br><span class="line">      dot,</span><br><span class="line">      showZero,</span><br><span class="line">      className,</span><br><span class="line">      prefix,</span><br><span class="line">      children</span><br><span class="line">    &#125; = <span class="keyword">this</span>.props;</span><br><span class="line">    <span class="comment">// 如果 children 的个数 &gt;= 2 那么 是个数组</span></span><br><span class="line">    <span class="comment">// 否则是个对象</span></span><br><span class="line">    <span class="keyword">const</span> containerCls = cx(&#123;</span><br><span class="line">      [<span class="string">`<span class="subst">$&#123;prefix&#125;</span>-badge`</span>]: <span class="literal">true</span>,</span><br><span class="line">      <span class="comment">// 是否是独立徽标的切换</span></span><br><span class="line">      <span class="comment">// 也就是说，如果你传进来一个 children</span></span><br><span class="line">      <span class="comment">// 那么就认为不是 独立徽标</span></span><br><span class="line">      <span class="comment">// 小红点或者消息数要以 children 来绝对定位</span></span><br><span class="line">      <span class="comment">// 如果没有 children ，就是独立徽标</span></span><br><span class="line">      <span class="comment">// 变成一个 inlineblock</span></span><br><span class="line">      [<span class="string">`<span class="subst">$&#123;prefix&#125;</span>-badge-none-cont`</span>]: !children,</span><br><span class="line">      [className]: !!className</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 不过有一点不明白</span></span><br><span class="line">    <span class="comment">// 这函数为什么要写在 render 中？</span></span><br><span class="line">    <span class="comment">// 这样不是每次 render 的时候都要重新生成一下这个函数吗？</span></span><br><span class="line">    <span class="keyword">const</span> renderCount = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">let</span> countEle = <span class="literal">null</span>;</span><br><span class="line">      <span class="comment">// 如果需要显示小红点</span></span><br><span class="line">      <span class="keyword">if</span> (dot) &#123;</span><br><span class="line">        countEle = (</span><br><span class="line">          &lt;span className=&#123;<span class="string">`<span class="subst">$&#123;prefix&#125;</span>-badge-count <span class="subst">$&#123;prefix&#125;</span>-badge-dot`</span>&#125; /&gt;</span><br><span class="line">        );</span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (count &gt; <span class="number">0</span> || (count === <span class="number">0</span> &amp;&amp; showZero)) &#123;</span><br><span class="line">        <span class="comment">// 如果消息数 &gt; 0 或者 count === 0 但是需要消息数为0时是否显示	</span></span><br><span class="line">        countEle = (</span><br><span class="line">          &lt;span className=&#123;<span class="string">`<span class="subst">$&#123;prefix&#125;</span>-badge-count`</span>&#125;&gt;</span><br><span class="line">            &#123;<span class="comment">/* 如果 count 比 设置的 maxCount 要多，显示 maxCount  否则显示 count 数*/</span>&#125;</span><br><span class="line">            &#123;count &gt; maxCount ? <span class="string">`<span class="subst">$&#123;maxCount&#125;</span>+`</span> : count&#125;</span><br><span class="line">          &lt;<span class="regexp">/span&gt;</span></span><br><span class="line"><span class="regexp">        );</span></span><br><span class="line"><span class="regexp">      &#125;</span></span><br><span class="line"><span class="regexp">      return countEle;</span></span><br><span class="line"><span class="regexp">    &#125;;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">    return (</span></span><br><span class="line"><span class="regexp">      &lt;div className=&#123;containerCls&#125;&gt;</span></span><br><span class="line"><span class="regexp">        &#123;children ? (</span></span><br><span class="line"><span class="regexp">          &lt;div className=&#123;`$&#123;prefix&#125;-badge-content`&#125;&gt;&#123;children&#125;&lt;/</span>div&gt;</span><br><span class="line">        ) : <span class="literal">null</span>&#125;</span><br><span class="line">        &#123;<span class="comment">/* renderCount 判断是生成小红点还是消息数  */</span>&#125;</span><br><span class="line">        &#123;renderCount()&#125;</span><br><span class="line">      &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    );</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2017/12/15/Zan-UI-源码分析（一）Alert-组件/">Zan UI 源码分析（一）Alert 组件</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2017-12-15
-        </span>
-        
-        
-        <div class="post-visits"
-             data-url="/2017/12/15/Zan-UI-源码分析（一）Alert-组件/"
-             data-title="Zan UI 源码分析（一）Alert 组件">
-            阅读次数
-          </div>
-        
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <p>本来想自己实现一套组件，后来想了想，如果一个人开发的话，成本太大，而且有很多工程化的东西不是很懂，所以作罢。</p>
-<p>但是还是有很多优秀的组件源码是可以看一下的。有赞的技术团队算是我比较喜欢的，而我目前技术栈正好也是 react , 所以所以正好借此机会把 Zan UI 看一下，顺便水几篇文章:-D~~</p>
-<p>接下来可能会写一系列文章来分析常用的组件的源码，当然，中间可能也会穿插一下其他的文章，欢迎大家交流~~</p>
-          <div class="read-more">
-            <a href="/2017/12/15/Zan-UI-源码分析（一）Alert-组件/" class="read-more-link">Read more..</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
   </section>
 
   
@@ -1866,12 +1876,12 @@ GET 方式需要使用 Request.QueryString 来取得变量的值，而 POST 方�
     
       <a class="prev" href="/page/2/">
         <i class="iconfont icon-left"></i>
-        <span class="prev-text">Prev</span>
+        <span class="prev-text">上一页</span>
       </a>
     
     
       <a class="next" href="/page/4/">
-        <span class="next-text">Next</span>
+        <span class="next-text">下一页</span>
         <i class="iconfont icon-right"></i>
       </a>
     
@@ -1928,11 +1938,11 @@ GET 方式需要使用 Request.QueryString 来取得变量的值，而 POST 方�
 
 <div class="copyright">
   <span class="power-by">
-    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
   </span>
   <span class="division">|</span>
   <span class="theme-info">
-    Theme - 
+    主题 - 
     <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
   </span>
 

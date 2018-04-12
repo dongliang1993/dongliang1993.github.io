@@ -106,7 +106,7 @@
         <li class="mobile-menu-item">
           
           
-            Home
+            首页
           
         </li>
       </a>
@@ -115,7 +115,7 @@
         <li class="mobile-menu-item">
           
           
-            Archives
+            归档
           
         </li>
       </a>
@@ -124,7 +124,7 @@
         <li class="mobile-menu-item">
           
           
-            Tags
+            标签
           
         </li>
       </a>
@@ -133,7 +133,7 @@
         <li class="mobile-menu-item">
           
           
-            Categories
+            分类
           
         </li>
       </a>
@@ -142,7 +142,7 @@
         <li class="mobile-menu-item">
           
           
-            About
+            关于
           
         </li>
       </a>
@@ -163,7 +163,7 @@
           <a class="menu-item-link" href="/">
             
             
-              Home
+              首页
             
           </a>
         </li>
@@ -172,7 +172,7 @@
           <a class="menu-item-link" href="/archives/">
             
             
-              Archives
+              归档
             
           </a>
         </li>
@@ -181,7 +181,7 @@
           <a class="menu-item-link" href="/tags">
             
             
-              Tags
+              标签
             
           </a>
         </li>
@@ -190,7 +190,7 @@
           <a class="menu-item-link" href="/categories">
             
             
-              Categories
+              分类
             
           </a>
         </li>
@@ -199,7 +199,7 @@
           <a class="menu-item-link" href="/about">
             
             
-              About
+              关于
             
           </a>
         </li>
@@ -215,6 +215,104 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts">
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2017/12/18/Zan-UI-源码分析（二）Badge-组件/">Zan UI 源码分析（二）Badge 组件</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2017-12-18
+        </span>
+        
+        
+        <div class="post-visits"
+             data-url="/2017/12/18/Zan-UI-源码分析（二）Badge-组件/"
+             data-title="Zan UI 源码分析（二）Badge 组件">
+            阅读次数
+          </div>
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          <a id="more"></a>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; PureComponent, Component &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> cx <span class="keyword">from</span> <span class="string">'classnames'</span>;</span><br><span class="line"><span class="keyword">import</span> PropTypes <span class="keyword">from</span> <span class="string">'prop-types'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Badge 就是小红点或者未读消息数</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">Badge</span> <span class="keyword">extends</span> (<span class="title">PureComponent</span> || <span class="title">Component</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">static</span> propTypes = &#123;</span><br><span class="line">    count: PropTypes.number, <span class="comment">// 消息条数</span></span><br><span class="line">    maxCount: PropTypes.number, <span class="comment">// 最大完全显示消息条数	</span></span><br><span class="line">    dot: PropTypes.bool, <span class="comment">// 是否显示为小红点	</span></span><br><span class="line">    showZero: PropTypes.bool, <span class="comment">// 消息数为0时是否显示	</span></span><br><span class="line">    children: PropTypes.node, <span class="comment">// 自定义额外类名	</span></span><br><span class="line">    className: PropTypes.string,</span><br><span class="line">    prefix: PropTypes.string <span class="comment">// 自定义前缀	</span></span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">static</span> defaultProps = &#123;</span><br><span class="line">    count: <span class="number">0</span>,</span><br><span class="line">    maxCount: <span class="number">99</span>,</span><br><span class="line">    dot: <span class="literal">false</span>,</span><br><span class="line">    showZero: <span class="literal">false</span>,</span><br><span class="line">    className: <span class="string">''</span>,</span><br><span class="line">    prefix: <span class="string">'zent'</span></span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">const</span> &#123;</span><br><span class="line">      count,</span><br><span class="line">      maxCount,</span><br><span class="line">      dot,</span><br><span class="line">      showZero,</span><br><span class="line">      className,</span><br><span class="line">      prefix,</span><br><span class="line">      children</span><br><span class="line">    &#125; = <span class="keyword">this</span>.props;</span><br><span class="line">    <span class="comment">// 如果 children 的个数 &gt;= 2 那么 是个数组</span></span><br><span class="line">    <span class="comment">// 否则是个对象</span></span><br><span class="line">    <span class="keyword">const</span> containerCls = cx(&#123;</span><br><span class="line">      [<span class="string">`<span class="subst">$&#123;prefix&#125;</span>-badge`</span>]: <span class="literal">true</span>,</span><br><span class="line">      <span class="comment">// 是否是独立徽标的切换</span></span><br><span class="line">      <span class="comment">// 也就是说，如果你传进来一个 children</span></span><br><span class="line">      <span class="comment">// 那么就认为不是 独立徽标</span></span><br><span class="line">      <span class="comment">// 小红点或者消息数要以 children 来绝对定位</span></span><br><span class="line">      <span class="comment">// 如果没有 children ，就是独立徽标</span></span><br><span class="line">      <span class="comment">// 变成一个 inlineblock</span></span><br><span class="line">      [<span class="string">`<span class="subst">$&#123;prefix&#125;</span>-badge-none-cont`</span>]: !children,</span><br><span class="line">      [className]: !!className</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 不过有一点不明白</span></span><br><span class="line">    <span class="comment">// 这函数为什么要写在 render 中？</span></span><br><span class="line">    <span class="comment">// 这样不是每次 render 的时候都要重新生成一下这个函数吗？</span></span><br><span class="line">    <span class="keyword">const</span> renderCount = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">let</span> countEle = <span class="literal">null</span>;</span><br><span class="line">      <span class="comment">// 如果需要显示小红点</span></span><br><span class="line">      <span class="keyword">if</span> (dot) &#123;</span><br><span class="line">        countEle = (</span><br><span class="line">          &lt;span className=&#123;<span class="string">`<span class="subst">$&#123;prefix&#125;</span>-badge-count <span class="subst">$&#123;prefix&#125;</span>-badge-dot`</span>&#125; /&gt;</span><br><span class="line">        );</span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (count &gt; <span class="number">0</span> || (count === <span class="number">0</span> &amp;&amp; showZero)) &#123;</span><br><span class="line">        <span class="comment">// 如果消息数 &gt; 0 或者 count === 0 但是需要消息数为0时是否显示	</span></span><br><span class="line">        countEle = (</span><br><span class="line">          &lt;span className=&#123;<span class="string">`<span class="subst">$&#123;prefix&#125;</span>-badge-count`</span>&#125;&gt;</span><br><span class="line">            &#123;<span class="comment">/* 如果 count 比 设置的 maxCount 要多，显示 maxCount  否则显示 count 数*/</span>&#125;</span><br><span class="line">            &#123;count &gt; maxCount ? <span class="string">`<span class="subst">$&#123;maxCount&#125;</span>+`</span> : count&#125;</span><br><span class="line">          &lt;<span class="regexp">/span&gt;</span></span><br><span class="line"><span class="regexp">        );</span></span><br><span class="line"><span class="regexp">      &#125;</span></span><br><span class="line"><span class="regexp">      return countEle;</span></span><br><span class="line"><span class="regexp">    &#125;;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">    return (</span></span><br><span class="line"><span class="regexp">      &lt;div className=&#123;containerCls&#125;&gt;</span></span><br><span class="line"><span class="regexp">        &#123;children ? (</span></span><br><span class="line"><span class="regexp">          &lt;div className=&#123;`$&#123;prefix&#125;-badge-content`&#125;&gt;&#123;children&#125;&lt;/</span>div&gt;</span><br><span class="line">        ) : <span class="literal">null</span>&#125;</span><br><span class="line">        &#123;<span class="comment">/* renderCount 判断是生成小红点还是消息数  */</span>&#125;</span><br><span class="line">        &#123;renderCount()&#125;</span><br><span class="line">      &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    );</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2017/12/15/Zan-UI-源码分析（一）Alert-组件/">Zan UI 源码分析（一）Alert 组件</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2017-12-15
+        </span>
+        
+        
+        <div class="post-visits"
+             data-url="/2017/12/15/Zan-UI-源码分析（一）Alert-组件/"
+             data-title="Zan UI 源码分析（一）Alert 组件">
+            阅读次数
+          </div>
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>本来想自己实现一套组件，后来想了想，如果一个人开发的话，成本太大，而且有很多工程化的东西不是很懂，所以作罢。</p>
+<p>但是还是有很多优秀的组件源码是可以看一下的。有赞的技术团队算是我比较喜欢的，而我目前技术栈正好也是 react , 所以所以正好借此机会把 Zan UI 看一下，顺便水几篇文章:-D~~</p>
+<p>接下来可能会写一系列文章来分析常用的组件的源码，当然，中间可能也会穿插一下其他的文章，欢迎大家交流~~</p>
+          <div class="read-more">
+            <a href="/2017/12/15/Zan-UI-源码分析（一）Alert-组件/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
     
       
   <article class="post">
@@ -392,7 +490,7 @@
           <p>首先我们看一下 redux 的代码结构:<br><img src="//dongliang1993.github.io/img/redux-源码/redux-01.png" alt=""></p>
 <p>├── applyMiddleware.js  // API: applyMiddleware 中间件，对store.dispatch方法进行了改造。作用是将所有中间件组成一个数组，依次执行<br>├── bindActionCreators.js  // API: bindActionCreators 把 action creator 往下传到一个组件上，却不想让这个组件觉察到 Redux 的存在，而且不希望把 Redux store 或 dispatch 传给它<br>├── combineReducers.js  // API: combineReducers 把一个由多个不同 reducer 函数作为 value 的 object，合并成一个 reducer 函数<br>├── compose.js     // API: compose  从右到左来组合多个函数。<br>├── createStore.js    // API: createStore 创建一个 Redux store 来以存放应用中所有的 state。<br>├── index.js     // 入口文件，负责集中暴露 API，例如 createStore 、combineReducers 等<br>└── utils  // 工具包<br>    ├── actionTypes.js  // Redux 保留的私有 action 类型。<br>    ├── isPlainObject.js // 判断是否为普通对象<br>    └── warning.js  // 在控制台中打印警告</p>
           <div class="read-more">
-            <a href="/2017/12/13/redux-源码分析-一/" class="read-more-link">Read more..</a>
+            <a href="/2017/12/13/redux-源码分析-一/" class="read-more-link">阅读更多</a>
           </div>
         
       
@@ -804,119 +902,6 @@
   </article>
 
     
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2017/12/07/koa2-源码分析之-request-js/">koa2 源码分析之 request.js</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2017-12-07
-        </span>
-        
-        
-        <div class="post-visits"
-             data-url="/2017/12/07/koa2-源码分析之-request-js/"
-             data-title="koa2 源码分析之 request.js">
-            阅读次数
-          </div>
-        
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-
-        
-          <p>这篇文章我们主要分析一下 request.js 文件的源码</p>
-<h2 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// request.js</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>将代码收起来，我们可以看到，request.js 中导出的是一个对象。</p>
-<p>为什么会导出一个对象呢？我们先看一下在 application.js 中是如何使用的。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// application.js</span></span><br><span class="line"><span class="comment">// 省略了无关紧要的代码</span></span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line"><span class="keyword">const</span> request = <span class="built_in">require</span>(<span class="string">'./request'</span>);</span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line"><span class="built_in">module</span>.exports = <span class="class"><span class="keyword">class</span> <span class="title">Application</span> <span class="keyword">extends</span> <span class="title">Emitter</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>() &#123;</span><br><span class="line">    <span class="keyword">super</span>();</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">    <span class="keyword">this</span>.context = <span class="built_in">Object</span>.create(context); <span class="comment">// context模块，通过context.js创建</span></span><br><span class="line">    <span class="keyword">this</span>.request = <span class="built_in">Object</span>.create(request); <span class="comment">// request模块，通过request.js创建</span></span><br><span class="line">    <span class="keyword">this</span>.response = <span class="built_in">Object</span>.create(response); <span class="comment">//response模块，通过response.js创建</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="string">`</span></span><br></pre></td></tr></table></figure>
-<p>可以看到，在 Application 这个类的构造函数中，request 是当做一个参数传给 Object.create<br>这个函数的。</p>
-<p>先讲一下 Object.create 这个方法，首先看一下 MDN 对应的文档<br><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/create" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/create</a></p>
-<p>Object.create() 方法会使用指定的原型对象及其属性去创建一个新的对象。用法如下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.create(proto [, propertiesObject ])</span><br></pre></td></tr></table></figure></p>
-<ol>
-<li>proto 为新创建对象的原型对象，设置为null可创建没有原型的空对象。</li>
-<li>如果 proto 参数不是 null 或一个对象，则抛出一个 TypeError 异常。</li>
-<li>propertiesObject 可选。如果没有指定为 undefined，则是要添加到新创建对象的可枚举属性<br>（即其自身定义的属性，而不是其原型链上的枚举属性）对象的属性描述符以及相应的属性名称。<br>这些属性对应Object.defineProperties()的第二个参数。</li>
-</ol>
-<p>简单来说，就是创建了一个对象，然后这个对象的原型就是你进去的那个参数</p>
-<h2 id="简单包装"><a href="#简单包装" class="headerlink" title="简单包装"></a>简单包装</h2><p>其实 request.js 这部分代码没有什么很复杂的地方，主要是把我们常用的属性读取和赋值包装成了 getter 和 setter<br>附上 MDN 对应的文档 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions/get" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions/get</a></p>
-<p>举个例子，比如我们想查看请求的 URL，我们会用 ctx.resquest.url 来查看，也可以用 ctx.url。而 ctx.url<br>就是被包装成了 getter 和 setter：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">get url() &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">this</span>.req.url;</span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Set request URL.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * @api public</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line">set url(val) &#123;</span><br><span class="line">  <span class="keyword">this</span>.req.url = val;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure></p>
-<p>无非就是暴露出来一下语法糖，方便开发而已</p>
-
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2017/12/06/koa2-源码分析-一/">koa2 源码分析 (一)</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2017-12-06
-        </span>
-        
-        
-        <div class="post-visits"
-             data-url="/2017/12/06/koa2-源码分析-一/"
-             data-title="koa2 源码分析 (一)">
-            阅读次数
-          </div>
-        
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <p>koa2 启动一个 http server 的代码如下:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Koa = <span class="built_in">require</span>(<span class="string">'koa'</span>)</span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Koa()</span><br><span class="line"></span><br><span class="line">app.user(<span class="keyword">async</span> (ctx, next) =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;ctx.request.url&#125;</span> <span class="subst">$&#123;ctx.request.method&#125;</span>`</span>)</span><br><span class="line">  <span class="keyword">await</span> next()</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">app.user(<span class="keyword">async</span> (ctx, next) =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`hello world !`</span>)</span><br><span class="line">  <span class="keyword">await</span> next()</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">app.listen(<span class="number">3000</span>, () =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'server listening at 3000 port!'</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
-<p>知道怎么使用之后，我们对照着这个模板一点一点来拆分 koa2 整个源码<br>
-          <div class="read-more">
-            <a href="/2017/12/06/koa2-源码分析-一/" class="read-more-link">Read more..</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
   </section>
 
   
@@ -924,12 +909,12 @@
     
       <a class="prev" href="/page/3/">
         <i class="iconfont icon-left"></i>
-        <span class="prev-text">Prev</span>
+        <span class="prev-text">上一页</span>
       </a>
     
     
       <a class="next" href="/page/5/">
-        <span class="next-text">Next</span>
+        <span class="next-text">下一页</span>
         <i class="iconfont icon-right"></i>
       </a>
     
@@ -986,11 +971,11 @@
 
 <div class="copyright">
   <span class="power-by">
-    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
   </span>
   <span class="division">|</span>
   <span class="theme-info">
-    Theme - 
+    主题 - 
     <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
   </span>
 
