@@ -106,7 +106,7 @@
         <li class="mobile-menu-item">
           
           
-            Home
+            首页
           
         </li>
       </a>
@@ -115,7 +115,7 @@
         <li class="mobile-menu-item">
           
           
-            Archives
+            归档
           
         </li>
       </a>
@@ -124,7 +124,7 @@
         <li class="mobile-menu-item">
           
           
-            Tags
+            标签
           
         </li>
       </a>
@@ -133,7 +133,7 @@
         <li class="mobile-menu-item">
           
           
-            Categories
+            分类
           
         </li>
       </a>
@@ -142,7 +142,7 @@
         <li class="mobile-menu-item">
           
           
-            About
+            关于
           
         </li>
       </a>
@@ -163,7 +163,7 @@
           <a class="menu-item-link" href="/">
             
             
-              Home
+              首页
             
           </a>
         </li>
@@ -172,7 +172,7 @@
           <a class="menu-item-link" href="/archives/">
             
             
-              Archives
+              归档
             
           </a>
         </li>
@@ -181,7 +181,7 @@
           <a class="menu-item-link" href="/tags">
             
             
-              Tags
+              标签
             
           </a>
         </li>
@@ -190,7 +190,7 @@
           <a class="menu-item-link" href="/categories">
             
             
-              Categories
+              分类
             
           </a>
         </li>
@@ -199,7 +199,7 @@
           <a class="menu-item-link" href="/about">
             
             
-              About
+              关于
             
           </a>
         </li>
@@ -480,7 +480,7 @@
         
           <p>这是我们源码分析的第一章，主要是从整体的角度来剖析一个库的架构，不会拘泥于细枝末节。大体如下：</p>
           <div class="read-more">
-            <a href="/2018/02/02/underscore库源码解析1/" class="read-more-link">Read more..</a>
+            <a href="/2018/02/02/underscore库源码解析1/" class="read-more-link">阅读更多</a>
           </div>
         
       
@@ -534,7 +534,7 @@
 <li><a href="https://www.jianshu.com/p/42e11515c10f" target="_blank" rel="noopener">https://www.jianshu.com/p/42e11515c10f</a></li>
 </ul>
           <div class="read-more">
-            <a href="/2018/02/01/入门Webpack/" class="read-more-link">Read more..</a>
+            <a href="/2018/02/01/入门Webpack/" class="read-more-link">阅读更多</a>
           </div>
         
       
@@ -587,7 +587,7 @@
 <p>来源：掘金</p>
 <p>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
           <div class="read-more">
-            <a href="/2018/01/31/转载-这一次，彻底弄懂-JavaScript-执行机制/" class="read-more-link">Read more..</a>
+            <a href="/2018/01/31/转载-这一次，彻底弄懂-JavaScript-执行机制/" class="read-more-link">阅读更多</a>
           </div>
         
       
@@ -1126,7 +1126,7 @@
           <p>文：小 boy（沪江网校Web前端工程师）</p>
 <p>本文原创，转载请注明作者及出处</p>
           <div class="read-more">
-            <a href="/2018/01/29/转载-手把手教你撸一个-Webpack-Loader/" class="read-more-link">Read more..</a>
+            <a href="/2018/01/29/转载-手把手教你撸一个-Webpack-Loader/" class="read-more-link">阅读更多</a>
           </div>
         
       
@@ -1978,8 +1978,9 @@
 </ul>
 </li>
 </ul>
-<h2 id="事-件"><a href="#事-件" class="headerlink" title="事 件"></a>事 件</h2><h3 id="事件流"><a href="#事件流" class="headerlink" title="事件流"></a>事件流</h3><ul>
+<h2 id="事-件"><a href="#事-件" class="headerlink" title="事 件"></a>事 件</h2><h3 id="事件流-事件传播"><a href="#事件流-事件传播" class="headerlink" title="事件流(事件传播)"></a>事件流(事件传播)</h3><ul>
 <li>事件流描述的是从页面中接收事件的顺序<ul>
+<li>在单击按钮的同时，你也单击了按钮的容器元素，甚至也单击了整<br>个页面</li>
 <li>分类<ul>
 <li>IE 的事件流是事件冒泡流</li>
 <li>Netscape Communicator 的事件流是事件捕获流</li>
@@ -1987,12 +1988,13 @@
 </li>
 </ul>
 </li>
-<li>事件冒泡<ul>
-<li>IE 的事件流叫做事件冒泡（event bubbling），即事件开始时由最具体的元素（可以认为是你点击的那个元素）接收，然后逐级向上传播到较为不具体的节点（文档）</li>
+<li>事件冒泡（event bubbling）<ul>
+<li>IE 的事件流叫做事件冒泡，即事件开始时由最具体的元素（可以认为是你点击的那个元素）接收，然后逐级向上传播到较为不具体的节点（文档）</li>
 </ul>
 </li>
-<li>事件捕获<ul>
+<li>事件捕获（event capturing）<ul>
 <li>事件捕获的思想是不太具体的节点应该更早接收到事件，而最具体的节点应该最后接收到事件</li>
+<li>由于老版本的浏览器不支持，因此很少有人使用事件捕获</li>
 </ul>
 </li>
 <li>DOM 事件流<ul>
@@ -2003,8 +2005,13 @@
 <h3 id="事件处理程序"><a href="#事件处理程序" class="headerlink" title="事件处理程序"></a>事件处理程序</h3><ul>
 <li>响应某个事件的函数就叫做事件处理程序（或事件侦听器）。事件处理程序的名字以”on”开头</li>
 <li>HTML 事件处理程序<ul>
+<li>用法<ul>
 <li><input type="button" value="Click Me" onclick="alert('Clicked')"></li>
 <li><input type="button" value="Click Me" onclick="showMessage()"></li>
+</ul>
+</li>
+<li>使用这种方法时，on-属性的值是将会执行的代码，而不是一个函数</li>
+<li>this对象指向全局对象</li>
 </ul>
 </li>
 <li><p>DOM0 级事件处理程序</p>
@@ -2015,6 +2022,7 @@
 </li>
 <li><p>程序中的 this 引用当前元素</p>
 </li>
+<li>同一个事件只能定义一个监听函数，也就是说，如果定义两次onclick属性，后一次定义会覆盖前一次</li>
 <li>删除通过 DOM0 级方法指定的事件处理程序只要将事件处理程序属性的值设置为 null 即可</li>
 </ul>
 </li>
@@ -2023,7 +2031,7 @@
 <li>定义了两个方法，用于处理指定和删除事件处理程序的操作： addEventListener() 和 removeEventListener()。</li>
 <li>接受 3 个参数：要处理的事件名、作为事件处理程序的函数和一个布尔值。最后这个布尔值参数如果是 true，表示在捕获阶段调用事件处理程序；如果是 false，表示在冒泡阶段调用事件处理程序</li>
 <li>程序中的 this 引用当前元素</li>
-<li>使用 DOM2 级方法添加事件处理程序的主要好处是可以添加多个事件处理程序</li>
+<li>使用 DOM2 级方法添加事件处理程序的主要好处是可以添加多个事件处理程序, 会按照添加它们的顺序触发。如果为同一个事件多次添加同一个监听函数，该函数只会执行一次，多余的添加将自动被去除</li>
 <li>通过 addEventListener() 添加的匿名函数将无法移除</li>
 </ul>
 </li>
@@ -2033,29 +2041,57 @@
 <li>这两个方法接受相同的两个参数：事件处理程序名称与事件处理程序函数。</li>
 <li>由于 IE8 及更早版本只支持事件冒泡，所以通过 attachEvent() 添加的事件处理程序都会被添加到冒泡阶段</li>
 <li>attachEvent() 的第一个参数是”onclick”</li>
-<li>在使用 attachEvent() 方法的情况下，事件处理程序会在全局作用域中运行，因此 this 等于 window</li>
+<li>在使用 attachEvent() 方法的情况下，事件处理程序会在全局作用域中运行，因此 this 等于 window<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> btn = <span class="built_in">document</span>.getElementById(<span class="string">"myBtn"</span>);</span><br><span class="line">btn.attachEvent(<span class="string">"onclick"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  alert(<span class="keyword">this</span> === <span class="built_in">window</span>); <span class="comment">//true</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
+</li>
+<li><p>跨浏览器的事件处理程序</p>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> EventUtil = &#123;</span><br><span class="line">  addHandler: <span class="function"><span class="keyword">function</span>(<span class="params">element, type, handler</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (element.addEventListener)&#123;</span><br><span class="line">      element.addEventListener(type, handler, <span class="literal">false</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (element.attachEvent)&#123;</span><br><span class="line">      element.attachEvent(<span class="string">"on"</span> + type, handler);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      element[<span class="string">"on"</span> + type] = handler;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  removeHandler: <span class="function"><span class="keyword">function</span>(<span class="params">element, type, handler</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (element.removeEventListener)&#123;</span><br><span class="line">      element.removeEventListener(type, handler, <span class="literal">false</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (element.detachEvent)&#123;</span><br><span class="line">      element.detachEvent(<span class="string">"on"</span> + type, handler);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      element[<span class="string">"on"</span> + type] = <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h3 id="事件对象"><a href="#事件对象" class="headerlink" title="事件对象"></a>事件对象</h3><ul>
-<li><p>DOM 中的事件对象</p>
-<ul>
+<li>在触发 DOM 上的某个事件时，会产生一个事件对象 event，这个对象中包含着所有与事件有关的信息。包括导致事件的元素、事件的类型以及其他与特定事件相关的信息</li>
+<li>DOM 中的事件对象<ul>
 <li>无论指定事件处理程序时使用什么方法（DOM0 级或 DOM2 级） ，都会传入 event 对象</li>
-<li>在事件处理程序内部，对象 this 始终等于 currentTarget 的值（就是当前这个元素），而 target 则只包含事件的实际目标（真正触发的目标)</li>
-<li>在需要通过一个函数处理多个事件时，可以使用 type 属性</li>
-<li>要阻止特定事件的默认行为，可以使用 preventDefault() 方法<ul>
-<li>链接的默认行为就是在被单击时会导航到其 href 特性指定的 URL</li>
+<li>常见属性<ul>
+<li>event.bubbles<ul>
+<li>bubbles属性返回一个布尔值，表示当前事件是否会冒泡</li>
 </ul>
 </li>
-<li>stopPropagation() 方法用于立即停止事件在 DOM 层次中的传播，即取消进一步的事件捕获或冒泡</li>
-<li>事件对象的 eventPhase 属性，可以用来确定事件当前正位于事件流的哪个阶段。<ul>
-<li>在捕获阶段 eventPhase 等于 1；处于目标对象上 eventPhase 等于 2；冒泡阶段 eventPhase 等于 3。</li>
+<li>event.eventPhase<ul>
+<li>用来确定事件当前正位于事件流的哪个阶段</li>
+<li>在捕获阶段 eventPhase 等于 1；</li>
+<li>处于目标对象上 eventPhase 等于 2；</li>
+<li>冒泡阶段 eventPhase 等于 3</li>
+</ul>
+</li>
+<li>event.currentTarget，event.target<ul>
+<li>currentTarget属性返回事件当前所在的节点，即正在执行的监听函数所绑定的那个节点.在事件处理程序内部，对象 this 始终等于 currentTarget 的值（就是当前这个元素）</li>
+<li>target属性返回事件发生的节点</li>
+</ul>
+</li>
+<li>event.type<ul>
+<li>返回一个字符串，表示事件类型</li>
+</ul>
+</li>
+<li>event.preventDefault<ul>
+<li>要阻止特定事件的默认行为，</li>
+<li>比如链接的默认行为就是在被单击时会导航到其 href 特性指定的 URL</li>
+</ul>
+</li>
+<li>event.stopPropagation<ul>
+<li>用于立即停止事件在 DOM 层次中的传播，即取消进一步的事件捕获或冒泡</li>
+</ul>
+</li>
+<li>event.stopImmediatePropagation<ul>
+<li>阻止同一个事件的其他监听函数被调用</li>
 </ul>
 </li>
 </ul>
 </li>
-<li><p>IE 中的事件对象</p>
-<ul>
+</ul>
+</li>
+<li>IE 中的事件对象<ul>
 <li>在使用 DOM0 级方法添加事件处理程序时， event 对象作为 window 对象的一个属性存在，可是，如果事件处理程序是使用 attachEvent() 添加的，那么就会有一个 event 对象作为参数被传入事件处理程序函数中</li>
 <li>returnValue 属性相当于 DOM 中的 preventDefault() 方法，它们的作用都是取消给定事件的默认行为。</li>
 <li>cancelBubble 属性与 DOM 中的 stopPropagation() 方法作用相同，都是用来停止事件冒泡的</li>
@@ -2063,14 +2099,23 @@
 </li>
 </ul>
 <h3 id="事件类型"><a href="#事件类型" class="headerlink" title="事件类型"></a>事件类型</h3><ul>
-<li><h3 id="事件委托"><a href="#事件委托" class="headerlink" title="事件委托"></a>事件委托</h3></li>
-<li>事件委托利用了事件冒泡，只指定一个事件处理程序，就可以管理某一类型的所有事件<ul>
+<li><h3 id="事件委托-事件代理"><a href="#事件委托-事件代理" class="headerlink" title="事件委托(事件代理)"></a>事件委托(事件代理)</h3></li>
+<li>由于事件会在冒泡阶段向上传播到父节点，因此可以把子节点的监听函数定义在DOM 树中尽量最高的层次上，由父节点的监听函数统一处理多个子元素的事件。这种方法叫做事件的代理（delegation）<ul>
 <li>整个页面占用的内存空间更少，能够提升整体性能。</li>
 </ul>
 </li>
+<li>如果希望事件到某个节点为止，不再传播，可以使用事件对象的stopPropagation方法。</li>
+<li>如果希望事件到某个节点为止，不再传播，可以使用事件对象的stopPropagation方法。</li>
 </ul>
 <h3 id="移除事件处理程序"><a href="#移除事件处理程序" class="headerlink" title="移除事件处理程序"></a>移除事件处理程序</h3><ul>
+<li>如果带有事件处理程序的元素被 innerHTML 删除了，那么原来添加到元素中的事件处理程序极有可能无法被当作垃圾回收<ul>
 <li>如果你知道某个元素即将被移除，那么最好手工移除事件处理程序</li>
+</ul>
+</li>
+<li>页面被卸载之前没有清理干净事件处理程序<ul>
+<li>onunload 事件处理程序移除所有事件处理程序</li>
+</ul>
+</li>
 </ul>
 <h3 id="模拟事件"><a href="#模拟事件" class="headerlink" title="模拟事件"></a>模拟事件</h3><ul>
 <li>DOM 中的事件模拟</li>
@@ -2163,12 +2208,12 @@
     
       <a class="prev" href="/">
         <i class="iconfont icon-left"></i>
-        <span class="prev-text">Prev</span>
+        <span class="prev-text">上一页</span>
       </a>
     
     
       <a class="next" href="/page/3/">
-        <span class="next-text">Next</span>
+        <span class="next-text">下一页</span>
         <i class="iconfont icon-right"></i>
       </a>
     
@@ -2225,11 +2270,11 @@
 
 <div class="copyright">
   <span class="power-by">
-    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
   </span>
   <span class="division">|</span>
   <span class="theme-info">
-    Theme - 
+    主题 - 
     <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
   </span>
 
