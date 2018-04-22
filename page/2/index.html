@@ -106,7 +106,7 @@
         <li class="mobile-menu-item">
           
           
-            Home
+            首页
           
         </li>
       </a>
@@ -115,7 +115,7 @@
         <li class="mobile-menu-item">
           
           
-            Archives
+            归档
           
         </li>
       </a>
@@ -124,7 +124,7 @@
         <li class="mobile-menu-item">
           
           
-            Tags
+            标签
           
         </li>
       </a>
@@ -133,7 +133,7 @@
         <li class="mobile-menu-item">
           
           
-            Categories
+            分类
           
         </li>
       </a>
@@ -142,7 +142,7 @@
         <li class="mobile-menu-item">
           
           
-            About
+            关于
           
         </li>
       </a>
@@ -163,7 +163,7 @@
           <a class="menu-item-link" href="/">
             
             
-              Home
+              首页
             
           </a>
         </li>
@@ -172,7 +172,7 @@
           <a class="menu-item-link" href="/archives/">
             
             
-              Archives
+              归档
             
           </a>
         </li>
@@ -181,7 +181,7 @@
           <a class="menu-item-link" href="/tags">
             
             
-              Tags
+              标签
             
           </a>
         </li>
@@ -190,7 +190,7 @@
           <a class="menu-item-link" href="/categories">
             
             
-              Categories
+              分类
             
           </a>
         </li>
@@ -199,7 +199,7 @@
           <a class="menu-item-link" href="/about">
             
             
-              About
+              关于
             
           </a>
         </li>
@@ -480,7 +480,7 @@
         
           <p>这是我们源码分析的第一章，主要是从整体的角度来剖析一个库的架构，不会拘泥于细枝末节。大体如下：</p>
           <div class="read-more">
-            <a href="/2018/02/02/underscore库源码解析1/" class="read-more-link">Read more..</a>
+            <a href="/2018/02/02/underscore库源码解析1/" class="read-more-link">阅读更多</a>
           </div>
         
       
@@ -534,7 +534,7 @@
 <li><a href="https://www.jianshu.com/p/42e11515c10f" target="_blank" rel="noopener">https://www.jianshu.com/p/42e11515c10f</a></li>
 </ul>
           <div class="read-more">
-            <a href="/2018/02/01/入门Webpack/" class="read-more-link">Read more..</a>
+            <a href="/2018/02/01/入门Webpack/" class="read-more-link">阅读更多</a>
           </div>
         
       
@@ -587,7 +587,7 @@
 <p>来源：掘金</p>
 <p>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
           <div class="read-more">
-            <a href="/2018/01/31/转载-这一次，彻底弄懂-JavaScript-执行机制/" class="read-more-link">Read more..</a>
+            <a href="/2018/01/31/转载-这一次，彻底弄懂-JavaScript-执行机制/" class="read-more-link">阅读更多</a>
           </div>
         
       
@@ -1126,7 +1126,7 @@
           <p>文：小 boy（沪江网校Web前端工程师）</p>
 <p>本文原创，转载请注明作者及出处</p>
           <div class="read-more">
-            <a href="/2018/01/29/转载-手把手教你撸一个-Webpack-Loader/" class="read-more-link">Read more..</a>
+            <a href="/2018/01/29/转载-手把手教你撸一个-Webpack-Loader/" class="read-more-link">阅读更多</a>
           </div>
         
       
@@ -1742,156 +1742,6 @@
 </ul>
 </li>
 </ul>
-<h2 id="DOM（文档对象模型"><a href="#DOM（文档对象模型" class="headerlink" title="DOM（文档对象模型)"></a>DOM（文档对象模型)</h2><h3 id="文档对象模型"><a href="#文档对象模型" class="headerlink" title="文档对象模型"></a>文档对象模型</h3><ul>
-<li>文档节点是每个文档的根节点，即<html>元素，称之为文档元素</html></li>
-<li>Node 类型<ul>
-<li>每个节点都有一个 nodeType 属性，用于表明节点的类型。节点类型由在 Node 类型中定义的 12 个数值常量来表示，任何节点类型必居其一<ul>
-<li>为了确保跨浏览器兼容，最好还是将 nodeType 属性与数字值进行比较</li>
-</ul>
-</li>
-<li>nodeName: 元素的标签名，大写字符串</li>
-<li>节点关系<ul>
-<li>每个节点都有一个 childNodes 属性，其中保存着一个 NodeList 对象，NodeList 是一种类数组对象，<ul>
-<li>用于保存一组有序的节点，可以通过位置来访问这些节点。</li>
-<li>DOM 结构的变化能够自动反映在 NodeList 对象中</li>
-<li>将 NodeList 对象转换为数组：Array.prototype.slice.call(someNode.childNodes,0);</li>
-<li>hasChildNodes 在节点包含一或多个子节点的情况下返回 true</li>
-</ul>
-</li>
-<li>每个节点都有一个 parentNode 属性，该属性指向文档树中的父节点</li>
-<li>previousSibling 和 nextSibling 属性，可以访问同一列表中的其他节点<ul>
-<li>列表中第一个节点的 previousSibling 属性值为 null，而列表中最后一个节点的 nextSibling 属性的值同样也为 null，</li>
-</ul>
-</li>
-<li>父节点的 firstChild 和 lastChild 属性分别指向其 childNodes 列表中的第一个和最后一个节点。</li>
-</ul>
-</li>
-<li>操作节点<ul>
-<li>appendChild: 向 childNodes 列表的末尾添加一个节点。<ul>
-<li>更新完成后，appendChild() 返回新增的节点</li>
-<li>任何 DOM 节点也不能同时出现在文档中的多个位置上。因此，如果在调用 appendChild() 时传入了父节点的第一个子节点，那么该节点就会成为父节点的最后一个子节点</li>
-</ul>
-</li>
-<li>insertBefore<ul>
-<li>接受两个参数：要插入的节点和作为参照的节点</li>
-<li>插入节点后，被插入的节点会变成参照节点的前一个同胞节点</li>
-</ul>
-</li>
-<li>replaceChild<ul>
-<li>接受的两个参数是：要插入的节点和要替换的节点</li>
-<li>要替换的节点将由这个方法返回并从文档树中被移除，同时由要插入的节点占据其位置</li>
-</ul>
-</li>
-<li>removeChild<ul>
-<li>这个方法接受一个参数，即要移除的节点。被移除的节点将成为方法的返回值</li>
-</ul>
-</li>
-<li>cloneNode<ul>
-<li>所有类型的节点都有</li>
-<li>接受一个布尔值参数，表示是否执行深复制</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>Document 类型<ul>
-<li>nodeType 的值为 9</li>
-<li>文档的子节点<ul>
-<li>document.documentElement: 指向 HTML 页面中的<html>元素</html></li>
-<li>document.childNodes</li>
-<li>document.body 直接指向<body>元素</body></li>
-<li>document.doctype: 取得对&lt;!DOCTYPE&gt;的引用</li>
-</ul>
-</li>
-<li>文档信息<ul>
-<li>document.title: 包含着<title>元素中的文本，修改 title 属性的值不会改变<title>元素。</title></title></li>
-<li>document.URL: 地址栏中显示的 URL</li>
-<li>document.domain: 包含页面的域名<ul>
-<li>可以设置，用来跨域</li>
-</ul>
-</li>
-<li>document.referrer: 保存着链接到当前页面的那个页面的 URL</li>
-</ul>
-</li>
-<li>查找元素<ul>
-<li>getElementById<ul>
-<li>如果不存在带有相应 ID 的元素，则返回 null</li>
-<li>如果页面中多个元素的 ID 值相同， getElementById() 只返回文档中第一次出现的元素</li>
-</ul>
-</li>
-<li>getElementsByTagName<ul>
-<li>返回的是包含零或多个元素的 NodeList</li>
-<li>document.getElementsByTagName(“*”) 可以取得文档中的所有元素</li>
-</ul>
-</li>
-<li>getElementsByName<ul>
-<li>这个方法会返回带有给定 name 特性的所有元素 </li>
-</ul>
-</li>
-</ul>
-</li>
-<li>文档写入<ul>
-<li>write()、 writeln()、 open() 和 close()。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>Element 类型<ul>
-<li>nodeType 的值为 1</li>
-<li>nodeName 的值为元素的标签名</li>
-<li>要访问元素的标签名，可以使用 nodeName 属性，也可以使用 tagName 属性。<ul>
-<li>标签名始终都以全部大写表示</li>
-<li>if (element.tagName.toLowerCase() == “div”){ } // 这样最好</li>
-</ul>
-</li>
-<li>HTML 元素<ul>
-<li>someNode.id //“myDiv””</li>
-<li>someNode.className //“bd fl”</li>
-<li>someNode.title //“Body text”</li>
-<li>someNode.lang //“en”</li>
-<li>someNode.dir</li>
-</ul>
-</li>
-<li>取得特性<ul>
-<li>getAttribute<ul>
-<li>div.getAttribute(“class”)</li>
-<li>只有在取得自定义特性值的情况下，才会使用 getAttribute</li>
-</ul>
-</li>
-<li>setAttribute<ul>
-<li>方法接受两个参数：要设置的特性名和值</li>
-<li>div.setAttribute(“class”, “ft”);</li>
-<li>如果特性已经存在，setAttribute() 会以指定的值替换现有的值；如果特性不存在，setAttribute()<br>则创建该属性并设置相应的值</li>
-</ul>
-</li>
-<li>removeAttribute<ul>
-<li>div.removeAttribute(“class”);</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>attributes 属性<br>*</li>
-<li>创建元素<ul>
-<li>使用 document.createElement() 方法可以创建新元素。</li>
-<li>这个方法只接受一个参数，即要创建元素的标签名。</li>
-</ul>
-</li>
-<li>元素的子节点<ul>
-<li>childNodes 属性中包含了它的所有子节点，这些子节点有可能是元素、文本节点、注释或处理指令。 </li>
-<li>空白符会被解析成文本节点</li>
-<li>遍历执行某项操作以前，通常都要先检查一下 nodeTpye 属性</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>Text 类型<ul>
-<li>nodeType 的值为 3</li>
-<li>nodeValue 的值为节点所包含的文本</li>
-<li>不支持（没有）子节点</li>
-</ul>
-</li>
-</ul>
 <h2 id="XMLHttpRequest"><a href="#XMLHttpRequest" class="headerlink" title="XMLHttpRequest"></a>XMLHttpRequest</h2><h2 id="兼容"><a href="#兼容" class="headerlink" title="兼容"></a>兼容</h2><ul>
 <li>IE10/IE11 部分支持</li>
 <li>new ActiveXObject(“Microsoft.XMLHTTP”)</li>
@@ -1989,7 +1839,175 @@
 </ul>
 </li>
 </ul>
-<h2 id="事-件"><a href="#事-件" class="headerlink" title="事 件"></a>事 件</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><ul>
+<h2 id="DOM（文档对象模型"><a href="#DOM（文档对象模型" class="headerlink" title="DOM（文档对象模型)"></a>DOM（文档对象模型)</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><ul>
+<li>DOM 描绘了一个层次化的节点树，允许开发人员添加、移除和修改页面的某一部分<h3 id="节点层次"><a href="#节点层次" class="headerlink" title="节点层次"></a>节点层次</h3></li>
+<li>文档节点是每个文档的根节点，即<html>元素，称之为文档元素</html></li>
+<li>Node 类型<ul>
+<li>每个节点都有一个 nodeType 属性，用于表明节点的类型</li>
+<li>节点类型由在 Node 类型中定义的 12 个数值常量来表示，任何节点类型必居其一<ul>
+<li>Node.ELEMENT_NODE(1)，Node.TEXT_NODE(3)</li>
+<li>为了确保跨浏览器兼容，最好还是将 nodeType 属性与数字值进行比较</li>
+</ul>
+</li>
+<li>nodeName: 元素的标签名，大写字符串( ex: DIV )<ul>
+<li>对于元素节点，nodeName 中保存的始终都是元素的标签名，而 nodeValue 的值则始终为 null</li>
+</ul>
+</li>
+<li>节点关系<ul>
+<li>每个节点都有一个 childNodes 属性，其中保存着一个 NodeList 对象，NodeList 是一种类数组对象<ul>
+<li>用于保存一组有序的节点，可以通过位置来访问这些节点</li>
+<li>DOM 结构的变化能够自动反映在 NodeList 对象中</li>
+<li>将 NodeList 对象转换为数组：Array.prototype.slice.call(someNode.childNodes,0)</li>
+</ul>
+</li>
+<li>hasChildNodes 在节点包含一或多个子节点的情况下返回 true</li>
+<li>每个节点都有一个 parentNode 属性，该属性指向文档树中的父节点</li>
+<li>previousSibling 和 nextSibling 属性，可以访问同一列表中的其他兄弟节点<ul>
+<li>列表中第一个节点的 previousSibling 属性值为 null，而列表中最后一个节点的 nextSibling 属性的值同样也为 null</li>
+<li>如果列表中只有一个节点，那么该节点的 nextSibling 和 previousSibling 都为 null</li>
+</ul>
+</li>
+<li>父节点的 firstChild 和 lastChild 属性分别指向其 childNodes 列表中的第一个和最后一个节点</li>
+</ul>
+</li>
+<li>操作节点<ul>
+<li>appendChild<ul>
+<li>向 childNodes 列表的末尾添加一个节点</li>
+<li>更新完成后，appendChild() 返回新增的节点</li>
+<li>如果传入到 appendChild()中的节点已经是文档的一部分了，那结果就是将该节点从原来的位置转移到新位置(任何 DOM 节点不能同时出现在文档中的多个位置上)</li>
+</ul>
+</li>
+<li>insertBefore<ul>
+<li>把节点放在 childNodes 列表中某个特定的位置上</li>
+<li>接受两个参数：要插入的节点和作为参照的节点。插入节点后，被插入的节点会变成参照节点的前一个同胞节点, insertBefore() 返回被插入的节点</li>
+<li>如果参照节点是 null，则 insertBefore()与 appendChild()执行相同的操作，</li>
+</ul>
+</li>
+<li>replaceChild<ul>
+<li>替换一个节点</li>
+<li>接受的两个参数是：要插入的节点和要替换的节点</li>
+<li>要替换的节点将由这个方法返回并从文档树中被移除，同时由要插入的节点占据其位置</li>
+</ul>
+</li>
+<li>removeChild<ul>
+<li>移除一个节点</li>
+<li>这个方法接受一个参数，即要移除的节点。被移除的节点将成为方法的返回值</li>
+</ul>
+</li>
+<li>cloneNode<ul>
+<li>所有类型的节点都有, 用于创建调用这个方法的节点的一个完全相同的副本</li>
+<li>接受一个布尔值参数，表示是否执行深复制<ul>
+<li>在参数为 true 的情况下，执行深复制，也就是复制节点及其整个子节点树</li>
+<li>在参数为 false 的情况下，执行浅复制，即只复制节点本身</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>normalize<ul>
+<li>处理文档树中的文本节点</li>
+<li>由于解析器的实现或 DOM 操作等原因，可能会出现文本节点不包含文本，或者接连出现两个文本节点的情况。当在某个节点上调用这个方法时，就会在该节点的后代节点中查找上述两种情况。如果找到了空文本节点，则删除它；如果找到相邻的文本节点，则将它们合并为一个文本节点</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>Document 类型</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>nodeType 的值为 9</li>
+<li>文档的子节点<ul>
+<li>document.documentElement: 指向 HTML 页面中的<html>元素</html></li>
+<li>document.childNodes</li>
+<li>document.body 直接指向<body>元素</body></li>
+<li>document.doctype: 取得对&lt;!DOCTYPE&gt;的引用</li>
+</ul>
+</li>
+<li>文档信息<ul>
+<li>document.title: 包含着<title>元素中的文本，修改 title 属性的值不会改变<title>元素。</title></title></li>
+<li>document.URL: 地址栏中显示的 URL</li>
+<li>document.domain: 包含页面的域名<ul>
+<li>可以设置，用来跨域</li>
+</ul>
+</li>
+<li>document.referrer: 保存着链接到当前页面的那个页面的 URL</li>
+</ul>
+</li>
+<li>查找元素<ul>
+<li>getElementById<ul>
+<li>如果不存在带有相应 ID 的元素，则返回 null</li>
+<li>如果页面中多个元素的 ID 值相同， getElementById() 只返回文档中第一次出现的元素</li>
+</ul>
+</li>
+<li>getElementsByTagName<ul>
+<li>返回的是包含零或多个元素的 NodeList</li>
+<li>document.getElementsByTagName(“*”) 可以取得文档中的所有元素</li>
+</ul>
+</li>
+<li>getElementsByName<ul>
+<li>这个方法会返回带有给定 name 特性的所有元素 </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>文档写入<ul>
+<li>write()、 writeln()、 open() 和 close()。</li>
+<li>Element 类型</li>
+</ul>
+</li>
+<li>nodeType 的值为 1</li>
+<li>nodeName 的值为元素的标签名</li>
+<li>要访问元素的标签名，可以使用 nodeName 属性，也可以使用 tagName 属性。<ul>
+<li>标签名始终都以全部大写表示</li>
+<li>if (element.tagName.toLowerCase() == “div”){ } // 这样最好</li>
+</ul>
+</li>
+<li>HTML 元素<ul>
+<li>someNode.id //“myDiv””</li>
+<li>someNode.className //“bd fl”</li>
+<li>someNode.title //“Body text”</li>
+<li>someNode.lang //“en”</li>
+<li>someNode.dir</li>
+</ul>
+</li>
+<li>取得特性<ul>
+<li>getAttribute<ul>
+<li>div.getAttribute(“class”)</li>
+<li>只有在取得自定义特性值的情况下，才会使用 getAttribute</li>
+</ul>
+</li>
+<li>setAttribute<ul>
+<li>方法接受两个参数：要设置的特性名和值</li>
+<li>div.setAttribute(“class”, “ft”);</li>
+<li>如果特性已经存在，setAttribute() 会以指定的值替换现有的值；如果特性不存在，setAttribute()<br>则创建该属性并设置相应的值</li>
+</ul>
+</li>
+<li>removeAttribute<ul>
+<li>div.removeAttribute(“class”);</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>attributes 属性<br>*</li>
+<li>创建元素<ul>
+<li>使用 document.createElement() 方法可以创建新元素。</li>
+<li>这个方法只接受一个参数，即要创建元素的标签名。</li>
+</ul>
+</li>
+<li>元素的子节点<ul>
+<li>childNodes 属性中包含了它的所有子节点，这些子节点有可能是元素、文本节点、注释或处理指令。 </li>
+<li>空白符会被解析成文本节点</li>
+<li>遍历执行某项操作以前，通常都要先检查一下 nodeTpye 属性</li>
+<li>Text 类型</li>
+</ul>
+</li>
+<li>nodeType 的值为 3</li>
+<li>nodeValue 的值为节点所包含的文本</li>
+<li>不支持（没有）子节点</li>
+</ul>
+<h2 id="事-件"><a href="#事-件" class="headerlink" title="事 件"></a>事 件</h2><h3 id="概述-1"><a href="#概述-1" class="headerlink" title="概述"></a>概述</h3><ul>
 <li>JavaScript 与 HTML 之间的交互是通过事件实现的</li>
 <li>事件就是文档或浏览器窗口中发生的一些特定的交互瞬间<h3 id="事件流（事件传播"><a href="#事件流（事件传播" class="headerlink" title="事件流（事件传播)"></a>事件流（事件传播)</h3></li>
 <li>事件流描述的是从页面中接收事件的顺序<ul>
@@ -2219,12 +2237,12 @@
     
       <a class="prev" href="/">
         <i class="iconfont icon-left"></i>
-        <span class="prev-text">Prev</span>
+        <span class="prev-text">上一页</span>
       </a>
     
     
       <a class="next" href="/page/3/">
-        <span class="next-text">Next</span>
+        <span class="next-text">下一页</span>
         <i class="iconfont icon-right"></i>
       </a>
     
@@ -2281,11 +2299,11 @@
 
 <div class="copyright">
   <span class="power-by">
-    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
   </span>
   <span class="division">|</span>
   <span class="theme-info">
-    Theme - 
+    主题 - 
     <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
   </span>
 
