@@ -2060,7 +2060,8 @@
 <h3 id="事件对象"><a href="#事件对象" class="headerlink" title="事件对象"></a>事件对象</h3><ul>
 <li>在触发 DOM 上的某个事件时，会产生一个事件对象 event，这个对象中包含着所有与事件有关的信息。包括导致事件的元素、事件的类型以及其他与特定事件相关的信息</li>
 <li>DOM 中的事件对象<ul>
-<li>无论指定事件处理程序时使用什么方法（DOM0 级或 DOM2 级） ，都会传入 event 对象</li>
+<li>无论指定事件处理程序时使用什么方法（DOM0 级或 DOM2 级），都会传入 event 对象</li>
+<li>只有在事件处理程序执行期间， event 对象才会存在；一旦事件处理程序执行完成， event 对象就会被销毁</li>
 <li>常见属性<ul>
 <li>event.bubbles<ul>
 <li>bubbles 属性返回一个布尔值，表示当前事件是否会冒泡</li>
@@ -2068,8 +2069,8 @@
 </li>
 <li>event.eventPhase<ul>
 <li>用来确定事件当前正位于事件流的哪个阶段</li>
-<li>在捕获阶段 eventPhase 等于 1；</li>
-<li>处于目标对象上 eventPhase 等于 2；</li>
+<li>在捕获阶段 eventPhase 等于 1</li>
+<li>处于目标对象上 eventPhase 等于 2</li>
 <li>冒泡阶段 eventPhase 等于 3</li>
 </ul>
 </li>
@@ -2083,7 +2084,7 @@
 </ul>
 </li>
 <li>event.preventDefault<ul>
-<li>要阻止特定事件的默认行为，</li>
+<li>阻止特定事件的默认行为，</li>
 <li>比如链接的默认行为就是在被单击时会导航到其 href 特性指定的 URL</li>
 </ul>
 </li>
@@ -2099,20 +2100,29 @@
 </li>
 </ul>
 </li>
-<li>IE 中的事件对象<ul>
-<li>在使用 DOM0 级方法添加事件处理程序时， event 对象作为 window 对象的一个属性存在，可是，如果事件处理程序是使用 attachEvent() 添加的，那么就会有一个 event 对象作为参数被传入事件处理程序函数中</li>
-<li>returnValue 属性相当于 DOM 中的 preventDefault() 方法，它们的作用都是取消给定事件的默认行为。</li>
-<li>cancelBubble 属性与 DOM 中的 stopPropagation() 方法作用相同，都是用来停止事件冒泡的</li>
+<li><p>IE 中的事件对象</p>
+<ul>
+<li><p>在使用 DOM0 级方法添加事件处理程序时， event 对象作为 window 对象的一个属性存在</p>
+<ul>
+<li><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> btn = <span class="built_in">document</span>.getElementById(<span class="string">"myBtn"</span>);</span><br><span class="line">btn.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> event = <span class="built_in">window</span>.event;</span><br><span class="line">  alert(event.type); <span class="comment">//"click"</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>如果事件处理程序是使用 attachEvent() 添加的，那么就会有一个 event 对象作为参数被传入事件处理程序函数中</p>
+</li>
+<li>returnValue 属性相当于 DOM 中的 preventDefault() 方法，它们的作用都是取消给定事件的默认行为</li>
+<li>cancelBubble 属性与 DOM 中的 stopPropagation() 方法作用相同，都是用来停止事件冒泡的<h3 id="事件委托（事件代理"><a href="#事件委托（事件代理" class="headerlink" title="事件委托（事件代理)"></a>事件委托（事件代理)</h3></li>
+</ul>
+<ul>
+<li>由于事件会在冒泡阶段向上传播到父节点，因此可以把子节点的监听函数定义在 DOM 树中尽量最高的层次上，由父节点的监听函数统一处理多个子元素的事件。这种方法叫做事件的代理（delegation）</li>
 </ul>
 </li>
 </ul>
-<h3 id="事件类型"><a href="#事件类型" class="headerlink" title="事件类型"></a>事件类型</h3><ul>
-<li><h3 id="事件委托（事件代理"><a href="#事件委托（事件代理" class="headerlink" title="事件委托（事件代理)"></a>事件委托（事件代理)</h3></li>
-<li>由于事件会在冒泡阶段向上传播到父节点，因此可以把子节点的监听函数定义在 DOM 树中尽量最高的层次上，由父节点的监听函数统一处理多个子元素的事件。这种方法叫做事件的代理（delegation）<ul>
-<li>整个页面占用的内存空间更少，能够提升整体性能。</li>
-</ul>
-</li>
+<ul>
+<li>整个页面占用的内存空间更少，能够提升整体性能。<ul>
 <li>如果希望事件到某个节点为止，不再传播，可以使用事件对象的 stopPropagation 方法。</li>
+</ul>
+</li>
 </ul>
 <h3 id="移除事件处理程序"><a href="#移除事件处理程序" class="headerlink" title="移除事件处理程序"></a>移除事件处理程序</h3><ul>
 <li>如果带有事件处理程序的元素被 innerHTML 删除了，那么原来添加到元素中的事件处理程序极有可能无法被当作垃圾回收<ul>
