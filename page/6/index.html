@@ -17,8 +17,6 @@
 
 
 
-  <meta name="description" content="聊聊 cookie"/>
-
 
 
 
@@ -40,7 +38,7 @@
 
 
 
-<link rel="canonical" href="http://yoursite.com/2017/09/29/cookie/"/>
+<link rel="canonical" href="http://yoursite.com/page/6/"/>
 
 
 <link rel="stylesheet" type="text/css" href="/css/style.css?v=2.6.0" />
@@ -87,7 +85,7 @@
 
 
 
-    <title> 聊聊 cookie - 我是你豆子欧巴 </title>
+    <title> 我是你豆子欧巴 </title>
   </head>
 
   <body><div id="mobile-navbar" class="mobile-navbar">
@@ -216,12 +214,14 @@
         <div class="content-wrapper">
           <div id="content" class="content">
             
-  
+  <section id="posts" class="posts">
+    
+      
   <article class="post">
     <header class="post-header">
       <h1 class="post-title">
         
-          聊聊 cookie
+          <a class="post-link" href="/2017/09/29/cookie/">聊聊 cookie</a>
         
       </h1>
 
@@ -242,17 +242,14 @@
 
     
     
-  <div class="post-toc" id="post-toc">
-    <h2 class="post-toc-title">Contents</h2>
-    <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#前言"><span class="toc-text"><a href="#&#x524D;&#x8A00;" class="headerlink" title="&#x524D;&#x8A00;"></a>&#x524D;&#x8A00;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cookie是什么"><span class="toc-text"><a href="#cookie&#x662F;&#x4EC0;&#x4E48;" class="headerlink" title="cookie&#x662F;&#x4EC0;&#x4E48;"></a>cookie&#x662F;&#x4EC0;&#x4E48;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cookie原理"><span class="toc-text"><a href="#cookie&#x539F;&#x7406;" class="headerlink" title="cookie&#x539F;&#x7406;"></a>cookie&#x539F;&#x7406;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cookie不可跨域"><span class="toc-text"><a href="#cookie&#x4E0D;&#x53EF;&#x8DE8;&#x57DF;" class="headerlink" title="cookie&#x4E0D;&#x53EF;&#x8DE8;&#x57DF;"></a>cookie&#x4E0D;&#x53EF;&#x8DE8;&#x57DF;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cookie的属性"><span class="toc-text"><a href="#cookie&#x7684;&#x5C5E;&#x6027;" class="headerlink" title="cookie&#x7684;&#x5C5E;&#x6027;"></a>cookie&#x7684;&#x5C5E;&#x6027;</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#name"><span class="toc-text"><a href="#name" class="headerlink" title="name"></a>name</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#value"><span class="toc-text"><a href="#value" class="headerlink" title="value"></a>value</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#domain"><span class="toc-text"><a href="#domain" class="headerlink" title="domain"></a>domain</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#path"><span class="toc-text"><a href="#path" class="headerlink" title="path"></a>path</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#cookie的有效期"><span class="toc-text"><a href="#cookie&#x7684;&#x6709;&#x6548;&#x671F;" class="headerlink" title="cookie&#x7684;&#x6709;&#x6548;&#x671F;"></a>cookie&#x7684;&#x6709;&#x6548;&#x671F;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#secure"><span class="toc-text"><a href="#secure" class="headerlink" title="secure"></a>secure</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#HttpOnly"><span class="toc-text"><a href="#HttpOnly" class="headerlink" title="HttpOnly"></a>HttpOnly</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#关于js操作cookie"><span class="toc-text"><a href="#&#x5173;&#x4E8E;js&#x64CD;&#x4F5C;cookie" class="headerlink" title="&#x5173;&#x4E8E;js&#x64CD;&#x4F5C;cookie"></a>&#x5173;&#x4E8E;js&#x64CD;&#x4F5C;cookie</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#服务端如何去设置cookie"><span class="toc-text"><a href="#&#x670D;&#x52A1;&#x7AEF;&#x5982;&#x4F55;&#x53BB;&#x8BBE;&#x7F6E;cookie" class="headerlink" title="&#x670D;&#x52A1;&#x7AEF;&#x5982;&#x4F55;&#x53BB;&#x8BBE;&#x7F6E;cookie"></a>&#x670D;&#x52A1;&#x7AEF;&#x5982;&#x4F55;&#x53BB;&#x8BBE;&#x7F6E;cookie</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-text"><a href="#&#x603B;&#x7ED3;" class="headerlink" title="&#x603B;&#x7ED3;"></a>&#x603B;&#x7ED3;</span></a></li></ol>
-    </div>
-  </div>
-
 
     <div class="post-content">
       
-        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>cookie在web开发中时常被用到，也是面试官喜欢问的一块技术，很多人或许和我以前一样，只知其一不知其二，谈起web存储，都会答localStorage、sessionStorage、还有就是cookie，然后一些区别啊什么的倒背如流，cookie的优缺点也了然于心，但是当你看完这块内容之后，你会对cookie有另外独到的见解，希望以后问到这块技术，或者项目中遇到这个你都会处理，我在实习的过程中，一直在用，所以它真的不是口头说说的那么简单，让我们进入cookie的世界</p>
+        
+        
+
+        
+          <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>cookie在web开发中时常被用到，也是面试官喜欢问的一块技术，很多人或许和我以前一样，只知其一不知其二，谈起web存储，都会答localStorage、sessionStorage、还有就是cookie，然后一些区别啊什么的倒背如流，cookie的优缺点也了然于心，但是当你看完这块内容之后，你会对cookie有另外独到的见解，希望以后问到这块技术，或者项目中遇到这个你都会处理，我在实习的过程中，一直在用，所以它真的不是口头说说的那么简单，让我们进入cookie的世界</p>
 <h3 id="cookie是什么"><a href="#cookie是什么" class="headerlink" title="cookie是什么"></a>cookie是什么</h3><p>这个讲起来很简单，了解http的同学，肯定知道，http是一个不保存状态的协议，什么叫不保存状态，就是一个服务器是不清楚是不是同一个浏览器在访问他，在cookie之前，有另外的技术是可以解决，这里简单讲一下，就是在请求中插入一个token，然后在发送请求的时候，把这个东西带给服务器，这种方式是易出错，所以有了cookie的出现</p>
 <p><img src="http://laihuamin.oss-cn-beijing.aliyuncs.com/cookie.png" alt="cookie"></p>
 <p>cookie是什么，cookie就是一种浏览器管理状态的一个文件，它有name，也有value，后面那些看不见的是Domain、path等等，我们后面会介绍</p>
@@ -289,63 +286,33 @@
 <p>服务端就是通过setCookie来设置cookie的，注意点，要设置多个cookie时，得多写几个setCookie，我们还可以从上图看到，请求可以携带cookie给后端。</p>
 <h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>cookie讲了这么多，自己也收获了很多，也希望分享给大家，或许写的不够好，请见谅，如果觉得我写的好的朋友，给个star，<a href="https://github.com/laihuamin/JS-total" target="_blank" rel="noopener">github地址</a></p>
 
+        
       
     </div>
 
     
-      
-      
-
-  <div class="post-copyright">
-    <p class="copyright-item">
-      <span>Author: </span>
-      <a href="http://yoursite.com">我是你豆子欧巴</a>
-    </p>
-    <p class="copyright-item">
-      <span>Link: </span>
-      <a href="http://yoursite.com/2017/09/29/cookie/">http://yoursite.com/2017/09/29/cookie/</a>
-    </p>
-    <p class="copyright-item">
-      <span>License: </span>
-      
-      <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
-    </p>
-  </div>
-
-
-
-      
-      
-    
 
     
-      <footer class="post-footer">
-        
-        
-        
-  <nav class="post-nav">
+
+  </article>
+
     
-      <a class="prev" href="/2017/11/20/深入-ES6-01-块级绑定/">
+  </section>
+
+  
+  <nav class="pagination">
+    
+      <a class="prev" href="/page/5/">
         <i class="iconfont icon-left"></i>
-        <span class="prev-text nav-default">深入 ES6 -- 01 块级绑定</span>
-        <span class="prev-text nav-mobile">Prev</span>
+        <span class="prev-text">Prev</span>
       </a>
     
     
   </nav>
 
-      </footer>
-    
-
-  </article>
-
 
           </div>
           
-  <div class="comments" id="comments">
-    
-  </div>
-
 
         </div>
       </main>
@@ -425,8 +392,6 @@
     </div>
 
     
-  
-
 
 
     

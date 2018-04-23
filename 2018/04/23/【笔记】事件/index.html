@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+
+  <meta name="description" content="【笔记】事件"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="alternate" href="/default" title="我是你豆子欧巴">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.6.0" />
+
+
+
+<link rel="canonical" href="http://yoursite.com/2018/04/23/【笔记】事件/"/>
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.6.0" />
+
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+
+
+
+
+  
+
+
+
+  <script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.1.1/av-min.js"></script>
+  <script id="leancloud">
+    AV.init({
+      appId: "BFBKC2C7jVkD7w4SCRF57xom-gzGzoHsz",
+      appKey: "elTqQP3tDP3wAwIFKyE57fHe"
+    });
+  </script>
+
+
+
+
+
+    <title> 【笔记】事件 - 我是你豆子欧巴 </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">我是你豆子欧巴</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            Home
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            Archives
+          
+        </li>
+      </a>
+    
+      <a href="/tags">
+        <li class="mobile-menu-item">
+          
+          
+            Tags
+          
+        </li>
+      </a>
+    
+      <a href="/categories">
+        <li class="mobile-menu-item">
+          
+          
+            Categories
+          
+        </li>
+      </a>
+    
+      <a href="/about">
+        <li class="mobile-menu-item">
+          
+          
+            About
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">我是你豆子欧巴</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              Home
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              Archives
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/tags">
+            
+            
+              Tags
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/categories">
+            
+            
+              Categories
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/about">
+            
+            
+              About
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          【笔记】事件
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-04-23
+        </span>
+        
+        
+        <div class="post-visits"
+             data-url="/2018/04/23/【笔记】事件/"
+             data-title="【笔记】事件">
+            阅读次数
+          </div>
+        
+      </div>
+    </header>
+
+    
+    
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#事-件"><span class="toc-text"><a href="#&#x4E8B;-&#x4EF6;" class="headerlink" title="&#x4E8B; &#x4EF6;"></a>&#x4E8B; &#x4EF6;</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#概述"><span class="toc-text"><a href="#&#x6982;&#x8FF0;" class="headerlink" title="&#x6982;&#x8FF0;"></a>&#x6982;&#x8FF0;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#事件流（事件传播"><span class="toc-text"><a href="#&#x4E8B;&#x4EF6;&#x6D41;&#xFF08;&#x4E8B;&#x4EF6;&#x4F20;&#x64AD;" class="headerlink" title="&#x4E8B;&#x4EF6;&#x6D41;&#xFF08;&#x4E8B;&#x4EF6;&#x4F20;&#x64AD;)"></a>&#x4E8B;&#x4EF6;&#x6D41;&#xFF08;&#x4E8B;&#x4EF6;&#x4F20;&#x64AD;)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#事件处理程序"><span class="toc-text"><a href="#&#x4E8B;&#x4EF6;&#x5904;&#x7406;&#x7A0B;&#x5E8F;" class="headerlink" title="&#x4E8B;&#x4EF6;&#x5904;&#x7406;&#x7A0B;&#x5E8F;"></a>&#x4E8B;&#x4EF6;&#x5904;&#x7406;&#x7A0B;&#x5E8F;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#事件对象"><span class="toc-text"><a href="#&#x4E8B;&#x4EF6;&#x5BF9;&#x8C61;" class="headerlink" title="&#x4E8B;&#x4EF6;&#x5BF9;&#x8C61;"></a>&#x4E8B;&#x4EF6;&#x5BF9;&#x8C61;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#事件委托（事件代理"><span class="toc-text"><a href="#&#x4E8B;&#x4EF6;&#x59D4;&#x6258;&#xFF08;&#x4E8B;&#x4EF6;&#x4EE3;&#x7406;" class="headerlink" title="&#x4E8B;&#x4EF6;&#x59D4;&#x6258;&#xFF08;&#x4E8B;&#x4EF6;&#x4EE3;&#x7406;)"></a>&#x4E8B;&#x4EF6;&#x59D4;&#x6258;&#xFF08;&#x4E8B;&#x4EF6;&#x4EE3;&#x7406;)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#移除事件处理程序"><span class="toc-text"><a href="#&#x79FB;&#x9664;&#x4E8B;&#x4EF6;&#x5904;&#x7406;&#x7A0B;&#x5E8F;" class="headerlink" title="&#x79FB;&#x9664;&#x4E8B;&#x4EF6;&#x5904;&#x7406;&#x7A0B;&#x5E8F;"></a>&#x79FB;&#x9664;&#x4E8B;&#x4EF6;&#x5904;&#x7406;&#x7A0B;&#x5E8F;</span></a></li></ol></li></ol>
+    </div>
+  </div>
+
+
+    <div class="post-content">
+      
+        <h2 id="事-件"><a href="#事-件" class="headerlink" title="事 件"></a>事 件</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><ul>
+<li>JavaScript 与 HTML 之间的交互是通过事件实现的</li>
+<li>事件就是文档或浏览器窗口中发生的一些特定的交互瞬间<h3 id="事件流（事件传播"><a href="#事件流（事件传播" class="headerlink" title="事件流（事件传播)"></a>事件流（事件传播)</h3></li>
+<li>事件流描述的是从页面中接收事件的顺序<ul>
+<li>在单击按钮的同时，你也单击了按钮的容器元素，甚至也单击了整个页面</li>
+<li>分类<ul>
+<li>IE 的事件流是事件冒泡流</li>
+<li>Netscape 的事件流是事件捕获流</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>事件冒泡（event bubbling）<ul>
+<li>IE 的事件流叫做事件冒泡，即事件开始时由最具体的元素（可以认为是你点击的那个元素）接收，然后沿 DOM 树逐级向上传播，在每一级节点上都会发生，直到较为不具体的节点（文档）</li>
+</ul>
+</li>
+<li>事件捕获（event capturing）<ul>
+<li>事件捕获的思想是不太具体的节点应该更早接收到事件，而最具体的节点应该最后接收到事件</li>
+<li>由于老版本的浏览器不支持，因此很少有人使用事件捕获</li>
+</ul>
+</li>
+<li>DOM 事件流<ul>
+<li>“DOM2 级事件”规定的事件流包括三个阶段：事件捕获阶段、处于目标阶段和事件冒泡阶段<h3 id="事件处理程序"><a href="#事件处理程序" class="headerlink" title="事件处理程序"></a>事件处理程序</h3></li>
+</ul>
+</li>
+<li>响应某个事件的函数就叫做事件处理程序（或事件侦听器），事件处理程序的名字以”on”开头</li>
+<li>HTML 事件处理程序<ul>
+<li>用法<ul>
+<li><input type="button" value="Click Me" onclick="alert('Clicked')"></li>
+<li><input type="button" value="Click Me" onclick="showMessage()"><br>showMessage 在其他地方定义</li>
+</ul>
+</li>
+<li>使用这种方法时，on- 属性的值是将会执行的代码，而不是一个函数</li>
+<li>this 值等于事件的目标元素</li>
+</ul>
+</li>
+<li><p>DOM0 级事件处理程序</p>
+<ul>
+<li><p>每个元素（包括 window 和 document）都有自己的事件处理程序属性，这些属性通常全部小写</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> btn = <span class="built_in">document</span>.getElementById(<span class="string">"myBtn"</span>);</span><br><span class="line">btn.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  alert(<span class="string">"Clicked"</span>);</span><br><span class="line">  alert(<span class="keyword">this</span>.id);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>程序中的 this 引用当前元素</p>
+</li>
+<li>同一个事件只能定义一个监听函数，也就是说，如果定义两次 onclick 属性，后一次定义会覆盖前一次</li>
+<li>删除通过 DOM0 级方法指定的事件处理程序只要将事件处理程序属性的值设置为 null 即可</li>
+</ul>
+</li>
+<li>DOM2 级事件处理程序<ul>
+<li>定义了两个方法，用于处理指定和删除事件处理程序的操作： addEventListener() 和 removeEventListener()</li>
+<li>接受 3 个参数：要处理的事件名、作为事件处理程序的函数和一个布尔值。最后这个布尔值参数如果是 true，表示在捕获阶段调用事件处理程序；如果是 false，表示在冒泡阶段调用事件处理程序，默认为 false</li>
+<li>程序中的 this 引用当前元素</li>
+<li>使用 DOM2 级方法添加事件处理程序的主要好处是可以添加多个事件处理程序，会按照添加它们的顺序触发。如果为同一个事件多次添加同一个监听函数，该函数只会执行一次，多余的添加将自动被去除</li>
+<li>通过 addEventListener() 添加的匿名函数将无法移除</li>
+</ul>
+</li>
+<li>IE 事件处理程序<ul>
+<li>IE 实现了与 DOM 中类似的两个方法： attachEvent() 和 detachEvent()</li>
+<li>这两个方法接受相同的两个参数：事件处理程序名称与事件处理程序函数</li>
+<li>由于 IE8 及更早版本只支持事件冒泡，所以通过 attachEvent() 添加的事件处理程序都会被添加到冒泡阶段</li>
+<li>attachEvent() 的第一个参数是”onclick”</li>
+<li>在使用 attachEvent() 方法的情况下，事件处理程序会在全局作用域中运行，因此 this 等于 window</li>
+<li>与 addEventListener()类似，attachEvent()方法也可以用来为一个元素添加多个事件处理程序。不过，与 DOM方法不同的是，这些事件处理程序不是以添加它们的顺序执行，而是以相反的顺序被触发</li>
+<li>使用 attachEvent 添加的匿名函数将不能被移除</li>
+</ul>
+</li>
+<li>跨浏览器的事件处理程序<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> EventUtil = &#123;</span><br><span class="line">  addHandler: <span class="function"><span class="keyword">function</span>(<span class="params">element, type, handler</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (element.addEventListener)&#123;</span><br><span class="line">      element.addEventListener(type, handler, <span class="literal">false</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (element.attachEvent)&#123;</span><br><span class="line">      element.attachEvent(<span class="string">"on"</span> + type, handler);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      element[<span class="string">"on"</span> + type] = handler;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  removeHandler: <span class="function"><span class="keyword">function</span>(<span class="params">element, type, handler</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (element.removeEventListener)&#123;</span><br><span class="line">      element.removeEventListener(type, handler, <span class="literal">false</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (element.detachEvent)&#123;</span><br><span class="line">      element.detachEvent(<span class="string">"on"</span> + type, handler);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      element[<span class="string">"on"</span> + type] = <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="事件对象"><a href="#事件对象" class="headerlink" title="事件对象"></a>事件对象</h3><ul>
+<li>在触发 DOM 上的某个事件时，会产生一个事件对象 event，这个对象中包含着所有与事件有关的信息。包括导致事件的元素、事件的类型以及其他与特定事件相关的信息</li>
+<li>DOM 中的事件对象<ul>
+<li>无论指定事件处理程序时使用什么方法（DOM0 级或 DOM2 级），都会传入 event 对象</li>
+<li>只有在事件处理程序执行期间， event 对象才会存在；一旦事件处理程序执行完成， event 对象就会被销毁</li>
+<li>常见属性<ul>
+<li>event.bubbles<ul>
+<li>bubbles 属性返回一个布尔值，表示当前事件是否会冒泡</li>
+</ul>
+</li>
+<li>event.eventPhase<ul>
+<li>用来确定事件当前正位于事件流的哪个阶段</li>
+<li>在捕获阶段 eventPhase 等于 1</li>
+<li>处于目标对象上 eventPhase 等于 2</li>
+<li>冒泡阶段 eventPhase 等于 3</li>
+</ul>
+</li>
+<li>event.currentTarget，event.target<ul>
+<li>currentTarget 属性返回事件当前所在的节点，即正在执行的监听函数所绑定的那个节点。在事件处理程序内部，对象 this 始终等于 currentTarget 的值（就是当前这个元素）</li>
+<li>target 属性返回事件发生的节点</li>
+</ul>
+</li>
+<li>event.type<ul>
+<li>返回一个字符串，表示事件类型</li>
+</ul>
+</li>
+<li>event.preventDefault<ul>
+<li>阻止特定事件的默认行为，</li>
+<li>比如链接的默认行为就是在被单击时会导航到其 href 特性指定的 URL</li>
+</ul>
+</li>
+<li>event.stopPropagation<ul>
+<li>用于立即停止事件在 DOM 层次中的传播，即取消进一步的事件捕获或冒泡</li>
+</ul>
+</li>
+<li>event.stopImmediatePropagation<ul>
+<li>阻止同一个事件的其他监听函数被调用</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>IE 中的事件对象</p>
+<ul>
+<li><p>在使用 DOM0 级方法添加事件处理程序时， event 对象作为 window 对象的一个属性存在</p>
+<ul>
+<li><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> btn = <span class="built_in">document</span>.getElementById(<span class="string">"myBtn"</span>);</span><br><span class="line">btn.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> event = <span class="built_in">window</span>.event;</span><br><span class="line">  alert(event.type); <span class="comment">//"click"</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>如果事件处理程序是使用 attachEvent() 添加的，那么就会有一个 event 对象作为参数被传入事件处理程序函数中</p>
+</li>
+<li>returnValue 属性相当于 DOM 中的 preventDefault() 方法，它们的作用都是取消给定事件的默认行为</li>
+<li>cancelBubble 属性与 DOM 中的 stopPropagation() 方法作用相同，都是用来停止事件冒泡的<h3 id="事件委托（事件代理"><a href="#事件委托（事件代理" class="headerlink" title="事件委托（事件代理)"></a>事件委托（事件代理)</h3></li>
+</ul>
+</li>
+<li>由于事件会在冒泡阶段向上传播到父节点，因此可以把子节点的监听函数定义在 DOM 树中尽量最高的层次上，由父节点的监听函数统一处理多个子元素的事件。这种方法叫做事件的代理（delegation）<ul>
+<li>整个页面占用的内存空间更少，能够提升整体性能。</li>
+</ul>
+</li>
+<li>可以考虑为 document 对象添加一个事件处理程序，用以处理页面上发生的某种特定类型的事件</li>
+<li>如果希望事件到某个节点为止，不再传播，可以使用事件对象的 stopPropagation 方法<h3 id="移除事件处理程序"><a href="#移除事件处理程序" class="headerlink" title="移除事件处理程序"></a>移除事件处理程序</h3></li>
+<li>添加到页面上的事件处理程序数量将直接关系到页面的整体运行性能</li>
+<li>每当将事件处理程序指定给元素时，运行中的浏览器代码与支持页面交互的 JavaScript 代码之间就会建立一个连接。这种连接越多，页面执行起来就越慢。如前所述，可以采用事件委托技术，限制建立的连接数量。另外，在不需要的时候移除事件处理程序，也是解决这个问题的一种方案</li>
+<li>如果带有事件处理程序的元素被 innerHTML 删除了，那么原来添加到元素中的事件处理程序极有可能无法被当作垃圾回收<ul>
+<li>如果你知道某个元素即将被移除，那么最好手工移除事件处理程序</li>
+</ul>
+</li>
+<li>页面被卸载之前没有清理干净事件处理程序<ul>
+<li>onunload 事件处理程序移除所有事件处理程序</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+      
+      
+
+  <div class="post-copyright">
+    <p class="copyright-item">
+      <span>Author: </span>
+      <a href="http://yoursite.com">我是你豆子欧巴</a>
+    </p>
+    <p class="copyright-item">
+      <span>Link: </span>
+      <a href="http://yoursite.com/2018/04/23/【笔记】事件/">http://yoursite.com/2018/04/23/【笔记】事件/</a>
+    </p>
+    <p class="copyright-item">
+      <span>License: </span>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
+  </div>
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+        
+        
+  <nav class="post-nav">
+    
+    
+      <a class="next" href="/2018/04/12/面向对象编程-笔记/">
+        <span class="next-text nav-default">面向对象编程 -- 笔记</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+      
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2015 - 
+    
+    2018
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">我是你豆子欧巴</span>
+  </span>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+
+
+
+    
+  
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.6.0"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=2.6.0"></script>
+
+  </body>
+</html>

@@ -106,7 +106,7 @@
         <li class="mobile-menu-item">
           
           
-            首页
+            Home
           
         </li>
       </a>
@@ -115,7 +115,7 @@
         <li class="mobile-menu-item">
           
           
-            归档
+            Archives
           
         </li>
       </a>
@@ -124,7 +124,7 @@
         <li class="mobile-menu-item">
           
           
-            标签
+            Tags
           
         </li>
       </a>
@@ -133,7 +133,7 @@
         <li class="mobile-menu-item">
           
           
-            分类
+            Categories
           
         </li>
       </a>
@@ -142,7 +142,7 @@
         <li class="mobile-menu-item">
           
           
-            关于
+            About
           
         </li>
       </a>
@@ -163,7 +163,7 @@
           <a class="menu-item-link" href="/">
             
             
-              首页
+              Home
             
           </a>
         </li>
@@ -172,7 +172,7 @@
           <a class="menu-item-link" href="/archives/">
             
             
-              归档
+              Archives
             
           </a>
         </li>
@@ -181,7 +181,7 @@
           <a class="menu-item-link" href="/tags">
             
             
-              标签
+              Tags
             
           </a>
         </li>
@@ -190,7 +190,7 @@
           <a class="menu-item-link" href="/categories">
             
             
-              分类
+              Categories
             
           </a>
         </li>
@@ -199,7 +199,7 @@
           <a class="menu-item-link" href="/about">
             
             
-              关于
+              About
             
           </a>
         </li>
@@ -215,6 +215,53 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts">
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2018/01/02/二分查找/">二分查找</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-01-02
+        </span>
+        
+        
+        <div class="post-visits"
+             data-url="/2018/01/02/二分查找/"
+             data-title="二分查找">
+            阅读次数
+          </div>
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          <p>二分查找是一种算法，其输入是一个有序的元素列表（仅当列表是有序的时候，二分查找才管用） 。如果要查找的元素包含在列表中，二分查找返回其位置；否则返回null。</p>
+<p>一般而言，对于包含n个元素的列表，用二分查找最多需要log2n步，而简单查找最多需要n步。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> binary_search = <span class="function">(<span class="params">list, target</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> low = <span class="number">0</span>,</span><br><span class="line">      mid,</span><br><span class="line">      guess,</span><br><span class="line">      height = list.length - <span class="number">1</span></span><br><span class="line">  <span class="keyword">while</span> (low &lt;= height) &#123;</span><br><span class="line">    mid = <span class="built_in">Math</span>.floor((low + height) / <span class="number">2</span> )</span><br><span class="line">    guess = list[mid]</span><br><span class="line">    <span class="keyword">if</span> (guess &lt; target) &#123;</span><br><span class="line">      low = mid + <span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
     
       
   <article class="post">
@@ -253,7 +300,7 @@
         
           <p>原文 <a href="http://www.zcfy.cc/article/react-router-v4-the-complete-guide-mdash-sitepoint-4448.html" target="_blank" rel="noopener">http://www.zcfy.cc/article/react-router-v4-the-complete-guide-mdash-sitepoint-4448.html</a></p>
           <div class="read-more">
-            <a href="/2017/12/29/react-router-整理/" class="read-more-link">阅读更多</a>
+            <a href="/2017/12/29/react-router-整理/" class="read-more-link">Read more..</a>
           </div>
         
       
@@ -647,1298 +694,6 @@
   </article>
 
     
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2017/12/18/面试题汇总整理/">面试题汇总整理</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2017-12-18
-        </span>
-        
-        
-        <div class="post-visits"
-             data-url="/2017/12/18/面试题汇总整理/"
-             data-title="面试题汇总整理">
-            阅读次数
-          </div>
-        
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-
-        
-          <h2 id="flex-布局"><a href="#flex-布局" class="headerlink" title="flex 布局"></a>flex 布局</h2><p><a href="https://zhuanlan.zhihu.com/p/25303493" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/25303493</a></p>
-<h2 id="1-position-的值有哪些？各种值的情况都是什么样的？"><a href="#1-position-的值有哪些？各种值的情况都是什么样的？" class="headerlink" title="1. position 的值有哪些？各种值的情况都是什么样的？"></a>1. position 的值有哪些？各种值的情况都是什么样的？</h2><p>(1)static: 默认值。元素在文档常规流中当前的布局位置。</p>
-<p>(2)absolute: 元素会脱离常规流，相对于最近一级的非 static 定位的祖先元素进行偏移。有默认值，默认值为 auto . 绝对定位的元素可以设置外边距（margins），且不会与其他边距合并。</p>
-<p>(3)relative: 元素不脱离常规流，相对于其在常规流中的位置进行定位，因此会在此元素未添加定位时所在位置留下空白。</p>
-<p>(4)fixed: 元素脱离常规流，通常相对于浏览器窗口或 frame 进行定位。</p>
-<p>(5)sticky: 生成粘性定位的元素，元素先按照普通文档流定位，然后相对于该元素在流中的 flow root（BFC）和 containing block（最近的块级祖先元素）定位。而后，元素定位表现为在跨越特定阈值前为相对定位，之后为固定定位。这个特定阈值指的是 top, right, bottom 或 left 之一，换言之，指定 top, right, bottom 或 left 四个阈值其中之一，才可使粘性定位生效。否则其行为与相对定位相同。</p>
-<p>相关链接： <a href="http://www.cnblogs.com/coco1s/p/6402723.html" target="_blank" rel="noopener">http://www.cnblogs.com/coco1s/p/6402723.html</a></p>
-<h2 id="CSS-盒模型"><a href="#CSS-盒模型" class="headerlink" title="CSS 盒模型"></a>CSS 盒模型</h2><p>html 中的每个元素都被描绘成矩形盒子，这些矩形盒子通过一个模型来描述其占用空间，这个模型称为盒模型。盒模型通过四个边界来描述：margin（外边距），border（边框），padding（内边距），content（内容区域） </p>
-<p>内容区域 content area 是包含元素真实内容的区域。它通常包含背景、颜色或者图片等，位于内容边界的内部，它的大小为内容宽度 或 content-box 宽及内容高度或 content-box 高。如果 box-sizing 为默认值， width, min-width, max-width, height, min-height 与 max-height 控制内容大小。</p>
-<p>内边距区域 padding area 延伸到包围 padding 的边框。如果内容区域 content area 设置了背景、颜色或者图片，这些样式将会延伸到 padding 上（译者注：而不仅仅是作用于内容区域)。它位于内边距边界内部，它的大小为 padding-box 宽与 padding-box 高。</p>
-<p>边框区域 border area 是包含边框的区域，扩展了内边距区域。它位于边框边界内部，大小为 border-box  宽和 border-box 高。</p>
-<p>外边距区域 margin area 用空白区域扩展边框区域，以分开相邻的元素。它的大小为  margin-box 的高宽。</p>
-<h2 id="2-CSS3-box-sizing-的作用"><a href="#2-CSS3-box-sizing-的作用" class="headerlink" title="2. CSS3 box-sizing 的作用"></a>2. CSS3 box-sizing 的作用</h2><p>CSS 中 Box model 分为两种，第一种是 W3C 的标准模型，另一种是 IE 的传统模型</p>
-<p>box-sizing 可以主动设置 CSS 盒模型为标准模型或 IE 模型。标准模型的宽度只包括 content，IE 模型包括 border 和 padding</p>
-<p>box-sizing 属性可以为三个值之一：</p>
-<ol>
-<li>content-box，默认值，border 和 padding 不计算入 width 之内</li>
-<li>padding-box，padding 计算入 width 内</li>
-<li>border-box，border 和 padding 计算入 width 之内</li>
-</ol>
-<h2 id="3-normalize-css与reset-css区别"><a href="#3-normalize-css与reset-css区别" class="headerlink" title="3. normalize.css与reset.css区别"></a>3. normalize.css与reset.css区别</h2><ul>
-<li>本质是可以使元素的渲染在多个浏览器下都能保持一致并且符合规范</li>
-<li>Normalize.css<ul>
-<li>保留有用的浏览器默认样式</li>
-</ul>
-</li>
-</ul>
-<h2 id="css-布局问题"><a href="#css-布局问题" class="headerlink" title="css 布局问题"></a>css 布局问题</h2><ul>
-<li>两列布局（左边定宽右边自适应。）<ul>
-<li>浮动：左边浮动，右边 margin-left 顶开</li>
-<li>定位：左边定位，右边 margin-left 顶开</li>
-<li>flex：父元素 display: flex, 左边定宽，右边 flex： 1</li>
-</ul>
-</li>
-<li>圣杯布局和双飞翼布局<ul>
-<li>其实和双飞翼布局是一回事。它们实现的都是三栏布局，两边的盒子宽度固定，中间盒子自适应优先展示渲染</li>
-<li></li>
-</ul>
-</li>
-</ul>
-<h2 id="居中问题"><a href="#居中问题" class="headerlink" title="居中问题"></a>居中问题</h2><ul>
-<li>水平居中<ul>
-<li>行内或类行内元素（比如文本和链接）：text-align: center;</li>
-<li>块级元素：margin: 0 auto;</li>
-<li>多个块级元素：同上</li>
-</ul>
-</li>
-<li><p>垂直居中</p>
-<ul>
-<li>行内或类行内元素（比如文本和链接<ul>
-<li>单行：<ul>
-<li>添加等值的 padding-top 和 padding-bottom</li>
-<li>line-height 和高度相等</li>
-</ul>
-</li>
-<li>多行<ul>
-<li>使用等值 padding-top 和 padding-bottom</li>
-<li>设置 table-cell ，用 vertical-align 对齐</li>
-<li>设置 flexbox，子元素自动垂直居中</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>块级元素</p>
-<ul>
-<li><p>已知元素的高度： </p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.child</span> &#123; </span><br><span class="line">    <span class="attribute">position</span>: absolute; </span><br><span class="line">    <span class="attribute">top</span>: <span class="number">50%</span>; </span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>; </span><br><span class="line">    <span class="attribute">margin-top</span>: -<span class="number">50px</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>未知元素的高度</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.child</span> &#123; </span><br><span class="line">    <span class="attribute">position</span>: absolute; </span><br><span class="line">    <span class="attribute">top</span>: <span class="number">50%</span>; </span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">translateY</span>(-50%);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>flexbox</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parent</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: flex; </span><br><span class="line">    <span class="attribute">flex-direction</span>: column; </span><br><span class="line">    <span class="attribute">justify-content</span>: center; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>水平且垂直居中</p>
-<ul>
-<li><p>宽高固定元素</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parent</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.child</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">20px</span>;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">margin</span>: -<span class="number">70px</span> <span class="number">0</span> <span class="number">0</span> -<span class="number">170px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>宽高不固定元素</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parent</span> &#123; </span><br><span class="line">    <span class="attribute">position</span>: relative; </span><br><span class="line">&#125; </span><br><span class="line"><span class="selector-class">.child</span> &#123; </span><br><span class="line">    <span class="attribute">position</span>: absolute; </span><br><span class="line">    <span class="attribute">top</span>: <span class="number">50%</span>; </span><br><span class="line">    <span class="attribute">left</span>: <span class="number">50%</span>; </span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">translate</span>(-50%, -50%); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>flexbox</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parent</span> &#123; </span><br><span class="line">    <span class="attribute">display</span>: flex; </span><br><span class="line">    <span class="attribute">justify-content</span>: center; </span><br><span class="line">    <span class="attribute">align-items</span>: center; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="浮动清除（闭合浮动）"><a href="#浮动清除（闭合浮动）" class="headerlink" title="浮动清除（闭合浮动）"></a>浮动清除（闭合浮动）</h2><ul>
-<li>添加额外标签<ul>
-<li>通过在浮动元素末尾添加一个空的标签例如 <div style="clear:both"></div>，其他标签 br 等亦可。</li>
-</ul>
-</li>
-<li>父元素设置 overflow：hidden<ul>
-<li>通过设置父元素 overflow 值设置为 hidden；在 IE6 中还需要触发 hasLayout ，例如 zoom：1；</li>
-</ul>
-</li>
-<li>父元素也设置浮动</li>
-<li>父元素设置 display:table</li>
-<li>使用 after 伪元素<ul>
-<li>由于 IE6-7 不支持 after，使用 zoom:1 触发 hasLayout</li>
-<li>  <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.clearfix</span><span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">    <span class="attribute">content</span>:<span class="string">"."</span>; </span><br><span class="line">    <span class="attribute">display</span>:block; </span><br><span class="line">    <span class="attribute">height</span>:<span class="number">0</span>; </span><br><span class="line">    <span class="attribute">visibility</span>:hidden; </span><br><span class="line">    <span class="attribute">clear</span>:both; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.clearfix</span> &#123; </span><br><span class="line">    <span class="attribute">zoom</span>:<span class="number">1</span>; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* For modern browsers */</span></span><br><span class="line"><span class="selector-class">.cf</span><span class="selector-pseudo">::before</span>,</span><br><span class="line"><span class="selector-class">.cf</span><span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">    <span class="attribute">content</span>:<span class="string">""</span>;</span><br><span class="line">    <span class="attribute">display</span>:table;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.cf</span><span class="selector-pseudo">::after</span> &#123; </span><br><span class="line">    <span class="attribute">clear</span>:both; </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* For IE 6/7 (trigger hasLayout) */</span></span><br><span class="line"><span class="selector-class">.cf</span> &#123; <span class="attribute">zoom</span>:<span class="number">1</span>; &#125;</span><br><span class="line"><span class="comment">/* before 用来处理 margin 边距重叠的 */</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="BFC是什么？-Block-formatting-context"><a href="#BFC是什么？-Block-formatting-context" class="headerlink" title="BFC是什么？(Block formatting context)"></a>BFC是什么？(Block formatting context)</h2><ul>
-<li>BFC(Block formatting context)直译为”块级格式化上下文”</li>
-<li>创建了 BFC 的元素就是一个独立的盒子，里面的子元素不会在布局上影响外面的元素，反之亦然，同时 BFC 任然属于文档中的普通流。</li>
-<li>BFC 的特性：<ol>
-<li>块级格式化上下文会阻止外边距叠加</li>
-<li>块级格式化上下文不会重叠浮动元素。 </li>
-<li>块级格式化上下文通常可以包含浮动</li>
-</ol>
-</li>
-<li>如何形成：<ol>
-<li>根元素</li>
-<li>float属性不为none</li>
-<li>position为absolute或fixed</li>
-<li>display为inline-block, table-cell, table-caption, flex, inline-flex</li>
-<li>overflow不为visible</li>
-</ol>
-</li>
-</ul>
-<h2 id="session、cookie、sessionStorage、localStorage-等区别"><a href="#session、cookie、sessionStorage、localStorage-等区别" class="headerlink" title="session、cookie、sessionStorage、localStorage 等区别"></a>session、cookie、sessionStorage、localStorage 等区别</h2><p><a href="http://jerryzou.com/posts/cookie-and-web-storage/" target="_blank" rel="noopener">http://jerryzou.com/posts/cookie-and-web-storage/</a></p>
-<h2 id="CSS-单位：px、em、rem"><a href="#CSS-单位：px、em、rem" class="headerlink" title="CSS 单位：px、em、rem"></a>CSS 单位：px、em、rem</h2><p><a href="https://segmentfault.com/a/1190000008972593" target="_blank" rel="noopener">https://segmentfault.com/a/1190000008972593</a></p>
-<h2 id="动画为什么要尽量用-css3-代替-js"><a href="#动画为什么要尽量用-css3-代替-js" class="headerlink" title="动画为什么要尽量用 css3 代替 js"></a>动画为什么要尽量用 css3 代替 js</h2><pre><code>1. 不占用 JS 主线程
-2. 可以利用硬件加速
-3. 浏览器可对动画做优化（元素不可见时不动画减少对 FPS 影响）
-</code></pre><h2 id="webpack-loader-的原理"><a href="#webpack-loader-的原理" class="headerlink" title="webpack.loader 的原理"></a>webpack.loader 的原理</h2><ul>
-<li>webpack 的 loader 本质就是 node module 导出的一个用于转化加载的资源的 function, loader 会在转换源模块（resource）的时候调用该函数</li>
-<li>Loader 是支持链式执行的，如处理 sass 文件的 loader，可以由 sass-loader、css-loader、style-loader 组成，由 compiler 对其由右向左执行，第一个 Loader 将会拿到需处理的原内容，上一个 Loader 处理后的结果回传给下一个接着处理，最后的 Loader 将处理后的结果以 String 或 Buffer 的形式返回给 compiler</li>
-<li>另一方面，虽然链式之间可以依赖其前一个 Loader 所返回的结果来执行自己的内容。但这并不支持两个 Loader 之间进行数据交流的做法，一个标准的 Loader 应该是要求着 强独立性、以及输入什么，就输出什么的可预见性</li>
-<li><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; getOptions &#125; <span class="keyword">from</span> <span class="string">'loader-utils'</span></span><br><span class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span>(<span class="params">source</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 获取传入 loader 的 options</span></span><br><span class="line">    <span class="keyword">const</span> options = getOptions(<span class="keyword">this</span>)</span><br><span class="line">    <span class="comment">// 做异步的事</span></span><br><span class="line">    <span class="keyword">var</span> callback = <span class="keyword">this</span>.async();</span><br><span class="line">    <span class="comment">// 让 Loader 缓存</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.cacheable) &#123;</span><br><span class="line">        <span class="keyword">this</span>.cacheable();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> opts = loaderUtils.getOptions(<span class="keyword">this</span>) || &#123;&#125;;</span><br><span class="line">    <span class="keyword">var</span> minimize = <span class="keyword">new</span> Minimize(opts);</span><br><span class="line">    minimize.parse(source, callback);</span><br><span class="line">    <span class="keyword">return</span> source;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="谈谈对前端安全的理解，有什么，怎么防范"><a href="#谈谈对前端安全的理解，有什么，怎么防范" class="headerlink" title="谈谈对前端安全的理解，有什么，怎么防范"></a>谈谈对前端安全的理解，有什么，怎么防范</h2><p>前端安全问题主要有 XSS、CSRF 攻击</p>
-<ol>
-<li>XSS 攻击：跨站脚本攻击</li>
-</ol>
-<ul>
-<li>是什么<ul>
-<li>用户将恶意代码植入到提供给其他用户使用的页面中，可以简单的理解为一种 javascript 代码注入。</li>
-</ul>
-</li>
-<li><p>大致分类</p>
-<ul>
-<li><p>(1) 反射型 XSS</p>
-<ul>
-<li>发请求时，XSS 代码出现在 URL 中，提交给服务端。服务端返回的内容，也带上了这段 XSS 代码。最后浏览器执行 XSS 代码。</li>
-<li><p>通常情况是攻击者找到有 XSS 漏洞的网站，然后构造一个连接，就像这种</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:<span class="comment">//www.hasxss.com?x=&lt;script&gt;alert(document.cookie)&lt;/script&gt;</span></span><br></pre></td></tr></table></figure>
-<p>带有攻击效果的链接，然后诱导你点击</p>
-</li>
-</ul>
-</li>
-<li><p>存储型 XSS</p>
-<ul>
-<li>存储型和反射型的区别就是，提交的 XSS 代码会存储在服务器端。这种 XSS 也是最危险的。</li>
-<li><p>举个例子，我们的网站允许用户设置一段个性签名，会显示在个人主页。然后用户签名设置为</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;alert(<span class="built_in">document</span>.cookie)&lt;script&gt;。</span><br></pre></td></tr></table></figure>
-<p>数据库存储这段代码，然后页面显示出来。<br>如果这个过程中没有经过任何转义，那么这段 html 就直接执行了。这样，所有访问你个人主页的用户，就都中招了。<br>3、DOM XSS</p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p>这种和上面说的两种的区别就在于，DOM XSS 不需要服务端参与，可以认为是前端代码漏洞导致。举个例子，有这样一段代码<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt; </span><br><span class="line"><span class="built_in">eval</span>(location.hash.substr(<span class="number">1</span>));</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/ 而这个时候，如果用户在网址后面加上恶意代码</span></span><br><span class="line"><span class="regexp">http:/</span><span class="regexp">/www.xss.com#alert(document.cookie)</span></span><br></pre></td></tr></table></figure></p>
-<p>这样就完成了攻击了。</p>
-<p>这也是我们常说 eval 不安全的原因，传入 eval 的字符串，天知道会是什么东西，但无论是什么，它都会去执行。</p>
-<p>1.2 XSS 的防御措施：<br>(1) 过滤转义输入输出：前端向后端传输，前端从后端获取后展示的时候过滤转义<br>(2) 避免使用 eval、new Function 等执行字符串的方法，除非确定字符串和用户输入无关<br>(3) 使用 cookie 的 httpOnly 属性，加上了这个属性的 cookie 字段，js 是无法进行读写的<br>(4) 使用 innerHTML、document.write 的时候，如果数据是用户输入的，那么需要对象关键字符进行过滤与转义</p>
-<ol>
-<li>CRSF 攻击：跨站请求伪造</li>
-</ol>
-<ul>
-<li>攻击者盗用了你的身份，以你的名义发送恶意请求</li>
-<li>CRSF 防御措施：<ul>
-<li>(1) 检测 http referer 是否是同域名</li>
-<li>(2) 避免登录的 session 长时间存储在客户端中</li>
-<li>(3) 关键请求使用验证码或者 token 机制</li>
-</ul>
-</li>
-</ul>
-<ol>
-<li>HTTP 劫持</li>
-</ol>
-<p>很多的时候，我们的网站不是直接就访问到我们的服务器上的，中间会经过很多层代理，如果在某一个环节，数据被中间代理层的劫持者所截获，他们就能获取到使用你网站的用户的密码等保密数据。比如，我们的用户经常会在各种饭馆里面，连一些奇奇怪怪的 wifi，如果这个 wifi 是黑客所建立的热点 wifi，那么黑客就可以结果该用户收发的所有数据。这里，建议站长们网站都使用 https 进行加密。这样，就算网站的数据能被拿到，黑客也无法解开。</p>
-<p>如果你的网站还没有进行 https 加密的化，则在表单提交部分，最好进行非对称加密 – 即客户端加密，只有服务端能解开。这样中间的劫持者便无法获取加密内容的真实信息了。</p>
-<ol>
-<li><p>控制台注入代码</p>
-</li>
-<li><p>界面操作劫持</p>
-</li>
-</ol>
-<p>界面操作劫持是一种基于视觉欺骗的劫持攻击。通过在页面上覆盖一个 iframe + opacity:0 的页面，让用户误点击。</p>
-<h2 id="JS-实现继承的几种方式"><a href="#JS-实现继承的几种方式" class="headerlink" title="JS 实现继承的几种方式"></a>JS 实现继承的几种方式</h2><ul>
-<li><p>借用构造函数实现继承</p>
-<ul>
-<li>即在子类型构造函数的内部调用超类型构造函数。</li>
-<li>  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Parent1</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Child1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    Parent1.call(<span class="keyword">this</span>. <span class="string">'test'</span>);</span><br><span class="line">    <span class="keyword">this</span>.type = <span class="string">"child1"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>优点：可以在子类型构造函数中向超类型构造函数传递参数</p>
-</li>
-<li>缺点：Child1 无法继承 Parent1 的原型对象，并没有真正的实现继承（部分继承）</li>
-</ul>
-</li>
-<li>借用原型链实现继承<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Parent2</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.name = <span class="string">"parent2"</span>;</span><br><span class="line">	<span class="keyword">this</span>.play = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Child2</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.type = <span class="string">"child2"</span>;</span><br><span class="line">&#125;</span><br><span class="line">Child2.prototype = <span class="keyword">new</span> Parent2();</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>缺点：原型对象的属性是共享的</p>
-<ul>
-<li><p>组合式继承</p>
-<ul>
-<li>指的是将原型链和借用构造函数的技术组合到一块。其背后的思路是使用原型链实现对原型属性和方法的继承，而通过借用构造函数来实现对实例属性的继承</li>
-<li> <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Parent3</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = <span class="string">"parent3"</span>;</span><br><span class="line">    <span class="keyword">this</span>.play = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Child3</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    Parent3.call(<span class="keyword">this</span>);</span><br><span class="line">    <span class="keyword">this</span>.type = <span class="string">"child3"</span>;</span><br><span class="line">&#125;</span><br><span class="line">Child3.prototype = <span class="built_in">Object</span>.create(Parent3.prototype);</span><br><span class="line">Child3.prototype.constructor = Child3;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>组合继承最大的问题就是无论什么情况下，都会调用两次超类型构造函数</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>原型式继承</p>
-<ul>
-<li>  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">object</span>(<span class="params">o</span>)</span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">F</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">    F.prototype = o;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> F();</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">    name: <span class="string">"Nicholas"</span>,</span><br><span class="line">    friends: [<span class="string">"Shelby"</span>, <span class="string">"Court"</span>, <span class="string">"Van"</span>]</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> anotherPerson = <span class="built_in">Object</span>.create(person);</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>寄生式继承</p>
-<ul>
-<li>创建一个仅用于封装继承过程的函数，该函数在内部以某种方式来增强对象<ul>
-<li>  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createAnother</span>(<span class="params">original</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> clone = object(original); </span><br><span class="line">	<span class="comment">//通过调用函数创建一个新对象</span></span><br><span class="line"></span><br><span class="line">	clone.sayHi = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; </span><br><span class="line">		<span class="comment">//以某种方式来增强这个对象</span></span><br><span class="line"></span><br><span class="line">		alert(<span class="string">"hi"</span>);</span><br><span class="line">	&#125;;</span><br><span class="line">	<span class="keyword">return</span> clone;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">	name: <span class="string">"Nicholas"</span>,</span><br><span class="line">	friends: [<span class="string">"Shelby"</span>, <span class="string">"Court"</span>, <span class="string">"Van"</span>]</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> anotherPerson = createAnother(person);</span><br><span class="line">anotherPerson.sayHi(); <span class="comment">//"hi"</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>寄生组合式继承</p>
-<ul>
-<li>借用构造函数来继承属性，通过原型链的混成形式来继承方法</li>
-<li></li>
-</ul>
-</li>
-</ul>
-<h2 id="你做过哪些性能优化"><a href="#你做过哪些性能优化" class="headerlink" title="你做过哪些性能优化"></a>你做过哪些性能优化</h2><h3 id="传输快"><a href="#传输快" class="headerlink" title="传输快"></a>传输快</h3><pre><code>1. 传输的内容体积要小
-    - (1) 图片要压缩
-</code></pre><p>图片压缩已经没有太大的优化空间</p>
-<p>(2) 图片根据支持情况选择体积更小的格式（如 webp)</p>
-<p>WebP 是一种支持有损压缩和无损压缩的图片文件格式，80% 有损压缩，大约能减少 60% 的文件大小。主要就是兼容性不太好</p>
-<p>相关链接：<a href="https://aotu.io/notes/2016/06/23/explore-something-of-webp/index.html" target="_blank" rel="noopener">https://aotu.io/notes/2016/06/23/explore-something-of-webp/index.html</a></p>
-<p>(3) css、js 内容压缩</p>
-<p>(4) 服务端开启 Gzip，在传输数据之前再次压缩</p>
-<ol>
-<li>减少 HTTP 请求次数</li>
-</ol>
-<p>(1) 图片图标（css sprite）、svg 图标合并（svg sprite）</p>
-<p>(2) css、js 文件打包合并</p>
-<ol>
-<li>网速要足够快</li>
-</ol>
-<p>(1) 服务器出口带宽要够</p>
-<p>(2) 考虑到南北差异、运营商差异，在不同地区部署服务器</p>
-<p>(3) 静态资源放 CDN</p>
-<p>传统上， 客户端访问 url， 由源服务端把网页资源通过广域网传输给客户端。</p>
-<p>引入 CDN 后， 当客户端访问 url 时， 由区域负载均衡设备为用户选择一台合适的缓存服务器提供服务，选择的依据包括：根据用户 IP 地址，判断哪一台服务器距用户最近；根据用户所请求的 URL 中携带的内容名称，判断哪一台服务器上有用户所需内容；查询各个服务器当前的负载情况，判断哪一台服务器尚有服务能力。<br>然后由缓存服务器把本地的网页缓存内容发送给用户，当缓存服务器也没有这份网页资源时， 再由它向源服务器请求网页内容， 然后缓存下来， 并发送给用户。</p>
-<p>这样就减少了网络中冗余数据的重复传输，使之最小化，将广域传输转为本地或就近访问。</p>
-<ol>
-<li>服务器响应要及时</li>
-</ol>
-<p>(1) 接口响应速度要快（数据库优化、查询优化、算法优化)</p>
-<p>(2)cpu、内存、硬盘读写不要成为瓶颈；多加几台机器</p>
-<p>(3) 重要页面（首页) 静态化。服务端提前渲染后首页生成静态页面，用户访问首页直接返回静态页面，不需要像其他页面那样还需加载 css、js 再获取数据渲染展示</p>
-<ol>
-<li>能重复利用的资源要利用好</li>
-</ol>
-<p>(1) 服务器设置合适的静态资源缓存时间</p>
-<p>(2) 前端文件打包时做合理的分块，让公共的资源缓存后能被多个页面复用</p>
-<ol>
-<li>暂时不需要的资源先不要</li>
-</ol>
-<p>(1) 图片懒加载</p>
-<p>(2) 功能、模块、组件按需加载</p>
-<ol>
-<li>将来需要的资源抽空先拿到</li>
-</ol>
-<p>(1) DNS 预解析 <link rel="dns-prefetch" href="//jirengu.com"></p>
-<p>(2) 预连接 <link rel="preconnect" href="http://jirengu.com"></p>
-<p>(3) 预获取 <link rel="prefetch" href="image.png"></p>
-<p>(4) 预渲染 <link rel="prerender" href="http://jirengu.com"></p>
-<h2 id="体验快"><a href="#体验快" class="headerlink" title="体验快"></a>体验快</h2><p>所谓的体验快就是让用户觉得网站的交互是“流畅的”、“舒适的”。比如</p>
-<ol>
-<li>滚动页面不要有迟滞感<br>对于短时连续大量触发的操作要做节流</li>
-<li>一些常见操作不要感觉拖泥带水<br>(1) DOM 的操作不要过于频繁<br>(2) 不要出现内存泄露<br>(3) 优化复杂运算</li>
-<li>动画不要卡顿<br>(1) 多用 CSS 动画，少用 JS 动画<br>(2) 开启硬件加速<br>(3) 不要用 setTimeout/setInterval 去模拟动画<br>(4) 动画或者过渡的执行时间不要太久</li>
-</ol>
-<p>性能优化的建议</p>
-<p>臆想的优化不是优化，无明显成效的优化不是优化。浏览器的性能已经足够快，不要因为“过渡优化”牺牲代码的可读性</p>
-<p>先做简单见效快的优化，再做复杂见效慢的优化。一张未压缩的大图片可能抵消辛辛苦苦做的全部其他技术优化</p>
-<h2 id="11-浏览器渲染原理"><a href="#11-浏览器渲染原理" class="headerlink" title="11. 浏览器渲染原理"></a>11. 浏览器渲染原理</h2><p>首先来看一张图：</p>
-<p>HTML 被解析成 DOM Tree，CSS 被解析成 CSS Rule Tree<br>把 DOM Tree 和 CSS Rule Tree 经过整合生成 Render Tree（布局阶段）<br>元素按照算出来的规则，把元素放到它该出现的位置，通过显卡画到屏幕上<br>更多详情看这里</p>
-<h2 id="12-前端路由的原理"><a href="#12-前端路由的原理" class="headerlink" title="12. 前端路由的原理"></a>12. 前端路由的原理</h2><p>什么是路由？简单的说，路由是根据不同的 url 地址展示不同的内容或页面</p>
-<p>使用场景？前端路由更多用在单页应用上，也就是 SPA, 因为单页应用，基本上都是前后端分离的，后端自然也就不会给前端提供路由。</p>
-<p>前端的路由和后端的路由在实现技术上不一样，但是原理都是一样的。在 HTML5 的 history API 出现之前，前端的路由都是通过 hash 来实现的，hash 能兼容低版本的浏览器。</p>
-<p>两种实现前端路由的方式<br>HTML5 History 两个新增的 API：history.pushState 和 history.replaceState，通过这两个 API 可以改变 url 地址且不会发送请求，都会操作浏览器的历史记录，而不会引起页面的刷新。同时还有 onpopstate 事件<br>但因为没有 # 号，所以当用户刷新页面之类的操作时，浏览器还是会给服务器发送请求。为了避免出现这种情况，所以这个实现需要服务器的支持，需要把所有路由都重定向到根页面。</p>
-<p>Hash 就是 url 中看到 # , 这种 #。后面 hash 值的变化，并不会导致浏览器向服务器发出请求，浏览器不发出请求，也就不会刷新页面。另外每次 hash 值的变化，还会触发 hashchange 这个事件，通过这个事件我们就可以知道 hash 值发生了哪些变化。我们用 window.location 处理哈希的改变时不会重新渲染页面，而是当作新页面加到历史记录中，这样我们跳转页面就可以在 hashchange 事件中注册 ajax 从而改变页面内容。</p>
-<p>优点<br>从性能和用户体验的层面来比较的话，后端路由每次访问一个新页面的时候都要向服务器发送请求，然后服务器再响应请求，这个过程肯定会有延迟。而前端路由在访问一个新页面的时候仅仅是变换了一下路径而已，没有了网络延迟，对于用户体验来说会有相当大的提升。</p>
-<p>缺点<br>使用浏览器的前进，后退键的时候会重新发送请求，没有合理地利用缓存。</p>
-<p>更多内容请看这里 <a href="https://segmentfault.com/a/1190000011967786#articleHeader2" target="_blank" rel="noopener">https://segmentfault.com/a/1190000011967786#articleHeader2</a></p>
-<h2 id="13-Restful-API-是什么"><a href="#13-Restful-API-是什么" class="headerlink" title="13.Restful API 是什么"></a>13.Restful API 是什么</h2><p>Restful 的意思就是表现层状态转化。<br>“表现层”其实指的是”资源”（Resources）的”表现层”，把”资源”具体呈现出来的形式，叫做它的”表现层”（Representation）。<br>所谓”资源”，就是网络上的一个实体，或者说是网络上的一个具体信息。它可以是一段文本、一张图片、一首歌曲、一种服务，总之就是一个具体的实在，每一个 URI 代表一种资源。<br>如果客户端想要操作服务器，必须通过某种手段，让服务器端发生”状态转化”（State Transfer）。而这种转化是建立在表现层之上的，所以就是”表现层状态转化”。<br>Restful 就是客户端和服务器之间，传递这种资源的某种表现层<br>客户端通过四个 HTTP 动词，对服务器端资源进行操作，实现”表现层状态转化”<br>Restful API 就是符合 Restful 架构的 API 设计。</p>
-<p>Restful API 一些具体实践：</p>
-<p>应该尽量将 API 部署在专用域名之下。如果确定 API 很简单，不会有进一步扩展，可以考虑放在主域名下。<br>应该将 API 的版本号放入 URL。<br>对于资源的具体操作类型，由 HTTP 动词表示<br>如果记录数量很多，服务器不可能都将它们返回给用户。API 应该提供参数，过滤返回结果<br>如果状态码是 4xx，就应该向用户返回出错信息。一般来说，返回的信息中将 error 作为键名</p>
-<h2 id="14-script-标签的-defer、async-的区别"><a href="#14-script-标签的-defer、async-的区别" class="headerlink" title="14. script 标签的 defer、async 的区别"></a>14. script 标签的 defer、async 的区别</h2><p>先来试个一句话解释仨，当浏览器碰到 script 脚本的时候：</p>
-<script src="script.js"></script>
-
-<p>没有 defer 或 async，浏览器会立即加载并执行指定的脚本，“立即”指的是在渲染该 script 标签之下的文档元素之前，也就是说不等待后续载入的文档元素，读到就加载并执行。</p>
-<script async src="script.js"></script>
-
-<p>有 async，加载和渲染后续文档元素的过程将和 script.js 的加载与执行并行进行（异步）。</p>
-<script defer src="myscript.js"></script>
-
-<p>有 defer，加载后续文档元素的过程将和 script.js 的加载并行进行（异步），但是 script.js 的执行要在所有元素解析完成之后，DOMContentLoaded 事件触发之前完成。</p>
-<p>defer 是在 HTML 解析完之后才会执行，如果是多个，按照加载的顺序依次执行<br>async 是在加载完成后立即执行，如果是多个，执行顺序和加载顺序无关</p>
-<p><a href="https://segmentfault.com/q/1010000000640869" target="_blank" rel="noopener">https://segmentfault.com/q/1010000000640869</a></p>
-<h2 id="16-原型与闭包相关问题"><a href="#16-原型与闭包相关问题" class="headerlink" title="16. 原型与闭包相关问题"></a>16. 原型与闭包相关问题</h2><p>6.1.1 属性类型<br>这些特性是为了实现 JavaScript 引擎用的，为了表示特性是内部值，该规范把它们放在了两对儿方括号中，例如 [[Enumerable]]。</p>
-<p>(1) 构造函数<br>就是一个普通的函数，只不过是通过 new 操作符调用的<br>(2) 实例<br>通过 new 操作符调用的构造函数生成的对象</p>
-<p>实例都有一个 constructor （构造函数）属性，该属性（是一个指针）指向 其构造函数<br>** 实例的构造函数属性（constructor）指向构造函数。</p>
-<p>原型是什么<br>原型就是一个普通的对象，每个对象都有一个原型（Object 除外），原型能存储我们的方法，构造函数创建出来的实例对象能够引用原型中的方法。<br>查看原型<br>以前一般使用对象的<strong>proto</strong>属性，ES6 推出后，推荐用 Object.getPrototypeOf() 方法来获取对象的原型</p>
-<p>闭包是什么？<br>专业说法：当一个内部函数被其外部函数之外的变量引用时，就形成了一个闭包。</p>
-<p>还可以这么理解：<br>闭包就是一个具有封闭功能与包裹功能的结构，是为了实现具有私有访问空间的函数的，函数可以构成闭包，因为函数内部定义的数据函数外部无法访问，即函数具有封闭性；函数可以封装代码即具有包裹性，所以函数可以构成闭包。<br>创建闭包的最常见的方式就是在一个函数内创建另一个函数，通过另一个函数访问这个函数的局部变量<br>闭包的特性<br>闭包有三个特性：</p>
-<p>函数嵌套函数<br>函数内部可以引用外部的参数和变量<br>参数和变量不会被垃圾回收机制回收<br>闭包有什么用，使用场景<br>当我们需要在模块中定义一些变量，并希望这些变量一直保存在内存中但又不会“污染”全局的变量时，就可以用闭包来定义这个模块。</p>
-<p>闭包的缺点<br>闭包的缺点就是常驻内存，会增大内存使用量，使用不当很容易造成内存泄露。</p>
-<p>函数套函数就是闭包吗？不是！，当一个内部函数被其外部函数之外的变量引用时，才会形成了一个闭包。</p>
-<p>更多内容请看这里</p>
-<ol>
-<li>如何进行错误监控<br>前端错误的分类</li>
-</ol>
-<p>即时运行错误（代码错误）<br>资源加载错误<br>错误的捕获方式<br>即时运行错误的捕获方式：</p>
-<p>try…catch<br>window.onerror<br>资源加载错误：</p>
-<p>object.onerror（如 img,script）<br>performance.getEntries()<br>Error 事件捕获<br>延伸：跨域的 js 运行错误可以捕获吗，错误提示什么，应该怎么处理？<br>可以。<br>Script error</p>
-<ol>
-<li>在 script 标签增加 crossorigin 属性</li>
-<li>设置 js 资源响应头 Access-Control-Allow-Orgin:*</li>
-</ol>
-<p>上报错误的基本原理<br>采用 Ajax 通信方式上报<br>利用 Image 对象上报</p>
-<p>18.DOM 事件类<br>DOM 事件的级别</p>
-<p>DOM0，element.onclick = function(){}<br>DOM2，element.addEventListener(‘click’, function(){}, false);<br>DOM 事件模型是什么：指的是冒泡和捕获<br>DOM 事件流是什么：捕获阶段 -&gt; 目标阶段 -&gt; 冒泡阶段<br>描述 DOM 事件捕获的具体流程<br>window –&gt; document –&gt; documentElement(html 标签) –&gt; body –&gt; …. –&gt; 目标对象<br>Event 对象常见应用</p>
-<p>event.preventDefault()，阻止默认行为<br>event.stopPropagation()，阻止事件冒泡<br>event.stopImmediatePropagation()，阻止剩余的事件处理函数执行并且防止事件冒泡到 DOM 树上，这个方法不接受任何参数。<br>event.currentTarget，返回绑定事件的元素<br>event.target，返回触发事件的元素<br>如何自定义事件<br>Event，不能传递参数</p>
-<p>var eve = new Event(‘自定义事件名’);<br>ev.addEventListener(‘自定义事件名’, function(){<br>    console.log(‘自定义事件’)<br>});<br>ev.dispatchEvent(eve);<br>CustomEvent，还可以指定参数</p>
-<ol>
-<li><p>本地起了一个 http server，为什么只能在同一个 WIFI（局域网) 上访问？<br>你没有公网 IP 当然就不能被外网访问了。常见的 WIFI 情况下，一般的 ip 会是~192.168.0.x·这样的，只是对局域网（同 WIFI 下) 可见，但是外网是访问不了的。（segmentfault 上的答案）</p>
-</li>
-<li><p>回流和重绘<br>参考《如何写出高性能 DOM？》</p>
-</li>
-<li><p>数组去重的方法<br>参考：《JavaScript 数组去重》</p>
-</li>
-<li><p>深拷贝与浅拷贝<br>是什么<br>浅拷贝只复制指向某个对象的指针，而不复制对象本身，新旧对象还是共享同一块内存。但深拷贝会另外创造一个一模一样的对象，新对象跟原对象不共享内存，修改新对象不会改到原对象。<br>实现浅拷贝</p>
-</li>
-</ol>
-<p>var obj1 = { a: 10, b: 20, c: 30 };<br>var obj2 = obj1;<br>obj2.b = 100;<br>console.log(obj1);<br>// { a: 10, b: 100, c: 30 } &lt;– b 被改到了<br>console.log(obj2);<br>// { a: 10, b: 100, c: 30 }<br>实现深拷贝</p>
-<p>var obj1 = { a: 10, b: 20, c: 30 };<br>var obj2 = { a: obj1.a, b: obj1.b, c: obj1.c };<br>obj2.b = 100;<br>console.log(obj1);<br>// { a: 10, b: 20, c: 30 } &lt;– b 沒被改到<br>console.log(obj2);<br>// { a: 10, b: 100, c: 30 }<br>深拷贝实现方式</p>
-<p>手动复制方式，如上面的代码，缺点就是<br>Object.assign，ES6 的新函数，可以帮助我们达成跟上面一样的功能。</p>
-<p>var obj1 = { a: 10, b: 20, c: 30 };<br>var obj2 = Object.assign({}, obj1);<br>obj2.b = 100;<br>console.log(obj1);<br>// { a: 10, b: 20, c: 30 } &lt;– 沒被改到<br>console.log(obj2);<br>// { a: 10, b: 100, c: 30 }<br>转成 JSON 再转回来<br>用 JSON.stringify 把对象转成字符串，再用 JSON.parse 把字符串转成新的对象。<br>缺点：只有可以转成 JSON 格式的对象才可以这样用，像 function 没办法转成 JSON。</p>
-<p>jquery，有提供一个 $.extend 可以用来做 Deep Copy。<br>lodash，也有提供_.cloneDeep 用来做 Deep Copy。<br>递归实现深拷贝<br>function clone( o ) {<br>    var temp = {};<br>    for( var k in o ) {<br>        if( typeof o[ k ] == ‘object’ ){<br>             temp[ k ] = clone( o[ k ] );<br>        } else {<br>             temp[ k ] = o[ k ];<br>        }<br>    }<br>    return temp;<br>}<br>参考文章：关于 JS 中的浅拷贝和深拷贝，进击 JavaScript 之（四）玩转递归与数列</p>
-<ol>
-<li><p>如何快速合并雪碧图<br>Gulp：gulp-css-spriter<br>webpack：optimize-css-assets-webpack-plugin<br>Go！Png<br>在线工具</p>
-</li>
-<li><p>代码优化基本方法<br>减少 HTTP 请求<br>HTML 优化：</p>
-</li>
-</ol>
-<p>使用语义化标签<br>减少 iframe：iframe 是 SEO 的大忌，iframe 有好处也有弊端<br>避免重定向<br>CSS 优化：</p>
-<p>布局代码写前面<br>删除空样式<br>不滥用浮动，字体，需要加载的网络字体根据网站需求再添加<br>选择器性能优化<br>避免使用表达式，避免用 id 写样式<br>js 优化：</p>
-<p>压缩<br>减少重复代码<br>图片优化：</p>
-<p>使用 WebP<br>图片合并，CSS sprite 技术<br>减少 DOM 操作</p>
-<p>缓存已经访问过的元素<br>“离线”更新节点，再将它们添加到树中<br>避免使用 JavaScript 输出页面布局–应该是 CSS 的事儿<br>使用 JSON 格式来进行数据交换<br>使用 CDN 加速<br>使用 HTTP 缓存：添加 Expires 或 Cache-Control 信息头<br>使用 DNS 预解析<br>Chrome 内置了 DNS Prefetching 技术，Firefox 3.5 也引入了这一特性，由于 Chrome 和 Firefox 3.5 本身对 DNS 预解析做了相应优化设置，所以设置 DNS 预解析的不良影响之一就是可能会降低 Google Chrome 浏览器及火狐 Firefox 3.5 浏览器的用户体验。<br>预解析的实现：</p>
-<p>用 meta 信息来告知浏览器，当前页面要做 DNS 预解析：<meta http-equiv="x-dns-prefetch-control" content="on"><br>在页面 header 中使用 link 标签来强制对 DNS 预解析：<link rel="dns-prefetch" href="http://bdimg.share.baidu.com"><br>25.HTTPS 的握手过程<br>浏览器将自己支持的一套加密规则发送给服务器。<br>服务器从中选出一组加密算法与 HASH 算法，并将自己的身份信息以证书的形式发回给浏览器。证书里面包含了网站地址，加密公钥，以及证书的颁发机构等信息。<br>浏览器获得网站证书之后浏览器要做以下工作：<br>验证证书的合法<br>如果证书受信任，或者是用户接受了不受信的证书，浏览器会生成一串随机数的密码，并用证书中提供的公钥加密。<br>使用约定好的 HASH 算法计算握手消息，并使用生成的随机数对消息进行加密，最后将之前生成的所有信息发送给服务器<br>网站接收浏览器发来的数据之后要做以下的操作：<br>使用自己的私钥将信息解密取出密码，使用密码解密浏览器发来的握手消息，并验证 HASH 是否与浏览器发来的一致。<br>使用密码加密一段握手消息，发送给浏览器。<br>浏览器解密并计算握手消息的 HASH，如果与服务端发来的 HASH 一致，此时握手过程结束，之后所有的通信数据将由之前浏览器生成的随机密码并利用对称加密算法进行加密。<br>参考文章：《HTTPS 工作原理和 TCP 握手机制》</p>
-<p>26.BFC 相关问题<br>BFC(Block formatting context) 直译为”块级格式化上下文”。它是一个独立的渲染区域，只有 Block-level box 参 与， 它规定了内部的 Block-level Box 如何布局，并且与这个区域外部毫不相干。</p>
-<p>BFC 的渲染规则</p>
-<p>BFC 这个元素的垂直方向的边距会发生重叠<br>BFC 的区域不会与浮动元素的 box 重叠（清除浮动原理）<br>BFC 在页面上是一个独立的容器，外面的元素不会影响它里面的元素，反过来它里面的元素也不会影响外面的元素<br>计算 BFC 的高度的时候，浮动元素也会参与计算<br>如何创建 BFC？</p>
-<p>overflow 属性不为 visible<br>float 属性不为 none<br>position 属性为 absolute 或 fixed<br>display 属性为 inline-block、table-cell、table-caption、flex、inline-flex<br>BFC 的使用场景<br>他的很常用的一个应用场景就是解决边距重叠的问题。</p>
-<ol>
-<li>响应式图片<br>1.JS 或者服务端硬编码，resize 事件，判断屏幕大小加载不同的图片<br>2.img srcset 方法<br>3.picture 标签 -&gt; source<br>4.svg</li>
-<li><p>第三方库 polyfill</p>
-</li>
-<li><p>判断一个变量是否是数组<br>var a = [];<br>// 1. 基于 instanceof<br>a instanceof Array;<br>// 2. 基于 constructor<br>a.constructor === Array;<br>// 3. 基于 Object.prototype.isPrototypeOf<br>Array.prototype.isPrototypeOf(a);<br>// 4. 基于 getPrototypeOf<br>Object.getPrototypeOf(a) === Array.prototype;<br>// 5. 基于 Object.prototype.toString<br>Object.prototype.toString.apply(a) === ‘[object Array]’;<br>// 6.Array.isArray<br>Array.isArray([]); // true<br>以上，除了 Object.prototype.toString 外，其它方法都不能正确判断变量的类型。</p>
-</li>
-</ol>
-<p>29.UTF-8 和 Unicode 的区别<br>UTF-8 就是在互联网上使用最广的一种 unicode 的实现方式。<br>Unicode 的出现是为了统一地区性文字编码方案，为解决 unicode 如何在网络上传输的问题，于是面向传输的众多 UTF（UCS Transfer Format）标准出现了，顾名思义，UTF-8 就是每次 8 个位传输数据，而 UTF-16 就是每次 16 个位。<br>ASCII –&gt; 地区性编码（GBK） –&gt; Unicode –&gt; UTF-8<br>知乎回答</p>
-<p>你做过哪些性能优化</p>
-<ol>
-<li>什么叫做跨域？如何解决跨域问题？</li>
-</ol>
-<p><a href="https://segmentfault.com/a/1190000007326671" target="_blank" rel="noopener">https://segmentfault.com/a/1190000007326671</a></p>
-<p>只要协议、域名、端口有任何一个不同，都被当作是不同的域，之间的请求就是跨域操作。</p>
-<p>浏览器的同源策略会导致跨域，这里同源策略又分为以下两种：</p>
-<ol>
-<li>DOM 同源策略：禁止对不同源页面 DOM 进行操作。这里主要场景是 iframe 跨域的情况，不同域名的 iframe 是限制互相访问的。</li>
-<li>XmlHttpRequest 同源策略：禁止使用 XHR 对象向不同源的服务器地址发起 HTTP 请求。</li>
-</ol>
-<p>为什么要有跨域限制？</p>
-<p>跨域限制主要是为了安全考虑。</p>
-<p>AJAX 同源策略主要用来防止 CSRF 攻击。如果没有 AJAX 同源策略，相当危险，我们发起的每一次 HTTP 请求都会带上请求地址对应的 cookie，那么可以做如下攻击：</p>
-<p>用户登录了自己的银行页面 <a href="http://mybank.com，http://mybank.com" target="_blank" rel="noopener">http://mybank.com，http://mybank.com</a> 向用户的 cookie 中添加用户标识。<br>用户浏览了恶意页面 <a href="http://evil.com。执行了页面中的恶意" target="_blank" rel="noopener">http://evil.com。执行了页面中的恶意</a> AJAX 请求代码。<br><a href="http://evil.com" target="_blank" rel="noopener">http://evil.com</a> 向 <a href="http://mybank.com" target="_blank" rel="noopener">http://mybank.com</a> 发起 AJAX HTTP 请求，请求会默认把 <a href="http://mybank.com" target="_blank" rel="noopener">http://mybank.com</a> 对应 cookie 也同时发送过去。<br>银行页面从发送的 cookie 中提取用户标识，验证用户无误，response 中返回请求数据。此时数据就泄露了。<br>而且由于 Ajax 在后台执行，用户无法感知这一过程。</p>
-<p>这里我们需要注意两点：</p>
-<ul>
-<li>如果是协议和端口造成的跨域问题“前台”是无能为力的；</li>
-<li>在跨域问题上，域仅仅是通过“URL 的首部”来识别而不会去尝试判断相同的 ip 地址对应着两个域或两个域是否在同一个 ip 上。<br>(“URL 的首部”指 window.location.protocol +window.location.host，也可以理解为“Domains, protocols and ports must match”。)</li>
-</ul>
-<p>跨域的解决方式</p>
-<ol>
-<li>跨域资源共享 (CORS)<br>全称是”跨域资源共享”（Cross-origin resource sharing）。 对于这个方式，阮一峰老师总结的文章特别好，希望深入了解的可以看一下 <a href="http://www.ruanyifeng.com/blog/2016/04/cors.html。" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2016/04/cors.html。</a></li>
-</ol>
-<p>这里我就简单的说一说大体流程。</p>
-<p>对于客户端，我们还是正常使用 xhr 对象发送 ajax 请求。<br>唯一需要注意的是，我们需要设置我们的 xhr 属性 withCredentials 为 true，不然的话，cookie 是带不过去的哦，设置： xhr.withCredentials = true;<br>对于服务器端，需要在 response header 中设置如下两个字段：<br>Access-Control-Allow-Origin: <a href="http://www.yourhost.com" target="_blank" rel="noopener">http://www.yourhost.com</a><br>Access-Control-Allow-Credentials:true<br>这样，我们就可以跨域请求接口了。</p>
-<ol>
-<li>jsonp 实现跨域</li>
-</ol>
-<p>原理是：动态插入 script 标签，通过 script 标签引入一个 js 文件，这个 js 文件载入成功后会执行我们在 url 参数中指定的函数，并且会把我们需要的 json 数据作为参数传入。</p>
-<p>优点是兼容性好，简单易用，支持浏览器与服务器双向通信。缺点是只支持 GET 请求。</p>
-<p>JSONP：json+padding（内填充），顾名思义，就是把 JSON 填充到一个盒子里<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义一个 fun 函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun</span>(<span class="params">fata</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(data);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 创建一个脚本，并且告诉后端回调函数名叫 fun</span></span><br><span class="line"><span class="keyword">var</span> body = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'body'</span>)[<span class="number">0</span>];</span><br><span class="line"><span class="keyword">var</span> script = <span class="built_in">document</span>.gerElement(<span class="string">'script'</span>);</span><br><span class="line">script.type = <span class="string">'text/javasctipt'</span>;</span><br><span class="line">script.src = <span class="string">'demo.js?callback=fun'</span>;</span><br><span class="line">body.appendChild(script);</span><br></pre></td></tr></table></figure></p>
-<p>返回的 js 脚本，直接会执行。所以就执行了事先定义好的 fun 函数了，并且把数据传入了进来。</p>
-<ol>
-<li><p>服务器代理<br>浏览器有跨域限制，但是服务器不存在跨域问题，所以可以由服务器请求所要域的资源再返回给客户端。</p>
-</li>
-<li><p>通过修改 document.domain 来跨子域</p>
-</li>
-</ol>
-<p>前面说过了，浏览器有一个同源策略，其限制之一是不能通过 ajax 的方法去请求不同源中的文档。 第二个限制是浏览器中不同域的框架之间是不能进行 js 的交互操作的。不同的框架之间是可以获取 window 对象的，但却无法获取相应的属性和方法。比如，有一个页面，它的地址是 <a href="http://www.damonare.cn/a.html" target="_blank" rel="noopener">http://www.damonare.cn/a.html</a> ， 在这个页面里面有一个 iframe，它的 src 是 <a href="http://damonare.cn/b.html" target="_blank" rel="noopener">http://damonare.cn/b.html</a>, 很显然，这个页面与它里面的 iframe 框架是不同域的，所以我们是无法通过在页面中书写 js 代码来获取 iframe 中的东西的</p>
-<p>对于主域名相同，而子域名不同的情况，可以使用 document.domain 来跨域 这种方式非常适用于 iframe 跨域的情况，直接看例子吧<br>比如 a 页面地址为 <a href="http://a.yourhost.com" target="_blank" rel="noopener">http://a.yourhost.com</a> b 页面为 <a href="http://b.yourhost.com。" target="_blank" rel="noopener">http://b.yourhost.com。</a> 这样就可以通过分别给两个页面设置 document.domain = <a href="http://yourhost.com" target="_blank" rel="noopener">http://yourhost.com</a> 来实现跨域。 之后，就可以通过 parent 或者 window[‘iframename’] 等方式去拿到 iframe 的 window 对象了。</p>
-<ol>
-<li>使用 window.name 来进行跨域</li>
-</ol>
-<p>window 对象有个 name 属性，该属性有个特征：即在一个窗口 (window) 的生命周期内，窗口载入的所有的页面都是共享一个 window.name 的，每个页面对 window.name 都有读写的权限，window.name 是持久存在一个窗口载入过的所有页面中的</p>
-<ol>
-<li>window.postMessage 方法来跨域传送数据</li>
-</ol>
-<p>信息传递除了客户端与服务器之前的传递，还存在以下几个问题：</p>
-<ol>
-<li>页面和新开的窗口的数据交互。</li>
-<li>多窗口之间的数据交互。</li>
-<li>页面与所嵌套的 iframe 之间的信息传递。</li>
-</ol>
-<p>window.postMessage 是一个 HTML5 的 api，允许两个窗口之间进行跨域发送消息。这个应该就是以后解决 dom 跨域通用方法了，具体可以参照 MDN。</p>
-<p>postMessage 的使用方法：</p>
-<ul>
-<li>otherWindow.postMessage(message, targetOrigin);<ul>
-<li>otherWindow: 指目标窗口，也就是给哪个 window 发消息，是 window.frames 属性的成员或者由 window.open 方法创建的窗口</li>
-<li>message: 是要发送的消息，类型为 String、Object (IE8、9 不支持)</li>
-<li>targetOrigin: 是限定消息接收范围，不限制请使用 ‘*</li>
-</ul>
-</li>
-</ul>
-<p>B 页面通过 message 事件监听并接受消息：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> onmessage = <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;  </span><br><span class="line">  <span class="keyword">var</span> data = event.data;<span class="comment">// 消息  </span></span><br><span class="line">  <span class="keyword">var</span> origin = event.origin;<span class="comment">// 消息来源地址  </span></span><br><span class="line">  <span class="keyword">var</span> source = event.source;<span class="comment">// 源 Window 对象  </span></span><br><span class="line">  <span class="keyword">if</span>(origin==<span class="string">"http://www.baidu.com"</span>)&#123;  </span><br><span class="line">    <span class="built_in">console</span>.log(data);<span class="comment">//hello world!  </span></span><br><span class="line">  &#125;  </span><br><span class="line">&#125;;  </span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="built_in">window</span>.addEventListener != <span class="string">'undefined'</span>) &#123;  </span><br><span class="line">  <span class="built_in">window</span>.addEventListener(<span class="string">'message'</span>, onmessage, <span class="literal">false</span>);  </span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="built_in">window</span>.attachEvent != <span class="string">'undefined'</span>) &#123;  </span><br><span class="line">  <span class="comment">//for ie  </span></span><br><span class="line">  <span class="built_in">window</span>.attachEvent(<span class="string">'onmessage'</span>, onmessage);  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>同理，也可以 B 页面发送消息，然后 A 页面监听并接受消息。</p>
-<h2 id="3-XML-和-JSON-的区别？"><a href="#3-XML-和-JSON-的区别？" class="headerlink" title="3. XML 和 JSON 的区别？"></a>3. XML 和 JSON 的区别？</h2><p>(1). 数据体积方面。<br>JSON 相对于 XML 来讲，数据的体积小，传递的速度更快些。<br>(2). 数据交互方面。<br>JSON 与 JavaScript 的交互更加方便，更容易解析处理，更好的数据交互。<br>(3). 数据描述方面。<br>JSON 对数据的描述性比 XML 较差。<br>(4). 传输速度方面。<br>JSON 的速度要远远快于 XML。</p>
-<h2 id="4-谈谈你对-webpack-的看法"><a href="#4-谈谈你对-webpack-的看法" class="headerlink" title="4. 谈谈你对 webpack 的看法"></a>4. 谈谈你对 webpack 的看法</h2><p>WebPack 是一个模块打包工具，你可以使用 WebPack 管理你的模块依赖，并编绎输出模块们所需的静态文件。它能够很好地管理、打包 Web 开发中所用到的 HTML、JavaScript、CSS 以及各种静态文件（图片、字体等），让开发过程更加高效。对于不同类型的资源，webpack 有对应的模块加载器。webpack 模块打包器会分析模块间的依赖关系，最后 生成了优化且合并后的静态资源。</p>
-<p>webpack 的两大特色：</p>
-<p>1.code splitting（可以自动完成）</p>
-<p>2.loader 可以处理各种类型的静态文件，并且支持串联操作<br>webpack 是以 commonJS 的形式来书写脚本滴，但对 AMD/CMD 的支持也很全面，方便旧项目进行代码迁移。</p>
-<p>webpack 具有 requireJs 和 browserify 的功能，但仍有很多自己的新特性：</p>
-<ol>
-<li><p>对 CommonJS 、 AMD 、ES6 的语法做了兼容</p>
-</li>
-<li><p>对 js、css、图片等资源文件都支持打包</p>
-</li>
-<li><p>串联式模块加载器以及插件机制，让其具有更好的灵活性和扩展性，例如提供对 CoffeeScript、ES6 的支持</p>
-</li>
-<li><p>有独立的配置文件 webpack.config.js</p>
-</li>
-<li><p>可以将代码切割成不同的 chunk，实现按需加载，降低了初始化时间</p>
-</li>
-<li><p>支持 SourceUrls 和 SourceMaps，易于调试</p>
-</li>
-<li><p>具有强大的 Plugin 接口，大多是内部插件，使用起来比较灵活</p>
-</li>
-<li><p>webpack 使用异步 IO 并具有多级缓存。这使得 webpack 很快且在增量编译上更加快</p>
-</li>
-</ol>
-<p>说说 TCP 传输的三次握手四次挥手策略<br>为了准确无误地把数据送达目标处，TCP 协议采用了三次握手策略。用 TCP 协议把数据包送出去后，TCP 不会对传送 后的情况置之不理，它一定会向对方确认是否成功送达。握手过程中使用了 TCP 的标志：SYN 和 ACK。</p>
-<p>发送端首先发送一个带 SYN 标志的数据包给对方。接收端收到后，回传一个带有 SYN/ACK 标志的数据包以示传达确认信息。<br>最后，发送端再回传一个带 ACK 标志的数据包，代表“握手”结束。<br>若在握手过程中某个阶段莫名中断，TCP 协议会再次以相同的顺序发送相同的数据包。</p>
-<p>断开一个 TCP 连接则需要“四次握手”：</p>
-<p>第一次挥手：主动关闭方发送一个 FIN，用来关闭主动方到被动关闭方的数据传送，也就是主动关闭方告诉被动关闭方：我已经不 会再给你发数据了（当然，在 fin 包之前发送出去的数据，如果没有收到对应的 ack 确认报文，主动关闭方依然会重发这些数据)，但是，此时主动关闭方还可 以接受数据。</p>
-<p>第二次挥手：被动关闭方收到 FIN 包后，发送一个 ACK 给对方，确认序号为收到序号 +1（与 SYN 相同，一个 FIN 占用一个序号）。</p>
-<p>第三次挥手：被动关闭方发送一个 FIN，用来关闭被动关闭方到主动关闭方的数据传送，也就是告诉主动关闭方，我的数据也发送完了，不会再给你发数据了。</p>
-<p>第四次挥手：主动关闭方收到 FIN 后，发送一个 ACK 给被动关闭方，确认序号为收到序号 +1，至此，完成四次挥手。</p>
-<p>TCP 和 UDP 的区别<br>TCP（Transmission Control Protocol，传输控制协议）是基于连接的协议，也就是说，在正式收发数据前，必须和对方建立可靠的连接。一个 TCP 连接必须要经过三次“对话”才能建立起来</p>
-<p>UDP（User Data Protocol，用户数据报协议）是与 TCP 相对应的协议。它是面向非连接的协议，它不与对方建立连接，而是直接就把数据包发送过去！<br>UDP 适用于一次只传送少量数据、对可靠性要求不高的应用环境。</p>
-<p>说说你对作用域链的理解<br>作用域链的作用是保证执行环境里有权访问的变量和函数是有序的，作用域链的变量只能向上访问，变量访问到 window 对象即被终止，作用域链向下访问变量是不被允许的。</p>
-<p>创建 ajax 过程<br>(1) 创建 XMLHttpRequest 对象，也就是创建一个异步调用对象。</p>
-<p>(2) 创建一个新的 HTTP 请求，并指定该 HTTP 请求的方法、URL 及验证信息。</p>
-<p>(3) 设置响应 HTTP 请求状态变化的函数。</p>
-<p>(4) 发送 HTTP 请求。</p>
-<p>(5) 获取异步调用返回的数据。</p>
-<p>(6) 使用 JavaScript 和 DOM 实现局部刷新。<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>渐进增强和优雅降级<br>渐进增强 ：针对低版本浏览器进行构建页面，保证最基本的功能，然后再针对高级浏览器进行效果、交互等改进和追加功能达到更好的用户体验。</p>
-<p>优雅降级 ：一开始就构建完整的功能，然后再针对低版本浏览器进行兼容。</p>
-<p>常见 web 安全及防护原理<br>sql 注入原理</p>
-<p>就是通过把 SQL 命令插入到 Web 表单递交或输入域名或页面请求的查询字符串，最终达到欺骗服务器执行恶意的 SQL 命令。</p>
-<p>总的来说有以下几点：</p>
-<pre><code>1. 永远不要信任用户的输入，要对用户的输入进行校验，可以通过正则表达式，或限制长度，对单引号和双&quot;-&quot;进行转换等。
-
-2. 永远不要使用动态拼装 SQL，可以使用参数化的 SQL 或者直接使用存储过程进行数据查询存取。
-
-3. 永远不要使用管理员权限的数据库连接，为每个应用使用单独的权限有限的数据库连接。
-
-4. 不要把机密信息明文存放，请加密或者 hash 掉密码和敏感的信息。
-</code></pre><p>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>XSS 原理及防范</p>
-<p>Xss(cross-site scripting) 攻击指的是攻击者往 Web 页面里插入恶意 html 标签或者 javascript 代码。比如：攻击者在论坛中放一个</p>
-<p>看似安全的链接，骗取用户点击后，窃取 cookie 中的用户私密信息；或者攻击者在论坛中加一个恶意表单，</p>
-<p>当用户提交表单的时候，却把信息传送到攻击者的服务器中，而不是用户原本以为的信任站点。</p>
-<p>XSS 防范方法</p>
-<p>首先代码里对用户输入的地方和变量都需要仔细检查长度和对”&lt;”,”&gt;”,”;”,”’”等字符做过滤；其次任何内容写到页面之前都必须加以 encode，避免不小心把 html tag 弄出来。这一个层面做好，至少可以堵住超过一半的 XSS 攻击。</p>
-<p>首先，避免直接在 cookie 中泄露用户隐私，例如 email、密码等等。</p>
-<p>其次，通过使 cookie 和系统 ip 绑定来降低 cookie 泄露后的危险。这样攻击者得到的 cookie 没有实际价值，不可能拿来重放。</p>
-<p>如果网站不需要再浏览器端对 cookie 进行操作，可以在 Set-Cookie 末尾加上 HttpOnly 来防止 javascript 代码直接获取 cookie 。</p>
-<p>尽量采用 POST 而非 GET 提交表单</p>
-<p>XSS 与 CSRF 有什么区别吗？</p>
-<p>XSS 是获取信息，不需要提前知道其他用户页面的代码和数据包。CSRF 是代替用户完成指定的动作，需要知道其他用户页面的代码和数据包。</p>
-<p>要完成一次 CSRF 攻击，受害者必须依次完成两个步骤：</p>
-<p>登录受信任网站 A，并在本地生成 Cookie。</p>
-<p>在不登出 A 的情况下，访问危险网站 B。<br>1<br>2<br>3<br>CSRF 的防御</p>
-<p>服务端的 CSRF 方式方法很多样，但总的思想都是一致的，就是在客户端页面增加伪随机数。</p>
-<p>通过验证码的方法</p>
-<p>Web Worker 和 webSocket<br>worker 主线程：</p>
-<pre><code>1. 通过 worker = new Worker( url ) 加载一个 JS 文件来创建一个 worker，同时返回一个 worker 实例。
-
-2. 通过 worker.postMessage( data ) 方法来向 worker 发送数据。
-
-3. 绑定 worker.onmessage 方法来接收 worker 发送过来的数据。
-
-4. 可以使用 worker.terminate() 来终止一个 worker 的执行。
-</code></pre><p>1<br>2<br>3<br>4<br>5<br>6<br>7<br>WebSocket 是 Web 应用程序的传输协议，它提供了双向的，按序到达的数据流。他是一个 Html5 协议，WebSocket 的连接是持久的，他通过在客户端和服务器之间保持双工连接，服务器的更新可以被及时推送给客户端，而不需要客户端以一定时间间隔去轮询。</p>
-<p>HTTP 和 HTTPS<br>HTTP 协议通常承载于 TCP 协议之上，在 HTTP 和 TCP 之间添加一个安全协议层（SSL 或 TSL），这个时候，就成了我们常说的 HTTPS。</p>
-<p>默认 HTTP 的端口号为 80，HTTPS 的端口号为 443。</p>
-<p>为什么 HTTPS 安全<br>因为网络请求需要中间有很多的服务器路由器的转发。中间的节点都可能篡改信息，而如果使用 HTTPS，密钥在你和终点站才有。https 之所以比 http 安全，是因为他利用 ssl/tls 协议传输。它包含证书，卸载，流量转发，负载均衡，页面适配，浏览器适配，refer 传递等。保障了传输过程的安全性</p>
-<p>对前端模块化的认识<br>AMD 是 RequireJS 在推广过程中对模块定义的规范化产出。</p>
-<p>CMD 是 SeaJS 在推广过程中对模块定义的规范化产出。</p>
-<p>AMD 是提前执行，CMD 是延迟执行。</p>
-<p>AMD 推荐的风格通过返回一个对象做为模块对象，CommonJS 的风格通过对 module.exports 或 exports 的属性赋值来达到暴露模块对象的目的。</p>
-<p>CMD 模块方式</p>
-<pre><code>define(function(require, exports, module) {
-
-  // 模块代码
-
-});
-</code></pre><p>1<br>2<br>3<br>4<br>5<br>Javascript 垃圾回收方法<br>标记清除（mark and sweep）</p>
-<p>这是 JavaScript 最常见的垃圾回收方式，当变量进入执行环境的时候，比如函数中声明一个变量，垃圾回收器将其标记为“进入环境”，当变量离开环境的时候（函数执行结束）将其标记为“离开环境”。</p>
-<p>垃圾回收器会在运行的时候给存储在内存中的所有变量加上标记，然后去掉环境中的变量以及被环境中变量所引用的变量（闭包），在这些完成之后仍存在标记的就是要删除的变量了</p>
-<p>引用计数 (reference counting)</p>
-<p>在低版本 IE 中经常会出现内存泄露，很多时候就是因为其采用引用计数方式进行垃圾回收。引用计数的策略是跟踪记录每个值被使用的次数，当声明了一个 变量并将一个引用类型赋值给该变量的时候这个值的引用次数就加 1，如果该变量的值变成了另外一个，则这个值得引用次数减 1，当这个值的引用次数变为 0 的时 候，说明没有变量在使用，这个值没法被访问了，因此可以将其占用的空间回收，这样垃圾回收器会在运行的时候清理掉引用次数为 0 的值占用的空间。</p>
-<p>在 IE 中虽然 JavaScript 对象通过标记清除的方式进行垃圾回收，但 BOM 与 DOM 对象却是通过引用计数回收垃圾的，<br>也就是说只要涉及 BOM 及 DOM 就会出现循环引用问题。</p>
-<p>你觉得前端工程的价值体现在哪<br>为简化用户使用提供技术支持（交互部分）</p>
-<p>为多个浏览器兼容性提供支持</p>
-<p>为提高用户浏览速度（浏览器性能）提供支持</p>
-<p>为跨平台或者其他基于 webkit 或其他渲染引擎的应用提供支持</p>
-<p>为展示数据提供支持（数据接口）<br>谈谈性能优化问题<br>代码层面：避免使用 css 表达式，避免使用高级选择器，通配选择器。</p>
-<p>缓存利用：缓存 Ajax，使用 CDN，使用外部 js 和 css 文件以便缓存，添加 Expires 头，服务端配置 Etag，减少 DNS 查找等</p>
-<p>请求数量：合并样式和脚本，使用 css 图片精灵，初始首屏之外的图片资源按需加载，静态资源延迟加载。</p>
-<p>请求带宽：压缩文件，开启 GZIP，</p>
-<p>代码层面的优化</p>
-<p>用 hash-table 来优化查找</p>
-<p>少用全局变量</p>
-<p>用 innerHTML 代替 DOM 操作，减少 DOM 操作次数，优化 javascript 性能</p>
-<p>用 setTimeout 来避免页面失去响应</p>
-<p>缓存 DOM 节点查找的结果</p>
-<p>避免使用 CSS Expression</p>
-<p>避免全局查询</p>
-<p>避免使用 with(with 会创建自己的作用域，会增加作用域链长度)</p>
-<p>多个变量声明合并</p>
-<p>避免图片和 iFrame 等的空 Src。空 Src 会重新加载当前页面，影响速度和效率</p>
-<p>尽量避免写在 HTML 标签中写 Style 属性<br>移动端性能优化<br>尽量使用 css3 动画，开启硬件加速。<br>适当使用 touch 事件代替 click 事件。<br>避免使用 css3 渐变阴影效果。<br>可以用 transform: translateZ(0) 来开启硬件加速。<br>不滥用 Float。Float 在渲染时计算量比较大，尽量减少使用<br>不滥用 Web 字体。Web 字体需要下载，解析，重绘当前页面，尽量减少使用。<br>合理使用 requestAnimationFrame 动画代替 setTimeout<br>CSS 中的属性（CSS3 transitions、CSS3 3D transforms、Opacity、Canvas、WebGL、Video）会触发 GPU 渲染，请合理使用。过渡使用会引发手机过耗电增加<br>PC 端的在移动端同样适用<br>相关阅读：如何做到一秒渲染一个移动页面</p>
-<p>什么是 Etag？<br>当发送一个服务器请求时，浏览器首先会进行缓存过期判断。浏览器根据缓存过期时间判断缓存文件是否过期。<br>情景一：若没有过期，则不向服务器发送请求，直接使用缓存中的结果，此时我们在浏览器控制台中可以看到 200 OK(from cache) ，此时的情况就是完全使用缓存，浏览器和服务器没有任何交互的。</p>
-<p>情景二：若已过期，则向服务器发送请求，此时请求中会带上①中设置的文件修改时间，和 Etag</p>
-<p>然后，进行资源更新判断。服务器根据浏览器传过来的文件修改时间，判断自浏览器上一次请求之后，文件是不是没有被修改过；根据 Etag，判断文件内容自上一次请求之后，有没有发生变化</p>
-<p>情形一：若两种判断的结论都是文件没有被修改过，则服务器就不给浏览器发 index.html 的内容了，直接告诉它，文件没有被修改过，你用你那边的缓存吧—— 304 Not Modified，此时浏览器就会从本地缓存中获取 index.html 的内容。此时的情况叫协议缓存，浏览器和服务器之间有一次请求交互。<br>情形二：若修改时间和文件内容判断有任意一个没有通过，则服务器会受理此次请求，之后的操作同①</p>
-<p>① 只有 get 请求会被缓存，post 请求不会</p>
-<p>Expires 和 Cache-Control<br>Expires 要求客户端和服务端的时钟严格同步。HTTP1.1 引入 Cache-Control 来克服 Expires 头的限制。如果 max-age 和 Expires 同时出现，则 max-age 有更高的优先级。</p>
-<pre><code>Cache-Control: no-cache, private, max-age=0
-
-ETag: abcde
-
-Expires: Thu, 15 Apr 2014 20:00:00 GMT
-
-Pragma: private
-
-Last-Modified: $now // RFC1123 format
-</code></pre><p>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>ETag 应用：<br>Etag 由服务器端生成，客户端通过 If-Match 或者说 If-None-Match 这个条件判断请求来验证资源是否修改。常见的是使用 If-None-Match。请求一个文件的流程可能如下：</p>
-<p>==== 第一次请求 ===</p>
-<ol>
-<li><p>客户端发起 HTTP GET 请求一个文件；</p>
-</li>
-<li><p>服务器处理请求，返回文件内容和一堆 Header，当然包括 Etag（例如”2e681a-6-5d044840”)（假设服务器支持 Etag 生成和已经开启了 Etag). 状态码 200<br>==== 第二次请求 ===</p>
-</li>
-</ol>
-<p>客户端发起 HTTP GET 请求一个文件，注意这个时候客户端同时发送一个 If-None-Match 头，这个头的内容就是第一次请求时服务器返回的 Etag：2e681a-6-5d0448402. 服务器判断发送过来的 Etag 和计算出来的 Etag 匹配，因此 If-None-Match 为 False，不返回 200，返回 304，客户端继续使用本地缓存；流程很简单，问题是，如果服务器又设置了 Cache-Control:max-age 和 Expires 呢，怎么办<br>答案是同时使用，也就是说在完全匹配 If-Modified-Since 和 If-None-Match 即检查完修改时间和 Etag 之后，</p>
-<p>服务器才能返回 304.（不要陷入到底使用谁的问题怪圈)</p>
-<p>为什么使用 Etag 请求头？</p>
-<p>Etag 主要为了解决 Last-Modified 无法解决的一些问题。</p>
-<p>栈和队列的区别？<br>栈的插入和删除操作都是在一端进行的，而队列的操作却是在两端进行的。</p>
-<p>队列先进先出，栈先进后出。</p>
-<p>栈只允许在表尾一端进行插入和删除，而队列只允许在表尾一端进行插入，在表头一端进行删除<br>栈和堆的区别？<br>栈区（stack）—   由编译器自动分配释放   ，存放函数的参数值，局部变量的值等。</p>
-<p>堆区（heap）   —   一般由程序员分配释放，   若程序员不释放，程序结束时可能由 OS 回收。</p>
-<p>堆（数据结构）：堆可以被看成是一棵树，如：堆排序；</p>
-<p>栈（数据结构）：一种先进后出的数据结构。<br>快速 排序的思想并实现一个快排？<br>“快速排序”的思想很简单，整个排序过程只需要三步：</p>
-<p>　　（1）在数据集之中，找一个基准点</p>
-<p>　　（2）建立两个数组，分别存储左边和右边的数组</p>
-<p>　　（3）利用递归进行下次比较</p>
-<pre><code>&lt;script type=&quot;text/javascript&quot;&gt;
-
-    function quickSort(arr){
-        if(arr.length&lt;=1){
-            return arr;// 如果数组只有一个数，就直接返回；
-        }
-
-        var num = Math.floor(arr.length/2);// 找到中间数的索引值，如果是浮点数，则向下取整
-
-        var numValue = arr.splice(num,1);// 找到中间数的值
-        var left = [];
-        var right = [];
-
-        for(var i=0;i&lt;arr.length;i++){
-            if(arr[i]&lt;numValue){
-                left.push(arr[i]);// 基准点的左边的数传到左边数组
-            }
-            else{
-               right.push(arr[i]);// 基准点的右边的数传到右边数组
-            }
-        }
-
-        return quickSort(left).concat([numValue],quickSort(right));// 递归不断重复比较
-    }
-
-    alert(quickSort([32,45,37,16,2,87]));// 弹出“2,16,32,37,45,87”
-
-&lt;/script&gt;
-</code></pre><p>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>你觉得 jQuery 或 zepto 源码有哪些写的好的地方<br>（答案仅供参考)</p>
-<p>jQuery 源码封装在一个匿名函数的自执行环境中，有助于防止变量的全局污染，然后通过传入 window 对象参数，可以使 window 对象作为局部变量使用，好处是当 jquery 中访问 window 对象的时候，就不用将作用域链退回到顶层作用域了，从而可以更快的访问 window 对象。同样，传入 undefined 参数，可以缩短查找 undefined 时的作用域链。</p>
-<pre><code>(function( window, undefined ) {
-
-     // 用一个函数域包起来，就是所谓的沙箱
-
-     // 在这里边 var 定义的变量，属于这个函数域内的局部变量，避免污染全局
-
-     // 把当前沙箱需要的外部变量通过函数参数引入进来
-
-     // 只要保证参数对内提供的接口的一致性，你还可以随意替换传进来的这个参数
-
-    window.jQuery = window.$ = jQuery;
-
-})( window );
-</code></pre><p>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>jquery 将一些原型属性和方法封装在了 jquery.prototype 中，为了缩短名称，又赋值给了 jquery.fn，这是很形象的写法。</p>
-<p>有一些数组或对象的方法经常能使用到，jQuery 将其保存为局部变量以提高访问速度。</p>
-<p>jquery 实现的链式调用可以节约代码，所返回的都是同一个对象，可以提高代码效率。</p>
-<p>ES6 的了解<br>新增模板字符串（为 JavaScript 提供了简单的字符串插值功能）、箭头函数（操作符左边为输入的参数，而右边则是进行的操作以及返回的值 Inputs=&gt;outputs。）、for-of（用来遍历数据—例如数组中的值。）arguments 对象可被不定参数和默认参数完美代替。ES6 将 promise 对象纳入规范，提供了原生的 Promise 对象。增加了 let 和 const 命令，用来声明变量。增加了块级作用域。let 命令实际上就增加了块级作用域。ES6 规定，var 命令和 function 命令声明的全局变量，属于全局对象的属性；let 命令、const 命令、class 命令声明的全局变量，不属于全局对象的属性。还有就是引入 module 模块的概念</p>
-<p>js 继承方式及其优缺点<br>原型链继承的缺点</p>
-<p>一是字面量重写原型会中断关系，使用引用类型的原型，并且子类型还无法给超类型传递参数。<br>借用构造函数（类式继承）</p>
-<p>借用构造函数虽然解决了刚才两种问题，但没有原型，则复用无从谈起。所以我们需要原型链 + 借用构造函数的模式，这种模式称为组合继承<br>组合式继承</p>
-<p>组合式继承是比较常用的一种继承方法，其背后的思路是 使用原型链实现对原型属性和方法的继承，而通过借用构造函数来实现对实例属性的继承。这样，既通过在原型上定义方法实现了函数复用，又保证每个实例都有它自己的属性。<br>关于 Http 2.0 你知道多少？<br>HTTP/2 引入了“服务端推（server push）”的概念，它允许服务端在客户端需要数据之前就主动地将数据发送到客户端缓存中，从而提高性能。</p>
-<p>HTTP/2 提供更多的加密支持</p>
-<p>HTTP/2 使用多路技术，允许多个消息在一个连接上同时交差。</p>
-<p>它增加了头压缩（header compression），因此即使非常小的请求，其请求和响应的 header 都只会占用很小比例的带宽。</p>
-<p>defer 和 async<br>defer 并行加载 js 文件，会按照页面上 script 标签的顺序执行<br>async 并行加载 js 文件，下载完成立即执行，不会按照页面上 script 标签的顺序执行</p>
-<p>谈谈浮动和清除浮动<br>浮动的框可以向左或向右移动，直到他的外边缘碰到包含框或另一个浮动框的边框为止。由于浮动框不在文档的普通流中，所以文档的普通流的块框表现得就像浮动框不存在一样。浮动的块框会漂浮在文档普通流的块框上。</p>
-<p>如何评价 AngularJS 和 BackboneJS<br>backbone 具有依赖性，依赖 underscore.js。Backbone + Underscore + jQuery(or Zepto) 就比一个 AngularJS 多出了 2 次 HTTP 请求。</p>
-<p>Backbone 的 Model 没有与 UI 视图数据绑定，而是需要在 View 中自行操作 DOM 来更新或读取 UI 数据。AngularJS 与此相反，Model 直接与 UI 视图绑定，Model 与 UI 视图的关系，通过 directive 封装，AngularJS 内置的通用 directive，就能实现大部分操作了，也就是说，基本不必关心 Model 与 UI 视图的关系，直接操作 Model 就行了，UI 视图自动更新。</p>
-<p>AngularJS 的 directive，你输入特定数据，他就能输出相应 UI 视图。是一个比较完善的前端 MVW 框架，包含模板，数据双向绑定，路由，模块化，服务，依赖注入等所有功能，模板功能强大丰富，并且是声明式的，自带了丰富的 Angular 指令。</p>
-<p>用过哪些设计模式？<br>工厂模式：</p>
-<p>主要好处就是可以消除对象间的耦合，通过使用工程方法而不是 new 关键字。将所有实例化的代码集中在一个位置防止代码重复。</p>
-<pre><code>工厂模式解决了重复实例化的问题 ，但还有一个问题，那就是识别问题，因为根本无法 搞清楚他们到底是哪个对象的实例。
-</code></pre><p>function createObject(name,age,profession){// 集中实例化的函数 var obj = new Object();<br>    obj.name = name;<br>    obj.age = age;<br>    obj.profession = profession;<br>    obj.move = function () {<br>        return this.name + ‘ at ‘ + this.age + ‘ engaged in ‘ + this.profession;<br>    };<br>    return obj;<br>}<br>var test1 = createObject(‘trigkit4’,22,’programmer’);// 第一个实例 var test2 = createObject(‘mike’,25,’engineer’);// 第二个实例</p>
-<p>构造函数模式</p>
-<p>使用构造函数的方法 ，即解决了重复实例化的问题 ，又解决了对象识别的问题，该模式与工厂模式的不同之处在于：</p>
-<ol>
-<li><p>构造函数方法没有显示的创建对象 (new Object());</p>
-</li>
-<li><p>直接将属性和方法赋值给 this 对象；</p>
-</li>
-<li><p>没有 renturn 语句。<br>说说你对闭包的理解<br>使用闭包主要是为了设计私有的方法和变量。闭包的优点是可以避免全局变量的污染，缺点是闭包会常驻内存，会增大内存使用量，使用不当很容易造成内存泄露。在 js 中，函数即闭包，只有函数才会产生作用域的概念</p>
-</li>
-</ol>
-<p>闭包有三个特性：</p>
-<ol>
-<li><p>函数嵌套函数</p>
-</li>
-<li><p>函数内部可以引用外部的参数和变量</p>
-</li>
-<li><p>参数和变量不会被垃圾回收机制回收</p>
-</li>
-</ol>
-<p>请你谈谈 Cookie 的弊端<br>cookie 虽然在持久保存客户端数据提供了方便，分担了服务器存储的负担，但还是有很多局限性的。</p>
-<p>第一：每个特定的域名下最多生成 20 个 cookie</p>
-<p>1.IE6 或更低版本最多 20 个 cookie</p>
-<p>2.IE7 和之后的版本最后可以有 50 个 cookie。</p>
-<p>3.Firefox 最多 50 个 cookie</p>
-<p>4.chrome 和 Safari 没有做硬性限制<br>IE 和 Opera 会清理近期最少使用的 cookie，Firefox 会随机清理 cookie。</p>
-<p>cookie 的最大大约为 4096 字节，为了兼容性，一般不能超过 4095 字节。</p>
-<p>IE 提供了一种存储可以持久化用户数据，叫做 userdata，从 IE5.0 就开始支持。每个数据最多 128K，每个域名下最多 1M。这个持久化数据放在缓存中，如果缓存没有清理，那么会一直存在。</p>
-<p>优点：极高的扩展性和可用性</p>
-<ol>
-<li><p>通过良好的编程，控制保存在 cookie 中的 session 对象的大小。</p>
-</li>
-<li><p>通过加密和安全传输技术（SSL），减少 cookie 被破解的可能性。</p>
-</li>
-<li><p>只在 cookie 中存放不敏感数据，即使被盗也不会有重大损失。</p>
-</li>
-<li><p>控制 cookie 的生命期，使之不会永远有效。偷盗者很可能拿到一个过期的 cookie。<br>缺点：</p>
-</li>
-</ol>
-<p>1.<code>Cookie</code>数量和长度的限制。每个 domain 最多只能有 20 条 cookie，每个 cookie 长度不能超过 4KB，否则会被截掉。</p>
-<ol>
-<li><p>安全性问题。如果 cookie 被人拦截了，那人就可以取得所有的 session 信息。即使加密也与事无补，因为拦截者并不需要知道 cookie 的意义，他只要原样转发 cookie 就可以达到目的了。</p>
-</li>
-<li><p>有些状态不可能保存在客户端。例如，为了防止重复提交表单，我们需要在服务器端保存一个计数器。如果我们把这个计数器保存在客户端，那么它起不到任何作用。<br>浏览器本地存储<br>在较高版本的浏览器中，js 提供了 sessionStorage 和 globalStorage。在 HTML5 中提供了 localStorage 来取代 globalStorage。</p>
-</li>
-</ol>
-<p>html5 中的 Web Storage 包括了两种存储方式：sessionStorage 和 localStorage。</p>
-<p>sessionStorage 用于本地存储一个会话（session）中的数据，这些数据只有在同一个会话中的页面才能访问并且当会话结束后数据也随之销毁。因此 sessionStorage 不是一种持久化的本地存储，仅仅是会话级别的存储。</p>
-<p>而 localStorage 用于持久化的本地存储，除非主动删除数据，否则数据是永远不会过期的。</p>
-<p>web storage 和 cookie 的区别<br>Web Storage 的概念和 cookie 相似，区别是它是为了更大容量存储设计的。Cookie 的大小是受限的，并且每次你请求一个新的页面的时候 Cookie 都会被发送过去，这样无形中浪费了带宽，另外 cookie 还需要指定作用域，不可以跨域调用。</p>
-<p>除此之外，Web Storage 拥有 setItem,getItem,removeItem,clear 等方法，不像 cookie 需要前端开发者自己封装 setCookie，getCookie。</p>
-<p>但是 cookie 也是不可以或缺的：cookie 的作用是与服务器进行交互，作为 HTTP 规范的一部分而存在 ，而 Web Storage 仅仅是为了在本地“存储”数据而生</p>
-<p>浏览器的支持除了 IE7 及以下不支持外，其他标准浏览器都完全支持 (ie 及 FF 需在 web 服务器里运行)，值得一提的是 IE 总是办好事，例如 IE7、IE6 中的 userData 其实就是 javascript 本地存储的解决方案。通过简单的代码封装可以统一到所有的浏览器都支持 web storage。</p>
-<p>localStorage 和 sessionStorage 都具有相同的操作方法，例如 setItem、getItem 和 removeItem 等</p>
-<p>cookie 和 session 的区别：<br> 1、cookie 数据存放在客户的浏览器上，session 数据放在服务器上。</p>
-<p> 2、cookie 不是很安全，别人可以分析存放在本地的 COOKIE 并进行 COOKIE 欺骗</p>
-<pre><code>考虑到安全应当使用 session。
-</code></pre><p> 3、session 会在一定时间内保存在服务器上。当访问增多，会比较占用你服务器的性能</p>
-<pre><code>考虑到减轻服务器性能方面，应当使用 COOKIE。
-</code></pre><p> 4、单个 cookie 保存的数据不能超过 4K，很多浏览器都限制一个站点最多保存 20 个 cookie。</p>
-<p> 5、所以个人建议：</p>
-<pre><code>将登陆信息等重要信息存放为 SESSION
-
-其他信息如果需要保留，可以放在 COOKIE 中
-</code></pre><p>display:none 和 visibility:hidden 的区别？</p>
-<p>display:none  隐藏对应的元素，在文档布局中不再给它分配空间，它各边的元素会合拢，就当他从来不存在。</p>
-<p>visibility:hidden  隐藏对应的元素，但是在文档布局中仍保留原来的空间。<br>CSS 中 link 和 @import 的区别是？</p>
-<p>(1) link 属于 HTML 标签，而 @import 是 CSS 提供的；</p>
-<p>(2) 页面被加载的时，link 会同时被加载，而 @import 被引用的 CSS 会等到引用它的 CSS 文件被加载完再加载；</p>
-<p>(3) import 只在 IE5 以上才能识别，而 link 是 HTML 标签，无兼容问题；</p>
-<p>(4) link 方式的样式的权重 高于 @import 的权重。<br>position:absolute 和 float 属性的异同</p>
-<p>共同点：对内联元素设置 float 和 absolute 属性，可以让元素脱离文档流，并且可以设置其宽高。</p>
-<p>不同点：float 仍会占据位置，absolute 会覆盖文档流中的其他元素。</p>
-<p>介绍一下 box-sizing 属性？</p>
-<p>box-sizing 属性主要用来控制元素的盒模型的解析模式。默认值是 content-box。</p>
-<p>content-box：让元素维持 W3C 的标准盒模型。元素的宽度 / 高度由 border + padding + content 的宽度 / 高度决定，设置 width/height 属性指的是 content 部分的宽 / 高</p>
-<p>border-box：让元素维持 IE 传统盒模型（IE6 以下版本和 IE6~7 的怪异模式）。设置 width/height 属性指的是 border + padding + content</p>
-<p>标准浏览器下，按照 W3C 规范对盒模型解析，一旦修改了元素的边框或内距，就会影响元素的盒子尺寸，就不得不重新计算元素的盒子尺寸，从而影响整个页面的布局。</p>
-<p>CSS 选择符有哪些？哪些属性可以继承？优先级算法如何计算？ CSS3 新增伪类有那些？</p>
-<pre><code>1.id 选择器（ # myid）
-
-2. 类选择器（.myclassname）
-
-3. 标签选择器（div, h1, p）
-
-4. 相邻选择器（h1 + p）
-
-5. 子选择器（ul &gt; li）
-
-6. 后代选择器（li a）
-
-7. 通配符选择器（ * ）
-
-8. 属性选择器（a[rel = &quot;external&quot;]）
-
-9. 伪类选择器（a: hover, li:nth-child）
-</code></pre><p>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>优先级为：</p>
-<p>!important &gt; id &gt; class &gt; tag</p>
-<p>important 比 内联优先级高，但内联比 id 要高</p>
-<p>CSS3 新增伪类举例：</p>
-<pre><code>p:first-of-type 选择属于其父元素的首个 &lt;p&gt; 元素的每个 &lt;p&gt; 元素。
-
-p:last-of-type  选择属于其父元素的最后 &lt;p&gt; 元素的每个 &lt;p&gt; 元素。
-
-p:only-of-type  选择属于其父元素唯一的 &lt;p&gt; 元素的每个 &lt;p&gt; 元素。
-
-p:only-child    选择属于其父元素的唯一子元素的每个 &lt;p&gt; 元素。
-
-p:nth-child(2)  选择属于其父元素的第二个子元素的每个 &lt;p&gt; 元素。
-
-:enabled  :disabled 控制表单控件的禁用状态。
-
-:checked        单选框或复选框被选中。
-</code></pre><p>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>CSS3 有哪些新特性？</p>
-<p>CSS3 实现圆角（border-radius），阴影（box-shadow），</p>
-<p>对文字加特效（text-shadow、），线性渐变（gradient），旋转（transform）</p>
-<p>transform:rotate(9deg) scale(0.85,0.90) translate(0px,-30px) skew(-9deg,0deg);// 旋转，缩放，定位，倾斜</p>
-<p>增加了更多的 CSS 选择器  多背景 rgba</p>
-<p>在 CSS3 中唯一引入的伪元素是：:selection.</p>
-<p>媒体查询，多栏布局</p>
-<p>border-image<br>CSS3 中新增了一种盒模型计算方式：box-sizing。盒模型默认的值是 content-box, 新增的值是 padding-box 和 border-box，几种盒模型计算元素宽高的区别如下：</p>
-<p>content-box（默认）<br>布局所占宽度 Width：</p>
-<p>Width = width + padding-left + padding-right + border-left + border-right<br>1<br>2<br>布局所占高度 Height:</p>
-<p>Height = height + padding-top + padding-bottom + border-top + border-bottom<br>1<br>2<br>padding-box<br>布局所占宽度 Width：</p>
-<p>Width = width（包含 padding-left + padding-right) + border-top + border-bottom<br>1<br>2<br>布局所占高度 Height:</p>
-<p>Height = height（包含 padding-top + padding-bottom) + border-top + border-bottom</p>
-<p>1<br>2<br>3<br>border-box<br>布局所占宽度 Width：</p>
-<p>Width = width（包含 padding-left + padding-right + border-left + border-right)<br>1<br>布局所占高度 Height:</p>
-<p>Height = height（包含 padding-top + padding-bottom + border-top + border-bottom)<br>1<br>对 BFC 规范的理解？</p>
-<pre><code>  BFC，块级格式化上下文，一个创建了新的 BFC 的盒子是独立布局的，盒子里面的子元素的样式不会影响到外面的元素。在同一个 BFC 中的两个毗邻的块级盒在垂直方向（和布局方向有关系）的 margin 会发生折叠。
-
-（W3C CSS 2.1 规范中的一个概念，它决定了元素如何对其内容进行布局，以及与其他元素的关系和相互作用。
-</code></pre><p>说说你对语义化的理解？<br>1，去掉或者丢失样式的时候能够让页面呈现出清晰的结构</p>
-<p>2，有利于 SEO：和搜索引擎建立良好沟通，有助于爬虫抓取更多的有效信息：爬虫依赖于标签来确定上下文和各个关键字的权重；</p>
-<p>3，方便其他设备解析（如屏幕阅读器、盲人阅读器、移动设备）以意义的方式来渲染网页；</p>
-<p>4，便于团队开发和维护，语义化更具可读性，是下一步吧网页的重要动向，遵循 W3C 标准的团队都遵循这个标准，可以减少差异化。<br>Doctype 作用？严格模式与混杂模式如何区分？它们有何意义？<br>1）、&lt;!DOCTYPE&gt; 声明位于文档中的最前面，处于 <html> 标签之前。告知浏览器以何种模式来渲染文档。</html></p>
-<p>2）、严格模式的排版和 JS 运作模式是 以该浏览器支持的最高标准运行。</p>
-<p>3）、在混杂模式中，页面以宽松的向后兼容的方式显示。模拟老式浏览器的行为以防止站点无法工作。</p>
-<p>4）、DOCTYPE 不存在或格式不正确会导致文档以混杂模式呈现。</p>
-<p>你知道多少种 Doctype 文档类型？<br> 该标签可声明三种 DTD 类型，分别表示严格版本、过渡版本以及基于框架的 HTML 文档。</p>
-<p> HTML 4.01 规定了三种文档类型：Strict、Transitional 以及 Frameset。</p>
-<p> XHTML 1.0 规定了三种 XML 文档类型：Strict、Transitional 以及 Frameset。</p>
-<p>Standards （标准）模式（也就是严格呈现模式）用于呈现遵循最新标准的网页，而 Quirks</p>
-<p> （包容）模式（也就是松散呈现模式或者兼容模式）用于呈现为传统浏览器而设计的网页。<br>HTML 与 XHTML——二者有什么区别<br>区别：</p>
-<ol>
-<li><p>所有的标记都必须要有一个相应的结束标记</p>
-</li>
-<li><p>所有标签的元素和属性的名字都必须使用小写</p>
-</li>
-<li><p>所有的 XML 标记都必须合理嵌套</p>
-</li>
-<li><p>所有的属性必须用引号””括起来</p>
-</li>
-<li><p>把所有《和 &amp; 特殊符号用编码表示</p>
-</li>
-<li><p>给所有属性赋一个值</p>
-</li>
-<li><p>不要在注释内容中使“–”</p>
-</li>
-<li><p>图片必须有说明文字<br>常见兼容性问题？<br>png24 位的图片在 iE6 浏览器上出现背景，解决方案是做成 PNG8. 也可以引用一段脚本处理。</p>
-</li>
-</ol>
-<p>浏览器默认的 margin 和 padding 不同。解决方案是加一个全局的*{margin:0;padding:0;}来统一。</p>
-<p>IE6 双边距 bug: 块属性标签 float 后，又有横行的 margin 情况下，在 ie6 显示 margin 比设置的大。</p>
-<p>浮动 ie 产生的双倍距离（IE6 双边距问题：在 IE6 下，如果对元素设置了浮动，同时又设置了 margin-left 或 margin-right，margin 值会加倍。）</p>
-<p>#box{ float:left; width:10px; margin:0 0 0 100px;}</p>
-<p>这种情况之下 IE 会产生 20px 的距离，解决方案是在 float 的标签样式控制中加入<br><em>display:inline; 将其转化为行内属性。(</em>这个符号只有 ie6 会识别)</p>
-<p>渐进识别的方式，从总体中逐渐排除局部。</p>
-<p>  首先，巧妙的使用“\9”这一标记，将 IE 游览器从所有情况中分离出来。</p>
-<p>  接着，再次使用“+”将 IE8 和 IE7、IE6 分离开来，这样 IE8 已经独立识别。</p>
-<p>  css</p>
-<pre><code>.bb{
-
- background-color:#f1ee18;/*所有识别*/
-
-.background-color:#00deff\9; /*IE6、7、8 识别*/
-
-+background-color:#a200ff;/*IE6、7 识别*/
-
-_background-color:#1e0bd1;/*IE6 识别*/
-
-}
-</code></pre><p>怪异模式问题：漏写 DTD 声明，Firefox 仍然会按照标准模式来解析网页，但在 IE 中会触发<br>怪异模式。为避免怪异模式给我们带来不必要的麻烦，最好养成书写 DTD 声明的好习惯。现在<br>可以使用 <a href="http://www.w3.org/TR/html5/single-page.html" target="_blank" rel="noopener">html5</a> 推荐的写法：<code>&lt;doctype html&gt;</code><br>上下 margin 重合问题</p>
-<p>ie 和 ff 都存在，相邻的两个 div 的 margin-left 和 margin-right 不会重合，但是 margin-top 和 margin-bottom 却会发生重合。</p>
-<p>解决方法，养成良好的代码编写习惯，同时采用 margin-top 或者同时采用 margin-bottom。<br>解释下浮动和它的工作原理？清除浮动的技巧<br>浮动元素脱离文档流，不占据空间。浮动元素碰到包含它的边框或者浮动元素的边框停留。</p>
-<ol>
-<li><p>使用空标签清除浮动。</p>
-<p>这种方法是在所有浮动标签后面添加一个空标签 定义 css clear:both. 弊端就是增加了无意义标签。</p>
-</li>
-<li><p>使用 overflow。</p>
-<p>给包含浮动元素的父标签添加 css 属性 overflow:auto; zoom:1; zoom:1 用于兼容 IE6。</p>
-</li>
-<li><p>使用 after 伪对象清除浮动。</p>
-<p>该方法只适用于非 IE 浏览器。具体写法可参照以下示例。使用中需注意以下几点。一、该方法中必须为需要清除浮动元素的伪对象中设置 height:0，否则该元素会比实际高出若干像素；<br>浮动元素引起的问题和解决办法？<br>浮动元素引起的问题：</p>
-</li>
-</ol>
-<p>（1）父元素的高度无法被撑开，影响与父元素同级的元素</p>
-<p>（2）与浮动元素同级的非浮动元素（内联元素）会跟随其后</p>
-<p>（3）若非第一个元素浮动，则该元素之前的元素也需要浮动，否则会影响页面显示的结构<br>解决方法：</p>
-<p>使用 CSS 中的 clear:both; 属性来清除元素的浮动可解决 2、3 问题，对于问题 1，添加如下样式，给父元素添加 clearfix 样式：</p>
-<pre><code>.clearfix:after{content: &quot;.&quot;;display: block;height: 0;clear: both;visibility: hidden;}
-
-.clearfix{display: inline-block;} /* for IE/Mac */
-</code></pre><p>1<br>2<br>3<br>清除浮动的几种方法：</p>
-<pre><code>1，额外标签法，&lt;div style=&quot;clear:both;&quot;&gt;&lt;/div&gt;（缺点：不过这个办法会增加额外的标签使 HTML 结构看起来不够简洁。）
-
-2，使用 after 伪类
-
-#parent:after{
-
-    content:&quot;.&quot;;
-
-    height:0;
-
-    visibility:hidden;
-
-    display:block;
-
-    clear:both;
-
-    }
-
-3, 浮动外部元素
-
-4, 设置 overflow 为 hidden 或者 auto
-</code></pre><p>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>DOM 操作——怎样添加、移除、移动、复制、创建和查找节点。<br>1）创建新节点</p>
-<pre><code>createDocumentFragment()    // 创建一个 DOM 片段
-
-createElement()   // 创建一个具体的元素
-
-createTextNode()   // 创建一个文本节点
-</code></pre><p>2）添加、移除、替换、插入</p>
-<pre><code>appendChild()
-
-removeChild()
-
-replaceChild()
-
-insertBefore() // 并没有 insertAfter()
-</code></pre><p>3）查找</p>
-<pre><code>getElementsByTagName()    // 通过标签名称
-
-getElementsByName()    // 通过元素的 Name 属性的值 (IE 容错能力较强，
-会得到一个数组，其中包括 id 等于 name 值的)
-
-getElementById()    // 通过元素 Id，唯一性
-</code></pre><p>html5 有哪些新特性、移除了那些元素？如何处理 HTML5 新标签的浏览器兼容问题？如何区分 HTML 和 HTML5？<br>  HTML5 现在已经不是 SGML 的子集，主要是关于图像，位置，存储，多任务等功能的增加。</p>
-<p>  拖拽释放 (Drag and drop) API</p>
-<p>  语义化更好的内容标签（header,nav,footer,aside,article,section）</p>
-<p>  音频、视频 API(audio,video)</p>
-<p>  画布 (Canvas) API</p>
-<p>  地理 (Geolocation) API</p>
-<p>  本地离线存储 localStorage 长期存储数据，浏览器关闭后数据不丢失；</p>
-<p>  sessionStorage 的数据在浏览器关闭后自动删除</p>
-<p>  表单控件，calendar、date、time、email、url、search</p>
-<p>  新的技术 webworker, websocket, Geolocation<br>移除的元素</p>
-<p>纯表现的元素：basefont，big，center，font, s，strike，tt，u；</p>
-<p>对可用性产生负面影响的元素：frame，frameset，noframes；<br>支持 HTML5 新标签：</p>
-<pre><code>IE8/IE7/IE6 支持通过 document.createElement 方法产生的标签，
-
-可以利用这一特性让这些浏览器支持 HTML5 新标签，
-
-当然最好的方式是直接使用成熟的框架、使用最多的是 html5shim 框架
-
-   &lt;!--[if lt IE 9]&gt;
-
-   &lt;script&gt; src=&quot;http://html5shim.googlecode.com/svn/trunk/html5.js&quot;&lt;/script&gt;
-
-   &lt;![endif]--&gt;
-
-如何区分： DOCTYPE 声明、新增的结构元素、功能元素
-</code></pre><p>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>如何实现浏览器内多个标签页之间的通信？<br>    调用 localstorge、cookies 等本地存储方式<br>1<br>什么是 FOUC（无样式内容闪烁）？你如何来避免 FOUC？<br>     FOUC - Flash Of Unstyled Content 文档样式闪烁</p>
-<pre><code> &lt;style type=&quot;text/css&quot; media=&quot;all&quot;&gt;@import &quot;../fouc.css&quot;;&lt;/style&gt;
-
-而引用 CSS 文件的 @import 就是造成这个问题的罪魁祸首。IE 会先加载整个 HTML 文档的 DOM，然后再去导入外部的 CSS 文件，因此，在页面 DOM 加载完成到 CSS 导入完成中间会有一段时间页面上的内容是没有样式的，这段时间的长短跟网速，电脑速度都有关系。
-
- 解决方法简单的出奇，只要在&lt;head&gt;之间加入一个&lt;link&gt;或者&lt;script&gt;元素就可以了。
-</code></pre><p>1<br>2<br>3<br>4<br>5<br>6<br>7<br>null 和 undefined 的区别？<br>null 是一个表示”无”的对象，转为数值时为 0；undefined 是一个表示”无”的原始值，转为数值时为 NaN。</p>
-<p>当声明的变量还未被初始化时，变量的默认值为 undefined。</p>
-<p>null 用来表示尚未存在的对象，常用来表示函数企图返回一个不存在的对象。</p>
-<p>undefined 表示”缺少值”，就是此处应该有一个值，但是还没有定义。典型用法是：</p>
-<p>（1）变量被声明了，但没有赋值时，就等于 undefined。</p>
-<p>（2) 调用函数时，应该提供的参数没有提供，该参数等于 undefined。</p>
-<p>（3）对象没有赋值的属性，该属性的值为 undefined。</p>
-<p>（4）函数没有返回值时，默认返回 undefined。<br>null 表示”没有对象”，即该处不应该有值。典型用法是：</p>
-<p>（1） 作为函数的参数，表示该函数的参数不是对象。</p>
-<p>（2） 作为对象原型链的终点。<br>new 操作符具体干了什么呢？<br>   1、创建一个空对象，并且 this 变量引用该对象，同时还继承了该函数的原型。</p>
-<p>   2、属性和方法被加入到 this 引用的对象中。</p>
-<p>   3、新创建的对象由 this 所引用，并且最后隐式的返回 this 。</p>
-<p>var obj  = {};</p>
-<p>obj.<strong>proto</strong> = Base.prototype;</p>
-<p>Base.call(obj);<br>js 延迟加载的方式有哪些？<br>defer 和 async、动态创建 DOM 方式（创建 script，插入到 DOM 中，加载完毕后 callBack）、按需异步载入 js<br>call() 和 apply() 的区别和作用？<br>作用：动态改变某个类的某个方法的运行环境（执行上下文）。</p>
-<p>区别参见：<a href="3">JavaScript 学习总结（四）function 函数部分</a></p>
-<p>哪些操作会造成内存泄漏？<br>内存泄漏指任何对象在您不再拥有或需要它之后仍然存在。</p>
-<p>垃圾回收器定期扫描对象，并计算引用了每个对象的其他对象的数量。如果一个对象的引用数量为 0（没有其他对象引用过该对象），或对该对象的惟一引用是循环的，那么该对象的内存即可回收。</p>
-<p>setTimeout 的第一个参数使用字符串而非函数的话，会引发内存泄漏。</p>
-<p>闭包、控制台日志、循环（在两个对象彼此引用且彼此保留时，就会产生一个循环）<br>详见：<a href="4">详解 js 变量、作用域及内存</a></p>
-<p>列举 IE 与其他浏览器不一样的特性？<br>IE 支持 currentStyle，FIrefox 使用 getComputStyle</p>
-<p>IE 使用 innerText，Firefox 使用 textContent</p>
-<p>滤镜方面：IE:filter:alpha(opacity= num)；Firefox：-moz-opacity:num</p>
-<p>事件方面：IE：attachEvent：火狐是 addEventListener</p>
-<p>鼠标位置：IE 是 event.clientX；火狐是 event.pageX</p>
-<p>IE 使用 event.srcElement；Firefox 使用 event.target</p>
-<p>IE 中消除 list 的原点仅需 margin:0 即可达到最终效果；FIrefox 需要设置 margin:0;padding:0 以及 list-style:none</p>
-<p>CSS 圆角：ie7 以下不支持圆角</p>
-<p>WEB 应用从服务器主动推送 Data 到客户端有那些方式？<br>Javascript 数据推送</p>
-<p>Commet：基于 HTTP 长连接的服务器推送技术</p>
-<p>基于 WebSocket 的推送方案</p>
-<p>SSE（Server-Send Event）：服务器推送数据新方式</p>
-<p>对前端界面工程师这个职位是怎么样理解的？它的前景会怎么样？<br>前端是最贴近用户的程序员，比后端、数据库、产品经理、运营、安全都近。</p>
-<pre><code>1、实现界面交互
-
-2、提升用户体验
-
-3、有了 Node.js，前端可以实现服务端的一些事情
-</code></pre><p>前端是最贴近用户的程序员，前端的能力就是能让产品从 90 分进化到 100 分，甚至更好，</p>
-<p> 参与项目，快速高质量完成实现效果图，精确到 1px；</p>
-<p> 与团队成员，UI 设计，产品经理的沟通；</p>
-<p> 做好的页面结构，页面重构和用户体验；</p>
-<p> 处理 hack，兼容、写出优美的代码格式；</p>
-<p> 针对服务器的优化、拥抱最新前端技术。<br>一个页面从输入 URL 到页面加载显示完成，这个过程中都发生了什么？<br>    分为 4 个步骤：</p>
-<pre><code>（1），当发送一个 URL 请求时，不管这个 URL 是 Web 页面的 URL 还是 Web 页面上每个资源的 URL，浏览器都会开启一个线程来处理这个请求，同时在远程 DNS 服务器上启动一个 DNS 查询。这能使浏览器获得请求对应的 IP 地址。
-
-（2）， 浏览器与远程`Web`服务器通过`TCP`三次握手协商来建立一个`TCP/IP`连接。该握手包括一个同步报文，一个同步 - 应答报文和一个应答报文，这三个报文在 浏览器和服务器之间传递。该握手首先由客户端尝试建立起通信，而后服务器应答并接受客户端的请求，最后由客户端发出该请求已经被接受的报文。
-
-（3），一旦`TCP/IP`连接建立，浏览器会通过该连接向远程服务器发送`HTTP`的`GET`请求。远程服务器找到资源并使用 HTTP 响应返回该资源，值为 200 的 HTTP 响应状态表示一个正确的响应。
-
-（4），此时，`Web`服务器提供资源服务，客户端开始下载资源。
-</code></pre><p>请求返回后，便进入了我们关注的前端模块</p>
-<p>简单来说，浏览器会解析<code>HTML</code>生成<code>DOM Tree</code>，其次会根据 CSS 生成 CSS Rule Tree，而<code>javascript</code>又可以根据<code>DOM API</code>操作<code>DOM</code><br>详情：<a href="8">从输入 URL 到浏览器接收的过程中发生了什么事情？</a></p>
-<p>javascript 对象的几种创建方式<br>1，工厂模式</p>
-<p>2，构造函数模式</p>
-<p>3，原型模式</p>
-<p>4，混合构造函数和原型模式</p>
-<p>5，动态原型模式</p>
-<p>6，寄生构造函数模式</p>
-<p>7，稳妥构造函数模式<br>javascript 继承的 6 种方法<br>1，原型链继承</p>
-<p>2，借用构造函数继承</p>
-<p>3，组合继承（原型 + 借用构造)</p>
-<p>4，原型式继承</p>
-<p>5，寄生式继承</p>
-<p>6，寄生组合式继承<br>详情：<a href="9">JavaScript 继承方式详解</a></p>
-<p>创建 ajax 的过程<br>    (1) 创建<code>XMLHttpRequest</code>对象，也就是创建一个异步调用对象。</p>
-<pre><code>(2) 创建一个新的`HTTP`请求，并指定该`HTTP`请求的方法、`URL`及验证信息。
-
-(3) 设置响应`HTTP`请求状态变化的函数。
-
-(4) 发送`HTTP`请求。
-
-(5) 获取异步调用返回的数据。
-
-(6) 使用 JavaScript 和 DOM 实现局部刷新。
-
-var xmlHttp = new XMLHttpRequest();
-
-xmlHttp.open(&apos;GET&apos;,&apos;demo.php&apos;,&apos;true&apos;);
-
-xmlHttp.send()
-
-xmlHttp.onreadystatechange = function(){
-
-    if(xmlHttp.readyState === 4 &amp; xmlHttp.status === 200){
-
-    }
-
-}
-</code></pre><p>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>详情：<a href="10">JavaScript 学习总结（七）Ajax 和 Http 状态字</a></p>
-<p>异步加载和延迟加载</p>
-<ol>
-<li><p>异步加载的方案： 动态插入 script 标签</p>
-</li>
-<li><p>通过 ajax 去获取 js 代码，然后通过 eval 执行</p>
-</li>
-</ol>
-<p>3.script 标签上添加 defer 或者 async 属性</p>
-<ol>
-<li><p>创建并插入 iframe，让它异步执行 js</p>
-</li>
-<li><p>延迟加载：有些 js 代码并不是页面初始化的时候就立刻需要的，而稍后的某些情况才需要的。<br>ie 各版本和 chrome 可以并行下载多少个资源<br>IE6 两个并发，iE7 升级之后的 6 个并发，之后版本也是 6 个<br>Firefox，chrome 也是 6 个<br>Flash、Ajax 各自的优缺点，在使用中如何取舍？<br>Flash 适合处理多媒体、矢量图形、访问机器；对 CSS、处理文本上不足，不容易被搜索。<br>-Ajax 对 CSS、文本支持很好，支持搜索；多媒体、矢量图形、机器访问不足。</p>
-</li>
-</ol>
-<p>共同点：与服务器的无刷新传递消息、用户离线和在线状态、操作 DOM<br>请解释一下 JavaScript 的同源策略。<br>概念：同源策略是客户端脚本（尤其是 Javascript）的重要的安全度量标准。它最早出自 Netscape Navigator2.0，其目的是防止某个文档或脚本从多个不同源装载。</p>
-<p>这里的同源策略指的是：协议，域名，端口相同，同源策略是一种安全协议。</p>
-<p>指一段脚本只能读取来自同一来源的窗口和文档的属性。</p>
-<p>为什么要有同源限制？<br>我们举例说明：比如一个黑客程序，他利用 Iframe 把真正的银行登录页面嵌到他的页面上，当你使用真实的用户名，密码登录时，他的页面就可以通过 Javascript 读取到你的表单中 input 中的内容，这样用户名，密码就轻松到手了。</p>
-<p>缺点：</p>
-<p>现在网站的 JS 都会进行压缩，一些文件用了严格模式，而另一些没有。这时这些本来是严格模式的文件，被 merge 后，这个串就到了文件的中间，不仅没有指示严格模式，反而在压缩后浪费了字节。</p>
-<p>GET 和 POST 的区别，何时使用 POST？<br>    GET：一般用于信息获取，使用 URL 传递参数，对所发送信息的数量也有限制，一般在 2000 个字符</p>
-<pre><code>POST：一般用于修改服务器上的资源，对所发送的信息没有限制。
-
-GET 方式需要使用 Request.QueryString 来取得变量的值，而 POST 方式通过 Request.Form 来获取变量的值，
-
-也就是说 Get 是通过地址栏来传值，而 Post 是通过提交表单来传值。
-</code></pre><p>然而，在以下情况中，请使用 POST 请求：</p>
-<p>无法使用缓存文件（更新服务器上的文件或数据库）</p>
-<p>向服务器发送大量数据（POST 没有数据量限制）</p>
-<p>发送包含未知字符的用户输入时，POST 比 GET 更稳定也更可靠<br>事件、IE 与火狐的事件机制有什么区别？ 如何阻止冒泡？</p>
-<ol>
-<li><p>我们在网页中的某个操作（有的操作对应多个事件）。例如：当我们点击一个按钮就会产生一个事件。是可以被 JavaScript 侦测到的行为。</p>
-</li>
-<li><p>事件处理机制：IE 是事件冒泡、firefox 同时支持两种事件模型，也就是：捕获型事件和冒泡型事件。；</p>
-</li>
-<li><p><code>ev.stopPropagation()</code>; 注意旧 ie 的方法 <code>ev.cancelBubble = true</code>;<br>ajax 的缺点和在 IE 下的问题？<br>详情请见：<a href="14">JavaScript 学习总结（七）Ajax 和 Http 状态字</a></p>
-</li>
-</ol>
-<p>ajax 的缺点</p>
-<p>  1、ajax 不支持浏览器 back 按钮。</p>
-<p>  2、安全问题 AJAX 暴露了与服务器交互的细节。</p>
-<p>  3、对搜索引擎的支持比较弱。</p>
-<p>  4、破坏了程序的异常机制。</p>
-<p>  5、不容易调试。<br>IE 缓存问题</p>
-<p>在 IE 浏览器下，如果请求的方法是 GET，并且请求的 URL 不变，那么这个请求的结果就会被缓存。解决这个问题的办法可以通过实时改变请求的 URL，只要 URL 改变，就不会被缓存，可以通过在 URL 末尾添加上随机的时间戳参数 (‘t’= + new Date().getTime())</p>
-<p>或者：</p>
-<p>open(‘GET’,’demo.php?rand=+Math.random()’,true);//<br>1<br>Ajax 请求的页面历史记录状态问题</p>
-<p>可以通过锚点来记录状态，location.hash。让浏览器记录 Ajax 请求时页面状态的变化。</p>
-<p>还可以通过 HTML5 的 history.pushState，来实现浏览器地址栏的无刷新改变</p>
-<p>谈谈你对重构的理解<br>网站重构：在不改变外部行为的前提下，简化结构、添加可读性，而在网站前端保持一致的行为。也就是说是在不改变 UI 的情况下，对网站进行优化，<br>在扩展的同时保持一致的 UI。</p>
-<p>对于传统的网站来说重构通常是：</p>
-<p>表格 (table) 布局改为 DIV+CSS</p>
-<p>使网站前端兼容于现代浏览器（针对于不合规范的 CSS、如对 IE6 有效的)</p>
-<p>对于移动平台的优化</p>
-<p>针对于 SEO 进行优化</p>
-<p>深层次的网站重构应该考虑的方面</p>
-<p>减少代码间的耦合</p>
-<p>让代码保持弹性</p>
-<p>严格按规范编写代码</p>
-<p>设计可扩展的 API</p>
-<p>代替旧有的框架、语言（如 VB)</p>
-<p>增强用户体验</p>
-<p>通常来说对于速度的优化也包含在重构中</p>
-<p>压缩 JS、CSS、image 等前端资源（通常是由服务器来解决)</p>
-<p>程序的性能优化（如数据读写)</p>
-<p>采用 CDN 来加速资源加载</p>
-<p>对于 JS DOM 的优化</p>
-<p>HTTP 服务器的文件缓存<br>HTTP 状态码</p>
-<pre><code>100  Continue  继续，一般在发送 post 请求时，已发送了 http header 之后服务端将返回此信息，表示确认，之后发送具体参数信息
-
-200  OK   正常返回信息
-
-201  Created  请求成功并且服务器创建了新的资源
-
-202  Accepted  服务器已接受请求，但尚未处理
-
-301  Moved Permanently  请求的网页已永久移动到新位置。
-
-302 Found  临时性重定向。
-
-303 See Other  临时性重定向，且总是使用 GET 请求新的 URI。
-
-304  Not Modified  自从上次请求后，请求的网页未修改过。
-
-400 Bad Request  服务器无法理解请求的格式，客户端不应当尝试再次使用相同的内容发起请求。
-
-401 Unauthorized  请求未授权。
-
-403 Forbidden  禁止访问。
-
-404 Not Found  找不到如何与 URI 相匹配的资源。
-
-500 Internal Server Error  最常见的服务器端错误。
-
-503 Service Unavailable 服务器端暂时无法处理请求（可能是过载或维护）。
-</code></pre><p>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>说说你对 Promise 的理解<br>依照 Promise/A+ 的定义，Promise 有四种状态：</p>
-<p>pending: 初始状态，非 fulfilled 或 rejected.</p>
-<p>fulfilled: 成功的操作。</p>
-<p>rejected: 失败的操作。</p>
-<p>settled: Promise 已被 fulfilled 或 rejected，且不是 pending<br>另外， fulfilled 与 rejected 一起合称 settled。</p>
-<p>Promise 对象用来进行延迟 (deferred) 和异步 (asynchronous ) 计算。</p>
-<p>Promise 的构造函数</p>
-<p>构造一个 Promise，最基本的用法如下：</p>
-<pre><code>var promise = new Promise(function(resolve, reject) {
-
-    if (...) {  // succeed
-
-        resolve(result);
-
-    } else {   // fails
-
-        reject(Error(errMessage));
-
-    }
-});
-</code></pre><p>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>Promise 实例拥有 then 方法（具有 then 方法的对象，通常被称为 thenable）。它的使用方法如下：</p>
-<p>promise.then(onFulfilled, onRejected)<br>1<br>接收两个函数作为参数，一个在 fulfilled 的时候被调用，一个在 rejected 的时候被调用，接收参数就是 future，onFulfilled 对应 resolve, onRejected 对应 reject。</p>
-<p>说说你对前端架构师的理解<br>负责前端团队的管理及与其他团队的协调工作，提升团队成员能力和整体效率；<br>带领团队完成研发工具及平台前端部分的设计、研发和维护；<br>带领团队进行前端领域前沿技术研究及新技术调研，保证团队的技术领先<br>负责前端开发规范制定、功能模块化设计、公共组件搭建等工作，并组织培训。</p>
-<p>实现一个函数 clone，可以对 JavaScript 中的 5 种主要的数据类型（包括 Number、String、Object、Array、Boolean）进行值复制<br>    Object.prototype.clone = function(){</p>
-<pre><code>        var o = this.constructor === Array ? [] : {};
-
-        for(var e in this){
-
-                o[e] = typeof this[e] === &quot;object&quot; ? this[e].clone() : this[e];
-
-        }
-
-        return o;
-}
-</code></pre><p>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>说说严格模式的限制<br>严格模式主要有以下限制：</p>
-<p>变量必须声明后再使用</p>
-<p>函数的参数不能有同名属性，否则报错</p>
-<p>不能使用 with 语句</p>
-<p>不能对只读属性赋值，否则报错</p>
-<p>不能使用前缀 0 表示八进制数，否则报错</p>
-<p>不能删除不可删除的属性，否则报错</p>
-<p>不能删除变量 delete prop，会报错，只能删除属性 delete global[prop]</p>
-<p>eval 不会在它的外层作用域引入变量</p>
-<p>eval 和 arguments 不能被重新赋值</p>
-<p>arguments 不会自动反映函数参数的变化</p>
-<p>不能使用 arguments.callee</p>
-<p>不能使用 arguments.caller</p>
-<p>禁止 this 指向全局对象</p>
-<p>不能使用 fn.caller 和 fn.arguments 获取函数调用的堆栈</p>
-<p>增加了保留字（比如 protected、static 和 interface）<br>设立”严格模式”的目的，主要有以下几个：</p>
-<p>消除 Javascript 语法的一些不合理、不严谨之处，减少一些怪异行为；</p>
-<p>消除代码运行的一些不安全之处，保证代码运行的安全；</p>
-<p>提高编译器效率，增加运行速度；</p>
-<p>为未来新版本的 Javascript 做好铺垫。</p>
-<p>注：经过测试 IE6,7,8,9 均不支持严格模式。</p>
-<p>如何删除一个 cookie</p>
-<ol>
-<li>将时间设为当前时间往前一点。</li>
-</ol>
-<p>var date = new Date();</p>
-<p>date.setDate(date.getDate() - 1);// 真正的删除<br>1<br>2<br>3<br>setDate() 方法用于设置一个月的某一天。</p>
-<p>2.expires 的设置</p>
-<pre><code>document.cookie = &apos;user=&apos;+ encodeURIComponent(&apos;name&apos;)  + &apos;;expires = &apos; + new Date(0)
-</code></pre><p>1<br><strong>，<em>和<b>，<i>标签<br><strong> 标签和 <em> 标签一样，用于强调文本，但它强调的程度更强一些。</em></strong></i></b></em></strong></p>
-<p>em 是 斜体强调标签，更强烈强调，表示内容的强调点。相当于 html 元素中的 <i>…</i>;</p>
-<p>&lt; b &gt; &lt; i &gt;是视觉要素，分别表示无意义的加粗，无意义的斜体。</p>
-<p>em 和 strong 是表达要素 (phrase elements)。<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>说说你对 AMD 和 Commonjs 的理解<br>CommonJS 是服务器端模块的规范，Node.js 采用了这个规范。CommonJS 规范加载模块是同步的，也就是说，只有加载完成，才能执行后面的操作。AMD 规范则是非同步加载模块，允许指定回调函数。</p>
-<p>AMD 推荐的风格通过返回一个对象做为模块对象，CommonJS 的风格通过对 module.exports 或 exports 的属性赋值来达到暴露模块对象的目的。</p>
-<p>document.write() 的用法<br>document.write() 方法可以用在两个方面：页面载入过程中用实时脚本创建页面内容，以及用延时脚本创建本窗口或新窗口的内容。</p>
-<p>document.write 只能重绘整个页面。innerHTML 可以重绘页面的一部分</p>
-<p>编写一个方法 求一个字符串的字节长度<br>假设：一个英文字符占用一个字节，一个中文字符占用两个字节</p>
-<p> function GetBytes(str){</p>
-<pre><code>    var len = str.length;
-
-    var bytes = len;
-
-    for(var i=0; i&lt;len; i++){
-
-        if (str.charCodeAt(i) &gt; 255) bytes++;
-
-    }
-
-    return bytes;
-
-}
-</code></pre><p>alert(GetBytes(“你好，as”));<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>git fetch 和 git pull 的区别<br>git pull：相当于是从远程获取最新版本并 merge 到本地</p>
-<p>git fetch：相当于是从远程获取最新版本到本地，不会自动 merge<br>1<br>2<br>3<br>说说你对 MVC 和 MVVM 的理解<br>MVC</p>
-<p>View 传送指令到 Controller</p>
-<p>Controller 完成业务逻辑后，要求 Model 改变状态</p>
-<p>Model 将新的数据发送到 View，用户得到反馈<br>所有通信都是单向的。</p>
-<p>Angular 它采用双向绑定（data-binding）：View 的变动，自动反映在 ViewModel，反之亦然。</p>
-<p>组成部分 Model、View、ViewModel</p>
-<p>View：UI 界面</p>
-<p>ViewModel：它是 View 的抽象，负责 View 与 Model 之间信息转换，将 View 的 Command 传送到 Model；</p>
-<p>Model：数据访问层<br>请解释什么是事件代理<br>事件代理（Event Delegation），又称之为事件委托。是 JavaScript 中常用绑定事件的常用技巧。顾名思义，“事件代理”即是把原本需要绑定的事件委托给父元素，让父元素担当事件监听的职务。事件代理的原理是 DOM 元素的事件冒泡。使用事件代理的好处是可以提高性能。</p>
-<p>attribute 和 property 的区别是什么？<br>attribute 是 dom 元素在文档中作为 html 标签拥有的属性；</p>
-<p>property 就是 dom 元素在 js 中作为对象拥有的属性。</p>
-<p>所以：</p>
-<p>对于 html 的标准属性来说，attribute 和 property 是同步的，是会自动更新的，</p>
-<p>但是对于自定义的属性来说，他们是不同步的，</p>
-<p>说说网络分层里七层模型是哪七层<br>应用层：应用层、表示层、会话层（从上往下）（HTTP、FTP、SMTP、DNS）</p>
-<p>传输层（TCP 和 UDP）</p>
-<p>网络层（IP）</p>
-<p>物理和数据链路层（以太网）</p>
-<p>每一层的作用如下：</p>
-<p>物理层：通过媒介传输比特，确定机械及电气规范（比特 Bit）<br>数据链路层：将比特组装成帧和点到点的传递（帧 Frame）<br>网络层：负责数据包从源到宿的传递和网际互连（包 PackeT）<br>传输层：提供端到端的可靠报文传递和错误恢复（段 Segment）<br>会话层：建立、管理和终止会话（会话协议数据单元 SPDU）<br>表示层：对数据进行翻译、加密和压缩（表示协议数据单元 PPDU）<br>应用层：允许访问 OSI 环境的手段（应用协议数据单元 APDU）<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>各种协议</p>
-<p>ICMP 协议： 因特网控制报文协议。它是 TCP/IP 协议族的一个子协议，用于在 IP 主机、路由器之间传递控制消息。<br>TFTP 协议： 是 TCP/IP 协议族中的一个用来在客户机与服务器之间进行简单文件传输的协议，提供不复杂、开销不大的文件传输服务。<br>HTTP 协议： 超文本传输协议，是一个属于应用层的面向对象的协议，由于其简捷、快速的方式，适用于分布式超媒体信息系统。<br>DHCP 协议： 动态主机配置协议，是一种让系统得以连接到网络上，并获取所需要的配置参数手段。</p>
-<p>说说 mongoDB 和 MySQL 的区别<br>MySQL 是传统的关系型数据库，MongoDB 则是非关系型数据库</p>
-<p>mongodb 以 BSON 结构（二进制）进行存储，对海量数据存储有着很明显的优势。</p>
-<p>对比传统关系型数据库，NoSQL 有着非常显著的性能和扩展性优势，与关系型数据库相比，MongoDB 的优点有：<br>①弱一致性（最终一致），更能保证用户的访问速度：<br>②文档结构的存储方式，能够更便捷的获取数据。</p>
-<p>讲讲 304 缓存的原理<br>服务器首先产生 ETag，服务器可在稍后使用它来判断页面是否已经被修改。本质上，客户端通过将该记号传回服务器要求服务器验证其（客户端）缓存。</p>
-<p>304 是 HTTP 状态码，服务器用来标识这个文件没修改，不返回内容，浏览器在接收到个状态码后，会使用浏览器已缓存的文件</p>
-<p>客户端请求一个页面（A）。 服务器返回页面 A，并在给 A 加上一个 ETag。 客户端展现该页面，并将页面连同 ETag 一起缓存。 客户再次请求页面 A，并将上次请求时服务器返回的 ETag 一起传递给服务器。 服务器检查该 ETag，并判断出该页面自上次客户端请求之后还未被修改，直接返回响应 304（未修改——Not Modified）和一个空的响应体。</p>
-<p>什么样的前端代码是好的<br>高复用低耦合，这样文件小，好维护，而且好扩展。</p>
-
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
   </section>
 
   
@@ -1946,12 +701,12 @@ GET 方式需要使用 Request.QueryString 来取得变量的值，而 POST 方�
     
       <a class="prev" href="/page/2/">
         <i class="iconfont icon-left"></i>
-        <span class="prev-text">上一页</span>
+        <span class="prev-text">Prev</span>
       </a>
     
     
       <a class="next" href="/page/4/">
-        <span class="next-text">下一页</span>
+        <span class="next-text">Next</span>
         <i class="iconfont icon-right"></i>
       </a>
     
@@ -2008,11 +763,11 @@ GET 方式需要使用 Request.QueryString 来取得变量的值，而 POST 方�
 
 <div class="copyright">
   <span class="power-by">
-    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
+    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
   </span>
   <span class="division">|</span>
   <span class="theme-info">
-    主题 - 
+    Theme - 
     <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
   </span>
 
