@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head><meta name="generator" content="Hexo 3.8.0">
+    
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+<meta name="theme-color" content="#f8f5ec">
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+
+  <meta name="description" content="深入ES6 09-JS 的类">
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="alternate" href="/default" title="我是你豆子欧巴">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.10.2">
+
+
+
+<link rel="canonical" href="http://yoursite.com/2017/12/12/深入ES6-09-JS-的类/">
+
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css">
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/nprogress/nprogress.min.css">
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.10.2">
+
+
+
+  
+
+
+
+  <script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+
+
+
+
+
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":true};
+</script>
+
+    <title> 深入ES6 09-JS 的类 - 我是你豆子欧巴 </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">我是你豆子欧巴</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            首页
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">我是你豆子欧巴</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              首页
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          深入ES6 09-JS 的类
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2017-12-12
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#ES5-中的仿类结构"><span class="toc-text">ES5 中的仿类结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#类的声明"><span class="toc-text">类的声明</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#基本的类声明"><span class="toc-text">基本的类声明</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#为何要使用类的语法"><span class="toc-text">为何要使用类的语法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#类表达式"><span class="toc-text">类表达式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基本的类表达式"><span class="toc-text">基本的类表达式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#具名类表达式"><span class="toc-text">具名类表达式</span></a></li></ol></li></ol>
+    </div>
+  </div>
+
+
+
+    <div class="post-content">
+      
+        <p>与大多数正规的面向对象编程语言不同， JS 从创建之初就不支持类，也没有把类继承作为定义相似对象以及关联对象的主要方式，这让不少开发者感到困惑。而从 ES1 诞生之前直到 ES5 时期，很多库都创建了一些工具，使 JS 看起来仿佛能支持类。尽管一些 JS 开发者强烈<br>认为这门语言不需要类，但为处理类而创建的代码库如此之多，导致 ES6 最终引入了类。</p>
+<p>在探索 ES6 的类的过程中，理解类的潜在机制会很有帮助，因此本章将会首先讨论 ES5 的开发者如何实现对类行为的模仿。然而正如你将在后面看到的， ES6 的类并不与其他语言的类完全相同，所具备的独特性正配合了 JS 的动态本质</p>
+<h2 id="ES5-中的仿类结构"><a href="#ES5-中的仿类结构" class="headerlink" title="ES5 中的仿类结构"></a>ES5 中的仿类结构</h2><p>JS 在 ES5 及更早版本中都不存在类。与类最接近的是：创建一个构造器，然后将方法指派到该构造器的原型上。这种方式通常被称为创建一个自定义类型。例如：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">PersonType</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.name = name;</span><br><span class="line">&#125;</span><br><span class="line">PersonType.prototype.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">let</span> person = <span class="keyword">new</span> PersonType(<span class="string">"Nicholas"</span>);</span><br><span class="line">person.sayName(); <span class="comment">// 输出 "Nicholas"</span></span><br><span class="line"><span class="built_in">console</span>.log(person <span class="keyword">instanceof</span> PersonType); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(person <span class="keyword">instanceof</span> <span class="built_in">Object</span>); <span class="comment">// true</span></span><br></pre></td></tr></table></figure></p>
+<p>此代码中的 PersonType 是一个构造器函数，并创建了单个属性 name 。 sayName() 方法被指派到原型上，因此在 PersonType 对象的所有实例上都共享了此方法。接下来，使用 new 运算符创建了 PersonType 的一个新实例 person ，此对象能被判定是通过原型而继承了 PersonType 与 Object 的实例。</p>
+<p>这种基本模式在许多对类进行模拟的 JS 库中都存在，而这也是 ES6 类的出发点。</p>
+<h2 id="类的声明"><a href="#类的声明" class="headerlink" title="类的声明"></a>类的声明</h2><p>类在 ES6 中最简单的形式就是类声明，它看起来很像其他语言中的类。</p>
+<h3 id="基本的类声明"><a href="#基本的类声明" class="headerlink" title="基本的类声明"></a>基本的类声明</h3><p>类声明以 class 关键字开始，其后是类的名称；剩余部分的语法看起来就像对象字面量中的方法简写，并且在方法之间不需要使用逗号。作为范例，此处有个简单的类声明：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PersonClass</span> </span>&#123;</span><br><span class="line">  <span class="comment">// 等价于 PersonType 构造器</span></span><br><span class="line">  <span class="keyword">constructor</span>(name) &#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 等价于 PersonType.prototype.sayName</span></span><br><span class="line">  sayName() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> person = <span class="keyword">new</span> PersonClass(<span class="string">"Nicholas"</span>);</span><br><span class="line">person.sayName(); <span class="comment">// 输出 "Nicholas"</span></span><br><span class="line"><span class="built_in">console</span>.log(person <span class="keyword">instanceof</span> PersonClass); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(person <span class="keyword">instanceof</span> <span class="built_in">Object</span>); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> PersonClass); <span class="comment">// "function"</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> PersonClass.prototype.sayName); <span class="comment">// "function"</span></span><br></pre></td></tr></table></figure></p>
+<p>这个 PersonClass 类声明的行为非常类似上个例子中的 PersonType 。类声明允许你在其中使用特殊的 constructor 方法名称直接定义一个构造器，而不需要先定义一个函数再把它当作构造器使用。由于类的方法使用了简写语法，于是就不再需要使用 function 关键字。constructor 之外的方法名称则没有特别的含义，因此可以随你高兴自由添加方法。</p>
+<p>自有属性（Own properties ） ：该属性出现在实例上而不是原型上，只能在类的构造器或方法内部进行创建。在本例中， name 就是一个自有属性。我建议应在构造器函数内创建所有可能出现的自有属性，这样在类中声明变量就会被限制在单一位置（ 有助于代码检查） 。</p>
+<p>有趣的是，相对于已有的自定义类型声明方式来说，类声明仅仅是以它为基础的一个语法糖。 PersonClass 声明实际上创建了一个拥有 constructor 方法及其行为的函数，这也是 typeof PersonClass 会得到 “function” 结果的原因。此例中的 sayName() 方法最终也成为 PersonClass.prototype 上的一个方法，类似于上个例子中 sayName() 与PersonType.prototype 之间的关系。这些相似处允许你把自定义类型与类混合使用，而不必被具体的用法困扰。</p>
+<h2 id="为何要使用类的语法"><a href="#为何要使用类的语法" class="headerlink" title="为何要使用类的语法"></a>为何要使用类的语法</h2><p>尽管类与自定义类型之间有相似性，但仍然要记住一些重要的区别：</p>
+<ol>
+<li>类声明不会被提升，这与函数定义不同。类声明的行为与 let 相似，因此在程序执行到声明处之前，类都会位于暂时性死区内。</li>
+<li>类声明中的所有代码会自动运行并锁定在严格模式下</li>
+<li>类的所有方法都是不可枚举的，这是对于自定义类型的显著变化，后者必须用 Object.defineProperty() 才能将方法改变为不可枚举。</li>
+<li>类的所有方法内部都没有 [[Construct]] ，因此使用 new 来调用它们会抛出错误。</li>
+<li>调用类构造器时不使用 new ，会抛出错误。</li>
+<li>试图在类的方法内部重写类名，会抛出错误。</li>
+</ol>
+<p>这样看来，上例中的 PersonClass 声明实际上就直接等价于以下未使用类语法的代码：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 直接等价于 PersonClass</span></span><br><span class="line"><span class="keyword">let</span> PersonType2 = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="meta">  "use strict"</span>;</span><br><span class="line">  <span class="keyword">const</span> PersonType2 = <span class="function"><span class="keyword">function</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 确认函数被调用时使用了 new</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="keyword">new</span>.target === <span class="string">"undefined"</span>) &#123;</span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">"Constructor must be called with new."</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">Object</span>.defineProperty(PersonType2.prototype, <span class="string">"sayName"</span>, &#123;</span><br><span class="line">      value: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="comment">// 确认函数被调用时没有使用 new</span></span><br><span class="line">      <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="keyword">new</span>.target !== <span class="string">"undefined"</span>) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">"Method cannot be called with new."</span>);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</span><br><span class="line">    &#125;,</span><br><span class="line">    enumerable: <span class="literal">false</span>,</span><br><span class="line">    writable: <span class="literal">true</span>,</span><br><span class="line">    configurable: <span class="literal">true</span></span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="keyword">return</span> PersonType2;</span><br><span class="line">&#125;());</span><br></pre></td></tr></table></figure></p>
+<p>首先要注意这里有两个 PersonType2 声明：一个在外部作用域的 let 声明，一个在 IIFE 内部的 const 声明。这说明了为何类名不能在类的方法内被重写，而允许在外部重写。构造器函数检查了 new.target ，以保证是使用 new 进行调用的，否则就抛出错误。接下来，sayName() 方法被定义为不可枚举，并且此方法也检查了 new.target ，它则要保证在被调用时没有使用 new 。最后一步是将构造器函数返回出去。</p>
+<p>此例说明了不使用新语法也能实现类的任何特性，不过类语法显著简化了所有功能的代码。</p>
+<p>只有在类的内部，类名才被视为是使用 const 声明的。这意味着你可以在外部重写类名，但不能在类的方法内部这么做。例如：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Foo</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>() &#123;</span><br><span class="line">    Foo = <span class="string">"bar"</span>; <span class="comment">// 执行时抛出错误</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125; <span class="comment">// 但在类声明之后没问题</span></span><br><span class="line">Foo = <span class="string">"baz"</span>;</span><br></pre></td></tr></table></figure></p>
+<p>在此代码中，类构造器内部的 Foo 与在类外部的 Foo 是不同的绑定。内部的 Foo 就像是用 const 定义的，不能被重写，当构造器尝试使用任何值重写 Foo 时，都会抛出错误。但由于外部的 Foo 就像是用 let 声明的，你可以随时重写类名。</p>
+<h2 id="类表达式"><a href="#类表达式" class="headerlink" title="类表达式"></a>类表达式</h2><p>类与函数相似之处在于都有两种形式：声明与表达式。函数声明与类声明都以适当的关键词为起始（ 分别是 function 与 class ） ，随后是标识符（ 即函数名或类名） 。函数具有一种表达式形式，无须在 function 后面使用标识符；类似的，类也有不需要标识符的表达式形<br>式。类表达式被设计用于变量声明，或可作为参数传递给函数。</p>
+<h2 id="基本的类表达式"><a href="#基本的类表达式" class="headerlink" title="基本的类表达式"></a>基本的类表达式</h2><p>此处是与上例中的 PersonClass 等效的类表达式，随后的代码使用了它：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> PersonClass = <span class="class"><span class="keyword">class</span> </span>&#123;</span><br><span class="line">  <span class="comment">// 等价于 PersonType 构造器</span></span><br><span class="line">  <span class="keyword">constructor</span>(name) &#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 等价于 PersonType.prototype.sayName</span></span><br><span class="line">  sayName() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> person = <span class="keyword">new</span> PersonClass(<span class="string">"Nicholas"</span>);</span><br><span class="line">person.sayName(); <span class="comment">// 输出 "Nicholas"</span></span><br><span class="line"><span class="built_in">console</span>.log(person <span class="keyword">instanceof</span> PersonClass); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(person <span class="keyword">instanceof</span> <span class="built_in">Object</span>); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> PersonClass); <span class="comment">// "function"</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> PersonClass.prototype.sayName); <span class="comment">// "function"</span></span><br></pre></td></tr></table></figure></p>
+<p>正如此例所示，类表达式不需要在 class 关键字后使用标识符。除了语法差异，类表达式的功能等价于类声明。</p>
+<p>使用类声明还是类表达式，主要是代码风格问题。相对于函数声明与函数表达式之间的区别，类声明与类表达式都不会被提升，因此对代码运行时的行为影响甚微</p>
+<h3 id="具名类表达式"><a href="#具名类表达式" class="headerlink" title="具名类表达式"></a>具名类表达式</h3><p>上一节的示例使用了一个匿名的类表达式，不过就像函数表达式那样，你也可以为类表达式命名。为此需要在 class 关键字后添加标识符，就像这样：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> PersonClass = <span class="class"><span class="keyword">class</span> <span class="title">PersonClass2</span> </span>&#123;</span><br><span class="line">  <span class="comment">// 等价于 PersonType 构造器</span></span><br><span class="line">  <span class="keyword">constructor</span>(name) &#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 等价于 PersonType.prototype.sayName</span></span><br><span class="line">  sayName() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> PersonClass); <span class="comment">// "function"</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> PersonClass2); <span class="comment">// "undefined"</span></span><br></pre></td></tr></table></figure></p>
+<p>此例中的类表达式被命名为 PersonClass2 。 PersonClass2 标识符只在类定义内部存在，因此只能用在类方法内部（ 例如本例的 sayName() 内） 。在类的外部， typeof PersonClass2<br>的结果为 “undefined” ，这是因为外部不存在 PersonClass2 绑定。要理解为何如此，请查看未使用类语法的等价声明：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 直接等价于 PersonClass 具名的类表达式</span></span><br><span class="line"><span class="keyword">let</span> PersonClass = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="meta">  "use strict"</span>;</span><br><span class="line">  <span class="keyword">const</span> PersonClass2 = <span class="function"><span class="keyword">function</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 确认函数被调用时使用了 new</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="keyword">new</span>.target === <span class="string">"undefined"</span>) &#123;</span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">"Constructor must be called with new."</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">Object</span>.defineProperty(PersonClass2.prototype, <span class="string">"sayName"</span>, &#123;</span><br><span class="line">    value: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="comment">// 确认函数被调用时没有使用 new</span></span><br><span class="line">      <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="keyword">new</span>.target !== <span class="string">"undefined"</span>) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">"Method cannot be called with new."</span>);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</span><br><span class="line">    &#125;,</span><br><span class="line">    enumerable: <span class="literal">false</span>,</span><br><span class="line">    writable: <span class="literal">true</span>,</span><br><span class="line">    configurable: <span class="literal">true</span></span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="keyword">return</span> PersonClass2;</span><br><span class="line">&#125;());</span><br></pre></td></tr></table></figure></p>
+<p>创建具名的类表达式， JS 引擎的内部实现稍微有了变化。对于类声明来说，用 let 定义的外部绑定与用 const 定义的内部绑定有着相同的名称。而类表达式可在内部使用 const 来定义它的不同名称，于是此处的 PersonClass2 就只能在类的内部使用。</p>
+<p>尽管具名类表达式的行为异于具名函数表达式，但它们之间仍然有许多相似点。二者都能被当作值来使用，存在多种利用可能，接下来我将会对此进行介绍。</p>
+
+      
+    </div>
+
+    
+      
+      
+
+  <div class="post-copyright">
+    <p class="copyright-item">
+      <span>原文作者: </span>
+      <a href="http://yoursite.com">我是你豆子欧巴</a>
+    </p>
+    <p class="copyright-item">
+      <span>原文链接: </span>
+      <a href="http://yoursite.com/2017/12/12/深入ES6-09-JS-的类/">http://yoursite.com/2017/12/12/深入ES6-09-JS-的类/</a>
+    </p>
+    <p class="copyright-item">
+      <span>许可协议: </span>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
+  </div>
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2017/12/13/redux-源码分析-一/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">redux 源码分析 (一)</span>
+        <span class="prev-text nav-mobile">上一篇</span>
+      </a>
+    
+    
+      <a class="next" href="/2017/12/12/深入ES6-07-Set与Map/">
+        <span class="next-text nav-default">深入ES6 07-Set与Map</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://github.com/ahonn" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+
+    
+      
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2015 - 
+    
+    2019
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">我是你豆子欧巴</span>
+  </span>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+  
+
+  
+
+
+
+    
+  
+
+
+
+  
+  
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/pjax/jquery.pjax.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/nprogress/nprogress.min.js"></script>
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.10.2"></script>
+
+  </body>
+</html>

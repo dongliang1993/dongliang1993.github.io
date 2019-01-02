@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head><meta name="generator" content="Hexo 3.8.0">
+    
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+<meta name="theme-color" content="#f8f5ec">
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+
+  <meta name="description" content="开发移动端页面">
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="alternate" href="/default" title="我是你豆子欧巴">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.10.2">
+
+
+
+<link rel="canonical" href="http://yoursite.com/2017/12/14/开发移动端页面/">
+
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css">
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/nprogress/nprogress.min.css">
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.10.2">
+
+
+
+  
+
+
+
+  <script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+
+
+
+
+
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":true};
+</script>
+
+    <title> 开发移动端页面 - 我是你豆子欧巴 </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">我是你豆子欧巴</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            首页
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">我是你豆子欧巴</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              首页
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          开发移动端页面
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2017-12-14
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、像素-什么是像素"><span class="toc-text">一、像素 - 什么是像素</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、移动端的三个视口"><span class="toc-text">二、移动端的三个视口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第一个视口：布局视口"><span class="toc-text">第一个视口：布局视口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第二个视口：视觉视口"><span class="toc-text">第二个视口：视觉视口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第三个视口：理想视口"><span class="toc-text">第三个视口：理想视口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#缩放比例也有默认的值，没有设置-initial-scale-时，浏览器会取适当的缩放比例使-布局视口正好铺满屏幕即有-布局视口尺寸-视觉视口尺寸"><span class="toc-text">缩放比例也有默认的值，没有设置 initial-scale 时，浏览器会取适当的缩放比例使 布局视口正好铺满屏幕即有 布局视口尺寸 = 视觉视口尺寸</span></a></li></ol>
+    </div>
+  </div>
+
+
+
+    <div class="post-content">
+      
+        <h2 id="一、像素-什么是像素"><a href="#一、像素-什么是像素" class="headerlink" title="一、像素 - 什么是像素"></a>一、像素 - 什么是像素</h2><p>像素：一个像素就是计算机屏幕所能显示一种特定颜色的最小区域。 </p>
+<p>在web前端开发领域，像素有以下两层含义：</p>
+<ol>
+<li>设备像素：设备屏幕的物理像素，对于任何设备来讲物理像素的数量是固定的。</li>
+<li>CSS像素：这是一个抽象的像素概念，它是为web开发者创造的。<br>如下图，是在缩放比例为1，即scale = 1的情况下，设备像素和CSS像素示意图</li>
+</ol>
+<p>当你给元素设置了 width: 200px 时，这个元素的宽度跨越了200个CSS像素。但是它并不一定跨越200个设备像素，至于会跨越多少个设备像素，就取决于手机屏幕的特性和用户的缩放了</p>
+<p>苹果手机的视网膜屏幕，是一个高密度屏幕，它的像素密度是普通屏幕的2倍，所以当我们设置 width: 200px; 时，200个CSS像素跨越了400个设备像素</p>
+<p>如果用户缩小页面，那么一个CSS像素会明显小于一个设备像素，这个时候 width: 200px; 这条样式中所设置的200个CSS像素跨越不了200个设备像素，如下图：</p>
+<p>让我们来做一个总结</p>
+<ol>
+<li>web前端领域，像素分为设备像素和CSS像素</li>
+<li>一个CSS像素的大小是可变的，比如用后缩放页面的时候，实际上就是在缩小或放大CSS像素，而设备像素无论大小还是数量都是不变的。</li>
+</ol>
+<h2 id="二、移动端的三个视口"><a href="#二、移动端的三个视口" class="headerlink" title="二、移动端的三个视口"></a>二、移动端的三个视口</h2><p>你一定写过这样一条样式：width: 25%; 但是你有想过给一个元素加上这样一条样式之后发生了什么吗？25%是基于谁的25%？明白的同学可能知道了：一个块元素默认的宽度是其父元素的100%，是基于起父元素的，所以25%指的是父元素宽度的25%，所以，body元素的默认宽度是html元素宽度的100%，那么你有没有想过html元素的宽度是基于谁的呢？这个时候，就要引出一个概念：初始包含块和视口了</p>
+<p>记住一句话：视口是html的父元素，所以我们称视口为初始包含块。 这样你就明白了，html元素的百分比是基于视口的。</p>
+<h2 id="第一个视口：布局视口"><a href="#第一个视口：布局视口" class="headerlink" title="第一个视口：布局视口"></a>第一个视口：布局视口</h2><p>在PC浏览器中，视口只有一个，并且 视口的宽度 = 浏览器窗口的宽度</p>
+<p>在移动端，视口和浏览器窗口将不在关联，实际上，布局视口要比浏览器窗口大的多(在手机和平板中浏览器布局视口的宽度在768~1024像素之间)</p>
+<p>可以通过以下JavaScript代码获取布局视口的宽度和高度：<br>document.documentElement.clientWidth<br>document.documentElement.clientHeight</p>
+<h2 id="第二个视口：视觉视口"><a href="#第二个视口：视觉视口" class="headerlink" title="第二个视口：视觉视口"></a>第二个视口：视觉视口</h2><p>视觉视口可能要更好理解一些，他就是用户正在看到网站的区域，如下图：<br>window.innerWidth</p>
+<h2 id="第三个视口：理想视口"><a href="#第三个视口：理想视口" class="headerlink" title="第三个视口：理想视口"></a>第三个视口：理想视口</h2><p>device-width 的值就是理想视口的宽度<br>理想视口的尺寸是不能改变的，由设备和浏览器决定，与设备的物理像素数存在着比例关系，这个比例就是设备像素比</p>
+<p><meta name="viewport" content="width=device-width"><br>上面那段代码告诉浏览器：将布局视口的宽度设为理想视口。所以，上面代码中的width指的是布局视口的宽 device-width 实际上就是理想视口的宽度。<br>screen.width</p>
+<p>可以使用 window.devicePixelRatio 获得dpr</p>
+<h2 id="缩放比例也有默认的值，没有设置-initial-scale-时，浏览器会取适当的缩放比例使-布局视口正好铺满屏幕即有-布局视口尺寸-视觉视口尺寸"><a href="#缩放比例也有默认的值，没有设置-initial-scale-时，浏览器会取适当的缩放比例使-布局视口正好铺满屏幕即有-布局视口尺寸-视觉视口尺寸" class="headerlink" title="缩放比例也有默认的值，没有设置 initial-scale 时，浏览器会取适当的缩放比例使 布局视口正好铺满屏幕即有 布局视口尺寸 = 视觉视口尺寸"></a>缩放比例也有默认的值，没有设置 initial-scale 时，浏览器会取适当的缩放比例使 布局视口正好铺满屏幕即有 布局视口尺寸 = 视觉视口尺寸</h2><p>设计稿的宽换算为以 rem 为单位的 css 长度应为 (750/100) rem，同时设计稿的宽对应可视视口的宽，即有 (750/100) rem = 可视视口宽，1 rem = 可视视口宽 * (100/750)，(100/750)就是我们要的系数</p>
+<p>好了，移动端的三个视口介绍完了，让我们总结一下：<br>1、在PC端，布局视口就是浏览器窗口<br>  2、在移动端，视口被分为两个：布局视口、视觉视口。<br>  3、移动端还有一个理想视口，它是布局视口的理想尺寸，即理想的布局视口。（注：理想视口的尺寸因设备和浏览器的不同而不同，但这对于我们来说无所谓）<br>  4、可以将布局视口的宽度设为理想视口</p>
+<p>三、设备像素比(DPR)</p>
+<p>下面你还需要了解一个概念，设备像素比(Device Pixel Ratio 简称：DPR)。<br>下面是设备像素比的计算公式<br>公式成立的大前提：（缩放比例为1）<br>设备像素比(DPR) = 设备像素个数 / 理想视口CSS像素个数(device-width)</p>
+<p>与理想视口一样，设备像素比对于不同的设备是不同的，但是他们都是合理的，比如早起iphone的设备像素是320px，理想视口也是320px，所以早起iphone的DPR=1，而后来iphone的设备像素为640px，理想视口还是320px，所以后来iphone的DPR=2</p>
+<ol>
+<li><p>首先要看 PSD 原稿的尺寸，如果是 750 说明是按照设备像素设计的，如果是 375 说明是按照理想视口设计的</p>
+</li>
+<li><p>width=device-width  这段代码是让布局视口的尺寸等于理想视口。根据公式(缩放比例为1)：设备像素比（DPR） = 设备像素个数 / 理想视口像素个数（device-width）因为iPhone6的DPR（设备像素比）为2，设备像素为750，所以iPhone6的理想视口尺寸为375px。所以上面代码最终导致的是：使我们布局视口的宽度变成了375px。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>CSS中编写的样式尺寸是基于布局视口计算的</p>
+</li>
+</ol>
+<p>如果我们能将布局视口的尺寸设置为和设备像素尺寸相等的话，这样我们就保证了设计图与页面的1:1关系，那么我们就可以直接使用psd中测量的尺寸了，然后在其他尺寸的手机中，我们进行等比缩放就ok了。</p>
+
+      
+    </div>
+
+    
+      
+      
+
+  <div class="post-copyright">
+    <p class="copyright-item">
+      <span>原文作者: </span>
+      <a href="http://yoursite.com">我是你豆子欧巴</a>
+    </p>
+    <p class="copyright-item">
+      <span>原文链接: </span>
+      <a href="http://yoursite.com/2017/12/14/开发移动端页面/">http://yoursite.com/2017/12/14/开发移动端页面/</a>
+    </p>
+    <p class="copyright-item">
+      <span>许可协议: </span>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
+  </div>
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2017/12/14/图解HTTP-阅读笔记/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">图解HTTP 阅读笔记</span>
+        <span class="prev-text nav-mobile">上一篇</span>
+      </a>
+    
+    
+      <a class="next" href="/2017/12/13/redux-源码分析-一/">
+        <span class="next-text nav-default">redux 源码分析 (一)</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://github.com/ahonn" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+
+    
+      
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2015 - 
+    
+    2019
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">我是你豆子欧巴</span>
+  </span>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+  
+
+  
+
+
+
+    
+  
+
+
+
+  
+  
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/pjax/jquery.pjax.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/nprogress/nprogress.min.js"></script>
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.10.2"></script>
+
+  </body>
+</html>

@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head><meta name="generator" content="Hexo 3.8.0">
+    
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+<meta name="theme-color" content="#f8f5ec">
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+
+  <meta name="description" content="Zan UI 源码分析（四）Button 组件">
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="alternate" href="/default" title="我是你豆子欧巴">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.10.2">
+
+
+
+<link rel="canonical" href="http://yoursite.com/2017/12/18/Zan-UI-源码分析（四）Button-组件/">
+
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css">
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/nprogress/nprogress.min.css">
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.10.2">
+
+
+
+  
+
+
+
+  <script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+
+
+
+
+
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":true};
+</script>
+
+    <title> Zan UI 源码分析（四）Button 组件 - 我是你豆子欧巴 </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">我是你豆子欧巴</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            首页
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">我是你豆子欧巴</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              首页
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          Zan UI 源码分析（四）Button 组件
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2017-12-18
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        <a id="more"></a>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 这部分代码写的很乱</span></span><br><span class="line"><span class="keyword">import</span> React, &#123; Component, PureComponent &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="comment">// 这个山炮怎么又换了一种命名？</span></span><br><span class="line"><span class="keyword">import</span> setClass <span class="keyword">from</span> <span class="string">'classnames'</span>;</span><br><span class="line"><span class="keyword">import</span> PropTypes <span class="keyword">from</span> <span class="string">'prop-types'</span>;</span><br><span class="line"><span class="comment">// 这个函数会创建一个新的对象，然后把你出想去除的属性从对象中删除</span></span><br><span class="line"><span class="comment">// var object = &#123; 'a': 1, 'b': '2', 'c': 3 &#125;;</span></span><br><span class="line"><span class="comment">// _.omit(object, ['a', 'c']);</span></span><br><span class="line"><span class="comment">// =&gt; &#123; 'b': '2' &#125;</span></span><br><span class="line"><span class="keyword">import</span> omit <span class="keyword">from</span> <span class="string">'lodash/omit'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> BLACK_LIST = [</span><br><span class="line">  <span class="string">'type'</span>,</span><br><span class="line">  <span class="string">'size'</span>,</span><br><span class="line">  <span class="string">'htmlType'</span>,</span><br><span class="line">  <span class="string">'block'</span>,</span><br><span class="line">  <span class="string">'component'</span>,</span><br><span class="line">  <span class="string">'disabled'</span>,</span><br><span class="line">  <span class="string">'loading'</span>,</span><br><span class="line">  <span class="string">'outline'</span>,</span><br><span class="line">  <span class="string">'bordered'</span>,</span><br><span class="line">  <span class="string">'className'</span>,</span><br><span class="line">  <span class="string">'prefix'</span></span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 为啥要这么写？有毒吧？</span></span><br><span class="line"><span class="keyword">const</span> BTN_BLACK_LIST = [<span class="string">'href'</span>, <span class="string">'target'</span>].concat(BLACK_LIST);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> A_BLACK_LIST = [<span class="string">'href'</span>, <span class="string">'target'</span>].concat(BLACK_LIST);</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">Button</span> <span class="keyword">extends</span> (<span class="title">PureComponent</span> || <span class="title">Component</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">static</span> propTypes = &#123;</span><br><span class="line">    type: PropTypes.oneOf([<span class="string">'default'</span>, <span class="string">'primary'</span>, <span class="string">'success'</span>, <span class="string">'danger'</span>, <span class="string">'link'</span>]),</span><br><span class="line">    size: PropTypes.oneOf([<span class="string">'large'</span>, <span class="string">'medium'</span>, <span class="string">'small'</span>]),</span><br><span class="line">    htmlType: PropTypes.oneOf([<span class="string">'button'</span>, <span class="string">'submit'</span>, <span class="string">'reset'</span>]),</span><br><span class="line">    className: PropTypes.string,</span><br><span class="line">    block: PropTypes.bool,</span><br><span class="line">    component: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),</span><br><span class="line">    disabled: PropTypes.bool,</span><br><span class="line">    loading: PropTypes.bool,</span><br><span class="line">    outline: PropTypes.bool,</span><br><span class="line">    bordered: PropTypes.bool,</span><br><span class="line">    prefix: PropTypes.string</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">static</span> defaultProps = &#123;</span><br><span class="line">    type: <span class="string">'default'</span>, <span class="comment">// 风格 'default'	'primary' 、 'danger' 、 'success'</span></span><br><span class="line">    size: <span class="string">'medium'</span>, <span class="comment">// 尺寸 'medium'	'large' 、 'small'</span></span><br><span class="line">    htmlType: <span class="string">'button'</span>, <span class="comment">// button标签原生type属性	'button'	submit 、 reset 、 button</span></span><br><span class="line">    className: <span class="string">''</span>, <span class="comment">// 自定义类名	</span></span><br><span class="line">    block: <span class="literal">false</span>,</span><br><span class="line">    disabled: <span class="literal">false</span>, <span class="comment">// 状态控制	false</span></span><br><span class="line">    loading: <span class="literal">false</span>, <span class="comment">// 状态控制	</span></span><br><span class="line">    outline: <span class="literal">false</span>, <span class="comment">// 边框有颜色，内部没有颜色	</span></span><br><span class="line">    bordered: <span class="literal">true</span>, <span class="comment">// 边框透明控制	</span></span><br><span class="line">    prefix: <span class="string">'zent'</span></span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">constructor</span>(props) &#123;</span><br><span class="line">    <span class="keyword">super</span>(props);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 处理点击事件</span></span><br><span class="line">  handleClick = <span class="function">(<span class="params">event</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.props.disabled || <span class="keyword">this</span>.props.loading) <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.props.onClick) &#123;</span><br><span class="line">      <span class="keyword">this</span>.props.onClick(event);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// render a 标签</span></span><br><span class="line">  renderLink = <span class="function">(<span class="params">classNames</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 如果没有 自定义组件标签类型 就是 a 标签</span></span><br><span class="line">    <span class="keyword">const</span> Node = <span class="keyword">this</span>.props.component || <span class="string">'a'</span>;</span><br><span class="line">    <span class="comment">// loading 和 disabled 都会禁用掉按钮</span></span><br><span class="line">    <span class="keyword">const</span> disabled = <span class="keyword">this</span>.props.disabled || <span class="keyword">this</span>.props.loading;</span><br><span class="line">    <span class="keyword">const</span> &#123; href = <span class="string">''</span>, target &#125; = <span class="keyword">this</span>.props;</span><br><span class="line">    <span class="keyword">const</span> nodeProps = omit(<span class="keyword">this</span>.props, A_BLACK_LIST);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;Node</span><br><span class="line">        &#123;...(disabled ? &#123;&#125; : &#123; href, target &#125;)&#125;</span><br><span class="line">        &#123;...nodeProps&#125;</span><br><span class="line">        className=&#123;classNames&#125;</span><br><span class="line">        onClick=&#123;<span class="keyword">this</span>.handleClick&#125;</span><br><span class="line">      &gt;</span><br><span class="line">        &#123;<span class="keyword">this</span>.props.children&#125;</span><br><span class="line">      &lt;<span class="regexp">/Node&gt;</span></span><br><span class="line"><span class="regexp">    );</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">  /</span><span class="regexp">/ render button 标签</span></span><br><span class="line"><span class="regexp">  renderButton = (classNames) =&gt; &#123;</span></span><br><span class="line"><span class="regexp">    const Node = this.props.component || 'button';</span></span><br><span class="line"><span class="regexp">    const disabled = this.props.disabled || this.props.loading;</span></span><br><span class="line"><span class="regexp">    const htmlType = this.props.htmlType;</span></span><br><span class="line"><span class="regexp">    const nodeProps = omit(this.props, BTN_BLACK_LIST);</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">    return (</span></span><br><span class="line"><span class="regexp">      &lt;Node</span></span><br><span class="line"><span class="regexp">        &#123;...nodeProps&#125;</span></span><br><span class="line"><span class="regexp">        &#123;...(htmlType ? &#123; type: htmlType &#125; : &#123;&#125;)&#125;</span></span><br><span class="line"><span class="regexp">        className=&#123;classNames&#125;</span></span><br><span class="line"><span class="regexp">        disabled=&#123;disabled&#125;</span></span><br><span class="line"><span class="regexp">        onClick=&#123;this.handleClick&#125;</span></span><br><span class="line"><span class="regexp">      &gt;</span></span><br><span class="line"><span class="regexp">        &#123;this.props.children&#125;</span></span><br><span class="line"><span class="regexp">      &lt;/</span>Node&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="comment">// 如果传进来了 href/target ，按钮就变成了链接</span></span><br><span class="line">    <span class="keyword">let</span> renderer =</span><br><span class="line">      (<span class="keyword">this</span>.props.href || <span class="keyword">this</span>.props.target) ? <span class="string">'renderLink'</span> : <span class="string">'renderButton'</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> &#123;</span><br><span class="line">      className,</span><br><span class="line">      type,</span><br><span class="line">      size,</span><br><span class="line">      block,</span><br><span class="line">      disabled,</span><br><span class="line">      loading,</span><br><span class="line">      outline,</span><br><span class="line">      bordered,</span><br><span class="line">      prefix</span><br><span class="line">    &#125; = <span class="keyword">this</span>.props;</span><br><span class="line">    <span class="keyword">let</span> classNames = setClass(</span><br><span class="line">      &#123;</span><br><span class="line">        [<span class="string">`<span class="subst">$&#123;prefix&#125;</span>-btn-<span class="subst">$&#123;type&#125;</span><span class="subst">$&#123;outline ? <span class="string">'-outline'</span> : <span class="string">''</span>&#125;</span>`</span>]:</span><br><span class="line">          type !== <span class="string">'default'</span>,</span><br><span class="line">        [<span class="string">`<span class="subst">$&#123;prefix&#125;</span>-btn-<span class="subst">$&#123;size&#125;</span>`</span>]: size !== <span class="string">'medium'</span>,</span><br><span class="line">        [<span class="string">`<span class="subst">$&#123;prefix&#125;</span>-btn-block`</span>]: block,</span><br><span class="line">        [<span class="string">`<span class="subst">$&#123;prefix&#125;</span>-btn-loading`</span>]: loading,</span><br><span class="line">        [<span class="string">`<span class="subst">$&#123;prefix&#125;</span>-btn-disabled`</span>]: disabled,</span><br><span class="line">        [<span class="string">`<span class="subst">$&#123;prefix&#125;</span>-btn-border-transparent`</span>]: !bordered</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="string">`<span class="subst">$&#123;prefix&#125;</span>-btn`</span>,</span><br><span class="line">      className</span><br><span class="line">    );</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>[renderer](classNames);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+      
+      
+
+  <div class="post-copyright">
+    <p class="copyright-item">
+      <span>原文作者: </span>
+      <a href="http://yoursite.com">我是你豆子欧巴</a>
+    </p>
+    <p class="copyright-item">
+      <span>原文链接: </span>
+      <a href="http://yoursite.com/2017/12/18/Zan-UI-源码分析（四）Button-组件/">http://yoursite.com/2017/12/18/Zan-UI-源码分析（四）Button-组件/</a>
+    </p>
+    <p class="copyright-item">
+      <span>许可协议: </span>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
+  </div>
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2017/12/18/Zan-UI-源码分析（四）Icon-组件/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">Zan UI 源码分析（四）Icon 组件</span>
+        <span class="prev-text nav-mobile">上一篇</span>
+      </a>
+    
+    
+      <a class="next" href="/2017/12/18/Zan-UI-源码分析（三）BlockHeader-组件/">
+        <span class="next-text nav-default">Zan UI 源码分析（三）BlockHeader 组件</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://github.com/ahonn" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+
+    
+      
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2015 - 
+    
+    2019
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">我是你豆子欧巴</span>
+  </span>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+  
+
+  
+
+
+
+    
+  
+
+
+
+  
+  
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/pjax/jquery.pjax.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/nprogress/nprogress.min.js"></script>
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.10.2"></script>
+
+  </body>
+</html>

@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head><meta name="generator" content="Hexo 3.8.0">
+    
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+<meta name="theme-color" content="#f8f5ec">
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+
+  <meta name="description" content="函数式编程笔记（一）">
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="alternate" href="/default" title="我是你豆子欧巴">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.10.2">
+
+
+
+<link rel="canonical" href="http://yoursite.com/2017/12/07/函数式编程笔记（一）/">
+
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css">
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/nprogress/nprogress.min.css">
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.10.2">
+
+
+
+  
+
+
+
+  <script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+
+
+
+
+
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":true};
+</script>
+
+    <title> 函数式编程笔记（一） - 我是你豆子欧巴 </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">我是你豆子欧巴</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            首页
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">我是你豆子欧巴</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              首页
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          函数式编程笔记（一）
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2017-12-07
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#置信度"><span class="toc-text">置信度</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#交流渠道"><span class="toc-text">交流渠道</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#书籍推荐"><span class="toc-text">书籍推荐</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#博客和站点"><span class="toc-text">博客和站点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第-2-章：函数基础"><span class="toc-text">第 2 章：函数基础</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第-3-章：管理函数的输入（Inputs）"><span class="toc-text">第 3 章：管理函数的输入（Inputs）</span></a></li></ol>
+    </div>
+  </div>
+
+
+
+    <div class="post-content">
+      
+        <p>第 1 章：为什么使用函数式编程？</p>
+<h2 id="置信度"><a href="#置信度" class="headerlink" title="置信度"></a>置信度</h2><ol>
+<li>你不能信任的代码是你不明白的代码。</li>
+<li>对你不信任或不明白的代码，你将不能确定这些代码是否符合你的业务场景。代码运行时也只能祈求好运。</li>
+</ol>
+<p>信任是什么意思？信任是指你通过读代码，不仅是跑代码，就能理解这段代码能干什么事，而不只是停留在它可能是干什么的层面。</p>
+<h2 id="交流渠道"><a href="#交流渠道" class="headerlink" title="交流渠道"></a>交流渠道</h2><ol>
+<li>代码的主要作用是方便人与人交流。应该更多的关注一下代码的可读性。</li>
+</ol>
+<h2 id="书籍推荐"><a href="#书籍推荐" class="headerlink" title="书籍推荐"></a>书籍推荐</h2><p>一些你务必要阅读的函数式编程 / JavaScript 书籍：</p>
+<p>Professor Frisby’s Mostly Adequate Guide to Functional Programming by Brian Lonsdorf<br>JavaScript Allongé by Reg Braithwaite<br>Functional JavaScript by Michael Fogus</p>
+<h2 id="博客和站点"><a href="#博客和站点" class="headerlink" title="博客和站点"></a>博客和站点</h2><p>一些其他作者和相关内容供查阅：</p>
+<p>Fun Fun Function Videos by Mattias P Johansson<br>Awesome函数式编程JS<br>Kris Jenkins<br>Eric Elliott<br>James A Forbes<br>James Longster<br>André Staltz<br>Functional Programming Jargon<br>Functional Programming Exercises</p>
+<h2 id="第-2-章：函数基础"><a href="#第-2-章：函数基础" class="headerlink" title="第 2 章：函数基础"></a>第 2 章：函数基础</h2><ol>
+<li>函数式编程就是使用在数学意义上的方程作为函数, function 应该接收输入值，并且返回输出值。</li>
+<li>arguments 是你输入的值（实参）， parameters 是函数中的命名变量（形参），用于接收函数的输入值</li>
+<li>注意： 在 JavaScript 中，实参的个数没必要完全符合形参的个数。如果你传入许多个实参，而且多过你所声明的形参，这些值仍然会原封不动地被传入。你可以通过不同的方式去访问，包含了你以前可能听过的老办法 —— arguments 对象。反之，你传入少于声明形参个数的实参，所有缺少的参数将会被赋予 undefined 变量，意味着你仍然可以在函数作用域中使用它，但值是 undefined。</li>
+<li>Arity: 指的是一个函数声明的形参数量。 使用函数的 length 属性即可</li>
+<li>由于 ES5（特别是严格模式下）的 arguments 不被一些人认同，很多人尽可能地避免使用。尽管如此，它永远不会被移除，这是因为在 JS 中我们“永远不会”因为便利性而去牺牲向后的兼容性，但我还是强烈建议不要去使用它。<br>然而，当你需要知道参数个数的时候，arguments.length 还是可以用的。在未来版本的 JS 或许会新增特性来替代 arguments.length，如果成真，那么我们可以完全把 arguments 抛诸脑后。<br>请注意：不要通过 arguments[1] 访问参数的位置。只要记住 arguments.length。</li>
+<li>带有可变数量参数的函数被称为 variadic<br>7.<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"> [x,y,...args] = [] </span>) </span>&#123;</span><br><span class="line">    <span class="comment">// ..</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">foo( [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>] );</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>8.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"> &#123;x,y&#125; = &#123;&#125; </span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log( x, y );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">foo( &#123;</span><br><span class="line">    y: <span class="number">3</span></span><br><span class="line">&#125; );</span><br></pre></td></tr></table></figure></p>
+<ol start="9">
+<li>通过不同的输入值让一个函数重载拥有不同的行为的技巧叫做特定多态（ad hoc polymorphism）</li>
+<li>如果你没有 return 值，或者你使用 return;，那么则会隐式地返回 undefined 值。<br>如果想要尽可能靠近函数式编程的定义：使用函数而非程序，那么我们的函数必须永远有返回值。这也意味着他们必须明确地 return 一个值，通常这个值也不是 undefined</li>
+<li>我认为在许多可读性的问题上，是因为我们不仅使用 return 返回不同的值，更把它作为一个流控制结构——在某些情况下可以提前退出一个函数的执行。我们显然有更好的方法来编写流控制（ if 逻辑等），也有办法使输出路径更加明显。<br>我不是说，你只能有一个 return，或你不应该提早 return，我只是认为在定义函数时，最好不要用 return 来实现流控制，这样会创造更多的隐含意义。尝试找出最明确的表达逻辑的方式，这往往是最好的办法。</li>
+<li>这个隐式函数输出在函数式编程中有一个特殊的名称：副作用。当然，没有副作用的函数也有一个特殊的名称：纯函数。我们将在以后的章节讨论这些，但关键是我们应该喜欢纯函数，并且要尽可能地避免副作用。</li>
+<li>一个函数如果可以接受或返回一个甚至多个函数，它被叫做高阶函数。</li>
+<li><p>闭包是它可以记录并且访问它作用域外的变量，甚至当这个函数在不同的作用域被执行<br>处于 foo(..) 函数作用域中的 msg 参数变量是可以在内部函数中被引用的。当 foo(..) 执行时，并且内部函数被创建，函数可以获取 msg 变量，即使 return 后仍可被访问。<br>虽然我们有函数内部引用 helloFn，现在 foo(..) 执行后，作用域应该回收，这也意味着 msg 也不存在了。不过这个情况并不会发生，函数内部会因为闭包的关系，将 msg 保留下来。只要内部函数（现在被处在不同作用域的 helloFn 引用）存在， msg 就会一直被保留。<br>15.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line">x.name;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>你几乎从没看到为 IIFE 函数来命名，但他们应该命名</p>
+</li>
+<li>命名所有单个函数</li>
+<li>函数式编程中你不应当使用 this。</li>
+</ol>
+<h2 id="第-3-章：管理函数的输入（Inputs）"><a href="#第-3-章：管理函数的输入（Inputs）" class="headerlink" title="第 3 章：管理函数的输入（Inputs）"></a>第 3 章：管理函数的输入（Inputs）</h2><ol>
+<li><p>用一句话来说明发生的事情：getOrder(data,cb) 是 ajax(url,data,cb) 函数的偏函数（partially-applied functions）。该术语代表的概念是：在函数调用现场（function call-site），将实参应用（apply） 于形参。</p>
+</li>
+<li><p>偏函数</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">partial</span>(<span class="params">fn,...presetArgs</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">partiallyApplied</span>(<span class="params">...laterArgs</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> fn( ...presetArgs, ...laterArgs );</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>partial(..) 函数接收 fn 参数，来表示被我们偏应用实参（partially apply）的函数。<br>接着，fn 形参之后，presetArgs 数组收集了后面传入的实参，保存起来稍后使用。<br>我们创建并 return 了一个新的内部函数（为了清晰明了，我们把它命名为partiallyApplied(..)），<br>该函数中，laterArgs 数组收集了全部实参。<br>你注意到在内部函数中的 fn 和 presetArgs 引用了吗？他们是怎么如何工作的？在函数 partial(..) 结束运行后，内部函数为何还能访问 fn 和 presetArgs 引用？你答对了，就是因为闭包！内部函数 partiallyApplied(..) 封闭（closes over）了 fn 和 presetArgs 变量，所以无论该函数在哪里运行，在 partial(..) 函数运行后我们仍然可以访问这些变量。所以理解闭包是多么的重要！<br>当 partiallyApplied(..) 函数稍后在某处执行时，该函数使用被闭包作用（closed over）的 fn 引用来执行原函数，首先传入（被闭包作用的）presetArgs 数组中所有的偏应用（partial application）实参，然后再进一步传入 laterArgs 数组中的实参。</p>
+
+      
+    </div>
+
+    
+      
+      
+
+  <div class="post-copyright">
+    <p class="copyright-item">
+      <span>原文作者: </span>
+      <a href="http://yoursite.com">我是你豆子欧巴</a>
+    </p>
+    <p class="copyright-item">
+      <span>原文链接: </span>
+      <a href="http://yoursite.com/2017/12/07/函数式编程笔记（一）/">http://yoursite.com/2017/12/07/函数式编程笔记（一）/</a>
+    </p>
+    <p class="copyright-item">
+      <span>许可协议: </span>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
+  </div>
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2017/12/12/深入-ES6-04-扩展的对象功能/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">深入-ES6-04 扩展的对象功能</span>
+        <span class="prev-text nav-mobile">上一篇</span>
+      </a>
+    
+    
+      <a class="next" href="/2017/12/07/koa2-源码分析之-request-js/">
+        <span class="next-text nav-default">koa2 源码分析之 request.js</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://github.com/ahonn" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+
+    
+      
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2015 - 
+    
+    2019
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">我是你豆子欧巴</span>
+  </span>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+  
+
+  
+
+
+
+    
+  
+
+
+
+  
+  
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/pjax/jquery.pjax.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/nprogress/nprogress.min.js"></script>
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.10.2"></script>
+
+  </body>
+</html>

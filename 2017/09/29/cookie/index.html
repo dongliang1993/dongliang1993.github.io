@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head><meta name="generator" content="Hexo 3.8.0">
+    
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+<meta name="theme-color" content="#f8f5ec">
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+
+  <meta name="description" content="聊聊 cookie">
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="alternate" href="/default" title="我是你豆子欧巴">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.10.2">
+
+
+
+<link rel="canonical" href="http://yoursite.com/2017/09/29/cookie/">
+
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css">
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/nprogress/nprogress.min.css">
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.10.2">
+
+
+
+  
+
+
+
+  <script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+
+
+
+
+
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":true};
+</script>
+
+    <title> 聊聊 cookie - 我是你豆子欧巴 </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">我是你豆子欧巴</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            首页
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">我是你豆子欧巴</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              首页
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          聊聊 cookie
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2017-09-29
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cookie是什么"><span class="toc-text">cookie是什么</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cookie原理"><span class="toc-text">cookie原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cookie不可跨域"><span class="toc-text">cookie不可跨域</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cookie的属性"><span class="toc-text">cookie的属性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#name"><span class="toc-text">name</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#value"><span class="toc-text">value</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#domain"><span class="toc-text">domain</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#path"><span class="toc-text">path</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#cookie的有效期"><span class="toc-text">cookie的有效期</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#secure"><span class="toc-text">secure</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#HttpOnly"><span class="toc-text">HttpOnly</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#关于js操作cookie"><span class="toc-text">关于js操作cookie</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#服务端如何去设置cookie"><span class="toc-text">服务端如何去设置cookie</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol>
+    </div>
+  </div>
+
+
+
+    <div class="post-content">
+      
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>cookie在web开发中时常被用到，也是面试官喜欢问的一块技术，很多人或许和我以前一样，只知其一不知其二，谈起web存储，都会答localStorage、sessionStorage、还有就是cookie，然后一些区别啊什么的倒背如流，cookie的优缺点也了然于心，但是当你看完这块内容之后，你会对cookie有另外独到的见解，希望以后问到这块技术，或者项目中遇到这个你都会处理，我在实习的过程中，一直在用，所以它真的不是口头说说的那么简单，让我们进入cookie的世界</p>
+<h3 id="cookie是什么"><a href="#cookie是什么" class="headerlink" title="cookie是什么"></a>cookie是什么</h3><p>这个讲起来很简单，了解http的同学，肯定知道，http是一个不保存状态的协议，什么叫不保存状态，就是一个服务器是不清楚是不是同一个浏览器在访问他，在cookie之前，有另外的技术是可以解决，这里简单讲一下，就是在请求中插入一个token，然后在发送请求的时候，把这个东西带给服务器，这种方式是易出错，所以有了cookie的出现</p>
+<p><img src="http://laihuamin.oss-cn-beijing.aliyuncs.com/cookie.png" alt="cookie"></p>
+<p>cookie是什么，cookie就是一种浏览器管理状态的一个文件，它有name，也有value，后面那些看不见的是Domain、path等等，我们后面会介绍</p>
+<h3 id="cookie原理"><a href="#cookie原理" class="headerlink" title="cookie原理"></a>cookie原理</h3><p><img src="http://laihuamin.oss-cn-beijing.aliyuncs.com/cookieSend.png" alt="cookieSend"></p>
+<p>第一次访问网站的时候，浏览器发出请求，服务器响应请求后，会将cookie放入到响应请求中，在浏览器第二次发请求的时候，会把cookie带过去，服务端会辨别用户身份，当然服务器也可以修改cookie内容</p>
+<h3 id="cookie不可跨域"><a href="#cookie不可跨域" class="headerlink" title="cookie不可跨域"></a>cookie不可跨域</h3><p>我就几个例子你就懂了，当我打开百度的网页，我要设置一个cookie的时候，我的指令如下<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">javascript:<span class="built_in">document</span>.cookie=<span class="string">'myname=laihuamin;path=/;domain=.baidu.com'</span>;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">javascript:<span class="built_in">document</span>.cookie=<span class="string">'myname=huaminlai;path=/;domain=.google.com'</span>;</span><br></pre></td></tr></table></figure>
+<p>当我将这两个语句都放到浏览器控制台运行的时候，你会发现一点,注意，上面两个cookie的值是不相同的，看清楚<br><img src="http://laihuamin.oss-cn-beijing.aliyuncs.com/cookieDonDomain.png" alt="cookieDontDomain"><br>显而易见的是，真正能把cookie设置上去的只有domain是.baidu.com的cookie绑定到了域名上，所以上面所说的不可跨域性，就是不能在不同的域名下用，每个cookie都会绑定单一的域名</p>
+<h3 id="cookie的属性"><a href="#cookie的属性" class="headerlink" title="cookie的属性"></a>cookie的属性</h3><p>cookie的属性众多，我们可以来看一下下面这张图，然后我们一个一个分析</p>
+<p><img src="http://laihuamin.oss-cn-beijing.aliyuncs.com/cookieAttr.png" alt="cookieAttr"></p>
+<h4 id="name"><a href="#name" class="headerlink" title="name"></a>name</h4><p>这个显而易见，就是代表cookie的名字的意思，一个域名下绑定的cookie，name不能相同，相同的name的值会被覆盖掉，有兴趣的同学可以试一试，我在项目中切实用到过</p>
+<h4 id="value"><a href="#value" class="headerlink" title="value"></a>value</h4><p>这个就是每个cookie拥有的一个属性，它表示cookie的值，但是我在这里想说的不是这个，因为我在网上看到两种说法，如下：<br><br>1.cookie的值必须被URL编码<br><br>2.对cookie的值进行编码不是必须的，还举了原始文档中所说的，仅对三种符号必须进行编码：分号、逗号和空格</p>
+<p>这个东西得一分为二来看，先看下面的图</p>
+<p><img src="http://laihuamin.oss-cn-beijing.aliyuncs.com/cookieValue.png" alt="cookievalue"></p>
+<p>我在网上看到那么一种说法：</p>
+<blockquote>
+<p>由于cookie规定是名称/值是不允许包含分号，逗号，空格的，所以为了不给用户到来麻烦，考虑服务器的兼容性，任何存储cookie的数据都应该被编码。</p>
+</blockquote>
+<h4 id="domain"><a href="#domain" class="headerlink" title="domain"></a>domain</h4><p>这个是指的域名，这个代表的是，cookie绑定的域名，如果没有设置，就会自动绑定到执行语句的当前域，还有值得注意的点，统一个域名下的二级域名也是不可以交换使用cookie的，比如，你设置<a href="http://www.baidu.com和image.baidu.com,依旧是不能公用的" target="_blank" rel="noopener">www.baidu.com和image.baidu.com,依旧是不能公用的</a></p>
+<h4 id="path"><a href="#path" class="headerlink" title="path"></a>path</h4><p>path这个属性默认是’/‘，这个值匹配的是web的路由，举个例子：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//默认路径</span></span><br><span class="line">www<span class="selector-class">.baidu</span><span class="selector-class">.com</span></span><br><span class="line"><span class="comment">//blog路径</span></span><br><span class="line">www<span class="selector-class">.baidu</span><span class="selector-class">.com</span>/blog</span><br></pre></td></tr></table></figure></p>
+<p>我为什么说的是匹配呢，就是当你路径设置成/blog的时候，其实它会给/blog、/blogabc等等的绑定cookie</p>
+<h4 id="cookie的有效期"><a href="#cookie的有效期" class="headerlink" title="cookie的有效期"></a>cookie的有效期</h4><p><img src="http://laihuamin.oss-cn-beijing.aliyuncs.com/cookieMaxAge.png" alt="cookieMaxAge"></p>
+<p>什么是有效期，就是图中的Expires属性，一般浏览器的cookie都是默认储存的，当关闭浏览器结束这个会话的时候，这个cookie也就会被删除，这就是上图中的——session(会话储存)。</p>
+<p>如果你想要cookie存在一段时间，那么你可以通过设置Expires属性为未来的一个时间节点，Expires这个是代表当前时间的，这个属性已经逐渐被我们下面这个主人公所取代——Max-Age</p>
+<p>Max-Age，是以秒为单位的，Max-Age为正数时，cookie会在Max-Age秒之后，被删除，当Max-Age为负数时，表示的是临时储存，不会生出cookie文件，只会存在浏览器内存中，且只会在打开的浏览器窗口或者子窗口有效，一旦浏览器关闭，cookie就会消失，当Max-Age为0时，又会发生什么呢，删除cookie，因为cookie机制本身没有设置删除cookie，失效的cookie会被浏览器自动从内存中删除，所以，它实现的就是让cookie失效。</p>
+<h4 id="secure"><a href="#secure" class="headerlink" title="secure"></a>secure</h4><p><img src="http://laihuamin.oss-cn-beijing.aliyuncs.com/cookieSecure.png" alt="cookieSecure"></p>
+<p>这个属性译为安全，http不仅是无状态的，还是不安全的协议，容易被劫持，打个比方，你在手机端浏览网页的时候，有没有中国移动图标跳出来过，闲言少叙，当这个属性设置为true时，此cookie只会在https和ssl等安全协议下传输</p>
+<ul>
+<li>提示：这个属性并不能对客户端的cookie进行加密，不能保证绝对的安全性</li>
+</ul>
+<h4 id="HttpOnly"><a href="#HttpOnly" class="headerlink" title="HttpOnly"></a>HttpOnly</h4><p>这个属性是面试的时候常考的，如果这个属性设置为true，就不能通过js脚本来获取cookie的值，能有效的防止xss攻击,看MDN的官方文档：<br><img src="http://laihuamin.oss-cn-beijing.aliyuncs.com/cookieHttpOnly.png" alt="httpOnly"></p>
+<h4 id="关于js操作cookie"><a href="#关于js操作cookie" class="headerlink" title="关于js操作cookie"></a>关于js操作cookie</h4><p>document.cookie可以对cookie进行读写，看一下两条指令：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//读取浏览器中的cookie</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">document</span>.cookie);</span><br><span class="line"><span class="comment">//写入cookie</span></span><br><span class="line"><span class="built_in">document</span>.cookie=<span class="string">'myname=laihuamin;path=/;domain=.baidu.com'</span>;</span><br></pre></td></tr></table></figure></p>
+<h4 id="服务端如何去设置cookie"><a href="#服务端如何去设置cookie" class="headerlink" title="服务端如何去设置cookie"></a>服务端如何去设置cookie</h4><p>关于怎么设置cookie，我们只要打开控制台，看一个http的请求头和响应头中的东西即可明白：<br><img src="http://laihuamin.oss-cn-beijing.aliyuncs.com/setCookie.png" alt="setCookie"></p>
+<p>服务端就是通过setCookie来设置cookie的，注意点，要设置多个cookie时，得多写几个setCookie，我们还可以从上图看到，请求可以携带cookie给后端。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>cookie讲了这么多，自己也收获了很多，也希望分享给大家，或许写的不够好，请见谅，如果觉得我写的好的朋友，给个star，<a href="https://github.com/laihuamin/JS-total" target="_blank" rel="noopener">github地址</a></p>
+
+      
+    </div>
+
+    
+      
+      
+
+  <div class="post-copyright">
+    <p class="copyright-item">
+      <span>原文作者: </span>
+      <a href="http://yoursite.com">我是你豆子欧巴</a>
+    </p>
+    <p class="copyright-item">
+      <span>原文链接: </span>
+      <a href="http://yoursite.com/2017/09/29/cookie/">http://yoursite.com/2017/09/29/cookie/</a>
+    </p>
+    <p class="copyright-item">
+      <span>许可协议: </span>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
+  </div>
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2017/11/20/深入-ES6-01-块级绑定/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">深入 ES6 -- 01 块级绑定</span>
+        <span class="prev-text nav-mobile">上一篇</span>
+      </a>
+    
+    
+  </nav>
+
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://github.com/ahonn" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+
+    
+      
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2015 - 
+    
+    2019
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">我是你豆子欧巴</span>
+  </span>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+  
+
+  
+
+
+
+    
+  
+
+
+
+  
+  
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/pjax/jquery.pjax.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/nprogress/nprogress.min.js"></script>
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.10.2"></script>
+
+  </body>
+</html>
