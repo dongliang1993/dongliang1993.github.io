@@ -1,201 +1,81 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-  <head><meta name="generator" content="Hexo 3.8.0">
-    
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
-
-<meta name="theme-color" content="#f8f5ec">
-<meta name="msapplication-navbutton-color" content="#f8f5ec">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
-
-
-
-  <meta name="description" content="面试题汇总整理">
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <link rel="alternate" href="/default" title="我是你豆子欧巴">
-
-
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.10.2">
-
-
-
-<link rel="canonical" href="http://yoursite.com/2017/12/18/面试题汇总整理/">
-
-
-
-  <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css">
-
-
-
-
-  <link rel="stylesheet" type="text/css" href="/lib/nprogress/nprogress.min.css">
-
-
-
-<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.10.2">
-
-
-
-  
-
-
-
-  <script id="baidu_push">
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
-</script>
-
-
-
-
-
-
-
-
-
-<script>
-  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":true};
-</script>
-
-    <title> 面试题汇总整理 - 我是你豆子欧巴 </title>
-  </head>
-
-  <body><div id="mobile-navbar" class="mobile-navbar">
-  <div class="mobile-header-logo">
-    <a href="/." class="logo">我是你豆子欧巴</a>
-  </div>
-  <div class="mobile-navbar-icon">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</div>
-
-<nav id="mobile-menu" class="mobile-menu slideout-menu">
-  <ul class="mobile-menu-list">
-    
-      <a href="/">
-        <li class="mobile-menu-item">
-          
-          
-            首页
-          
-        </li>
-      </a>
-    
-  </ul>
-</nav>
-
-    <div class="container" id="mobile-panel">
-      <header id="header" class="header"><div class="logo-wrapper">
-  <a href="/." class="logo">我是你豆子欧巴</a>
-</div>
-
-<nav class="site-navbar">
-  
-    <ul id="menu" class="menu">
-      
-        <li class="menu-item">
-          <a class="menu-item-link" href="/">
-            
-            
-              首页
-            
-          </a>
-        </li>
-      
-    </ul>
-  
-</nav>
-
-      </header>
-
-      <main id="main" class="main">
-        <div class="content-wrapper">
-          <div id="content" class="content">
-            
-  
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          面试题汇总整理
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2017-12-18
-        </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-  <div class="post-toc" id="post-toc">
-    <h2 class="post-toc-title">文章目录</h2>
-    <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#flex-布局"><span class="toc-text">flex 布局</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-position-的值有哪些？各种值的情况都是什么样的？"><span class="toc-text">1. position 的值有哪些？各种值的情况都是什么样的？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CSS-盒模型"><span class="toc-text">CSS 盒模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-CSS3-box-sizing-的作用"><span class="toc-text">2. CSS3 box-sizing 的作用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-normalize-css与reset-css区别"><span class="toc-text">3. normalize.css与reset.css区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#css-布局问题"><span class="toc-text">css 布局问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#居中问题"><span class="toc-text">居中问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#浮动清除（闭合浮动）"><span class="toc-text">浮动清除（闭合浮动）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BFC是什么？-Block-formatting-context"><span class="toc-text">BFC是什么？(Block formatting context)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#session、cookie、sessionStorage、localStorage-等区别"><span class="toc-text">session、cookie、sessionStorage、localStorage 等区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CSS-单位：px、em、rem"><span class="toc-text">CSS 单位：px、em、rem</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#动画为什么要尽量用-css3-代替-js"><span class="toc-text">动画为什么要尽量用 css3 代替 js</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#webpack-loader-的原理"><span class="toc-text">webpack.loader 的原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#谈谈对前端安全的理解，有什么，怎么防范"><span class="toc-text">谈谈对前端安全的理解，有什么，怎么防范</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JS-实现继承的几种方式"><span class="toc-text">JS 实现继承的几种方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#你做过哪些性能优化"><span class="toc-text">你做过哪些性能优化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#传输快"><span class="toc-text">传输快</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#体验快"><span class="toc-text">体验快</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-浏览器渲染原理"><span class="toc-text">11. 浏览器渲染原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-前端路由的原理"><span class="toc-text">12. 前端路由的原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13-Restful-API-是什么"><span class="toc-text">13.Restful API 是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#14-script-标签的-defer、async-的区别"><span class="toc-text">14. script 标签的 defer、async 的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#16-原型与闭包相关问题"><span class="toc-text">16. 原型与闭包相关问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-XML-和-JSON-的区别？"><span class="toc-text">3. XML 和 JSON 的区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-谈谈你对-webpack-的看法"><span class="toc-text">4. 谈谈你对 webpack 的看法</span></a></li></ol>
-    </div>
-  </div>
-
-
-
-    <div class="post-content">
-      
-        <h2 id="flex-布局"><a href="#flex-布局" class="headerlink" title="flex 布局"></a>flex 布局</h2><p><a href="https://zhuanlan.zhihu.com/p/25303493" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/25303493</a></p>
-<h2 id="1-position-的值有哪些？各种值的情况都是什么样的？"><a href="#1-position-的值有哪些？各种值的情况都是什么样的？" class="headerlink" title="1. position 的值有哪些？各种值的情况都是什么样的？"></a>1. position 的值有哪些？各种值的情况都是什么样的？</h2><p>(1)static: 默认值。元素在文档常规流中当前的布局位置。</p>
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.8.0"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>面试题汇总整理 | 我是你豆子欧巴</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/normalize/8.0.1/normalize.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//lib.baomitu.com/jquery/3.4.0/jquery.min.js"></script><link rel="icon" mask="" sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">面试题汇总整理</h1><a id="logo" href="/.">我是你豆子欧巴</a><p class="description">我是你豆子欧巴</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">面试题汇总整理</h1><div class="post-meta">Dec 18, 2017</div><div class="post-content"><h2 id="介绍下重绘和回流（Repaint-amp-Reflow），以及如何进行优化"><a href="#介绍下重绘和回流（Repaint-amp-Reflow），以及如何进行优化" class="headerlink" title="介绍下重绘和回流（Repaint &amp; Reflow），以及如何进行优化"></a>介绍下重绘和回流（Repaint &amp; Reflow），以及如何进行优化</h2><ol>
+<li>浏览器渲染机制</li>
+</ol>
+<p>浏览器采用流式布局模型（Flow Based Layout）<br>浏览器会把HTML解析成DOM，把CSS解析成CSSOM，DOM和CSSOM合并就产生了渲染树（Render Tree）。<br>有了RenderTree，我们就知道了所有节点的样式，然后计算他们在页面上的大小和位置，最后把节点绘制到页面上。<br>由于浏览器使用流式布局，对Render Tree的计算通常只需要遍历一次就可以完成，但table及其内部元素除外，他们可能需要多次计算，通常要花3倍于同等元素的时间，这也是为什么要避免使用table布局的原因之一。</p>
+<ol start="2">
+<li>重绘<br>由于节点的几何属性发生改变或者由于样式发生改变而不会影响布局的，称为重绘，例如outline, visibility, color、background-color等，重绘的代价是高昂的，因为浏览器必须验证DOM树上其他节点元素的可见性。</li>
+<li>回流<br>回流是布局或者几何属性需要改变就称为回流。回流是影响浏览器性能的关键因素，因为其变化涉及到部分页面（或是整个页面）的布局更新。一个元素的回流可能会导致了其所有子元素以及DOM中紧随其后的节点、祖先节点元素的随后的回流。<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"error"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h4</span>&gt;</span>我的组件<span class="tag">&lt;/<span class="name">h4</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">strong</span>&gt;</span>错误：<span class="tag">&lt;/<span class="name">strong</span>&gt;</span>错误的描述…<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h5</span>&gt;</span>错误纠正<span class="tag">&lt;/<span class="name">h5</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ol</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span>第一步<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span>第二步<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ol</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>复制代码在上面的HTML片段中，对该段落(</p><p>标签)回流将会引发强烈的回流，因为它是一个子节点。这也导致了祖先的回流（div.error和body – 视浏览器而定）。此外，</p><h5>和<ol>也会有简单的回流，因为这些节点在DOM中回流元素之后。大部分的回流将导致页面的重新渲染。<br>回流必定会发生重绘，重绘不一定会引发回流。<p></p>
+<ol start="4">
+<li>浏览器优化<br>现代浏览器大多都是通过队列机制来批量更新布局，浏览器会把修改操作放在队列中，至少一个浏览器刷新（即16.6ms）才会清空队列，但当你获取布局信息的时候，队列中可能有会影响这些属性或方法返回值的操作，即使没有，浏览器也会强制清空队列，触发回流与重绘来确保返回正确的值。</li>
+</ol>
+<p>主要包括以下属性或方法：</p>
+<p>offsetTop、offsetLeft、offsetWidth、offsetHeight<br>scrollTop、scrollLeft、scrollWidth、scrollHeight<br>clientTop、clientLeft、clientWidth、clientHeight<br>width、height<br>getComputedStyle()<br>getBoundingClientRect()</p>
+<p>所以，我们应该避免频繁的使用上述的属性，他们都会强制渲染刷新队列。</p>
+<ol start="5">
+<li>减少重绘与回流</li>
+</ol>
+<p>CSS</p>
+<p>使用 transform 替代 top<br>使用 visibility 替换 display: none ，因为前者只会引起重绘，后者会引发回流<br>避免使用table布局，可能很小的一个小改动会造成整个 table 的重新布局。<br>尽可能在DOM树的最末端改变class，回流是不可避免的，但可以减少其影响。尽可能在DOM树的最末端改变class，可以限制了回流的范围，使其影响尽可能少的节点。<br>避免设置多层内联样式，CSS 选择符从右往左匹配查找，避免节点层级过多。</p>
+<pre><code>&lt;div&gt;
+  &lt;a&gt; &lt;span&gt;&lt;/span&gt; &lt;/a&gt;
+&lt;/div&gt;
+&lt;style&gt;
+  span {
+    color: red;
+  }
+  div &gt; a &gt; span {
+    color: red;
+  }
+&lt;/style&gt;
+</code></pre><p>复制代码对于第一种设置样式的方式来说，浏览器只需要找到页面中所有的 span 标签然后设置颜色，但是对于第二种设置样式的方式来说，浏览器首先需要找到所有的 span 标签，然后找到 span 标签上的 a 标签，最后再去找到 div 标签，然后给符合这种条件的 span 标签设置颜色，这样的递归过程就很复杂。所以我们应该尽可能的避免写过于具体的 CSS 选择器，然后对于 HTML 来说也尽量少的添加无意义标签，保证层级扁平。</p>
+<p>将动画效果应用到position属性为absolute或fixed的元素上，避免影响其他元素的布局，这样只是一个重绘，而不是回流，同时，控制动画速度可以选择 requestAnimationFrame，详见探讨 requestAnimationFrame。<br>避免使用CSS表达式，可能会引发回流。<br>将频繁重绘或者回流的节点设置为图层，图层能够阻止该节点的渲染行为影响别的节点，例如will-change、video、iframe等标签，浏览器会自动将该节点变为图层。<br>CSS3 硬件加速（GPU加速），使用css3硬件加速，可以让transform、opacity、filters这些动画不会引起回流重绘 。但是对于动画的其它属性，比如background-color这些，还是会引起回流重绘的，不过它还是可以提升这些动画的性能。</p>
+<p>JavaScript</p>
+<p>避免频繁操作样式，最好一次性重写style属性，或者将样式列表定义为class并一次性更改class属性。</p>
+<p>避免频繁操作DOM，创建一个documentFragment，在它上面应用所有DOM操作，最后再把它添加到文档中。</p>
+<p>避免频繁读取会引发回流/重绘的属性，如果确实需要多次使用，就用一个变量缓存起来。</p>
+<p>对具有复杂动画的元素使用绝对定位，使它脱离文档流，否则会引起父元素及后续元素频繁回流。</p>
+<h2 id="flex-布局"><a href="#flex-布局" class="headerlink" title="flex 布局"></a>flex 布局</h2><p><a href="https://zhuanlan.zhihu.com/p/25303493" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/25303493</a></p>
+<h2 id="说一下一个未知宽高元素怎么上下左右垂直居中"><a href="#说一下一个未知宽高元素怎么上下左右垂直居中" class="headerlink" title="说一下一个未知宽高元素怎么上下左右垂直居中"></a>说一下一个未知宽高元素怎么上下左右垂直居中</h2><p><a href="https://github.com/Monine/study/issues/11" target="_blank" rel="noopener">https://github.com/Monine/study/issues/11</a></p>
+<h2 id="说一下你项目中用到的技术栈，以及觉得得意和出色的点，以及让你头疼的点，怎么解决的。"><a href="#说一下你项目中用到的技术栈，以及觉得得意和出色的点，以及让你头疼的点，怎么解决的。" class="headerlink" title="说一下你项目中用到的技术栈，以及觉得得意和出色的点，以及让你头疼的点，怎么解决的。"></a>说一下你项目中用到的技术栈，以及觉得得意和出色的点，以及让你头疼的点，怎么解决的。</h2><h2 id="1-position-的值有哪些？各种值的情况都是什么样的？"><a href="#1-position-的值有哪些？各种值的情况都是什么样的？" class="headerlink" title="1. position 的值有哪些？各种值的情况都是什么样的？"></a>1. position 的值有哪些？各种值的情况都是什么样的？</h2><p>(1)static: 默认值。元素在文档常规流中当前的布局位置。</p>
 <p>(2)absolute: 元素会脱离常规流，相对于最近一级的非 static 定位的祖先元素进行偏移。有默认值，默认值为 auto . 绝对定位的元素可以设置外边距（margins），且不会与其他边距合并。</p>
 <p>(3)relative: 元素不脱离常规流，相对于其在常规流中的位置进行定位，因此会在此元素未添加定位时所在位置留下空白。</p>
 <p>(4)fixed: 元素脱离常规流，通常相对于浏览器窗口或 frame 进行定位。</p>
 <p>(5)sticky: 生成粘性定位的元素，元素先按照普通文档流定位，然后相对于该元素在流中的 flow root（BFC）和 containing block（最近的块级祖先元素）定位。而后，元素定位表现为在跨越特定阈值前为相对定位，之后为固定定位。这个特定阈值指的是 top, right, bottom 或 left 之一，换言之，指定 top, right, bottom 或 left 四个阈值其中之一，才可使粘性定位生效。否则其行为与相对定位相同。</p>
 <p>相关链接： <a href="http://www.cnblogs.com/coco1s/p/6402723.html" target="_blank" rel="noopener">http://www.cnblogs.com/coco1s/p/6402723.html</a></p>
-<h2 id="CSS-盒模型"><a href="#CSS-盒模型" class="headerlink" title="CSS 盒模型"></a>CSS 盒模型</h2><p>html 中的每个元素都被描绘成矩形盒子，这些矩形盒子通过一个模型来描述其占用空间，这个模型称为盒模型。盒模型通过四个边界来描述：margin（外边距），border（边框），padding（内边距），content（内容区域） </p>
-<p>内容区域 content area 是包含元素真实内容的区域。它通常包含背景、颜色或者图片等，位于内容边界的内部，它的大小为内容宽度 或 content-box 宽及内容高度或 content-box 高。如果 box-sizing 为默认值， width, min-width, max-width, height, min-height 与 max-height 控制内容大小。</p>
-<p>内边距区域 padding area 延伸到包围 padding 的边框。如果内容区域 content area 设置了背景、颜色或者图片，这些样式将会延伸到 padding 上（译者注：而不仅仅是作用于内容区域)。它位于内边距边界内部，它的大小为 padding-box 宽与 padding-box 高。</p>
-<p>边框区域 border area 是包含边框的区域，扩展了内边距区域。它位于边框边界内部，大小为 border-box  宽和 border-box 高。</p>
-<p>外边距区域 margin area 用空白区域扩展边框区域，以分开相邻的元素。它的大小为  margin-box 的高宽。</p>
-<h2 id="2-CSS3-box-sizing-的作用"><a href="#2-CSS3-box-sizing-的作用" class="headerlink" title="2. CSS3 box-sizing 的作用"></a>2. CSS3 box-sizing 的作用</h2><p>CSS 中 Box model 分为两种，第一种是 W3C 的标准模型，另一种是 IE 的传统模型</p>
-<p>box-sizing 可以主动设置 CSS 盒模型为标准模型或 IE 模型。标准模型的宽度只包括 content，IE 模型包括 border 和 padding</p>
+<h2 id="CSS-盒模型"><a href="#CSS-盒模型" class="headerlink" title="CSS 盒模型"></a>CSS 盒模型</h2><ol>
+<li>定义</li>
+</ol>
+<p>html 中的每个元素都被描绘成一个矩形盒子，这些矩形盒子通过一个模型来描述其占用的空间，这个模型称为盒模型。<br><img src="https://mdn.mozillademos.org/files/8685/boxmodel-(3" alt="">.png)</p>
+<ol start="2">
+<li>简述</li>
+</ol>
+<p>盒模型通过四个边界来描述：margin（外边距），border（边框），padding（内边距），content（内容区域） </p>
+<ul>
+<li>内容区域（content area）： 包含元素真实内容的区域。它通常包含背景、颜色或者图片等，位于内容边界的内部。是 box-sizing 的默认值， width, min-width, max-width, height, min-height 与 max-height 控制内容区域大小。</li>
+<li>内边距区域（padding area）： 内容区域 + padding。如果内容区域 content area 设置了背景、颜色或者图片，这些样式将会延伸到 padding 上（译者注：而不仅仅是作用于内容区域)。</li>
+<li>边框区域(border area): 内边距区域 + border。是 IE 下的默认值，被称为怪异盒模型</li>
+<li>外边距区域（margin area）：边框区域 + margin</li>
+</ul>
+<ol start="3">
+<li>分类</li>
+</ol>
+<p>盒模型分为 IE 盒模型和 W3C 标准盒模型。</p>
+<ul>
+<li>W3C 标准盒模型：属性 width,height 只包含内容content，不包含border和padding。</li>
+<li>IE 盒模型：属性width,height包含border和padding，指的是content+padding+border。</li>
+</ul>
+<p>box-sizing 可以主动设置 CSS 盒模型为标准模型或 IE 模型。标准模型的宽度只包括 content，IE 模型包括 border 和 padding。</p>
+<p>若不声明DOCTYPE类型，IE浏览器会将盒子模型解释为IE盒子模型</p>
 <p>box-sizing 属性可以为三个值之一：</p>
 <ol>
 <li>content-box，默认值，border 和 padding 不计算入 width 之内</li>
 <li>padding-box，padding 计算入 width 内</li>
 <li>border-box，border 和 padding 计算入 width 之内</li>
 </ol>
+<p>我们使用 box-sizing: border-box 的主要场景是盒子的大小计算会比较麻烦，甚至会影响我们的布局</p>
 <h2 id="3-normalize-css与reset-css区别"><a href="#3-normalize-css与reset-css区别" class="headerlink" title="3. normalize.css与reset.css区别"></a>3. normalize.css与reset.css区别</h2><ul>
 <li>本质是可以使元素的渲染在多个浏览器下都能保持一致并且符合规范</li>
 <li>Normalize.css<ul>
@@ -568,25 +448,22 @@
 </ol>
 <p>29.UTF-8 和 Unicode 的区别<br>UTF-8 就是在互联网上使用最广的一种 unicode 的实现方式。<br>Unicode 的出现是为了统一地区性文字编码方案，为解决 unicode 如何在网络上传输的问题，于是面向传输的众多 UTF（UCS Transfer Format）标准出现了，顾名思义，UTF-8 就是每次 8 个位传输数据，而 UTF-16 就是每次 16 个位。<br>ASCII –&gt; 地区性编码（GBK） –&gt; Unicode –&gt; UTF-8<br>知乎回答</p>
 <p>你做过哪些性能优化</p>
+<h2 id="跨域资源共享-CORS-详解"><a href="#跨域资源共享-CORS-详解" class="headerlink" title="跨域资源共享 CORS 详解"></a>跨域资源共享 CORS 详解</h2><p><a href="http://www.ruanyifeng.com/blog/2016/04/cors.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2016/04/cors.html</a></p>
 <ol start="2">
 <li>什么叫做跨域？如何解决跨域问题？</li>
 </ol>
 <p><a href="https://segmentfault.com/a/1190000007326671" target="_blank" rel="noopener">https://segmentfault.com/a/1190000007326671</a></p>
-<p>只要协议、域名、端口有任何一个不同，都被当作是不同的域，之间的请求就是跨域操作。</p>
-<p>浏览器的同源策略会导致跨域，这里同源策略又分为以下两种：</p>
-<ol>
-<li>DOM 同源策略：禁止对不同源页面 DOM 进行操作。这里主要场景是 iframe 跨域的情况，不同域名的 iframe 是限制互相访问的。</li>
-<li>XmlHttpRequest 同源策略：禁止使用 XHR 对象向不同源的服务器地址发起 HTTP 请求。</li>
-</ol>
-<p>为什么要有跨域限制？</p>
-<p>跨域限制主要是为了安全考虑。</p>
-<p>AJAX 同源策略主要用来防止 CSRF 攻击。如果没有 AJAX 同源策略，相当危险，我们发起的每一次 HTTP 请求都会带上请求地址对应的 cookie，那么可以做如下攻击：</p>
-<p>用户登录了自己的银行页面 <a href="http://mybank.com，http://mybank.com" target="_blank" rel="noopener">http://mybank.com，http://mybank.com</a> 向用户的 cookie 中添加用户标识。<br>用户浏览了恶意页面 <a href="http://evil.com。执行了页面中的恶意" target="_blank" rel="noopener">http://evil.com。执行了页面中的恶意</a> AJAX 请求代码。<br><a href="http://evil.com" target="_blank" rel="noopener">http://evil.com</a> 向 <a href="http://mybank.com" target="_blank" rel="noopener">http://mybank.com</a> 发起 AJAX HTTP 请求，请求会默认把 <a href="http://mybank.com" target="_blank" rel="noopener">http://mybank.com</a> 对应 cookie 也同时发送过去。<br>银行页面从发送的 cookie 中提取用户标识，验证用户无误，response 中返回请求数据。此时数据就泄露了。<br>而且由于 Ajax 在后台执行，用户无法感知这一过程。</p>
+<p>只要协议、域名、端口有任何一个不同，都被当作是不同的域，之间的请求就是跨域操作，反之就是同域了。跨域限制主要是为了安全考虑。</p>
 <p>这里我们需要注意两点：</p>
 <ul>
 <li>如果是协议和端口造成的跨域问题“前台”是无能为力的；</li>
 <li>在跨域问题上，域仅仅是通过“URL 的首部”来识别而不会去尝试判断相同的 ip 地址对应着两个域或两个域是否在同一个 ip 上。<br>(“URL 的首部”指 window.location.protocol +window.location.host，也可以理解为“Domains, protocols and ports must match”。)</li>
 </ul>
+<p>浏览器的同源策略会导致跨域，这里同源策略又分为以下两种：</p>
+<ol>
+<li>DOM 同源策略：禁止对不同源页面 DOM 进行操作。这里主要场景是 iframe 跨域的情况，不同域名的 iframe 是限制互相访问的。</li>
+<li>XmlHttpRequest 同源策略：禁止使用 XHR 对象向不同源的服务器地址发起 HTTP 请求。</li>
+</ol>
 <p>跨域的解决方式</p>
 <ol>
 <li>跨域资源共享 (CORS)<br>全称是”跨域资源共享”（Cross-origin resource sharing）。 对于这个方式，阮一峰老师总结的文章特别好，希望深入了解的可以看一下 <a href="http://www.ruanyifeng.com/blog/2016/04/cors.html。" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2016/04/cors.html。</a></li>
@@ -1423,196 +1300,4 @@ GET 方式需要使用 Request.QueryString 来取得变量的值，而 POST 方�
 <p>304 是 HTTP 状态码，服务器用来标识这个文件没修改，不返回内容，浏览器在接收到个状态码后，会使用浏览器已缓存的文件</p>
 <p>客户端请求一个页面（A）。 服务器返回页面 A，并在给 A 加上一个 ETag。 客户端展现该页面，并将页面连同 ETag 一起缓存。 客户再次请求页面 A，并将上次请求时服务器返回的 ETag 一起传递给服务器。 服务器检查该 ETag，并判断出该页面自上次客户端请求之后还未被修改，直接返回响应 304（未修改——Not Modified）和一个空的响应体。</p>
 <p>什么样的前端代码是好的<br>高复用低耦合，这样文件小，好维护，而且好扩展。</p>
-
-      
-    </div>
-
-    
-      
-      
-
-  <div class="post-copyright">
-    <p class="copyright-item">
-      <span>原文作者: </span>
-      <a href="http://yoursite.com">我是你豆子欧巴</a>
-    </p>
-    <p class="copyright-item">
-      <span>原文链接: </span>
-      <a href="http://yoursite.com/2017/12/18/面试题汇总整理/">http://yoursite.com/2017/12/18/面试题汇总整理/</a>
-    </p>
-    <p class="copyright-item">
-      <span>许可协议: </span>
-      
-      <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
-    </p>
-  </div>
-
-
-
-      
-      
-    
-
-    
-      <footer class="post-footer">
-        
-        
-        
-  <nav class="post-nav">
-    
-      <a class="prev" href="/2017/12/18/Zan-UI-源码分析（三）BlockHeader-组件/">
-        <i class="iconfont icon-left"></i>
-        <span class="prev-text nav-default">Zan UI 源码分析（三）BlockHeader 组件</span>
-        <span class="prev-text nav-mobile">上一篇</span>
-      </a>
-    
-    
-      <a class="next" href="/2017/12/18/Zan-UI-源码分析（二）Badge-组件/">
-        <span class="next-text nav-default">Zan UI 源码分析（二）Badge 组件</span>
-        <span class="prev-text nav-mobile">下一篇</span>
-        <i class="iconfont icon-right"></i>
-      </a>
-    
-  </nav>
-
-
-      </footer>
-    
-
-  </article>
-
-
-          </div>
-          
-  <div class="comments" id="comments">
-    
-  </div>
-
-
-        </div>
-      </main>
-
-      <footer id="footer" class="footer">
-
-  <div class="social-links">
-    
-      
-        
-          <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
-        
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-        
-          <a href="https://github.com/ahonn" class="iconfont icon-github" title="github"></a>
-        
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-
-    
-      
-      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
-    
-  </div>
-
-
-
-<div class="copyright">
-  <span class="power-by">
-    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
-  </span>
-  <span class="division">|</span>
-  <span class="theme-info">
-    主题 - 
-    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
-  </span>
-
-  <span class="copyright-year">
-    
-    &copy; 
-     
-      2015 - 
-    
-    2019
-
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">我是你豆子欧巴</span>
-  </span>
-</div>
-
-      </footer>
-
-      <div class="back-to-top" id="back-to-top">
-        <i class="iconfont icon-up"></i>
-      </div>
-    </div>
-
-    
-  
-  
-
-  
-
-
-
-    
-  
-
-
-
-  
-  
-
-
-
-
-
-  
-    <script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
-  
-
-  
-    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
-  
-
-  
-    <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
-  
-
-  
-    <script type="text/javascript" src="/lib/pjax/jquery.pjax.min.js"></script>
-  
-
-  
-    <script type="text/javascript" src="/lib/nprogress/nprogress.min.js"></script>
-  
-
-
-    <script type="text/javascript" src="/js/src/even.js?v=2.10.2"></script>
-
-  </body>
-</html>
+</ol></h5></div><div class="tags"></div><div class="post-nav"><a class="pre" href="/2017/12/18/Zan-UI-源码分析（三）BlockHeader-组件/">Zan UI 源码分析（三）BlockHeader 组件</a><a class="next" href="/2017/12/18/Zan-UI-源码分析（二）Badge-组件/">Zan UI 源码分析（二）Badge 组件</a></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"><input type="hidden" name="sitesearch" value="http://yoursite.com"></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/js/" style="font-size: 15px;">js</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/01/01/test/">test</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/23/【笔记】事件/">【笔记】事件</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/12/面向对象编程-笔记/">面向对象编程 -- 笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/12/同源策略-笔记/">同源策略--笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/12/history对象-笔记/">history 对象 -- 笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/11/前端路由浅解析/">前端路由浅解析</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/24/react-基础知识/">react 基础知识</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/07/js-设计模式笔记/">js 设计模式笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/06/promise-笔记/">promise 笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/06/Flex-布局笔记/">Flex 布局笔记</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="http://www.example1.com/" title="site-name1" target="_blank">site-name1</a><ul></ul><a href="http://www.example2.com/" title="site-name2" target="_blank">site-name2</a><ul></ul><a href="http://www.example3.com/" title="site-name3" target="_blank">site-name3</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2019 <a href="/." rel="nofollow">我是你豆子欧巴.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
